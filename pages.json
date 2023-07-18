@@ -1,0 +1,173 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationStyle": "custom" //设置自定义导航栏
+			}
+		}
+	    ,{
+            "path" : "pages/liaojie/liaojie",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "了解信息",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/wanshanziliao/wanshanziliao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "完善资料",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mbti/mbti",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "询问mbti",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/xuanzexinqu/xuanzexinqu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择兴趣",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/shouye/shouye",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "首页",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/shequ/shequ",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "社区",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/huodong/huodong",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/xuexi/xuexi",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/yuyue/yuyue",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预约",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/wode/wode",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+				"navigationStyle": "custom", //设置自定义导航栏
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/xqrj/xqrj",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "心情日记",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"color": "#666",//tabBar字默认颜色
+		"selectedColor": "#7ADCDA",//tabBar字选中时的颜色
+		"backgroundColor":"white",
+		"borderStyle":"white",
+		"list": [//这里是配置tabBar
+			{
+				"text": "首页",
+				"pagePath": "pages/shouye/shouye",//首页的路径
+				"iconPath": "static/shouye (1).png",//不选中的图标
+				"selectedIconPath": "static/shouye.png"//选中的图标
+			},
+			{
+				"text": "知心",
+				"pagePath": "pages/user/user",
+				"iconPath": "static/aixin (1).png",
+				"selectedIconPath": "static/aixin.png"
+			}
+			// ,
+			// {
+			// 	"text": "问答",
+			// 	"pagePath": "pages/user/user",
+			// 	"iconPath": "static/jiqiren.png",
+			// 	"selectedIconPath": "static/jiqiren (1).png",
+			// 	"iconWidth":"100rpx"
+			// }
+			,
+			{
+				"text": "社区",
+				"pagePath": "pages/shequ/shequ",
+				"iconPath": "static/faxian (1).png",
+				"selectedIconPath": "static/faxian.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/wode/wode",
+				"iconPath": "static/wode (1).png",
+				"selectedIconPath": "static/wode.png"
+			}
+		]
+		,
+		"midButton": {
+			"width": "65px",
+			"height": "65px",
+			"iconPath": "static/ai.png",
+			"iconWidth": "65px"
+		}
+		
+	}
+}
