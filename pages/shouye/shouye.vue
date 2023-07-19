@@ -175,7 +175,7 @@
 	      <view class="flex-col grid-item_4 space-y-6">
 	        <view class="section_8"></view>
 	        <view class="flex-col items-center space-y-4">
-	          <text class="font_6 text_15">最近期末周压力很大，头</text>
+	          
 	          <text class="font_6 text_16">发也狂掉，大家也没有好</text>
 	        </view>
 	        <view class="flex-col group_12">
