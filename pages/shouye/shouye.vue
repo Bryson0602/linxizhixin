@@ -182,7 +182,7 @@
 
 	          <view class="flex-row group_14 space-x-4">
 	            <view class="section_11"></view>
-	            <text class="self-start font_8 text_20">玩水</text>
+	            <text class="self-start font_8 text_20"></text>
 	          </view>
 	        </view>
 	      </view>
