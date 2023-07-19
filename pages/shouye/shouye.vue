@@ -179,7 +179,7 @@
 	          <text class="font_6 text_16">发也狂掉，大家也没有好</text>
 	        </view>
 	        <view class="flex-col group_12">
-	          <text class="self-start font_6 text_18">的减压方法QAQ</text>
+
 	          <view class="flex-row group_14 space-x-4">
 	            <view class="section_11"></view>
 	            <text class="self-start font_8 text_20">玩水</text>
