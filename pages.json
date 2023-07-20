@@ -113,6 +113,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/viddetail/viddetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "视频详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

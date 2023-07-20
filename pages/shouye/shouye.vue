@@ -132,9 +132,9 @@
 				<image :src="picurl" mode="aspectFill"></image>
 			</view>
 	        <view class="flex-col items-start group_9 space-y-4">
-	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大......</text>
 			  <view class="flex-row group_13 space-x-4">
-			    <text >阅读量：</text><text >1123</text>
+			    <text class="read">阅读量：</text><text class="read">1123</text>
 			  </view>
 
 	        </view>
@@ -142,67 +142,65 @@
 		  
 	      <view class="flex-col relative grid-item_2">
 	        <view class="section_8">
-	      				<image :src="picurl" mode="aspectFill"></image>
-	      			</view>
+				<image :src="vidurl" mode="aspectFill"></image>
+			</view>
 	        <view class="flex-col items-start group_9 space-y-4">
-	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
-	      			  <view class="flex-row group_13 space-x-4">
-	      			    <text >阅读量：</text><text >1123</text>
-	      			  </view>
-	      
+	          <text class="font_6 text_9">{{vtitle}}</text>
+			  <view class="flex-row group_13 space-x-4">
+				<text class="read">阅读量：</text><text class="read">1123</text>
+			  </view>
 	        </view>
 	      </view>
+		  
 		  <view class="flex-col relative grid-item_2">
 		    <view class="section_8">
-		  				<image :src="picurl" mode="aspectFill"></image>
-		  			</view>
+				<image :src="picurl" mode="aspectFill"></image>
+			</view>
 		    <view class="flex-col items-start group_9 space-y-4">
 		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
-		  			  <view class="flex-row group_13 space-x-4">
-		  			    <text >阅读量：</text><text >1123</text>
-		  			  </view>
-		  
-		    </view>
-		  </view>
-		  <view class="flex-col relative grid-item_2">
-		    <view class="section_8">
-		  				<image :src="picurl" mode="aspectFill"></image>
-		  			</view>
-		    <view class="flex-col items-start group_9 space-y-4">
-		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
-		  			  <view class="flex-row group_13 space-x-4">
-		  			    <text >阅读量：</text><text >1123</text>
-		  			  </view>
-		  
-		    </view>
-		  </view>
-		  <view class="flex-col relative grid-item_2">
-		    <view class="section_8">
-		  				<image :src="picurl" mode="aspectFill"></image>
-		  			</view>
-		    <view class="flex-col items-start group_9 space-y-4">
-		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
-		  			  <view class="flex-row group_13 space-x-4">
-		  			    <text >阅读量：</text><text >1123</text>
-		  			  </view>
-		  
-		    </view>
-		  </view>
-		  <view class="flex-col relative grid-item_2">
-		    <view class="section_8">
-		  				<image :src="picurl" mode="aspectFill"></image>
-		  			</view>
-		    <view class="flex-col items-start group_9 space-y-4">
-		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
-		  			  <view class="flex-row group_13 space-x-4">
-		  			    <text >阅读量：</text><text >1123</text>
-		  			  </view>
-		  
+			  <view class="flex-row group_13 space-x-4">
+				<text class="read">阅读量：</text><text class="read">1123</text>
+			  </view>
 		    </view>
 		  </view>
 		  
+		  <view class="flex-col relative grid-item_2">
+	        <view class="section_8">
+				<image :src="picurl" mode="aspectFill"></image>
+			</view>
+	        <view class="flex-col items-start group_9 space-y-4">
+	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+			  <view class="flex-row group_13 space-x-4">
+				<text class="read">阅读量：</text><text class="read">1123</text>
+			  </view>
+	        </view>
+	      </view>
+		  
+		  <view class="flex-col relative grid-item_2">
+		    <view class="section_8">
+				<image :src="picurl" mode="aspectFill"></image>
+			</view>
+		    <view class="flex-col items-start group_9 space-y-4">
+		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+			  <view class="flex-row group_13 space-x-4">
+				<text class="read">阅读量：</text><text class="read">1123</text>
+			  </view>
+		    </view>
+		  </view>
+		  
+		  <view class="flex-col relative grid-item_2">
+		    <view class="section_8">
+				<image :src="picurl" mode="aspectFill"></image>
+			</view>
+		    <view class="flex-col items-start group_9 space-y-4">
+		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+			  <view class="flex-row group_13 space-x-4">
+				<text class="read">阅读量：</text><text class="read">1123</text>
+			  </view>
+		    </view>
+		  </view>
+
 	    </view>
-	    
 	  </view>
 	</view>
 </template>
@@ -219,7 +217,9 @@
 				  {id: 4, picUrl: '/static/lb4.jpg'},
 				  {id: 5, picUrl: '/static/lb5.jpg'},
 				],
-				picurl:""
+				picurl:"",
+				vidurl:"",
+				vtitle:"",
 			};
 		},
 		methods: {
@@ -231,10 +231,21 @@
 					this.picurl=res.data.message
 				}
 			  })
+		  },
+		  getvurl(){
+			  uni.request({
+				url:"https://api.gmit.vip/Api/DouYin?format=json&url=https://v.douyin.com/JooqHLX/",
+				success:res=>{
+					console.log(res);
+					this.vidurl=res.data.data.cover
+					this.vtitle=res.data.data.title
+				}
+			  })
 		  }
 		},
 		onLoad(){
-			this.geturl()
+			this.geturl(),
+			this.getvurl()
 		},
 		computed: {
 		  weekday() {
@@ -481,6 +492,11 @@
 		height: 450rpx;//新加入
         .group_9 {
           padding: 8rpx 24rpx;
+		  .read{
+			  margin-top: 6rpx;
+			  color: #55557f;
+			  font-size: 24rpx;
+		  }
           .text_9 {
             line-height: 28rpx;
           }
