@@ -2,17 +2,17 @@
 	<view class="flex-col page">
 	  
 	  <view class="flex-row justify-between items-center section">
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">0</text></view>
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text_2">7</text></view>
+	    <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">0</text></view> -->
+	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text_2">{{dateFormat1(date)}}</text></view>
 	    <text class="font_2 text_3">月</text>
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">0</text></view>
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">8</text></view>
+	    <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">0</text></view> -->
+	    <view class="flex-col justify-start items-center text-wrapper " ><text class="font_1 ">{{dateFormat2(date)}}</text></view>
 	    <text class="font_2 text_4">日</text>
-	    <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">1</text></view>
-	    <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">8</text></view>
+	    <!-- <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">1</text></view> -->
+	    <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">{{dateFormat3(date)}}</text></view>
 	    <text class="font_2 text_5">时</text>
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">3</text></view>
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">8</text></view>
+	    <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">3</text></view> -->
+	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">{{dateFormat4(date)}}</text></view>
 	    <text class="font_2 text_6">分</text>
 	  </view>
 	  <view class="flex-col justify-start relative text-wrapper_3">
@@ -41,14 +41,75 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				
-			};
+	export default{
+		data(){		
+			return{
+				date: new Date().toISOString(),	
+			}
+		},
+		onLoad(){	
+			let _this = this;
+			setInterval(function() {
+			_this.date = Date.parse(new Date());
+			}, 1000);
+		},
+		methods:{	
+			dateFormat1(time) {
+				let date = new Date(time);
+				let year = date.getFullYear();
+				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+				// 拼接
+				return month
+				// return year + "-" + month + "-" + day;
+			},
+			dateFormat2(time) {
+				let date = new Date(time);
+				let year = date.getFullYear();
+				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+				// 拼接
+				return  day;
+				// return year + "-" + month + "-" + day;
+			},
+			dateFormat3(time) {
+				let date = new Date(time);
+				let year = date.getFullYear();
+				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+				// 拼接
+				return  hours ;
+				// return year + "-" + month + "-" + day;
+			},
+			dateFormat4(time) {
+				let date = new Date(time);
+				let year = date.getFullYear();
+				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+				// 拼接
+				return seconds;
+				// return year + "-" + month + "-" + day;
+			}
 		}
 	}
 </script>
+
 
 <style scoped lang="scss">
 .page {
@@ -58,7 +119,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
-
+	position: fixed;
     .section {
       margin: 52rpx 8rpx 0;
       padding: 16rpx 32rpx;
@@ -90,11 +151,12 @@
         height: 64rpx;
       }
       .font_1 {
-        font-size: 40rpx;
+        font-size: 38rpx;
         font-family: SegoeUI-Bold;
         line-height: 29rpx;
         font-weight: 700;
         color: #59a09e;
+		
       }
       .text_5 {
         line-height: 31rpx;
@@ -131,6 +193,7 @@
           font-family: SegoeUI-Bold;
           font-weight: 700;
           line-height: 42rpx;
+		  text-align: center;
         }
       }
       .image {
@@ -159,6 +222,7 @@
         margin-right: 36rpx;
         font-size: 32rpx;
         line-height: 30rpx;
+		
       }
     }
     .space-x-2 {
@@ -174,6 +238,7 @@
       line-height: 29rpx;
       font-weight: 700;
       color: #ffffff;
+	  padding-right: 25rpx;
     }
     .group_2 {
       margin-top: 224rpx;
@@ -209,6 +274,8 @@
       font-family: SegoeUI-Bold;
       line-height: 37rpx;
       font-weight: 700;
+	  text-align: center;
     }
+	
   }
 </style>

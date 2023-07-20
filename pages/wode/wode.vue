@@ -28,7 +28,7 @@
 	              <text class="font_4">2023.07.08</text>
 	            </view>
 	          </view>
-	          <view class="flex-col equal-division-item space-y-8">
+	          <view class="flex-col equal-division-item space-y-8" @click="toxqrj">
 	            <text class="self-start font_2 text_3">心情日记</text>
 	            <view class="flex-col items-start section_5 space-y-14">
 	              <text class="font_3">最近更新</text>
@@ -88,6 +88,13 @@
 			return {
 				
 			};
+		},
+		methods:{
+			toxqrj() {
+				uni.navigateTo({
+					url:'/pages/xqrj/xqrj'
+				})
+			}
 		}
 	}
 </script>
