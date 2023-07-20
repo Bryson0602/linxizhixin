@@ -128,66 +128,79 @@
 	    <view class="grid_2 pos_2">
 			
 	      <view class="flex-col relative grid-item_2">
-	        <view class="section_8"></view>
+	        <view class="section_8">
+				<image :src="picurl" mode="aspectFill"></image>
+			</view>
 	        <view class="flex-col items-start group_9 space-y-4">
-	          <text class="font_6 text_9">大家好~这是我来到灵犀</text>
-	          <text class="font_6 text_10">知心的第一条帖子，希望</text>
-	          <text class="font_6 text_11">能和大家多交流下心得。</text>
-	          <view class="section_11 view"></view>
+	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+			  <view class="flex-row group_13 space-x-4">
+			    <text >阅读量：</text><text >1123</text>
+			  </view>
+
 	        </view>
 	      </view>
-	      <view class="flex-col relative grid-item_3 space-y-28">
-	        <view class="section_9"></view>
-	        <view class="self-start section_11 view_2"></view>
-	      </view>
 		  
-		  <view class="flex-col relative grid-item_2">
-		    <view class="section_8"></view>
-		    <view class="flex-col items-start group_9 space-y-4">
-		      <view class="section_11 view"></view>
-		    </view>
-		  </view>
-		  <view class="flex-col relative grid-item_3 space-y-28">
-		    <view class="section_9"></view>
-		    <view class="self-start section_11 view_2"></view>
-		  </view>
-		  
-		  
-		  <view class="flex-col relative grid-item_2">
-		    <view class="section_8"></view>
-		    <view class="flex-col items-start group_9 space-y-4">
-		      <view class="section_11 view"></view>
-		    </view>
-		  </view>
-		  <view class="flex-col relative grid-item_3 space-y-28">
-		    <view class="section_9"></view>
-		    <view class="self-start section_11 view_2"></view>
-		  </view>
-		  
-	      <!-- <view class="flex-col relative grid-item_3">
-	        <view class="section_12"></view>
-	        <text class="self-start font_1 text_17">今天心情真好呀~</text>
-	        <view class="flex-row group_13 space-x-4">
-	          <view class="section_11"></view>
-	          <text class="self-start font_8 text_19">游山</text>
-	        </view>
-	      </view>
-	      <view class="flex-col grid-item_4 space-y-6">
-	        <view class="section_8"></view>
-	        <view class="flex-col items-center space-y-4">
-	          
+	      <view class="flex-col relative grid-item_2">
+	        <view class="section_8">
+	      				<image :src="picurl" mode="aspectFill"></image>
+	      			</view>
+	        <view class="flex-col items-start group_9 space-y-4">
+	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+	      			  <view class="flex-row group_13 space-x-4">
+	      			    <text >阅读量：</text><text >1123</text>
+	      			  </view>
 	      
 	        </view>
-	        <view class="flex-col group_12">
-
-	          <view class="flex-row group_14 space-x-4">
-	            <view class="section_11"></view>
-	            <text class="self-start font_8 text_20"></text>
-	          </view>
-	        </view>
 	      </view>
-	      <view class="flex-col justify-start relative grid-item_5"><view class="section_15"></view></view>
-	      <view class="flex-col justify-start grid-item_5"><view class="section_15"></view></view> -->
+		  <view class="flex-col relative grid-item_2">
+		    <view class="section_8">
+		  				<image :src="picurl" mode="aspectFill"></image>
+		  			</view>
+		    <view class="flex-col items-start group_9 space-y-4">
+		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+		  			  <view class="flex-row group_13 space-x-4">
+		  			    <text >阅读量：</text><text >1123</text>
+		  			  </view>
+		  
+		    </view>
+		  </view>
+		  <view class="flex-col relative grid-item_2">
+		    <view class="section_8">
+		  				<image :src="picurl" mode="aspectFill"></image>
+		  			</view>
+		    <view class="flex-col items-start group_9 space-y-4">
+		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+		  			  <view class="flex-row group_13 space-x-4">
+		  			    <text >阅读量：</text><text >1123</text>
+		  			  </view>
+		  
+		    </view>
+		  </view>
+		  <view class="flex-col relative grid-item_2">
+		    <view class="section_8">
+		  				<image :src="picurl" mode="aspectFill"></image>
+		  			</view>
+		    <view class="flex-col items-start group_9 space-y-4">
+		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+		  			  <view class="flex-row group_13 space-x-4">
+		  			    <text >阅读量：</text><text >1123</text>
+		  			  </view>
+		  
+		    </view>
+		  </view>
+		  <view class="flex-col relative grid-item_2">
+		    <view class="section_8">
+		  				<image :src="picurl" mode="aspectFill"></image>
+		  			</view>
+		    <view class="flex-col items-start group_9 space-y-4">
+		      <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大家多交流下心得。大家好~......</text>
+		  			  <view class="flex-row group_13 space-x-4">
+		  			    <text >阅读量：</text><text >1123</text>
+		  			  </view>
+		  
+		    </view>
+		  </view>
+		  
 	    </view>
 	    
 	  </view>
@@ -205,11 +218,23 @@
 				  {id: 3, picUrl: '/static/lb3.jpg'},
 				  {id: 4, picUrl: '/static/lb4.jpg'},
 				  {id: 5, picUrl: '/static/lb5.jpg'},
-				]
+				],
+				picurl:""
 			};
 		},
 		methods: {
-		  
+		  geturl(){
+			  uni.request({
+			  	url:"https://dog.ceo/api/breeds/image/random",
+				success:res=>{
+					console.log(res);
+					this.picurl=res.data.message
+				}
+			  })
+		  }
+		},
+		onLoad(){
+			this.geturl()
 		},
 		computed: {
 		  weekday() {
@@ -453,15 +478,10 @@
         background-color: #f3f4ff;
         border-radius: 40rpx;
         box-shadow: 0px 6rpx 12rpx #00000029;
+		height: 450rpx;//新加入
         .group_9 {
           padding: 8rpx 24rpx;
           .text_9 {
-            line-height: 28rpx;
-          }
-          .text_10 {
-            line-height: 28rpx;
-          }
-          .text_11 {
             line-height: 28rpx;
           }
           .view {
@@ -495,9 +515,9 @@
         .group_13 {
           margin-top: 4rpx;
           padding: 0 34rpx;
-          .text_19 {
-            margin-top: 24rpx;
-          }
+          // .text_19 {
+          //   margin-top: 24rpx;
+          // }
         }
       }
       .space-y-28 {
@@ -507,35 +527,21 @@
           margin-top: 56rpx;
         }
       }
-      .section_11 {
-        background-color: #595959;
-        border-radius: 50%;
-        width: 48rpx;
-        height: 46rpx;
-      }
-      // .grid-item_4 {
-      //   padding-bottom: 12rpx;
-      //   filter: drop-shadow(0px 6rpx 6rpx #00000029);
-      //   background-image: url('https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385864416810221.png');
-      //   background-size: 100% 100%;
-      //   background-repeat: no-repeat;
-      //   .group_12 {
-      //     padding: 0 20rpx;
-      //     .text_18 {
-      //       line-height: 28rpx;
-      //     }
-      //     .group_14 {
-      //       padding: 0 8rpx;
-      //       .text_20 {
-      //         margin-top: 24rpx;
-      //       }
-      //     }
-      //   }
+      // .section_11 {
+      //   background-color: #595959;
+      //   border-radius: 50%;
+      //   width: 48rpx;
+      //   height: 48rpx;
       // }
       .section_8 {
         background-color: #ffffff;
         border-radius: 40rpx 40rpx 0px 0px;
         height: 260rpx;
+		overflow: hidden;
+		image{
+			height: 100%;
+			width: 100%;
+		}
       }
       .font_6 {
         font-size: 24rpx;
@@ -544,24 +550,7 @@
         font-weight: 700;
         color: #1e1c1c;
       }
-      .font_8 {
-        font-size: 16rpx;
-        font-family: SegoeUI-Bold;
-        line-height: 15rpx;
-        font-weight: 700;
-        color: #1e1c1c;
-      }
-      // .grid-item_5 {
-      //   padding-bottom: 12rpx;
-      //   background-color: #e7e7e7;
-      //   border-radius: 40rpx 40rpx 0 0;
-      //   box-shadow: 0px 6rpx 12rpx #00000029;
-      //   .section_15 {
-      //     background-color: #ffffff;
-      //     border-radius: 40rpx;
-      //     height: 372rpx;
-      //   }
-      // }
+      
     }
     .pos_2 {
       position: absolute;
