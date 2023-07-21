@@ -25,10 +25,10 @@
 	      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385922564373491.png"
 	    />
 	  </view>
-	  <view class="flex-row items-center self-center section_2 space-x-2">
+	  <button class="flex-row items-center self-center section_2 space-x-2" plain="true">
 	    <view class="section_3"></view>
 	    <text class="font_2 text_9">换个心情</text>
-	  </view>
+	  </button>
 	  <view class="flex-row group_2 space-x-8">
 	    <view class="flex-col justify-start items-center flex-auto text-wrapper_5">
 	      <text class="font_3 text_11">随手记录心情吧~</text>
@@ -276,6 +276,8 @@
       font-weight: 700;
 	  text-align: center;
     }
-	
+	button[plain] {
+			border: 0
+		}
   }
 </style>
