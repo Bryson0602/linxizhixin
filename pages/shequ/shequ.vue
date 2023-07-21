@@ -32,7 +32,10 @@
 							
 				      <view class="flex-row items-center space-x-8" @click="gohuodong">
 				        <view class="flex-col justify-start items-end section_4">
-				          <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_3">推荐</text></view>
+				          <view class="flex-col justify-start items-center text-wrapper_2">
+							  
+							  <text class="font_3">推荐</text>
+						  </view>
 				        </view>
 				        <view class="flex-col flex-auto space-y-8">
 				          <text class="self-start font_2">心理知识大讲堂</text>

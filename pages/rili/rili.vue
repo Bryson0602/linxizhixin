@@ -14,103 +14,36 @@
         <text class="font_1 text_19">我的活动</text>
         <view class="section_3"></view>
       </view>
-      <view class="self-center section_4"></view>
-      <text class="self-center text_20">今日没有报名的活动哦</text>
+      <!-- <view class="self-center section_4"></view> -->
+      <!-- <text class="self-center text_20">今日没有报名的活动哦</text> -->
+	  <view class="flex-col list space-y-10">
+	    <view class="flex-col items-start relative list-item" :key="i" v-for="(item, i) in list_RiXSrhKo" @click="gohuodong">
+	      <text class="font_6">心理疾病知识大讲堂</text>
+	      <text class="font_8 text_25">2023.07.08-2023.07.10</text>
+	      <view class="flex-col justify-start items-center text-wrapper_3 pos"><text class="font_7">进行中</text></view>
+	    </view>
+	  </view>
+	  
     </view>
   </view>
 </template>
 
 <script>
-	/**
-	 * 获取任意时间
-	 */
-	function getDate(date, AddDayCount = 0) {
-		if (!date) {
-			date = new Date()
-		}
-		if (typeof date !== 'object') {
-			date = date.replace(/-/g, '/')
-		}
-		const dd = new Date(date)
-
-		dd.setDate(dd.getDate() + AddDayCount) // 获取AddDayCount天后的日期
-
-		const y = dd.getFullYear()
-		const m = dd.getMonth() + 1 < 10 ? '0' + (dd.getMonth() + 1) : dd.getMonth() + 1 // 获取当前月份的日期，不足10补0
-		const d = dd.getDate() < 10 ? '0' + dd.getDate() : dd.getDate() // 获取当前几号，不足10补0
-		return {
-			fullDate: y + '-' + m + '-' + d,
-			year: y,
-			month: m,
-			date: d,
-			day: dd.getDay()
-		}
-	}
 	export default {
-		components: {},
-		data() {
-			return {
-				showCalendar: false,
-				info: {
-					lunar: true,
-					range: true,
-					insert: false,
-					selected: []
-				}
-			}
-		},
-		onReady() {
-			this.$nextTick(() => {
-				this.showCalendar = true
+	  components: {},
+	  data() {
+	    return {
+	      list_RiXSrhKo: [null, null, null],
+	    };
+	  },
+	  methods: {
+		gohuodong(){
+			uni.navigateTo({
+				url:'/pages/huodong/huodong'
 			})
-			// TODO 模拟请求异步同步数据
-			setTimeout(() => {
-				this.info.date = getDate(new Date(),-30).fullDate
-				this.info.startDate = getDate(new Date(),-60).fullDate
-				this.info.endDate =  getDate(new Date(),30).fullDate
-				this.info.selected = [{
-						date: getDate(new Date(),-3).fullDate,
-						info: '打卡'
-					},
-					{
-						date: getDate(new Date(),-2).fullDate,
-						info: '签到',
-						data: {
-							custom: '自定义信息',
-							name: '自定义消息头'
-						}
-					},
-					{
-						date: getDate(new Date(),-1).fullDate,
-						info: '已打卡'
-					}
-				]
-			}, 2000)
-		},
-		methods: {
-			open() {
-				this.$refs.calendar.open()
-			},
-			close(){
-				console.log('弹窗关闭');
-			},
-			change(e) {
-				console.log('change 返回:', e)
-				// 模拟动态打卡
-				if (this.info.selected.length > 5) return
-				this.info.selected.push({
-					date: e.fulldate,
-					info: '打卡'
-				})
-			},
-			confirm(e) {
-				console.log('confirm 返回:', e)
-			},
-			monthSwitch(e) {
-				console.log('monthSwitchs 返回:', e)
-			}
 		}
-	}
+	  },
+	};
 </script>
 
 <style scoped lang="scss">
@@ -123,6 +56,44 @@
     .section_2 {
       padding: 0 40rpx 316rpx;
       background-color: #ffffff;
+	  
+	  .list {
+	    //padding: 30rpx 40rpx 20rpx;
+	    .list-item {
+	      padding: 32rpx 24rpx 32rpx;
+	      background-color: #e6f3ff;
+	      border-radius: 32rpx;
+	      .font_8 {
+	        font-size: 24rpx;
+	        font-family: SegoeUI;
+	        line-height: 28rpx;
+	        color: #707070;
+	      }
+	      .text_25 {
+	        margin-left: 8rpx;
+	        margin-top: 40rpx;
+	      }
+	      .text-wrapper_3 {
+	        padding: 8rpx 0;
+	        background-color: #ffb276;
+	        border-radius: 60rpx;
+	        width: 118rpx;
+	        .font_7 {
+	          font-size: 24rpx;
+	          font-family: SegoeUI-Bold;
+	          line-height: 22rpx;
+	          font-weight: 700;
+	          color: #ffffff;
+	        }
+	      }
+	      .pos {
+	        position: absolute;
+	        right: 16rpx;
+	        top: 18rpx;
+	      }
+	    }
+	  }
+	  
       .group_5 {
         padding: 32rpx 0;
         .text_19 {
@@ -160,7 +131,7 @@
       & > view:not(:first-child),
       & > text:not(:first-child),
       & > image:not(:first-child) {
-        margin-top: 56rpx;
+        // margin-top: 56rpx;
       }
     }
     .font_1 {
