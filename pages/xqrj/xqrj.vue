@@ -1,118 +1,207 @@
 <template>
-	<view class="flex-col page">
+			<view class="flex-col page">
+    <view class="flex-row justify-between items-center section">
+      <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text">0</text></view> -->
+      <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text text_3">{{dateFormat1(date)}}</text></view>
+      <text class="font_2 text text_4">月</text>
+      <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text">0</text></view> -->
+      <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text">{{dateFormat2(date)}}</text></view>
+      <text class="font_2 text text_5">日</text>
+      <!-- <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1 text">1</text></view> -->
+      <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1 text">{{dateFormat3(date)}}</text></view>
+      <text class="font_3 text text_6">时</text>
+      <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text">3</text></view> -->
+      <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text">{{dateFormat4(date)}}</text></view>
+      <text class="font_3 text text_7">分</text>
+    </view>
+    <view class="flex-col justify-start text-wrapper_3 ">
+      <text class="font_4 text text_8">我想你发烫的手机需要冷静一下~</text>
+    </view>
+    <view class="flex-col group">
+      <view class="flex-col justify-start self-center text-wrapper_4">
+        <text class="text_9">做人嘛，开心最重要啦~</text>
+      </view>
 	  
-	  <view class="flex-row justify-between items-center section">
-	    <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">0</text></view> -->
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text_2">{{dateFormat1(date)}}</text></view>
-	    <text class="font_2 text_3">月</text>
-	    <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">0</text></view> -->
-	    <view class="flex-col justify-start items-center text-wrapper " ><text class="font_1 ">{{dateFormat2(date)}}</text></view>
-	    <text class="font_2 text_4">日</text>
-	    <!-- <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">1</text></view> -->
-	    <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">{{dateFormat3(date)}}</text></view>
-	    <text class="font_2 text_5">时</text>
-	    <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">3</text></view> -->
-	    <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">{{dateFormat4(date)}}</text></view>
-	    <text class="font_2 text_6">分</text>
+	  <view class="content">
+	  
+	          <!-- <view class="popUpBtn" @click="popupClick">
+	              点击显示弹框</view> -->
+	  
+	          <!-- 使用组件 isShow：设置弹框是否显示 width：宽度 height：高度 radius：圆角 -->
+	          <cc-popup :isShow='isshow' width="550rpx" height="550rpx" radius="50rpx">
+	  			<!-- calc(100vw - 70px) -->
+	              <!-- 自定义展示内容 -->
+	        <view class="modelContent">	
+      <view class="flex-col relative section_2 space-y-10">
+        <view class="flex-row justify-between items-start group_2">
+          <text class="text_10">每日心情</text>
+          <text class="font_5 text_11">今天的你是哪一种呢</text>
+        </view>
+        <view class="grid">
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/e8aa5d4ce72f24d63f34d1610dc5c88e.png"
+            />
+            <text class="font_5">开心</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/b0b415a6364f49163cf0b61f7f757022.png"
+            />
+            <text class="font_5">无语</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/d0d9b7199ddf34277f6860116201fc7b.png"
+            />
+            <text class="font_5">难过</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/df6acd9518952cf604dc37b3a1ac1dd9.png"
+            />
+            <text class="font_5">大哭</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/e87136573a7827c464c27fc4467028e3.png"
+            />
+            <text class="font_5">生气</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/4e4efd67a9466631e32180d3e94514fd.png"
+            />
+            <text class="font_5">得瑟</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/874ad2e9d6b6f3aa639a8541c0ac835f.png"
+            />
+            <text class="font_5">惊讶</text>
+          </view>
+          <view class="flex-col items-center grid-item space-y-4">
+            <image
+              class="image"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/65464a3a68de6de78c2946c1e18a5125.png"
+            />
+            <text class="font_5">心动</text>
+          </view>
+        </view>
+      </view>
 	  </view>
-	  <view class="flex-col justify-start relative text-wrapper_3">
-	    <text class="font_3 text_7">我想你发烫的手机需要冷静一下~</text>
+	          <!-- 自定义关闭按钮 -->
+	    <view class="close" @click="isshow=false">✕</view>
+	    </cc-popup>
+	  
 	  </view>
-	  <view class="flex-col group space-y-12">
-	    <view class="flex-col justify-start text-wrapper_4"><text class="text_8">做人嘛，开心最重要啦~</text></view>
-	    <image
-	      class="self-center image"
-	      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385922564373491.png"
-	    />
-	  </view>
-	  <button class="flex-row items-center self-center section_2 space-x-2" plain="true">
-	    <view class="section_3"></view>
-	    <text class="font_2 text_9">换个心情</text>
-	  </button>
-	  <view class="flex-row group_2 space-x-8">
-	    <view class="flex-col justify-start items-center flex-auto text-wrapper_5">
-	      <text class="font_3 text_11">随手记录心情吧~</text>
-	    </view>
-	    <view class="flex-col justify-start items-center shrink-0 text-wrapper_6">
-	      <text class="font_3 text_10">快速记录</text>
-	    </view>
-	  </view>
-	</view>
+	  
+      <view class="flex-row items-center self-center section_3 space-x-2" @click="popupClick">
+        <view class="section_4"></view>
+        <text class="font_3 text text_12" >换个心情</text>
+      </view>
+    </view>
+    <view class="flex-row group_3 space-x-8">
+      <view class="flex-col justify-start items-center flex-auto text-wrapper_5">
+        <text class="font_4 text_14">随手记录心情吧~</text>
+      </view>
+      <view class="flex-col justify-start items-center shrink-0 text-wrapper_6">
+        <text class="font_4 text text_13">快速记录</text>
+      </view>
+    </view>
+  </view>
+  
+  
 </template>
 
 <script>
-	export default{
-		data(){		
-			return{
-				date: new Date().toISOString(),	
-			}
+  export default {
+    components: {},
+    data() {
+      return {
+		  date: new Date().toISOString(),	
+		  title: 'Hello',
+		  companyList: [{}, {}, {}],
+		  isshow: false,
+		  mySrc: '../../static/apple.jpg'
+	  };
+    },
+	onLoad(){
+		let _this = this;
+		setInterval(function() {
+		_this.date = Date.parse(new Date());
+		}, 1000);
+	},
+    methods: {
+		popupClick() {
+		
+		    this.isshow = !this.isshow;
 		},
-		onLoad(){	
-			let _this = this;
-			setInterval(function() {
-			_this.date = Date.parse(new Date());
-			}, 1000);
+		dateFormat1(time) {
+			let date = new Date(time);
+			let year = date.getFullYear();
+			// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+			let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+			let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+			let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+			let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+			let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+			// 拼接
+			return month
+			// return year + "-" + month + "-" + day;
 		},
-		methods:{	
-			dateFormat1(time) {
-				let date = new Date(time);
-				let year = date.getFullYear();
-				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
-				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-				// 拼接
-				return month
-				// return year + "-" + month + "-" + day;
-			},
-			dateFormat2(time) {
-				let date = new Date(time);
-				let year = date.getFullYear();
-				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
-				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-				// 拼接
-				return  day;
-				// return year + "-" + month + "-" + day;
-			},
-			dateFormat3(time) {
-				let date = new Date(time);
-				let year = date.getFullYear();
-				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
-				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-				// 拼接
-				return  hours ;
-				// return year + "-" + month + "-" + day;
-			},
-			dateFormat4(time) {
-				let date = new Date(time);
-				let year = date.getFullYear();
-				// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
-				let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-				let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-				let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-				let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-				let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-				// 拼接
-				return seconds;
-				// return year + "-" + month + "-" + day;
-			}
+		dateFormat2(time) {
+			let date = new Date(time);
+			let year = date.getFullYear();
+			// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+			let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+			let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+			let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+			let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+			let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+			// 拼接
+			return  day;
+			// return year + "-" + month + "-" + day;
+		},
+		dateFormat3(time) {
+			let date = new Date(time);
+			let year = date.getFullYear();
+			// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+			let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+			let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+			let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+			let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+			let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+			// 拼接
+			return  hours ;
+			// return year + "-" + month + "-" + day;
+		},
+		dateFormat4(time) {
+			let date = new Date(time);
+			let year = date.getFullYear();
+			// 在日期格式中，月份是从0开始的，因此要加0，使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+			let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+			let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+			let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+			let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+			let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+			// 拼接
+			return minutes;
+			// return year + "-" + month + "-" + day;
 		}
-	}
+	},
+  };
 </script>
 
-
 <style scoped lang="scss">
-.page {
+  .page {
     padding: 44rpx 32rpx 62rpx;
     background-image: linear-gradient(180deg, #bdf5f0 0%, #f2f2e8 26.4%, #e8f5f4 51.1%, #59d5d3 100%);
     width: 100%;
@@ -120,72 +209,92 @@
     overflow-x: hidden;
     height: 100%;
 	position: fixed;
+    .text {
+      // opacity: 0.7;
+    }
+    .text_2 {
+      color: #202020;
+      font-size: 40rpx;
+      font-family: SegoeUI;
+      line-height: 37rpx;
+    }
     .section {
-      margin: 52rpx 8rpx 0;
+      margin: 30rpx 8rpx 0;
       padding: 16rpx 32rpx;
-      background-color: #7bdddb;
+      background-color: #7bdddbb3;
       border-radius: 24rpx;
       .text-wrapper {
         padding: 16rpx 0;
-        background-color: #ffffff;
+        background-color: #ffffffb3;
         border-radius: 24rpx;
         width: 46rpx;
         height: 64rpx;
-        .text_2 {
+		text-align: center;
+        .text_3 {
           line-height: 28rpx;
         }
       }
-      .text_3 {
+      .font_2 {
         font-size: 36rpx;
-        line-height: 31rpx;
+        font-family: SegoeUI-Bold;
+        line-height: 29rpx;
+        font-weight: 700;
+        color: #ffffff;
       }
       .text_4 {
-        font-size: 36rpx;
+        line-height: 31rpx;
+      }
+      .text_5 {
         line-height: 30rpx;
       }
       .text-wrapper_2 {
         padding: 16rpx 0;
-        background-color: #ffffff;
+        background-color: #ffffffb3;
         border-radius: 24rpx;
         width: 48rpx;
         height: 64rpx;
       }
       .font_1 {
-        font-size: 38rpx;
+        font-size: 36rpx;
         font-family: SegoeUI-Bold;
         line-height: 29rpx;
         font-weight: 700;
         color: #59a09e;
-		
-      }
-      .text_5 {
-        line-height: 31rpx;
       }
       .text_6 {
+        font-size: 34rpx;
+        line-height: 31rpx;
+      }
+      .text_7 {
+        font-size: 34rpx;
         line-height: 31rpx;
       }
     }
     .text-wrapper_3 {
       margin-right: 16rpx;
       margin-top: 52rpx;
-      padding: 48rpx 0 28rpx;
-      background-color: #ffffff;
+      padding: 35rpx 0 28rpx;
+      background-color: #ffffffb3;
       border-radius: 60rpx;
       box-shadow: 0px 6rpx 12rpx #a1a1a129;
-      .text_7 {
+      .text_8 {
         margin-left: 44rpx;
         margin-right: 32rpx;
         color: #51c5c3;
       }
     }
     .group {
-      padding: 96rpx 78rpx;
+      margin-top: 96rpx;
+      padding: 0 8rpx;
+      height: 746rpx;
       .text-wrapper_4 {
         padding: 52rpx 0 92rpx;
+        // opacity: 0.7;
         background-image: url('https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385923714170159.png');
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        .text_8 {
+        width: 528rpx;
+        .text_9 {
           margin-left: 32rpx;
           margin-right: 16rpx;
           color: #343434;
@@ -193,71 +302,119 @@
           font-family: SegoeUI-Bold;
           font-weight: 700;
           line-height: 42rpx;
-		  text-align: center;
         }
       }
-      .image {
-        width: 350rpx;
-        height: 350rpx;
+      .section_2 {
+        margin: 55rpx auto;
+        padding: 32rpx 0;
+        filter: drop-shadow(0px 6rpx 6rpx #00000029);
+        // background-image: url('https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385868940833479.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        .group_2 {
+          padding: 0 32rpx;
+          .text_10 {
+            color: #1e1c1c;
+            font-size: 48rpx;
+            font-family: SegoeUI-Bold;
+            font-weight: 700;
+            line-height: 44rpx;
+          }
+          .text_11 {
+            margin-right: 4rpx;
+            margin-top: 28rpx;
+            color: #202020;
+            line-height: 30rpx;
+          }
+        }
+        .grid {
+          padding: 0 14rpx;
+          height: 324rpx;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          .grid-item {
+            padding: 4rpx 0;
+            .image {
+              width: 112rpx;
+              height: 112rpx;
+            }
+          }
+          .space-y-4 {
+            & > view:not(:first-child),
+            & > text:not(:first-child),
+            & > image:not(:first-child) {
+              margin-top: 8rpx;
+            }
+          }
+        }
+        .font_5 {
+          font-size: 32rpx;
+          font-family: SegoeUI-Bold;
+          line-height: 29rpx;
+          font-weight: 700;
+          color: #1e1c1c;
+        }
       }
-    }
-    .space-y-12 {
-      & > view:not(:first-child),
-      & > text:not(:first-child),
-      & > image:not(:first-child) {
-        margin-top: 24rpx;
+      .space-y-10 {
+        & > view:not(:first-child),
+        & > text:not(:first-child),
+        & > image:not(:first-child) {
+          margin-top: 20rpx;
+        }
       }
-    }
-    .section_2 {
-      margin-top: 6rpx;
-      padding: 4rpx 16rpx 10rpx;
-      background-color: #ffffff4d;
-      border-radius: 60rpx;
       .section_3 {
-        background-color: #00000000;
-        width: 72rpx;
-        height: 72rpx;
+        margin-top: 36rpx;
+        padding: 4rpx 16rpx 10rpx;
+        background-color: #ffffff59;
+        border-radius: 60rpx;
+        .section_4 {
+          background-color: #00000000;
+          width: 72rpx;
+          height: 72rpx;
+        }
+        .text_12 {
+          margin-right: 36rpx;
+          line-height: 30rpx;
+        }
       }
-      .text_9 {
-        margin-right: 36rpx;
-        font-size: 32rpx;
-        line-height: 30rpx;
-		
+      .space-x-2 {
+        & > view:not(:first-child),
+        & > text:not(:first-child),
+        & > image:not(:first-child) {
+          margin-left: 4rpx;
+        }
       }
     }
-    .space-x-2 {
-      & > view:not(:first-child),
-      & > text:not(:first-child),
-      & > image:not(:first-child) {
-        margin-left: 4rpx;
-      }
-    }
-    .font_2 {
+    .font_3 {
       font-size: 34rpx;
       font-family: SegoeUI-Bold;
       line-height: 29rpx;
       font-weight: 700;
       color: #ffffff;
-	  padding-right: 25rpx;
+      padding-right: 25rpx;
     }
-    .group_2 {
+    .group_3 {
       margin-top: 224rpx;
       padding: 0 8rpx;
       .text-wrapper_5 {
         padding: 44rpx 0 20rpx;
+        // opacity: 0.7;
         border-radius: 60rpx;
         height: 102rpx;
-        .text_11 {
+		// margin-bottom: 500rpx;
+		// padding-bottom: 500rpx;
+        .text_14 {
           color: #ffffff;
+		  
         }
       }
       .text-wrapper_6 {
         padding: 32rpx 0;
-        background-color: #ffffff;
+        background-color: #ffffffb3;
         border-radius: 60rpx;
         width: 230rpx;
         height: 102rpx;
-        .text_10 {
+        .text_13 {
           color: #7bdddb;
         }
       }
@@ -269,15 +426,62 @@
         margin-left: 16rpx;
       }
     }
-    .font_3 {
-      font-size: 40rpx;
+    .font_4 {
+      font-size: 38rpx;
       font-family: SegoeUI-Bold;
       line-height: 37rpx;
       font-weight: 700;
 	  text-align: center;
+	  
     }
-	button[plain] {
-			border: 0
-		}
   }
+  .content {
+        display: flex;
+        flex-direction: column;
+  
+    }
+  
+  //   .popUpBtn {
+  //       height: 80rpx;
+  //       line-height: 80rpx;
+  //       width: 320rpx;
+  //       margin-top: 120rpx;
+  //       margin-left: auto;
+  //       margin-right: auto;
+  //       margin-bottom: 50rpx;
+  //       background-color: bisque;
+  //       text-align: center;
+  		// background-color: pink;
+  //   }
+  
+    .modelContent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+  		background-image: linear-gradient(skyblue, white);
+  		border-radius: 50rpx;
+    }
+  
+    .imageV {
+  
+        margin-top: 0px;
+        width: calc(100vw - 100px);
+        height: calc((100vw - 100px) * 0.567);
+    }
+  
+    .close {
+        width: 60rpx;
+        height: 60rpx;
+        color: #FFFFFF;
+        line-height: 60rpx;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid #FFFFFF;
+        position: relative;
+        bottom: -10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 </style>
