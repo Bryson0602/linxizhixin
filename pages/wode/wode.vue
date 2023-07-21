@@ -37,7 +37,7 @@
 	          </view>
 	        </view>
 	        <view class="flex-col items-start section_6 space-y-38">
-			  <view class="demo">
+			  <view class="demo" @click="golljl">
 				  <view class="mat">
 				  	<image src="../../static/jilu.png" class="icon" mode="heightFix"></image>
 					<text class="font_5">浏览记录</text>
@@ -93,6 +93,11 @@
 			toxqrj() {
 				uni.navigateTo({
 					url:'/pages/xqrj/xqrj'
+				})
+			},
+			golljl(){
+				uni.navigateTo({
+					url:'/pages/liulanjilu/liulanjilu'
 				})
 			}
 		}

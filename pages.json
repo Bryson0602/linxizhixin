@@ -122,6 +122,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/liulanjilu/liulanjilu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "浏览记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/rili/rili",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动日历",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/wzdetail/wzdetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "文章详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

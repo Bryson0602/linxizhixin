@@ -241,11 +241,20 @@
 					this.vtitle=res.data.data.title
 				}
 			  })
+		  },
+		  getaurl(){
+			  uni.request({
+				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
+				success:res=>{
+					console.log(res);
+				}
+			  })
 		  }
 		},
 		onLoad(){
 			this.geturl(),
-			this.getvurl()
+			this.getvurl(),
+			this.getaurl()
 		},
 		computed: {
 		  weekday() {

@@ -26,7 +26,7 @@
 				          <text class="text_2">报名</text>
 				          <text class="font_2 text_3">部落</text>
 				        </view>
-				        <text class="font_2 text_4">活动日历</text>
+				        <text class="font_2 text_4" @click="gorili">活动日历</text>
 							  <image class="dinwei" src="/static/rili.png" mode="heightFix"></image>
 				      </view>
 							
@@ -315,6 +315,11 @@
 			goyuyue(){
 				uni.navigateTo({
 					url:'/pages/yuyue/yuyue'
+				})
+			},
+			gorili(){
+				uni.navigateTo({
+					url:'/pages/rili/rili'
 				})
 			}
 		}
