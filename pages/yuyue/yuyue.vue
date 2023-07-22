@@ -12,11 +12,11 @@
 	            <text class="text_2">心理咨询师</text>
 	          </view>
 	          <view class="flex-row group_3 space-x-28">
-	            <text class="font_1">浙江万里学院</text>
+	            <text class="font_1">北京大学</text>
 	            <text class="font_1">心理学</text>
 	          </view>
 	        </view>
-	        <text class="self-start font_1 text_3">抑郁症、焦虑症咨询</text>
+	        <text class="self-start font_1 text_3">二级心理咨询师，2001年硕士毕业于北京大学临床心理学专业。对抑郁症、焦虑有深入研究。</text>
 	      </view>
 	    </view>
 	    <view class="flex-row equal-division space-x-8">
@@ -244,7 +244,7 @@
           .font_1 {
             font-size: 24rpx;
             font-family: SegoeUI;
-            line-height: 22rpx;
+            line-height: 30rpx;
             color: #000000;
           }
           .text_3 {

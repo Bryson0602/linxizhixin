@@ -123,24 +123,24 @@
 	      </view>
 	    </view>
 	  </view>
+	  <!-- ---------------------------------------------------------------------- -->
 	  <view class="flex-col justify-start relative">
 	    <view class="group_8"></view>
 	    <view class="grid_2 pos_2">
 			
-	      <view class="flex-col relative grid-item_2">
+	      <view class="flex-col relative grid-item_2" v-for="item in listArr" :key="item.id">
 	        <view class="section_8">
-				<image :src="picurl" mode="aspectFill"></image>
+				<image :src="item.picture1" mode="aspectFill"></image>
 			</view>
 	        <view class="flex-col items-start group_9 space-y-4">
-	          <text class="font_6 text_9">大家好~这是我来到灵犀知心的第一条帖子，希望能和大......</text>
+	          <text class="font_6 text_9">{{item.title}}</text>
 			  <view class="flex-row group_13 space-x-4">
-			    <text class="read">阅读量：</text><text class="read">1123</text>
+			    <text class="read">阅读量：</text><text class="read">{{item.watched}}</text>
 			  </view>
-
 	        </view>
 	      </view>
 		  
-	      <view class="flex-col relative grid-item_2">
+	      <!-- <view class="flex-col relative grid-item_2">
 	        <view class="section_8">
 				<image :src="vidurl" mode="aspectFill"></image>
 			</view>
@@ -150,9 +150,9 @@
 				<text class="read">阅读量：</text><text class="read">1123</text>
 			  </view>
 	        </view>
-	      </view>
+	      </view> -->
 		  
-		  <view class="flex-col relative grid-item_2">
+		  <!-- <view class="flex-col relative grid-item_2">
 		    <view class="section_8">
 				<image :src="picurl" mode="aspectFill"></image>
 			</view>
@@ -198,7 +198,7 @@
 				<text class="read">阅读量：</text><text class="read">1123</text>
 			  </view>
 		    </view>
-		  </view>
+		  </view> -->
 
 	    </view>
 	  </view>
@@ -220,6 +220,7 @@
 				picurl:"",
 				vidurl:"",
 				vtitle:"",
+				listArr:[]
 			};
 		},
 		methods: {
@@ -242,19 +243,31 @@
 				}
 			  })
 		  },
-		  getaurl(){
-			  uni.request({
-				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
-				success:res=>{
-					console.log(res);
-				}
-			  })
+		  // getaurl(){
+			 //  uni.request({
+				// url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
+				// success:res=>{
+				// 	console.log(res);
+				// }
+			 //  })
+		  // }
+		  // ,
+		  //获取网络数据
+		  getData(){
+		  	uni.request({
+		  		url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
+		  		success:res=>{
+		  			console.log(res);
+		  			this.listArr=res.data.data
+		  		}
+		  	})
 		  }
 		},
 		onLoad(){
 			this.geturl(),
 			this.getvurl(),
-			this.getaurl()
+			this.getData();
+			// this.getaurl()
 		},
 		computed: {
 		  weekday() {
