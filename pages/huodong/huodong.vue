@@ -67,7 +67,7 @@
 	  </view>
 	  <view class="flex-row justify-end section_6 space-x-8-reverse">
 	    <view class="flex-col justify-start items-center text-wrapper_4"><text class="font_5">打卡结果</text></view>
-	    <view class="flex-col justify-start items-center text-wrapper_5"><text class="font_5">报名</text></view>
+	    <view class="flex-col justify-start items-center text-wrapper_5" @click="toggleStatus"><text class="font_5" >{{ text }}</text></view>
 	  </view>
 	</view>
 </template>
@@ -76,8 +76,27 @@
 	export default {
 		data() {
 			return {
-				
+				status: false,
+				text: '报名',
 			};
+		},
+		methods: {
+		  toggleStatus() {
+		    this.status = !this.status;
+		    if (this.status) {
+		      this.text = '已报名';
+			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text = '报名';  
+		    }
+		  },
+		  showSuccessModal() {
+		      uni.showModal({
+		        title: '报名成功',
+		        content: '您已成功报名!',
+		        showCancel: false
+		      });
+		    }
 		}
 	}
 </script>

@@ -340,7 +340,7 @@
         height: 248rpx;
       }
 	  .active{
-			background-color: #aaaaff;
+			background-color: #b7b0ff;
 		}
       .view {
         margin-left: 60rpx;
