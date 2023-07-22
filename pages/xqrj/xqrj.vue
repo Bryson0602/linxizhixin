@@ -109,10 +109,13 @@
       </view>
     </view>
     <view class="flex-row group_3 space-x-8">
+		
       <view class="flex-col justify-start items-center flex-auto text-wrapper_5">
-        <text class="font_4 text_14">随手记录心情吧~</text>
+        <!-- <text class="font_4 text_14">随手记录心情吧~</text> -->
+		<input type="text" value="随手记录心情吧~" class="font_4 text_14">
       </view>
-      <view class="flex-col justify-start items-center shrink-0 text-wrapper_6">
+	  
+      <view class="flex-col justify-start items-center shrink-0 text-wrapper_6" @click="clickjl">
         <text class="font_4 text text_13">快速记录</text>
       </view>
     </view>
@@ -139,7 +142,14 @@
 		_this.date = Date.parse(new Date());
 		}, 1000);
 	},
+	
     methods: {
+		clickjl(){
+			uni.showToast({
+			title: '提交成功',
+			duration: 1000
+			});
+		},
 		popupClick() {
 		
 		    this.isshow = !this.isshow;
@@ -397,12 +407,12 @@
       margin-top: 224rpx;
       padding: 0 8rpx;
       .text-wrapper_5 {
-        padding: 44rpx 0 20rpx;
+        padding: 25rpx 0 20rpx;
         // opacity: 0.7;
         border-radius: 60rpx;
         height: 102rpx;
-		// margin-bottom: 500rpx;
-		// padding-bottom: 500rpx;
+		border: 1rpx solid white;
+		
         .text_14 {
           color: #ffffff;
 		  
@@ -460,7 +470,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-  		background-image: linear-gradient(skyblue, white);
+  		background-image: linear-gradient(rgb(223,233,254), white);
   		border-radius: 50rpx;
     }
   

@@ -149,6 +149,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/huati/huati",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
