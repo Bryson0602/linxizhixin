@@ -32,8 +32,8 @@
 							
 				      <view class="flex-row items-center space-x-8" @click="gohuodong">
 				        <view class="flex-col justify-start items-end section_4">
+							<image src="../../static/lb3.jpg" mode=""></image>
 				          <view class="flex-col justify-start items-center text-wrapper_2">
-							  
 							  <text class="font_3">推荐</text>
 						  </view>
 				        </view>
@@ -59,6 +59,7 @@
 						  
 				    <view class="flex-row section_3 space-x-8">
 				      <view class="flex-col justify-start items-end self-center section_4">
+						  <image src="../../static/lb4.jpg" mode=""></image>
 				        <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_3">推荐</text></view>
 				      </view>
 				      <view class="flex-col flex-auto self-start group_5 space-y-8">
@@ -76,6 +77,7 @@
 						  
 				    <view class="flex-row section_3 space-x-8">
 				      <view class="flex-col justify-start items-end self-center section_4">
+						  <image src="../../static/lb2.jpeg" mode=""></image>
 				        <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_3">推荐</text></view>
 				      </view>
 				      <view class="flex-col flex-auto self-start group_6">
@@ -260,23 +262,25 @@
 					  
 				      <view class="flex-col space-y-14">
 				        <view class="flex-row items-center list-item space-x-14" :key="i" v-for="(item, i) in list_RuKnLZ89" @click="goyuyue">
-				          <view class="shrink-0 section_2"></view>
+				          <view class="shrink-0 section_2">
+							<image src="../../static/teacher.png" mode=""></image>
+						  </view>
 				          <view class="flex-col flex-auto space-y-9">
 				            <view class="flex-row justify-between items-start">
 				              <view class="flex-row items-baseline group_5 space-x-8">
-				                <text class="font_5">徐老师</text>
+				                <text class="font_5">孙老师</text>
 				                <text class="font_2">心理咨询师</text>
 				              </view>
 				              <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_4">预约</text></view>
 				            </view>
 				            <view class="flex-row space-x-12">
-				              <text class="font_6">清华大学</text>
+				              <text class="font_6">浙江万里学院</text>
 				              <text class="font_6">心理学</text>
 				            </view>
-				            <text class="self-start font_6">擅长：抑郁症、焦虑症等心理咨询</text>
+				            <text class="self-start font_6">抑郁症、焦虑症等心理问题咨询</text>
 				            <view class="flex-row group_6">
 							  <image class="shizhong" src="../../static/shizhong.png" mode="heightFix"></image>
-				              <view class="section_3"></view>
+				              <!-- <view class="section_3"></view> -->
 				              <text class="font_7 text_5">预约咨询（多点）</text>
 				              <view class="section_3"></view>
 				            </view>
@@ -459,13 +463,23 @@
         }
       }
       .section_4 {
-        padding: 12rpx 0 102rpx;
+        //padding: 12rpx 0 102rpx;
         background-color: #707070;
         border-radius: 24rpx;
         width: 196rpx;
         height: 146rpx;
+		overflow: hidden;
+		position: relative;//相
+		
+		image{
+			width: 196rpx;
+			height: 146rpx;
+		}
         .text-wrapper_2 {
-          margin-right: 14rpx;
+		  position: absolute;//绝
+		  right: 10rpx;
+		  top: 10rpx;
+          //margin-right: 10rpx;
           padding: 8rpx 0;
           background-color: #ff8323;
           border-radius: 60rpx;
@@ -820,6 +834,11 @@
               border-radius: 40rpx;
               width: 170rpx;
               height: 170rpx;
+			  overflow: hidden;
+			  image{
+				  width: 170rpx;
+				  height: 170rpx;
+			  }
             }
             .space-y-9 {
               & > view:not(:first-child),

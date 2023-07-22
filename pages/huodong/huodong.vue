@@ -19,6 +19,7 @@
 	    <view class="flex-col group_4 space-y-24">
 	      <view class="flex-row space-x-8">
 	        <view class="flex-col justify-start items-end section_3">
+				<image src="../../static/lb4.jpg" mode=""></image>
 	          <view class="flex-col justify-start items-center text-wrapper_2"><text class="text_6">推荐</text></view>
 	        </view>
 	        <text class="self-start font_1 text_5">心理知识大讲堂</text>
@@ -153,13 +154,23 @@
             margin-left: 16rpx;
           }
           .section_3 {
-            padding: 12rpx 0 102rpx;
+			position: relative;
+            //padding: 12rpx 0 102rpx;
             background-color: #707070;
             border-radius: 24rpx;
             width: 196rpx;
             height: 146rpx;
+			overflow: hidden;
+			
+			image{
+				width: 196rpx;
+				height: 146rpx;
+			}
             .text-wrapper_2 {
-              margin-right: 14rpx;
+			  position: absolute;
+			  right: 10rpx;
+			  top: 10rpx;
+              //margin-right: 14rpx;
               padding: 8rpx 0;
               background-color: #ff8323;
               border-radius: 60rpx;

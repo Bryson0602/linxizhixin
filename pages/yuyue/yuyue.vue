@@ -2,19 +2,21 @@
 	<view class="flex-col page">
 	  <view class="flex-col section space-y-20">
 	    <view class="flex-row justify-center items-center group space-x-22">
-	      <view class="section_2"></view>
+	      <view class="section_2">
+			  <image src="../../static/teacher.png" mode=""></image>
+		  </view>
 	      <view class="flex-col group_2 space-y-18">
 	        <view class="flex-col space-y-12">
 	          <view class="flex-row items-baseline group_3 space-x-14">
-	            <text class="text">徐老师</text>
+	            <text class="text">孙老师</text>
 	            <text class="text_2">心理咨询师</text>
 	          </view>
 	          <view class="flex-row group_3 space-x-28">
-	            <text class="font_1">清华大学</text>
+	            <text class="font_1">浙江万里学院</text>
 	            <text class="font_1">心理学</text>
 	          </view>
 	        </view>
-	        <text class="self-start font_1 text_3">擅长：抑郁症、焦虑症咨询</text>
+	        <text class="self-start font_1 text_3">抑郁症、焦虑症咨询</text>
 	      </view>
 	    </view>
 	    <view class="flex-row equal-division space-x-8">
@@ -33,14 +35,19 @@
 	    </view>
 	  </view>
 	  <view class="flex-row justify-evenly items-center self-center section_3">
-	    <view class="flex-col justify-start"><text class="font_4 text_4">预约挂号</text></view>
-	    <view class="flex-col justify-start"><text class="font_5 text_5">患者评价</text></view>
-	    <view class="flex-col justify-start"><text class="font_5 text_6">问诊历史</text></view>
+	    <view class="flex-col justify-start"><text class="font_4 text_4">预约咨询</text></view>
+	    <view class="flex-col justify-start"><text class="font_5 text_5">学生评价</text></view>
+	    <view class="flex-col justify-start"><text class="font_5 text_6">咨询历史</text></view>
 	  </view>
 	  <view class="flex-col section_4 space-y-36">
+		  
 	    <view class="flex-row relative">
-	      <view class="flex-col justify-start items-center text-wrapper"><text class="font_4">约满</text></view>
-	      <view class="flex-col justify-start items-center text-wrapper view"><text class="font_4">约满</text></view>
+	      <view class="flex-col justify-start items-center text-wrapper" @click="toggleStatus" :class="status ? 'active' : ''">
+			  <text class="font_4" >{{ text }}</text>
+		  </view>
+	      <view class="flex-col justify-start items-center text-wrapper view" @click="toggleStatus1" :class="status1 ? 'active' : ''">
+			  <text class="font_4">{{ text1 }}</text>
+		  </view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos">
 	        <view class="flex-col items-center section_5 space-y-18">
 	          <text class="font_6">07/08</text>
@@ -52,9 +59,10 @@
 	        </view>
 	      </view>
 	    </view>
+		
 	    <view class="flex-row relative">
-	      <view class="flex-col justify-start items-center text-wrapper"><text class="font_4">约满</text></view>
-	      <view class="flex-col justify-start items-center text-wrapper view_2"><text class="font_4">约满</text></view>
+	      <view class="flex-col justify-start items-center text-wrapper" @click="toggleStatus2" :class="status2 ? 'active' : ''"><text class="font_4">{{ text2 }}</text></view>
+	      <view class="flex-col justify-start items-center text-wrapper view_2" @click="toggleStatus3" :class="status3 ? 'active' : ''"><text class="font_4">{{ text3 }}</text></view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos_2">
 	        <view class="flex-col items-center section_5 space-y-18">
 	          <text class="font_6">07/09</text>
@@ -66,9 +74,10 @@
 	        </view>
 	      </view>
 	    </view>
+		
 	    <view class="flex-row relative">
-	      <view class="flex-col justify-start items-center text-wrapper"><text class="font_4">约满</text></view>
-	      <view class="flex-col justify-start items-center text-wrapper view_3"><text class="font_4">约满</text></view>
+	      <view class="flex-col justify-start items-center text-wrapper" @click="toggleStatus4" :class="status4 ? 'active' : ''"><text class="font_4">{{ text4 }}</text></view>
+	      <view class="flex-col justify-start items-center text-wrapper view_3" @click="toggleStatus5" :class="status5 ? 'active' : ''"><text class="font_4">{{ text5 }}</text></view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos_3">
 	        <view class="flex-col items-center section_5 space-y-18">
 	          <text class="font_6">07/10</text>
@@ -87,9 +96,83 @@
 <script>
 	export default {
 		data() {
-			return {
-				
-			};
+		  return {
+		    status: false,
+		    text: '预约',
+			status1: false,
+			text1: '预约',
+			status2: false,
+			text2: '预约',
+			status3: false,
+			text3: '预约',
+			status4: false,
+			text4: '预约',
+			status5: false,
+			text5: '预约',
+		  };
+		},
+		methods: {
+		  toggleStatus() {
+		    this.status = !this.status;
+		    if (this.status) {
+		      this.text = '已预约';
+			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text = '预约';  
+		    }
+		  },
+		  toggleStatus1() {
+		    this.status1 = !this.status1;
+		    if (this.status1) {
+		      this.text1 = '已预约';
+		  			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text1 = '预约';  
+		    }
+		  },
+		  toggleStatus2() {
+		    this.status2 = !this.status2;
+		    if (this.status2) {
+		      this.text2 = '已预约';
+		  			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text2 = '预约';  
+		    }
+		  },
+		  toggleStatus3() {
+		    this.status3 = !this.status3;
+		    if (this.status3) {
+		      this.text3 = '已预约';
+		  			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text3 = '预约';  
+		    }
+		  },
+		  toggleStatus4() {
+		    this.status4 = !this.status4;
+		    if (this.status4) {
+		      this.text4 = '已预约';
+		  			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text4 = '预约';  
+		    }
+		  },
+		  toggleStatus5() {
+		    this.status5 = !this.status5;
+		    if (this.status5) {
+		      this.text5 = '已预约';
+		  			  this.showSuccessModal(); // 调用弹窗方法
+		    } else {
+		      this.text5 = '预约';  
+		    }
+		  },
+		  showSuccessModal() {
+		      uni.showModal({
+		        title: '预约成功',
+		        content: '您已成功预约!',
+		        showCancel: false
+		      });
+		    }
 		}
 	}
 </script>
@@ -111,6 +194,12 @@
           background-color: #ffffff;
           width: 170rpx;
           height: 170rpx;
+		  border-radius: 40rpx;
+		  overflow: hidden;
+		  image{
+			  width: 170rpx;
+			  height: 170rpx;
+		  }
         }
         .group_2 {
           width: 401rpx;
@@ -250,6 +339,9 @@
         border-radius: 60rpx;
         height: 248rpx;
       }
+	  .active{
+			background-color: #aaaaff;
+		}
       .view {
         margin-left: 60rpx;
       }

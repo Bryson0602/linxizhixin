@@ -210,7 +210,7 @@
 		"midButton": {
 			"width": "65px",
 			"height": "65px",
-			"iconPath": "static/ai.png",
+			"iconPath": "static/newai.png",
 			"iconWidth": "65px"
 		}
 		
