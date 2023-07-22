@@ -21,76 +21,79 @@
       <view class="flex-col justify-start self-center text-wrapper_4">
         <text class="text_9">做人嘛，开心最重要啦~</text>
       </view>
-	  
+	  <image
+	    class="self-center tupian"
+	    src="../../static/bqb8.png"
+	  />
 	  <view class="content">
 	  
 	          <!-- <view class="popUpBtn" @click="popupClick">
 	              点击显示弹框</view> -->
 	  
 	          <!-- 使用组件 isShow：设置弹框是否显示 width：宽度 height：高度 radius：圆角 -->
-	          <cc-popup :isShow='isshow' width="550rpx" height="550rpx" radius="50rpx">
+	          <cc-popup :isShow='isshow' width="650rpx" height="600rpx" radius="50rpx">
 	  			<!-- calc(100vw - 70px) -->
 	              <!-- 自定义展示内容 -->
 	        <view class="modelContent">	
       <view class="flex-col relative section_2 space-y-10">
         <view class="flex-row justify-between items-start group_2">
           <text class="text_10">每日心情</text>
-          <text class="font_5 text_11">今天的你是哪一种呢</text>
+          <!-- <text class="font_5 text_11">今天的你是哪一种呢</text> -->
         </view>
         <view class="grid">
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/e8aa5d4ce72f24d63f34d1610dc5c88e.png"
+              src="../../static/bqb4.png"
             />
             <text class="font_5">开心</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/b0b415a6364f49163cf0b61f7f757022.png"
+              src="../../static/bqb5.png"
             />
             <text class="font_5">无语</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/d0d9b7199ddf34277f6860116201fc7b.png"
+              src="../../static/bqb6.png"
             />
             <text class="font_5">难过</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/df6acd9518952cf604dc37b3a1ac1dd9.png"
+              src="../../static/bqb1.png"
             />
-            <text class="font_5">大哭</text>
+            <text class="font_5">思考</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/e87136573a7827c464c27fc4467028e3.png"
+              src="../../static/bqb7.png"
             />
             <text class="font_5">生气</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/4e4efd67a9466631e32180d3e94514fd.png"
+              src="../../static/bqb3.png"
             />
             <text class="font_5">得瑟</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/874ad2e9d6b6f3aa639a8541c0ac835f.png"
+              src="../../static/bqb2.png"
             />
             <text class="font_5">惊讶</text>
           </view>
           <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/65464a3a68de6de78c2946c1e18a5125.png"
+              src="../../static/bqb8.png"
             />
             <text class="font_5">心动</text>
           </view>
@@ -316,7 +319,7 @@
       }
       .section_2 {
         margin: 55rpx auto;
-        padding: 32rpx 0;
+        padding: 10rpx 0;
         filter: drop-shadow(0px 6rpx 6rpx #00000029);
         // background-image: url('https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385868940833479.png');
         background-size: 100% 100%;
@@ -331,6 +334,7 @@
             line-height: 44rpx;
           }
           .text_11 {
+			margin-left: 50rpx;
             margin-right: 4rpx;
             margin-top: 28rpx;
             color: #202020;
@@ -345,8 +349,9 @@
           .grid-item {
             padding: 4rpx 0;
             .image {
-              width: 112rpx;
-              height: 112rpx;
+              width: 160rpx;
+              height: 160rpx;
+			  // 125 125
             }
           }
           .space-y-4 {
@@ -358,7 +363,8 @@
           }
         }
         .font_5 {
-          font-size: 32rpx;
+          font-size: 20rpx;
+		  // (32rpx)
           font-family: SegoeUI-Bold;
           line-height: 29rpx;
           font-weight: 700;
@@ -373,7 +379,7 @@
         }
       }
       .section_3 {
-        margin-top: 36rpx;
+        margin-top: -20rpx;
         padding: 4rpx 16rpx 10rpx;
         background-color: #ffffff59;
         border-radius: 60rpx;
@@ -394,6 +400,10 @@
           margin-left: 4rpx;
         }
       }
+	  .tupian{
+	  	width: 600rpx;
+	  	height: 600rpx;
+	  }
     }
     .font_3 {
       font-size: 34rpx;
