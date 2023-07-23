@@ -16,15 +16,59 @@
 </template>
 
 <script>
+	let id;
 export default {
   data() {
     return {
+	  // objData:{},
+	  // id:1,
+	  
+	  detail:{},
+	  loadState:false,
+	  
       title: '新闻标题新闻标题新闻标题新闻标题新闻标题',
       author: '张三',
       time: '2023-01-01 10:00:00',
       content: '<p>新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文</p>',
       imageUrl: "/static/lb3.jpg"
     };
+  },
+  onLoad(e){//接受了传过来的id
+  	console.log(e)
+  	id=e.id
+  	this.getDetail();
+  },
+  methods:{
+	  //获取详情
+		getDetail(){
+			uniCloud.callFunction({
+				name:"art_get_row",
+				data:{
+					id
+				}
+			}).then(res=>{						
+				this.detail=res.result.data[0]
+				this.loadState=true
+				uni.setNavigationBarTitle({
+					title:this.detail.title
+				})
+				
+			})
+			
+		}
+  	// getDetail(){
+  	// 	// uni.showLoading({
+  	// 	// 	title:"数据加载中...",
+  	// 	// 	mask:true
+  	// 	// })
+  	// 	uni.request({
+  	// 		url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleSingal/"+this.id,
+  	// 		success:res=>{
+  	// 			console.log(res)
+  	// 			this.objData=res.data.data
+  	// 		}
+  	// 	})
+  	// }
   }
 };
 </script>
