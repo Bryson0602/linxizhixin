@@ -128,7 +128,7 @@
 	    <view class="group_8"></view>
 	    <view class="grid_2 pos_2">
 			
-	      <view class="flex-col relative grid-item_2" v-for="item in listArr" :key="item.id">
+	      <view class="flex-col relative grid-item_2" v-for="item in listArr" :key="item.id" @click="clickItem(item.id)">
 	        <view class="section_8">
 				<image :src="item.picture1" mode="aspectFill"></image>
 			</view>
@@ -260,6 +260,12 @@
 		  			console.log(res);
 		  			this.listArr=res.data.data
 		  		}
+		  	})
+		  },
+		  //点击跳转详情
+		  clickItem(e){				
+		  	uni.navigateTo({
+		  		url:"/pages/wzdetail/wzdetail?id="+e
 		  	})
 		  }
 		},
