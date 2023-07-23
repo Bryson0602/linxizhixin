@@ -41,14 +41,21 @@
           <!-- <text class="font_5 text_11">今天的你是哪一种呢</text> -->
         </view>
         <view class="grid">
-          <view class="flex-col items-center grid-item space-y-4">
-            <image
+          <view class="flex-col items-center grid-item space-y-4" v-for="(emoji, index) in emojiList" :key="index">
+				<image
               class="image"
-              src="../../static/bqb4.png"
+              :src="emoji.url"
+			  @click="selectEmoji(emoji)"
             />
-            <text class="font_5">开心</text>
+			
+			<!-- <image
+			  v-for="(emoji, index) in emojiList" :key="index" :src="emoji" @click="selectEmoji(emoji)"
+			></image> -->
+		
+		<text class="font_5" ></text>
+           
           </view>
-          <view class="flex-col items-center grid-item space-y-4">
+          <!-- <view class="flex-col items-center grid-item space-y-4">
             <image
               class="image"
               src="../../static/bqb5.png"
@@ -96,7 +103,7 @@
               src="../../static/bqb8.png"
             />
             <text class="font_5">心动</text>
-          </view>
+          </view> -->
         </view>
       </view>
 	  </view>
@@ -136,7 +143,25 @@
 		  title: 'Hello',
 		  companyList: [{}, {}, {}],
 		  isshow: false,
-		  mySrc: '../../static/apple.jpg'
+		  // mySrc: '../../static/apple.jpg',
+			emojiList:[
+					// {img:require('../../static/bqb4.png'),text:'开心'},
+					// {img:'../../static/bqb5.png',text:'无语'},
+					// {img:'../../static/bqb6.png',text:'难过'},
+					// {img:'../../static/bqb1.png',text:'思考'},
+					// {img:'../../static/bqb7.png',text:'生气'},
+					// {img:'../../static/bqb3.png',text:'得瑟'},
+					// {img:'../../static/bqb2.png',text:'惊讶'},
+					// {img:'../../static/bqb8.png',text:'心动'},
+					{ url: '../../static/bqb2.png', name: 'Image 1' },
+					{ url: '../../static/bqb4.png', name: 'Image 2' },
+					{ url: '../../static/bqb6.png', name: 'Image 3' }
+					
+		   ],
+		  // emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
+		  // textList: ['开心','无语','难过','思考','生气','得瑟','惊讶','心动'],
+		   // 表情图片路径列表
+		  selectedEmoji: '', // 存储选择的表情图片路径
 	  };
     },
 	onLoad(){
@@ -147,6 +172,9 @@
 	},
 	
     methods: {
+		selectEmoji(emoji) {
+		  this.selectedEmoji = emoji;
+		},
 		clickjl(){
 			uni.showToast({
 			title: '提交成功',
@@ -351,6 +379,7 @@
             .image {
               width: 160rpx;
               height: 160rpx;
+			  display: flex;
 			  // 125 125
             }
           }
