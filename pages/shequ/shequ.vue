@@ -30,11 +30,12 @@
 							  <image class="dinwei" src="/static/rili.png" mode="heightFix"></image>
 				      </view>
 							
-				      <view class="flex-row items-center space-x-8" @click="gohuodong">
+						
+				      <view class="flex-row items-center space-x-8" @click="gogfhd1">
 				        <view class="flex-col justify-start items-end section_4">
 							<image src="../../static/lb3.jpg" mode=""></image>
-				          <view class="flex-col justify-start items-center text-wrapper_2">
-							  <text class="font_3">推荐</text>
+				          <view class="flex-col justify-start items-center text-wrapper_2 gf">
+							  <text class="font_3">官方</text>
 						  </view>
 				        </view>
 				        <view class="flex-col flex-auto space-y-8">
@@ -47,20 +48,20 @@
 				          </view>
 				          <view class="flex-row justify-between items-center">
 				            <view class="group_4">
-				              <text class="font_6">可报名</text>
-				              <text class="font_7 text_6">20人</text>
+				              <text class="font_6">可报名20人</text>
+<!-- 				              <text class="font_7 text_6">20人</text> -->
 				            </view>
-				            <text class="font_7 text_7">2023.07.08-2023.07.10</text>
+				            <text class="font_7 text_7">2023.09.08-2023.09.15</text>
 				          </view>
 				        </view>
 				      </view>
 				    </view>
 						  
 						  
-				    <view class="flex-row section_3 space-x-8">
+				    <view class="flex-row section_3 space-x-8" @click="gogfhd2">
 				      <view class="flex-col justify-start items-end self-center section_4">
 						  <image src="../../static/lb4.jpg" mode=""></image>
-				        <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_3">推荐</text></view>
+				        <view class="flex-col justify-start items-center text-wrapper_2 gf"><text class="font_3">官方</text></view>
 				      </view>
 				      <view class="flex-col flex-auto self-start group_5 space-y-8">
 				        <text class="self-start font_2">校园线下心理疏导课堂志愿者</text>
@@ -70,44 +71,30 @@
 				        </view>
 				        <view class="flex-row justify-between items-center">
 				          <text class="font_6">不限人数</text>
-				          <text class="font_7 text_8">2023.07.08-2023.07.10</text>
+				          <text class="font_7 text_8">长期报名</text>
 				        </view>
 				      </view>
 				    </view>
 						  
-				    <view class="flex-row section_3 space-x-8">
+				    <view class="flex-row section_3 space-x-8" v-for="item in listArr" :key="item._id" @click="gohuodong(item._id)">
 				      <view class="flex-col justify-start items-end self-center section_4">
-						  <image src="../../static/lb2.jpeg" mode=""></image>
+						  <image :src="item.picture1" mode="aspectFill"></image>
 				        <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_3">推荐</text></view>
 				      </view>
 				      <view class="flex-col flex-auto self-start group_6">
-				        <text class="self-start font_2">心理安全保健主题宣讲会</text>
+				        <text class="self-start font_2">{{item.title}}</text>
 				        <view class="flex-col justify-start items-center self-start text-wrapper_5">
 				          <text class="font_4">需签到</text>
+						  
 				        </view>
+						
 				        <view class="flex-row justify-between items-center group_7">
-				          <text class="font_6">不限人数</text>
-				          <text class="font_7 text_8">2023.07.12-2023.07.20</text>
+				          <text class="font_6">{{item.people}}</text>
+				          <text class="font_7 text_8">{{item.actBtime}}</text>
 				        </view>
 				      </view>
 				    </view>
-						  
-				    <view class="flex-row section_3 space-x-8">
-				      <view class="flex-col justify-start items-end self-center text-wrapper_6">
-				        <text class="font_8 text_9">推荐</text>
-				      </view>
-				      <view class="flex-col flex-auto self-start group_8">
-				        <text class="self-start font_2">心理保健室安全检查</text>
-				        <view class="flex-col justify-start items-center self-start text-wrapper_5">
-				          <text class="font_4">需签到</text>
-				        </view>
-				        <view class="flex-row justify-between items-center group_7">
-				          <text class="font_6">不限人数</text>
-				          <text class="font_7 text_8">2023.07.12-2023.07.20</text>
-				        </view>
-				      </view>
-				    </view>
-						  
+					
 				  </view>
 				 <!-- <view class="section_7"></view> -->
 				</view>
@@ -302,6 +289,7 @@
 			return {
 				tabCur:0,
 				list_RuKnLZ89: [null, null, null, null, null],
+				listArr:[]
 			}
 		},
 		methods: {
@@ -309,9 +297,19 @@
 				this.tabCur  = ctCur
 				console.log(this.tabCur )
 			},
-			gohuodong(){
+			gogfhd1(){
 				uni.navigateTo({
-					url:'/pages/huodong/huodong'
+					url:"/pages/gfhd1/gfhd1"
+				})
+			},
+			gogfhd2(){
+				uni.navigateTo({
+					url:"/pages/gfhd2/gfhd2"
+				})
+			},
+			gohuodong(e){
+				uni.navigateTo({
+					url:"/pages/huodong/huodong?id="+e
 				})
 			},
 			goxuexi(){
@@ -328,7 +326,20 @@
 				uni.navigateTo({
 					url:'/pages/rili/rili'
 				})
+			},
+			//获取网络数据
+			getData(){
+				uni.request({
+					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getActivities",
+					success:res=>{
+						console.log(res);
+						this.listArr=res.data.data
+					}
+				})
 			}
+		},
+		onLoad(){
+			this.getData();
 		}
 	}
 </script>
@@ -492,6 +503,9 @@
             color: #ffffff;
           }
         }
+		.gf{
+			background-color: #00aaff;
+		}
       }
       .space-x-10 {
         & > view:not(:first-child),
@@ -557,7 +571,7 @@
       .font_2 {
         font-size: 28rpx;
         font-family: SegoeUI-Bold;
-        line-height: 26rpx;
+        line-height: 30rpx;
         font-weight: 700;
         color: #202020;
       }

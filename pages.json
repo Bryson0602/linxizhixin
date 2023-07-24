@@ -158,6 +158,24 @@
             }
             
         }
+        ,{
+            "path" : "pages/gfhd1/gfhd1",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "心理知识大讲堂",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/gfhd2/gfhd2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "校园线下心理疏导课堂志愿者",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -5,35 +5,35 @@
 	    <view class="flex-col group_4 space-y-24">
 	      <view class="flex-row space-x-8">
 	        <view class="flex-col justify-start items-end section_3">
-				<image :src="detail.picture1" mode="aspectFill"></image>
-	          <view class="flex-col justify-start items-center text-wrapper_2"><text class="text_6">推荐</text></view>
+				<image src="../../static/lb4.jpg" mode="aspectFill"></image>
+	          <view class="flex-col justify-start items-center text-wrapper_2"><text class="text_6">官方</text></view>
 	        </view>
-	        <text class="self-start font_1 text_5">{{detail.title}}</text>
+	        <text class="self-start font_1 text_5">校园线下心理疏导课堂志愿者</text>
 	      </view>
 	      <view class="flex-row justify-between items-baseline">
 	        <view class="group_5">
-	          <text class="font_2">{{detail.people}}</text>
+	          <text class="font_2">不限人数</text>
 
 	        </view>
-	        <text class="font_2">已报名：{{detail.bpeople}}人</text>
-	        <text class="font_2 text_8">已签到：{{detail.qpeople}}人</text>
+	        <text class="font_2">已报名：21人</text>
+	        <text class="font_2 text_8">已签到：0人</text>
 	      </view>
 	    </view>
 	    <view class="flex-col group_6 space-y-12">
 	      <view class="flex-row justify-between items-center">
 	        <text class="font_3">报名时间</text>
-	        <text class="font_4 text_9">{{detail.actBtime}}</text>
+	        <text class="font_4 text_9">长期报名</text>
 	      </view>
 	      <view class="flex-row justify-between items-center">
 	        <text class="font_3 text_10">活动时间</text>
-	        <text class="font_4 text_11">{{detail.actTime}}</text>
+	        <text class="font_4 text_11">长期</text>
 	      </view>
 	    </view>
 	  </view>
 	  <view class="flex-col section_4">
 	    <view class=" justify-start items-start text-wrapper_3">
 	      <text class="font_5 text_12">公告:</text>
-		  <text class="text_16">{{detail.notion}}</text>
+		  <text class="text_16">面向在校学生征集志愿者。志愿者将协助组织课堂活动,进行心理健康知识宣教、组织互动交流等。</text>
 	    </view>
 	    <view class="flex-col group_7 space-y-20">
 	      <view class="flex-row justify-between items-center group_8">
@@ -42,9 +42,9 @@
 	        <view class="flex-col justify-start"><text class="font_6 text_15">评价</text></view>
 	      </view>
 	      <view class="flex-col items-start section_5 space-y-20">
-	        <text class="font_7">组织者：{{detail.leader}}</text>
-	        <text class="font_7">活动地点：{{detail.location}}</text>
-			<text class="font_7">活动对象：{{detail.actObject}}</text>
+	        <text class="font_7">组织者：灵犀知心</text>
+	        <text class="font_7">活动地点：信息与文献中心</text>
+			<text class="font_7">活动对象：全体成员</text>
 			<text class="font_7">活动分类：心理素质拓展</text>
 	        <text class="font_7">定位签到：不支持</text>
 	        <text class="font_7">签退情况：无需签退</text>
@@ -60,21 +60,13 @@
 </template>
 
 <script>
-	let id;
+
 	export default {
 		data() {
 			return {
 				status: false,
 				text: '报名',
-				detail:{},
-				loadState:false
 			};
-		},
-		onLoad(e){			
-			id=e.id
-		},
-		onShow(){
-			this.getDetail();
 		},
 		methods: {
 			toggleStatus() {
@@ -92,22 +84,6 @@
 				content: '您已成功报名!',
 				showCancel: false
 			  });
-			},
-			
-			//获取详情-----------------------------------------------
-			getDetail(){
-				uniCloud.callFunction({
-					name:"act_get_row",
-					data:{
-						id
-					}
-				}).then(res=>{						
-					this.detail=res.result.data[0]
-					this.loadState=true
-					uni.setNavigationBarTitle({
-						title:this.detail.title
-					})
-				})
 			}
 		}
 	}
@@ -152,7 +128,7 @@
 			  top: 10rpx;
               //margin-right: 14rpx;
               padding: 8rpx 0;
-              background-color: #ff8323;
+              background-color: #00aaff;
               border-radius: 60rpx;
               width: 68rpx;
               .text_6 {

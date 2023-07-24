@@ -77,24 +77,24 @@
 				
 			// },
 			
-			removeFun(){
-				uniCloud.callFunction({
-					//name:"art_remove_row",
-					data:{
-						id
-					}
-				})
-				// .then(res=>{
-				// 	uni.showToast({
-				// 		title:"删除成功~"
-				// 	})
-				// 	setTimeout(()=>{
-				// 		uni.reLaunch({
-				// 			url:"/pages/index/index"
-				// 		})
-				// 	},800)
-				// })
-			},
+			// removeFun(){
+			// 	uniCloud.callFunction({
+			// 		//name:"art_remove_row",
+			// 		data:{
+			// 			id
+			// 		}
+			// 	})
+			// 	// .then(res=>{
+			// 	// 	uni.showToast({
+			// 	// 		title:"删除成功~"
+			// 	// 	})
+			// 	// 	setTimeout(()=>{
+			// 	// 		uni.reLaunch({
+			// 	// 			url:"/pages/index/index"
+			// 	// 		})
+			// 	// 	},800)
+			// 	// })
+			// },
 			
 			
 			
