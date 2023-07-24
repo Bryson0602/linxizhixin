@@ -1,5 +1,5 @@
 <template>
-			<view class="flex-col page">
+	<view class="flex-col page content">
     <view class="flex-row justify-between items-center section">
       <!-- <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text">0</text></view> -->
       <view class="flex-col justify-start items-center text-wrapper"><text class="font_1 text text_3">{{dateFormat1(date)}}</text></view>
@@ -21,9 +21,10 @@
       <view class="flex-col justify-start self-center text-wrapper_4">
         <text class="text_9">做人嘛，开心最重要啦~</text>
       </view>
+	  <!-- <image class="self-center tupian" src="../../static/bqb8.png" mode=""></image> -->
 	  <image
 	    class="self-center tupian"
-	    src="../../static/bqb8.png"
+	    :src="selectedEmoji"
 	  />
 	  <view class="content">
 	  
@@ -40,19 +41,19 @@
           <text class="text_10">每日心情</text>
           <!-- <text class="font_5 text_11">今天的你是哪一种呢</text> -->
         </view>
+		
         <view class="grid">
-          <view class="flex-col items-center grid-item space-y-4" v-for="(emoji, index) in emojiList" :key="index">
+          <view class="flex-col items-center grid-item space-y-4 image-container" v-for="(emoji, index) in emojiList" :key="index">
 				<image
-              class="image"
+              class="image xuanting"
               :src="emoji.url"
 			  @click="selectEmoji(emoji)"
             />
-			
 			<!-- <image
 			  v-for="(emoji, index) in emojiList" :key="index" :src="emoji" @click="selectEmoji(emoji)"
 			></image> -->
 		
-		<text class="font_5" ></text>
+		<text class="font_5" >{{emoji.name}}</text>
            
           </view>
           <!-- <view class="flex-col items-center grid-item space-y-4">
@@ -153,9 +154,14 @@
 					// {img:'../../static/bqb3.png',text:'得瑟'},
 					// {img:'../../static/bqb2.png',text:'惊讶'},
 					// {img:'../../static/bqb8.png',text:'心动'},
-					{ url: '../../static/bqb2.png', name: 'Image 1' },
-					{ url: '../../static/bqb4.png', name: 'Image 2' },
-					{ url: '../../static/bqb6.png', name: 'Image 3' }
+					{ url: '../../static/bqb4.png', name: '开心' },
+					{ url: '../../static/bqb5.png', name: '无语' },
+					{ url: '../../static/bqb6.png', name: '难过' },
+					{ url: '../../static/bqb1.png', name: '思考' },
+					{ url: '../../static/bqb7.png', name: '生气' },
+					{ url: '../../static/bqb3.png', name: '得瑟' },
+					{ url: '../../static/bqb2.png', name: '惊讶' },
+					{ url: '../../static/bqb8.png', name: '心动' },
 					
 		   ],
 		  // emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
@@ -173,7 +179,7 @@
 	
     methods: {
 		selectEmoji(emoji) {
-		  this.selectedEmoji = emoji;
+		  this.selectedEmoji = emoji.url;
 		},
 		clickjl(){
 			uni.showToast({
@@ -379,7 +385,7 @@
             .image {
               width: 160rpx;
               height: 160rpx;
-			  display: flex;
+			  
 			  // 125 125
             }
           }
@@ -408,7 +414,7 @@
         }
       }
       .section_3 {
-        margin-top: -20rpx;
+        margin-top: 0rpx;
         padding: 4rpx 16rpx 10rpx;
         background-color: #ffffff59;
         border-radius: 60rpx;
@@ -533,4 +539,21 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+	// .image-container:hover image{
+	//             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 调整阴影效果的大小和颜色 */
+	//         }
+	 .image-container:hover image {
+	            transform: scale(1.3);  
+	            transition: all 1s ease 0s;  
+	            -webkit-transform: all 1s ease 0s;  
+	            -webkit-transform: scale(1.3); /*放大1.3倍*/
+				transition-duration: .5s;
+				overflow:hidden;
+	}
+	// .xuanting:hover{
+	// 	transform: scale(1.3);  
+	// 	transition: all 0.5s ease 0s;  
+	// 	-webkit-transform: scale(1.3);  
+	// 	-webkit-transform: all 0.5s ease 0s;  
+	// }
 </style>
