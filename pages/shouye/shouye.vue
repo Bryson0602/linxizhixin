@@ -227,7 +227,16 @@
 	        <view class="flex-col items-start group_9 space-y-4">
 	          <text class="font_6 text_9">{{item.title}}</text>
 			  <view class="flex-row group_13 space-x-4">
-			    <text class="read">阅读量：</text><text class="read">{{item.watched}}</text>
+			    <text class="read">{{item.author}}+</text>
+			    <text class="read">
+			    	<uni-dateformat 
+			    	:date="item.posttime" 
+			    	format="MM-dd" 
+			    	></uni-dateformat>
+			    </text>
+			  </view>
+			  <view class="flex-row group_13 space-x-4">
+			    <text class="read">阅读量:</text><text class="read">{{item.watched}}</text>
 			  </view>
 	        </view>
 	      </view>
@@ -736,7 +745,7 @@
       & > view:not(:first-child),
       & > text:not(:first-child),
       & > image:not(:first-child) {
-        margin-left: 8rpx;
+        margin-left: 14rpx;
       }
     }
     .space-y-6 {
