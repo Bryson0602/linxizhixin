@@ -123,7 +123,7 @@
 		
       <view class="flex-col justify-start items-center flex-auto text-wrapper_5">
         <!-- <text class="font_4 text_14">随手记录心情吧~</text> -->
-		<input type="text" value="随手记录心情吧~" class="font_4 text_14">
+		<input type="text" placeholder="随手记录心情吧~" class="font_4 text_14 placeholder-color">
       </view>
 	  
       <view class="flex-col justify-start items-center shrink-0 text-wrapper_6" @click="clickjl">
@@ -462,6 +462,9 @@
           color: #ffffff;
 		  
         }
+		::-ms-input-placeholder { /* WebKit, Blink, Edge */
+		    color : red;
+		}
       }
       .text-wrapper_6 {
         padding: 32rpx 0;
@@ -482,7 +485,7 @@
       }
     }
     .font_4 {
-      font-size: 38rpx;
+      font-size: 36rpx;
       font-family: SegoeUI-Bold;
       line-height: 37rpx;
       font-weight: 700;
@@ -550,6 +553,10 @@
 				transition-duration: .5s;
 				overflow:hidden;
 	}
+	// .image-container image:focus {
+	//             transform: scale(1.2); /* 调整缩放比例 */
+	//             outline: none; /* 去掉焦点时的虚线框 */
+	//         }
 	// .xuanting:hover{
 	// 	transform: scale(1.3);  
 	// 	transition: all 0.5s ease 0s;  
