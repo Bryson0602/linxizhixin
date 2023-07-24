@@ -24,12 +24,104 @@
 	          <image style="width: 100%; vertical-align: bottom;" mode="aspectFill" :src="item.picUrl"></image>
 	        </swiper-item>
 	    </swiper>
+		
 	    <view class="flex-row group_3 space-x-13">
 	      <view class="flex-col flex-auto self-center relative section_4">
 	        <text class="self-start font_2 text_4">HI! 今天是{{weekday}}</text>
-	        <view class="flex-col justify-start items-center relative text-wrapper_2">
+			
+			<view class="content">
+			
+			        <!-- <view class="popUpBtn" @click="popupClick">
+			            点击显示弹框</view> -->
+			
+			        <!-- 使用组件 isShow：设置弹框是否显示 width：宽度 height：高度 radius：圆角 -->
+			        <cc-popup :isShow='isshow' width="650rpx" height="600rpx" radius="50rpx">
+						<!-- calc(100vw - 70px) -->
+			            <!-- 自定义展示内容 -->
+			      <view class="modelContent">	
+			<view class="flex-col relative section_2 space-y-10">
+			  <view class="flex-row justify-between items-start group_2">
+			    <text class="text_10">每日心情</text>
+			    <!-- <text class="font_5 text_11">今天的你是哪一种呢</text> -->
+			  </view>
+					
+			  <view class="grid">
+			    <view class="flex-col items-center grid-item space-y-4 image-container" v-for="(emoji, index) in emojiList" :key="index">
+							<image
+			        class="image xuanting"
+			        :src="emoji.url"
+						  @click="selectEmoji(emoji)"
+			      />
+						<!-- <image
+						  v-for="(emoji, index) in emojiList" :key="index" :src="emoji" @click="selectEmoji(emoji)"
+						></image> -->
+					
+					<text class="font_5" >{{emoji.name}}</text>
+			     
+			    </view>
+			    <!-- <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb5.png"
+			      />
+			      <text class="font_5">无语</text>
+			    </view>
+			    <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb6.png"
+			      />
+			      <text class="font_5">难过</text>
+			    </view>
+			    <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb1.png"
+			      />
+			      <text class="font_5">思考</text>
+			    </view>
+			    <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb7.png"
+			      />
+			      <text class="font_5">生气</text>
+			    </view>
+			    <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb3.png"
+			      />
+			      <text class="font_5">得瑟</text>
+			    </view>
+			    <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb2.png"
+			      />
+			      <text class="font_5">惊讶</text>
+			    </view>
+			    <view class="flex-col items-center grid-item space-y-4">
+			      <image
+			        class="image"
+			        src="../../static/bqb8.png"
+			      />
+			      <text class="font_5">心动</text>
+			    </view> -->
+			  </view>
+			</view>
+			</view>
+			        <!-- 自定义关闭按钮 -->
+			  <view class="close" @click="isshow=false">✕</view>
+			  </cc-popup>
+			
+			</view>
+			
+	        <view class="flex-col justify-start items-center relative text-wrapper_2" @click="popupClick">
 	          <text class="font_2 text_5">记录每日心情</text>
 	        </view>
+			
+			
 	        <view class="flex-row group_4 space-x-4">
 	          <view class="flex-col justify-start items-center text-wrapper_3" :class="dayindex===1?'text-wrapper_4':''"><text class="font_4" :class="dayindex===1?'text_6':''">1</text></view>
 	          <view class="flex-col justify-start items-center text-wrapper_3" :class="dayindex===2?'text-wrapper_4':''"><text class="font_4" :class="dayindex===2?'text_6':''">2</text></view>
@@ -220,10 +312,41 @@
 				picurl:"",
 				vidurl:"",
 				vtitle:"",
-				listArr:[]
+				listArr:[],
+				title: 'Hello',
+				companyList: [{}, {}, {}],
+				isshow: false,
+				
+				emojiList:[
+									// {img:require('../../static/bqb4.png'),text:'开心'},
+									// {img:'../../static/bqb5.png',text:'无语'},
+									// {img:'../../static/bqb6.png',text:'难过'},
+									// {img:'../../static/bqb1.png',text:'思考'},
+									// {img:'../../static/bqb7.png',text:'生气'},
+									// {img:'../../static/bqb3.png',text:'得瑟'},
+									// {img:'../../static/bqb2.png',text:'惊讶'},
+									// {img:'../../static/bqb8.png',text:'心动'},
+									{ url: '../../static/bqb4.png', name: '开心' },
+									{ url: '../../static/bqb5.png', name: '无语' },
+									{ url: '../../static/bqb6.png', name: '难过' },
+									{ url: '../../static/bqb1.png', name: '思考' },
+									{ url: '../../static/bqb7.png', name: '生气' },
+									{ url: '../../static/bqb3.png', name: '得瑟' },
+									{ url: '../../static/bqb2.png', name: '惊讶' },
+									{ url: '../../static/bqb8.png', name: '心动' },
+									
+				 ],
+				// emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
+				// textList: ['开心','无语','难过','思考','生气','得瑟','惊讶','心动'],
+				 // 表情图片路径列表
+				selectedEmoji: '', // 存储选择的表情图片路径
 			};
 		},
 		methods: {
+			popupClick() {
+			
+			    this.isshow = !this.isshow;
+			},
 		  geturl(){
 			  uni.request({
 			  	url:"https://dog.ceo/api/breeds/image/random",
@@ -741,4 +864,57 @@
       margin-top: 6rpx;
     }
   }
+  
+ .content {
+       display: flex;
+       flex-direction: column;
+ 
+   }
+ 
+ //   .popUpBtn {
+ //       height: 80rpx;
+ //       line-height: 80rpx;
+ //       width: 320rpx;
+ //       margin-top: 120rpx;
+ //       margin-left: auto;
+ //       margin-right: auto;
+ //       margin-bottom: 50rpx;
+ //       background-color: bisque;
+ //       text-align: center;
+ 		// background-color: pink;
+ //   }
+ 
+   .modelContent {
+       width: 100%;
+       height: 100%;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+ 		background-image: linear-gradient(rgb(223,233,254), white);
+ 		border-radius: 50rpx;
+   }
+ 
+   .imageV {
+ 
+       margin-top: 0px;
+       width: calc(100vw - 100px);
+       height: calc((100vw - 100px) * 0.567);
+   }
+ 
+   .close {
+       width: 60rpx;
+       height: 60rpx;
+       color: #FFFFFF;
+       line-height: 60rpx;
+       text-align: center;
+       border-radius: 50%;
+       border: 1px solid #FFFFFF;
+       position: relative;
+       bottom: -10%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+   }
+   
+   
+   
 </style>
