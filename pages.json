@@ -199,7 +199,25 @@
             "path" : "pages/wodebaogao/wodebaogao",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的报告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/xuexi2/xuexi2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "知识科普",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/xuexi3/xuexi3",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "知识科普",
                 "enablePullDownRefresh": false
             }
             

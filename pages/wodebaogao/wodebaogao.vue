@@ -84,6 +84,32 @@
 			  <img class="tupian" src="../../static/jiantou.png" alt="">
 		    </view>
 		  </view>
+		  <view class="flex-col justify-start items-start relative section_9 view">
+		    <view class="flex-row items-center section_10 space-x-12">
+		      <image
+		        class="image_2"
+		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541927764165.png"
+		      />
+		      <view class="flex-col items-start space-y-12">
+		        <text class="font_4">MBTI人格测试分析</text>
+		        <text class="font_5 text_7">2023.6.15</text>
+		      </view>
+		  			  <img class="tupian" src="../../static/jiantou.png" alt="">
+		    </view>
+		  </view>
+		  <view class="flex-col justify-start items-start relative section_9 view">
+		    <view class="flex-row items-center section_10 space-x-12">
+		      <image
+		        class="image_2"
+		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541927764165.png"
+		      />
+		      <view class="flex-col items-start space-y-12">
+		        <text class="font_4">MBTI人格测试分析</text>
+		        <text class="font_5 text_7">2023.6.15</text>
+		      </view>
+		  			  <img class="tupian" src="../../static/jiantou.png" alt="">
+		    </view>
+		  </view>
           <!-- <view class="flex-col justify-start items-start relative group_7">
             <view class="relative section_11"></view>
             <view class="flex-row section_9 space-x-14 pos">
