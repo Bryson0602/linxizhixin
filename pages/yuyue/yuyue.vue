@@ -3,33 +3,33 @@
 	  <view class="flex-col section space-y-20">
 	    <view class="flex-row justify-center items-center group space-x-22">
 	      <view class="section_2">
-			  <image src="../../static/teacher.png" mode=""></image>
+			  <image :src="detail.picture" mode=""></image>
 		  </view>
 	      <view class="flex-col group_2 space-y-18">
 	        <view class="flex-col space-y-12">
 	          <view class="flex-row items-baseline group_3 space-x-14">
-	            <text class="text">孙老师</text>
-	            <text class="text_2">心理咨询师</text>
+	            <text class="text">{{detail.name}}</text>
+	            <text class="text_2">{{detail.job}}</text>
 	          </view>
 	          <view class="flex-row group_3 space-x-28">
-	            <text class="font_1">北京大学</text>
-	            <text class="font_1">心理学</text>
+	            <text class="font_1">{{detail.school}}</text>
+	            <text class="font_1">{{detail.profession}}</text>
 	          </view>
 	        </view>
-	        <text class="self-start font_1 text_3">二级心理咨询师，2001年硕士毕业于北京大学临床心理学专业。对抑郁症、焦虑有深入研究。</text>
+	        <text class="self-start font_1 text_3">{{detail.long}}</text>
 	      </view>
 	    </view>
 	    <view class="flex-row equal-division space-x-8">
 	      <view class="flex-col items-center equal-division-item space-y-6">
-	        <text class="font_2">3000</text>
+	        <text class="font_2">{{detail.yuxun}}</text>
 	        <text class="font_3">预约量</text>
 	      </view>
 	      <view class="flex-col items-center equal-division-item space-y-6">
-	        <text class="font_2">3000</text>
+	        <text class="font_2">{{detail.zixun}}</text>
 	        <text class="font_3">咨询量</text>
 	      </view>
 	      <view class="flex-col items-center equal-division-item space-y-6">
-	        <text class="font_2">3000</text>
+	        <text class="font_2">{{detail.guanzhu}}</text>
 	        <text class="font_3">关注量</text>
 	      </view>
 	    </view>
@@ -94,6 +94,7 @@
 </template>
 
 <script>
+	let id;
 	export default {
 		data() {
 		  return {
@@ -109,9 +110,32 @@
 			text4: '预约',
 			status5: false,
 			text5: '预约',
+			detail:{},
+			loadState:false
 		  };
 		},
+		onLoad(e){			
+			id=e.id
+		},
+		onShow(){
+			this.getDetail();
+		},
 		methods: {
+		  //获取详情-----------------------------------------------
+		  getDetail(){
+		  	uniCloud.callFunction({
+		  		name:"tea_get_row",
+		  		data:{
+		  			id
+		  		}
+		  	}).then(res=>{						
+		  		this.detail=res.result.data[0]
+		  		this.loadState=true
+		  		uni.setNavigationBarTitle({
+		  			title:this.detail.title
+		  		})
+		  	})
+		  },
 		  toggleStatus() {
 		    this.status = !this.status;
 		    if (this.status) {

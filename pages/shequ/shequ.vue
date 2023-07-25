@@ -118,6 +118,7 @@
 				          <text class="font_2">心理疾病</text>
 				        </view>
 						
+						
 						<view class="flex-row justify-between section_5">
 						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi">
 						    <view class="section_6"></view>
@@ -125,7 +126,7 @@
 						      <text class="font_4 text_8">蝴蝶效应</text>
 						    </view>
 						  </view>
-						  <view class="flex-col justify-start items-start relative group_4 group_5">
+						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi1">
 						    <view class="section_6"></view>
 						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
 						      <text class="font_4">鳄鱼法则</text>
@@ -155,6 +156,7 @@
 						      <text class="font_4 text_8">蝴蝶效应</text>
 						    </view>
 						  </view>
+						  
 						  <view class="flex-col justify-start items-start relative group_4 group_5">
 						    <view class="section_6"></view>
 						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
@@ -248,23 +250,23 @@
 				      </view>
 					  
 				      <view class="flex-col space-y-14">
-				        <view class="flex-row items-center list-item space-x-14" :key="i" v-for="(item, i) in list_RuKnLZ89" @click="goyuyue">
+				        <view class="flex-row items-center list-item space-x-14" v-for="item in listArr1" :key="item._id"  @click="goyuyue(item._id)">
 				          <view class="shrink-0 section_2">
-							<image src="../../static/teacher.png" mode=""></image>
+							<image :src="item.picture" mode=""></image>
 						  </view>
 				          <view class="flex-col flex-auto space-y-9">
 				            <view class="flex-row justify-between items-start">
 				              <view class="flex-row items-baseline group_5 space-x-8">
-				                <text class="font_5">孙老师</text>
-				                <text class="font_2">心理咨询师</text>
+				                <text class="font_5">{{item.name}}</text>
+				                <text class="font_2">{{item.job}}</text>
 				              </view>
 				              <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_4">预约</text></view>
 				            </view>
 				            <view class="flex-row space-x-12">
-				              <text class="font_6">浙江万里学院</text>
-				              <text class="font_6">心理学</text>
+				              <text class="font_6">{{item.school}}</text>
+				              <text class="font_6">{{item.profession}}</text>
 				            </view>
-				            <text class="self-start font_6">抑郁症、焦虑症等心理问题咨询</text>
+				            <text class="self-start font_6">{{item.short}}</text>
 				            <view class="flex-row group_6">
 							  <image class="shizhong" src="../../static/shizhong.png" mode="heightFix"></image>
 				              <!-- <view class="section_3"></view> -->
@@ -288,8 +290,8 @@
 		data() {
 			return {
 				tabCur:0,
-				list_RuKnLZ89: [null, null, null, null, null],
-				listArr:[]
+				listArr1:[],//预约
+				listArr:[]//活动
 			}
 		},
 		methods: {
@@ -317,9 +319,14 @@
 					url:'/pages/xuexi/xuexi'
 				})
 			},
-			goyuyue(){
+			goxuexi1(){
 				uni.navigateTo({
-					url:'/pages/yuyue/yuyue'
+					url:'/pages/xuexi1/xuexi1'
+				})
+			},
+			goyuyue(e){
+				uni.navigateTo({
+					url:"/pages/yuyue/yuyue?id="+e
 				})
 			},
 			gorili(){
@@ -336,10 +343,21 @@
 						this.listArr=res.data.data
 					}
 				})
+			},
+			//获取网络数据
+			getData1(){
+				uni.request({
+					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getTeacherAll",
+					success:res=>{
+						console.log(res);
+						this.listArr1=res.data.data
+					}
+				})
 			}
 		},
 		onLoad(){
 			this.getData();
+			this.getData1();
 		}
 	}
 </script>
@@ -719,7 +737,7 @@
             }
             .text-wrapper_3 {
               padding: 72rpx 0 84rpx;
-              background-color: #65cbc8;
+              background-color: #81d9d3;
               border-radius: 24rpx;
               width: 248rpx;
               .text_8 {

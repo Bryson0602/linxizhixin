@@ -3,7 +3,7 @@
 	  
 	  <view class="flex-col space-y-10">
 	    <view class="flex-row justify-between group_3">
-	      <text class="self-start text_5">抑郁症</text>
+	      <text class="self-start text_5">焦虑症</text>
 	      <view class="flex-col justify-start items-center self-center text-wrapper">
 	        <text class="font_2 text_4">记笔记</text>
 	      </view>

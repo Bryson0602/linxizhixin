@@ -17,9 +17,9 @@
       <!-- <view class="self-center section_4"></view> -->
       <!-- <text class="self-center text_20">今日没有报名的活动哦</text> -->
 	  <view class="flex-col list space-y-10">
-	    <view class="flex-col items-start relative list-item" :key="i" v-for="(item, i) in list_RiXSrhKo" @click="gohuodong">
-	      <text class="font_6">心理疾病知识大讲堂</text>
-	      <text class="font_8 text_25">2023.07.08-2023.07.10</text>
+	    <view class="flex-col items-start relative list-item" :key="i" v-for="(item, i) in list_RiXSrhKo" @click="gogfhd1">
+	      <text class="font_6">心理知识大讲堂</text>
+	      <text class="font_8 text_25">2023.09.08-2023.09.15</text>
 	      <view class="flex-col justify-start items-center text-wrapper_3 pos"><text class="font_7">进行中</text></view>
 	    </view>
 	  </view>
@@ -37,9 +37,9 @@
 	    };
 	  },
 	  methods: {
-		gohuodong(){
+		gogfhd1(){
 			uni.navigateTo({
-				url:'/pages/huodong/huodong'
+				url:'/pages/gfhd1/gfhd1'
 			})
 		}
 	  },
