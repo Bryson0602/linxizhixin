@@ -21,7 +21,7 @@
 	      </view>
 	      <view class="flex-col group_4 space-y-17">
 	        <view class="flex-row space-x-19">
-	          <view class="flex-col equal-division-item space-y-8">
+	          <view class="flex-col equal-division-item space-y-8" @click="towodebaogao">
 	            <text class="self-start font_2 text_3">我的报告</text>
 	            <view class="flex-col items-start section_5 space-y-14">
 	              <text class="font_3">最近更新</text>
@@ -90,6 +90,11 @@
 			};
 		},
 		methods:{
+			towodebaogao() {
+				uni.navigateTo({
+					url:'/pages/wodebaogao/wodebaogao'
+				})
+			},
 			toxqrj() {
 				uni.navigateTo({
 					url:'/pages/xqrj/xqrj'
