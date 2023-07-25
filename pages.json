@@ -222,6 +222,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/sdszice/sdszice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "测试",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
