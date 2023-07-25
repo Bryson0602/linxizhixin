@@ -29,36 +29,36 @@
 	      <view class="flex-col flex-auto self-center relative section_4">
 	        <text class="self-start font_2 text_4">HI! 今天是{{weekday}}</text>
 			
-			<view class="content">
+		<!-- 	<view class="content"> -->
 			
 			        <!-- <view class="popUpBtn" @click="popupClick">
 			            点击显示弹框</view> -->
 			
 			        <!-- 使用组件 isShow：设置弹框是否显示 width：宽度 height：高度 radius：圆角 -->
-			        <cc-popup :isShow='isshow' width="650rpx" height="600rpx" radius="50rpx">
+			        <!-- <cc-popup :isShow='isshow' width="650rpx" height="600rpx" radius="50rpx"> -->
 						<!-- calc(100vw - 70px) -->
 			            <!-- 自定义展示内容 -->
-			      <view class="modelContent">	
+			      <!-- <view class="modelContent">	
 			<view class="flex-col relative section_2 space-y-10">
 			  <view class="flex-row justify-between items-start group_2">
-			    <text class="text_10">每日心情</text>
+			    <text class="text_10">每日心情 --><!-- </text> -->
 			    <!-- <text class="font_5 text_11">今天的你是哪一种呢</text> -->
-			  </view>
+			 <!-- </view> -->
 					
-			  <view class="grid">
-			    <view class="flex-col items-center grid-item space-y-4 image-container" v-for="(emoji, index) in emojiList" :key="index">
+			 <!-- <view class="grid"> -->
+			    <!-- <view class="flex-col items-center grid-item space-y-4 image-container" v-for="(emoji, index) in emojiList" :key="index">
 							<image
 			        class="image xuanting"
 			        :src="emoji.url"
 						  @click="selectEmoji(emoji)"
-			      />
+			      /> -->
 						<!-- <image
 						  v-for="(emoji, index) in emojiList" :key="index" :src="emoji" @click="selectEmoji(emoji)"
 						></image> -->
 					
-					<text class="font_5" >{{emoji.name}}</text>
+					<!-- <text class="font_5" >{{emoji.name}}</text>
 			     
-			    </view>
+			    </view> -->
 			    <!-- <view class="flex-col items-center grid-item space-y-4">
 			      <image
 			        class="image"
@@ -108,20 +108,26 @@
 			      />
 			      <text class="font_5">心动</text>
 			    </view> -->
-			  </view>
+			  <!-- </view>
 			</view>
-			</view>
+			</view> -->
 			        <!-- 自定义关闭按钮 -->
-			  <view class="close" @click="isshow=false">✕</view>
-			  </cc-popup>
+			  <!-- <view class="close" @click="isshow=false">✕</view>
+			  </cc-popup> -->
 			
-			</view>
+			<!-- </view> -->
 			
-	        <view class="flex-col justify-start items-center relative text-wrapper_2" @click="popupClick">
-	          <text class="font_2 text_5">记录每日心情</text>
+	        <view class=" flex-col justify-start items-center relative text-wrapper_2" @click="popupClick">
+	          <text class="font_2 text_5 ">记录每日心情</text>
 	        </view>
 			
-			
+			<!-- <view class="emoji-list" v-for="(emoji, index) in emojiList"
+				  :key="index"
+				  @click="selectEmoji(emoji)"
+				>
+				{{emoji}} -->
+				<!-- <view class="flex-col justify-start items-center text-wrapper_3">{{emoji}}</view>  -->
+			<!-- </view> -->
 	        <view class="flex-row group_4 space-x-4">
 	          <view class="flex-col justify-start items-center text-wrapper_3" :class="dayindex===1?'text-wrapper_4':''"><text class="font_4" :class="dayindex===1?'text_6':''">1</text></view>
 	          <view class="flex-col justify-start items-center text-wrapper_3" :class="dayindex===2?'text-wrapper_4':''"><text class="font_4" :class="dayindex===2?'text_6':''">2</text></view>
@@ -327,6 +333,7 @@
 				isshow: false,
 				
 				emojiList:[
+					'😄', '😊', '😂','🤣','🤡','🤗','😍'
 									// {img:require('../../static/bqb4.png'),text:'开心'},
 									// {img:'../../static/bqb5.png',text:'无语'},
 									// {img:'../../static/bqb6.png',text:'难过'},
@@ -335,14 +342,14 @@
 									// {img:'../../static/bqb3.png',text:'得瑟'},
 									// {img:'../../static/bqb2.png',text:'惊讶'},
 									// {img:'../../static/bqb8.png',text:'心动'},
-									{ url: '../../static/bqb4.png', name: '开心' },
-									{ url: '../../static/bqb5.png', name: '无语' },
-									{ url: '../../static/bqb6.png', name: '难过' },
-									{ url: '../../static/bqb1.png', name: '思考' },
-									{ url: '../../static/bqb7.png', name: '生气' },
-									{ url: '../../static/bqb3.png', name: '得瑟' },
-									{ url: '../../static/bqb2.png', name: '惊讶' },
-									{ url: '../../static/bqb8.png', name: '心动' },
+									// { url: '../../static/bqb4.png', name: '开心' },
+									// { url: '../../static/bqb5.png', name: '无语' },
+									// { url: '../../static/bqb6.png', name: '难过' },
+									// { url: '../../static/bqb1.png', name: '思考' },
+									// { url: '../../static/bqb7.png', name: '生气' },
+									// { url: '../../static/bqb3.png', name: '得瑟' },
+									// { url: '../../static/bqb2.png', name: '惊讶' },
+									// { url: '../../static/bqb8.png', name: '心动' },
 									
 				 ],
 				// emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
@@ -352,9 +359,13 @@
 			};
 		},
 		methods: {
+			selectEmoji(emoji) {
+			  this.selectedEmoji = emoji;
+			},
 			popupClick() {
-			
-			    this.isshow = !this.isshow;
+				uni.navigateTo({
+					url:'/pages/xqrj/xqrj'
+				})
 			},
 		  geturl(){
 			  uni.request({
@@ -419,6 +430,12 @@
 </script>
 
 <style scoped lang="scss">
+.emoji-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  align-items: center;
+}
 .page {
 	position: fixed;
     padding-top: 15rpx;
@@ -923,7 +940,7 @@
        left: 50%;
        transform: translate(-50%, -50%);
    }
-   
+
    
    
 </style>

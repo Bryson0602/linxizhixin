@@ -195,6 +195,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/wodebaogao/wodebaogao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
