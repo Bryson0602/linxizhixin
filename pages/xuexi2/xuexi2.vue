@@ -3,46 +3,40 @@
 	  
 	  <view class="flex-col space-y-10">
 	    <view class="flex-row justify-between group_3">
-	      <text class="self-start text_5">{{detail.name1}}</text>
+	      <text class="self-start text_5">自我认知</text>
 	      <view class="flex-col justify-start items-center self-center text-wrapper">
 	        <text class="font_2 text_4">记笔记</text>
 	      </view>
 	    </view>
-	    <text class="self-start font_2 text_6">就诊科室：{{detail.keshi1}}</text>
+	    <text class="self-start font_2 text_6">心理健康中的重要一环</text>
 	    <view class="flex-col">
 	      <view class="flex-col items-start section_2 space-y-4">
 	        <text class="font_4">概述：</text>
-	        <text class="font_2">{{detail.gaishu1}}</text>
+	        <text class="font_2">· 抑郁障碍的一种典型情况\n· 核心症状是显著持久的情绪低落、兴趣减退等\n· 最常见的精神障碍，临床治愈率高\n· 自杀是抑郁症患者最严重的后果之一</text>
 	        
 	      </view>
 	      <view class="flex-col list space-y-16">
 	        <view class="flex-col justify-start items-start list-item" >
 	          <view class="group_4">
-	            <text class="font_3">定义：</text>
-	            <text class="font_2">{{detail.dingyi1}}</text>
+	            <text class="font_3">了解自身：</text>
+	            <text class="font_2">抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...</text>
 	          </view>
 	        </view>
 			
 			<view class="flex-col justify-start items-start list-item" >
 			  <view class="group_4">
-			    <text class="font_3">就医：</text>
-			    <text class="font_2">{{detail.jiuyi1}}</text>
+			    <text class="font_3">培养自信：</text>
+			    <text class="font_2">抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...</text>
 			  </view>
 			</view>
 			
 			<view class="flex-col justify-start items-start list-item" >
 			  <view class="group_4">
-			    <text class="font_3">治疗：</text>
-			    <text class="font_2">{{detail.zhiliao1}}</text>
+			    <text class="font_3">独立人格：</text>
+			    <text class="font_2">抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...抑郁症是抑郁障碍的一种典型情况...</text>
 			  </view>
 			</view>
-			
-			<view class="flex-col justify-start items-start list-item" >
-			  <view class="group_4">
-			    <text class="font_3">日常：</text>
-			    <text class="font_2">{{detail.richang1}}</text>
-			  </view>
-			</view>
+
 			
 	      </view>
 	    </view>
@@ -51,38 +45,15 @@
 </template>
 
 <script>
-	let id;
 	export default {
 	  components: {},
 	  data() {
 	    return {
-	      detail:{},
-	      loadState:false
+	      list_3pTJhiqY: [null, null, null, null],
 	    };
 	  },
-		onLoad(e){			
-			id=e.id
-		},
-		onShow(){
-			this.getDetail();
-		},
-		methods: {
-			//获取详情-----------------------------------------------
-			getDetail(){
-				uniCloud.callFunction({
-					name:"get_Study1_row",
-					data:{
-						id
-					}
-				}).then(res=>{						
-					this.detail=res.result.data[0]
-					this.loadState=true
-					uni.setNavigationBarTitle({
-						title:this.detail.title
-					})
-				})
-			}
-		}
+	
+	  methods: {},
 	};
 </script>
 

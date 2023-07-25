@@ -115,18 +115,57 @@
 				      </view>
 				      <view class="flex-col space-y-13">
 				        <view class="flex-col justify-start items-center self-start button_2">
+				          <text class="font_2">知识科普</text>
+				        </view>
+						
+						
+						<view class="flex-row justify-between section_5">
+						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi2">
+						    <view class="section_6"></view>
+						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
+						      <text class="font_4 text_8">蝴蝶效应</text>
+						    </view>
+						  </view>
+						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi3">
+						    <view class="section_6"></view>
+						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
+						      <text class="font_4">鳄鱼法则</text>
+						    </view>
+						  </view>
+						</view>
+						
+				        
+						
+				        <view class="flex-col justify-start items-center self-start button_2">
 				          <text class="font_2">心理疾病</text>
 				        </view>
 						
 						
+				        <view class="flex-row justify-between section_5" v-for="item in listArr2" :key="item._id">
+				          <view class="flex-col justify-start items-start relative group_4"@click="goxuexi(item._id)">
+				            <view class="section_6"></view>
+				            <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
+				              <text class="font_4 text_8">{{item.name}}</text>
+				            </view>
+				          </view>
+				          <view class="flex-col justify-start items-start relative group_4"@click="goxuexi1(item._id)">
+				            <view class="section_6"></view>
+				            <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
+				              <text class="font_4">{{item.name1}}</text>
+				            </view>
+				          </view>
+				        </view>
+						
+						
+						
 						<view class="flex-row justify-between section_5">
-						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi">
+						  <view class="flex-col justify-start items-start relative group_4"@click="goxuexi">
 						    <view class="section_6"></view>
 						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
 						      <text class="font_4 text_8">蝴蝶效应</text>
 						    </view>
 						  </view>
-						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi1">
+						  <view class="flex-col justify-start items-start relative group_4"@click="goxuexi1">
 						    <view class="section_6"></view>
 						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
 						      <text class="font_4">鳄鱼法则</text>
@@ -134,98 +173,7 @@
 						  </view>
 						</view>
 						
-						<view class="flex-row justify-between section_5">
-						  <view class="flex-col justify-start items-start relative group_4 group_5">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-						      <text class="font_4 text_8">蝴蝶效应</text>
-						    </view>
-						  </view>
-						  <view class="flex-col justify-start items-start relative group_4 group_5">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-						      <text class="font_4">鳄鱼法则</text>
-						    </view>
-						  </view>
-						</view>
-						
-						<view class="flex-row justify-between section_5">
-						  <view class="flex-col justify-start items-start relative group_4 group_5">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-						      <text class="font_4 text_8">蝴蝶效应</text>
-						    </view>
-						  </view>
-						  
-						  <view class="flex-col justify-start items-start relative group_4 group_5">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-						      <text class="font_4">鳄鱼法则</text>
-						    </view>
-						  </view>
-						</view>
 				        
-						
-				        <view class="flex-col justify-start items-center self-start button_2">
-				          <text class="font_2">常识科普</text>
-				        </view>
-						
-				        <view class="flex-row justify-between section_5">
-				          <view class="flex-col justify-start items-start relative group_4">
-				            <view class="section_6"></view>
-				            <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-				              <text class="font_4 text_8">蝴蝶效应</text>
-				            </view>
-				          </view>
-				          <view class="flex-col justify-start items-start relative group_4">
-				            <view class="section_6"></view>
-				            <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-				              <text class="font_4">鳄鱼法则</text>
-				            </view>
-				          </view>
-				        </view>
-				        <view class="flex-row justify-between section_5">
-				          <view class="flex-col justify-start items-start relative group_4">
-				            <view class="section_6"></view>
-				            <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-				              <text class="font_4 text_8">蝴蝶效应</text>
-				            </view>
-				          </view>
-				          <view class="flex-col justify-start items-start relative group_4">
-				            <view class="section_6"></view>
-				            <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-				              <text class="font_4">鳄鱼法则</text>
-				            </view>
-				          </view>
-				        </view>
-						<view class="flex-row justify-between section_5">
-						  <view class="flex-col justify-start items-start relative group_4">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-						      <text class="font_4 text_8">蝴蝶效应</text>
-						    </view>
-						  </view>
-						  <view class="flex-col justify-start items-start relative group_4">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-						      <text class="font_4">鳄鱼法则</text>
-						    </view>
-						  </view>
-						</view>
-						<view class="flex-row justify-between section_5">
-						  <view class="flex-col justify-start items-start relative group_4">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-						      <text class="font_4 text_8">蝴蝶效应</text>
-						    </view>
-						  </view>
-						  <view class="flex-col justify-start items-start relative group_4">
-						    <view class="section_6"></view>
-						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-						      <text class="font_4">鳄鱼法则</text>
-						    </view>
-						  </view>
-						</view>
 					  </view>
 				    </view>
 				  </view>
@@ -291,7 +239,8 @@
 			return {
 				tabCur:0,
 				listArr1:[],//预约
-				listArr:[]//活动
+				listArr:[],//活动
+				listArr2:[]//学习疾病
 			}
 		},
 		methods: {
@@ -314,14 +263,24 @@
 					url:"/pages/huodong/huodong?id="+e
 				})
 			},
-			goxuexi(){
+			goxuexi(e){
 				uni.navigateTo({
-					url:'/pages/xuexi/xuexi'
+					url:"/pages/xuexi/xuexi?id="+e
 				})
 			},
-			goxuexi1(){
+			goxuexi1(e){
 				uni.navigateTo({
-					url:'/pages/xuexi1/xuexi1'
+					url:"/pages/xuexi1/xuexi1?id="+e
+				})
+			},
+			goxuexi2(){
+				uni.navigateTo({
+					url:'/pages/xuexi2/xuexi2'
+				})
+			},
+			goxuexi3(){
+				uni.navigateTo({
+					url:'/pages/xuexi3/xuexi3'
 				})
 			},
 			goyuyue(e){
@@ -344,7 +303,7 @@
 					}
 				})
 			},
-			//获取网络数据
+			//获取网络数据-预约
 			getData1(){
 				uni.request({
 					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getTeacherAll",
@@ -353,11 +312,22 @@
 						this.listArr1=res.data.data
 					}
 				})
+			},
+			//获取网络数据-学习疾病
+			getData2(){
+				uni.request({
+					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getStudy1All",
+					success:res=>{
+						console.log(res);
+						this.listArr2=res.data.data
+					}
+				})
 			}
 		},
 		onLoad(){
 			this.getData();
 			this.getData1();
+			this.getData2();
 		}
 	}
 </script>
