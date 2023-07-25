@@ -97,7 +97,7 @@
       .font_2 {
         font-size: 32rpx;
         font-family: SegoeUI-Bold;
-        line-height: 38rpx;
+        line-height: 45rpx;
         font-weight: 500;
         color: #78708c;
       }
