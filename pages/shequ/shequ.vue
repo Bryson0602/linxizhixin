@@ -119,17 +119,17 @@
 				        </view>
 						
 						
-						<view class="flex-row justify-between section_5">
-						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi2">
+						<view class="flex-row justify-between section_5"v-for="item in listArr3" :key="item._id">
+						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi2(item._id)">
 						    <view class="section_6"></view>
 						    <view class="flex-col justify-start items-center text-wrapper_3 pos_11">
-						      <text class="font_4 text_8">蝴蝶效应</text>
+						      <text class="font_4 text_8">{{item.name}}</text>
 						    </view>
 						  </view>
-						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi3">
+						  <view class="flex-col justify-start items-start relative group_4 group_5"@click="goxuexi3(item._id)">
 						    <view class="section_6"></view>
 						    <view class="flex-col justify-start items-center text-wrapper_3 pos_12">
-						      <text class="font_4">鳄鱼法则</text>
+						      <text class="font_4">{{item.name1}}</text>
 						    </view>
 						  </view>
 						</view>
@@ -238,9 +238,10 @@
 		data() {
 			return {
 				tabCur:0,
-				listArr1:[],//预约
 				listArr:[],//活动
-				listArr2:[]//学习疾病
+				listArr1:[],//预约
+				listArr2:[],//学习疾病
+				listArr3:[],//常识科普
 			}
 		},
 		methods: {
@@ -273,14 +274,14 @@
 					url:"/pages/xuexi1/xuexi1?id="+e
 				})
 			},
-			goxuexi2(){
+			goxuexi2(e){
 				uni.navigateTo({
-					url:'/pages/xuexi2/xuexi2'
+					url:"/pages/xuexi2/xuexi2?id="+e
 				})
 			},
-			goxuexi3(){
+			goxuexi3(e){
 				uni.navigateTo({
-					url:'/pages/xuexi3/xuexi3'
+					url:"/pages/xuexi3/xuexi3?id="+e
 				})
 			},
 			goyuyue(e){
@@ -322,12 +323,23 @@
 						this.listArr2=res.data.data
 					}
 				})
+			},
+			//获取网络数据-知识科普
+			getData3(){
+				uni.request({
+					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/get_Study2_All",
+					success:res=>{
+						console.log(res);
+						this.listArr3=res.data.data
+					}
+				})
 			}
 		},
 		onLoad(){
 			this.getData();
 			this.getData1();
 			this.getData2();
+			this.getData3();
 		}
 	}
 </script>
