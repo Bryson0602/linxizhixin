@@ -173,7 +173,7 @@
           margin-left: 12rpx;
         }
         .section {
-			border-radius: 25rpx;
+			border-radius: 30rpx;
           padding: 46rpx 32rpx 24rpx;
           background-color: #ffffff;
           box-shadow: 0px 6rpx 16rpx #a5a5a529;

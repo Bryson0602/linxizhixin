@@ -34,8 +34,8 @@
 	    </view>
 	    <text class="self-center text_6">最近的一周内我有便秘的苦恼</text>
 	    <view class="flex-col group_6 space-y-23">
-	      <view class="flex-col space-y-23">
-	        <view class="box"><view class="box flex-col justify-start items-start text-wrapper_3"><text class="font_3 text_7">符合</text></view></view>
+	      <view class="flex-col space-y-23 ">
+	        <view class="box" ><view class="box flex-col justify-start items-start text-wrapper_3"><text class="font_3 text_7">符合</text></view></view>
 	        <view class="box"><view class="box flex-col justify-start items-start text-wrapper_3">
 	          <text class="font_3 text_7">有点符合</text>
 	        </view></view>
@@ -68,6 +68,9 @@
 		// removeShadow() {
 		//   this.$refs.box.classList.remove('active');
 		// }
+		bianse(){
+			document.getElementById('box').style.background='red'
+		}
 	},
   };
 </script>
@@ -78,9 +81,10 @@
 		cursor: pointer;
 		user-select: none;
 		transition: box-shadow 0.3s ease-in-out;
+		
 		}
 .box:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 5px 1px rgba(100, 83, 206, 0.8);
 }
   .page {
 	  position: fixed;
