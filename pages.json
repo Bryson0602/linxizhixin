@@ -180,8 +180,8 @@
             "path" : "pages/ceshirukou/ceshirukou",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-				"navigationStyle": "custom", //设置自定义导航栏
+                "navigationBarTitleText": "心理自测",
+				//"navigationStyle": "custom", //设置自定义导航栏
                 "enablePullDownRefresh": false
             }
             
@@ -227,6 +227,15 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "测试",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ceshibaogao/ceshibaogao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "测试报告",
                 "enablePullDownRefresh": false
             }
             

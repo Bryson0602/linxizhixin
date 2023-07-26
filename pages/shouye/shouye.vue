@@ -138,7 +138,7 @@
 	          <view class="flex-col justify-start items-center text-wrapper_3" :class="dayindex===0?'text-wrapper_4':''"><text class="font_4" :class="dayindex===0?'text_6':''">7</text></view>
 	        </view>
 	      </view>
-	      <view class="flex-col justify-start items-center shrink-0 self-start section_3">
+	      <view class="flex-col justify-start items-center shrink-0 self-start section_3" @click="gorukou">
 	        <view class="flex-col items-center section_5 space-y-6">
 	          <text class="font_3">开始</text>
 	          <text class="font_3">测试</text>
@@ -365,6 +365,11 @@
 			popupClick() {
 				uni.navigateTo({
 					url:'/pages/xqrj/xqrj'
+				})
+			},
+			gorukou() {
+				uni.navigateTo({
+					url:'/pages/ceshirukou/ceshirukou'
 				})
 			},
 		  geturl(){
