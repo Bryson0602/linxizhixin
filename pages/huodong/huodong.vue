@@ -67,7 +67,7 @@
 				status: false,
 				text: '报名',
 				detail:{},
-				loadState:false
+				loadState:false,
 			};
 		},
 		onLoad(e){			
