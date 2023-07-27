@@ -20,16 +20,21 @@
 	          <text class="font_2">尽量不选择中立答案</text>
 	        </view>
 	      </view>
-	      <view class="flex-col justify-start items-start self-center section_4"><view class="section_5"></view></view>
+	      <view class="flex-col justify-start items-start self-center section_4">
+			  <view class="section_5" 
+			  :style="{width: ((this.currentIdx + 1) / this.questionList.length * 100) + '%'}">
+			  </view>
+		  </view>
 	    </view>
+		
 	    <view class="flex-row justify-between group_5">
-	      <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1 text_4">1</text></view>
+	      <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1 text_4">{{currentIdx + 1}}</text></view>
 	      <view class="flex-row section_6 space-x-10">
 	        <image
 	          class="shrink-0 self-center image"
 	          src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701522478464885.png"
 	        />
-	        <text class="self-start text_5">00：05</text>
+	        <text class="self-start text_5">{{timer}}</text>
 	      </view>
 	    </view>
 		
@@ -39,7 +44,7 @@
 		v-show="currentIdx === index"
 		>
 		
-			<text class="self-center text_6">{{item.title}}</text>
+			<text class="self-center flex-row text_6">{{item.title}}</text>
 			
 			<view class="flex-col group_6 space-y-23">
 			  <view class="flex-col space-y-23 ">
@@ -53,36 +58,23 @@
 						<text class="font_3 text_7">{{option.label}}. {{option.name}}</text>
 					</view>
 				</view>
-				<!-- <view class="box">
-					<view class="box flex-col justify-start items-start text-wrapper_3">
-						<text class="font_3 text_7">B.有点符合</text>
-					</view>
-				</view>
-				<view class="box" >
-					<view class="box flex-col justify-start items-start text-wrapper_3">
-						<text class="font_3 text_7">C.不太符合</text>
-					</view>
-				</view>
-				<view class="box">
-					<view class="box flex-col justify-start items-start text-wrapper_3">
-						<text class="font_3 text_7">D.不符合</text>
-					</view>
-				</view> -->
 			  </view>
 			</view>
 		</view>
+		<view class="flex-row bt">
+			<button class="flex-col justify-start items-center self-center button1" @click="prev" :disabled="currentIdx === 0">
+			<image src="../../static/zuojiantou.png" mode=""></image>
+			</button>
 		
-	    <button class="flex-col justify-start items-center self-center button" @click="prev" :disabled="currentIdx === 0">
-			<text class="text_8">上一题</text>
-		</button>
-		
-		<button class="flex-col justify-start items-center self-center button" @click="next" :disabled="currentIdx === questionList.length - 1">
-			<text class="text_8">下一题</text>
-		</button>
-		
-		<button class="flex-col justify-start items-center self-center button" @click="submit">
-			<text class="text_8">提交</text>
-		</button>
+			<button class="flex-col justify-start items-center self-center button" @click="next" :disabled="currentIdx === questionList.length - 1" v-show="currentIdx !== questionList.length - 1">
+				<text class="text_8">下一题</text>
+			</button>
+			
+			<button class="flex-col justify-start items-center self-center button2" @click="submit" v-show="currentIdx === questionList.length - 1">
+				<text class="text_8">提 交</text>
+			</button>
+		</view>
+	    
 	  </view>
 	</view>
 </template>
@@ -92,6 +84,7 @@
     components: {},
     data() {
       return {
+		  timer: '00:00',
 		  // 当前题目索引
 		  currentIdx: 0, 
 		  // 已获得的分数
@@ -150,19 +143,21 @@
 		      options: [
 		    	{id: 1, name:'不是', label: 'A', selected: false},
 		    	{id: 2, name:'是的', label: 'B', selected: false},
-		    	{id: 3, name:'是的', label: 'C', selected: false}
+		    	{id: 3, name:'是的', label: 'C', selected: false},
+				{id: 4, name:'是的', label: 'D', selected: false},
 		      ]
 		    },
 		    {
 		      id: 5,
 		      isMultiple: true,
-		      title: '是多选吧?',
+		      title: '是多选吧是多选吧是多选?是多选吧是多选吧是多选?',
 		      answer: 'ABC',
 		      score: 2,
 		      options: [
 		    	{id: 1, name:'是的', label: 'A', selected: false},
 		    	{id: 2, name:'是的', label: 'B', selected: false},
-		    	{id: 3, name:'是的', label: 'C', selected: false}  
+		    	{id: 3, name:'是的', label: 'C', selected: false},
+				{id: 4, name:'是的', label: 'D', selected: false},
 		      ]
 		    }
 		  ],
@@ -224,10 +219,15 @@
 		  })
 		  if (answeredList.length < this.questionList.length) {
 		    // 如果有未作答的,提示
-		    uni.showToast({
-		      title: '还有题目未作答',
-		      icon: 'none'
-		    })
+		    // uni.showToast({
+		    //   title: '还有题目未作答',
+		    //   icon: 'none'
+		    // })
+			uni.showModal({
+				title: '温馨提示',
+				content: '还有题目未作答',
+				showCancel: false
+			});
 		    return
 		  }
 		  // 显示得分
@@ -235,8 +235,12 @@
 		    title: `获得${this.score}分`,
 		    icon: 'none'  
 		  })
+		  console.log(this.score)
 		  // 允许显示答案
 		  this.canShowAnswer = true
+		  uni.navigateTo({
+		  	url:"/pages/ceshibaogao/ceshibaogao?score=" + this.score
+		  })
 		},
 
 		// addShadow() {
@@ -247,8 +251,29 @@
 		// }
 		bianse(){
 			document.getElementById('box').style.background='red'
+		},
+		startTimer() {//计时器的方法
+		  let minute = 0;
+		  let second = 0;
+		  setInterval(() => {
+			second++;
+			if(second >= 60) {
+			  minute++;
+			  second = 0;
+			}
+			this.timer = this.formatNumber(minute) + ':' + this.formatNumber(second);
+		  }, 1000);
+		},
+		formatNumber(num) {//计时器的方法
+		  return num >= 10 ? num : '0' + num;
 		}
 	},
+	onLoad() {
+		this.startTimer();//加载计时器
+	},
+	onUnload() {
+	  clearInterval(this.timer)//清除计时器
+	}
   };
 </script>
 
@@ -264,7 +289,7 @@
 }
 
   .page {
-	//  position: fixed;
+	position: fixed;
     background-color: #f5f5f5;
     width: 100%;
     overflow-y: auto;
@@ -280,7 +305,7 @@
           margin-top: 30rpx;
         }
         .section_2 {
-          padding: 72rpx 68rpx 40rpx 74rpx;
+          padding: 60rpx 68rpx 60rpx 74rpx;
           background-color: #6453ce;
           box-shadow: 0px 6rpx 16rpx #a5a5a529;
           .space-y-6 {
@@ -346,8 +371,9 @@
           .section_5 {
             background-color: #6453ce;
             border-radius: 24rpx;
-            width: 40rpx;
+            width: 12%;
             height: 16rpx;
+			transition: width 0.5s ease;
           }
         }
       }
@@ -399,13 +425,13 @@
         }
       }
       .text_6 {
-        margin:0 68rpx;
+        margin:0 48rpx;
 
         color: #202020;
         font-size: 44rpx;
         font-family: SegoeUI-Bold;
         font-weight: 700;
-        line-height: 41rpx;
+        line-height: 50rpx;
       }
       .group_6 {
         margin-top: 108rpx;
@@ -434,23 +460,56 @@
           }
         }
       }
-      .button {
-        margin-top: 70rpx;
-        padding: 32rpx 0 32rpx;
-        background-color: #6453ce;
-        border-radius: 32rpx;
-        box-shadow: 0px 6rpx 16rpx #a5a5a529;
-        width: 336rpx;
-        .text_8 {
-          color: #ffffff;
-          font-size: 52rpx;
-          font-family: SegoeUI-Bold;
-          font-weight: 700;
-          line-height: 47rpx;
-        }
-      }
-	  button[disabled]{
-	    background-color: #ccc;
+	  .bt{//三个按钮
+		  margin-top: 70rpx;
+		  margin-bottom: 150rpx;
+		.button {
+			//margin-top: 70rpx;
+			padding: 32rpx 0 32rpx;
+			background-color: #6453ce;
+			border-radius: 32rpx;
+			box-shadow: 0px 6rpx 16rpx #a5a5a529;
+			width: 336rpx;
+			.text_8 {
+			  color: #ffffff;
+			  font-size: 52rpx;
+			  font-family: SegoeUI-Bold;
+			  font-weight: 700;
+			  line-height: 47rpx;
+			}
+		}
+		  .button1 {
+			//margin-top: 70rpx;
+			//padding: 32rpx 0 32rpx;
+			background-color: #6453ce;
+			border-radius: 100rpx;
+			box-shadow: 0px 6rpx 16rpx #a5a5a529;
+			width: 100rpx;
+			height: 100rpx;
+			image{
+				margin: auto 5rpx;
+				width: 55rpx;
+				height: 55rpx;
+			}
+		}
+		  .button2 {
+			//margin-top: 70rpx;
+			padding: 32rpx 0 32rpx;
+			background-color: #4ca178;
+			border-radius: 32rpx;
+			box-shadow: 0px 6rpx 16rpx #a5a5a529;
+			width: 336rpx;
+			.text_8 {
+			  color: #ffffff;
+			  font-size: 52rpx;
+			  font-family: SegoeUI-Bold;
+			  font-weight: 700;
+			  line-height: 47rpx;
+			}
+		}
+		  button[disabled]{
+			background-color: #ccc;
+		}
 	  }
     }
   }

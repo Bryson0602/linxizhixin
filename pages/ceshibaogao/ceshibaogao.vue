@@ -89,6 +89,9 @@
     },
 
     methods: {},
+	onLoad(option) {//接受分数
+		const score = option.score;
+	}
   };
 </script>
 
