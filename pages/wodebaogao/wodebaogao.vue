@@ -12,7 +12,7 @@
               <text class="font_2 text_4">近30天</text>
             </view>
           </view>
-          <view class="flex-row justify-around group_3">
+          <!-- <view class="flex-row justify-around group_3">
             <view class="flex-row space-x-20">
               <view class="flex-col items-center space-y-50">
                 <text class="font_3">高</text>
@@ -27,7 +27,7 @@
             <view class="self-center section_2"></view>
             <view class="self-start section_6"></view>
           </view>
-          <view class="flex-row justify-between group_4">
+          <!-- <view class="flex-row justify-between group_4">
             <text class="font_3">抑郁</text>
             <text class="font_3">焦虑</text>
             <text class="font_3">燥怒</text>
@@ -39,8 +39,19 @@
             <view class="section_8"></view>
             <view class="section_8"></view>
             <view class="section_8"></view>
-          </view>
+          </view> -->
+		  <view class="charts-box">
+		    <qiun-data-charts 
+		      type="line"
+		      :opts="opts"
+		      :chartData="chartData"
+		      :canvas2d="true"
+		      canvasId="JTKjBDhRiZZSwDgwRwxGnavZNyyIalHI"
+		    />
+		  </view>
         </view>
+		
+		
       </view>
       <view class="flex-col group_6 space-y-12">
         <text class="self-start font_1 text_6">历史报告</text>
@@ -107,7 +118,8 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-		  			  <img class="tupian" src="../../static/jiantou.png" alt="">
+		  			  <img class="tupian" src=".../../static/jiantou.png" alt="">
+					  
 		    </view>
 		  </view>
           <!-- <view class="flex-col justify-start items-start relative group_7">
@@ -127,17 +139,148 @@
 </template>
 
 <script>
+	// import uCharts from '@../../../uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js'; //引入js文件
+	// var _self; //用于全局使用this
+	// var canvaLineA = null; //uCharts实例
   export default {
     components: {},
     data() {
-      return {};
+      return {
+    		cWidth: '',
+    		cHeight: '',
+        chartData: {},
+        //您可以通过修改 config-ucharts.js 文件中下标为 ['line'] 的节点来配置全局默认参数，如都是默认参数，此处可以不传 opts 。实际应用过程中 opts 只需传入与全局默认参数中不一致的【某一个属性】即可实现同类型的图表显示不同的样式，达到页面简洁的需求。
+    	  
+        opts: {
+          color: ["#1890FF","#91CB74","#FAC858","#EE6666","#73C0DE","#3CA272","#FC8452","#9A60B4","#ea7ccc"],
+          padding: [50, 1, 0, 20],
+          dataLabel: false,
+          dataPointShape: false,
+          enableScroll: false,
+          legend: {},
+          xAxis: {
+            disableGrid: true,
+			gridType: "dash",
+			dashLength: 8,
+          },
+          yAxis: {
+			disableGrid: true,
+            gridType: "dash",
+            dashLength: 8,
+            data: [
+              {
+                min: 0,
+                max: 100
+              }
+            ],
+			format: (val) => {
+			  if (val === 0) return '低落';
+			  if (val === 100) return '高兴';
+			  return '';
+			}
+          },
+          extra: {
+            line: {
+              type: "curve",
+              width: 10,
+              activeType: "hollow",
+              linearType: "custom",
+              onShadow: true,
+              animation: "horizontal"
+            }
+          }
+        }
+      };
     },
-
-    methods: {},
+	onReady() {
+	  this.getServerData();
+	},
+    methods: {
+      getServerData() {
+        //模拟从服务器获取数据时的延时
+        setTimeout(() => {
+          //模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
+          let res = {
+              categories: ["7-22","7-23","7-24","7-25","7-26"],
+              series: [
+                {
+                  name: "情绪",
+                  linearColor: [
+                    [
+                      0,
+                      "#1890FF"
+                    ],
+                    [
+                      0.25,
+                      "#00B5FF"
+                    ],
+                    [
+                      0.5,
+                      "#00D1ED"
+                    ],
+                    [
+                      0.75,
+                      "#00E6BB"
+                    ],
+                    [
+                      1,
+                      "#90F489"
+                    ]
+                  ],
+                  setShadow: [
+                    3,
+                    8,
+                    10,
+                    "#1890FF"
+                  ],
+                  data: [10,45,15,45,20]
+                },
+                // {
+                //   name: "成交量B",
+                //   data: [75,85,55,85,55,85]
+                // },
+                // {
+                //   name: "成交量C",
+                //   linearColor: [
+                //     [
+                //       0,
+                //       "#FAC858"
+                //     ],
+                //     [
+                //       0.33,
+                //       "#FFC371"
+                //     ],
+                //     [
+                //       0.66,
+                //       "#FFC2B2"
+                //     ],
+                //     [
+                //       1,
+                //       "#FA7D8D"
+                //     ]
+                //   ],
+                //   setShadow: [
+                //     3,
+                //     8,
+                //     10,
+                //     "#FC8452"
+                //   ],
+                //   data: [95,125,95,125,95,125]
+                // }
+              ]
+            };
+          this.chartData = JSON.parse(JSON.stringify(res));
+        }, 500);
+      },
+    }
   };
 </script>
 
 <style scoped lang="scss">
+	.charts-box {
+	  width: 600rpx;
+	  height: 290px;
+	}
 .tupian3{
 	padding-left: 198rpx;
 	width: 30rpx;
@@ -174,7 +317,7 @@
         }
         .section {
 			border-radius: 30rpx;
-          padding: 46rpx 32rpx 24rpx;
+          padding: 46rpx 0rpx 24rpx;
           background-color: #ffffff;
           box-shadow: 0px 6rpx 16rpx #a5a5a529;
           .group_2 {
