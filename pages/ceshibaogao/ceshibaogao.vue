@@ -5,18 +5,18 @@
       <view class="flex-col group space-y-12">
         <view class="flex-row justify-between items-start">
           <view class="flex-col items-start space-y-14">
-            <text class="font_1 text_2">2023.7.9</text>
+            <text class="font_1 text_2">{{currentTime}}</text>
             <text class="text_4">SDS抑郁自评测试</text>
           </view>
           <view class="flex-row group_2 space-x-18">
-            <text class="text_3">1</text>
+            <text class="text_3">{{this.score}}</text>
             <view class="flex-col items-center shrink-0 space-y-32">
               <view class="section_2"></view>
               <text class="font_2 text_5">分</text>
             </view>
           </view>
         </view>
-        <text class="self-start font_2 text_6">抑郁：1分</text>
+        <text class="self-start font_2 text_6">抑郁：{{this.score}}分</text>
       </view>
       <text class="self-start font_3 text_7">（正常0，轻度1，中度2，严重3）</text>
       <view class="flex-col group_3">
@@ -27,19 +27,31 @@
               <text class="font_4 text_8">AI建议</text>
             </view>
             <view class="flex-col group_4 space-y-4">
-              <text class="self-end font_3">要想走出抑郁状态，要在对待疾病的态度上做出转变。我们应该逐渐学会宽恕与接纳，感恩疾病让自己明白了很多关于生命的信息，包括如何深度地了解自己、提高个体的力量、丰富思考问题的角度、了解生命的意义等。要想走出抑郁状态，要在对待疾病的态度上做出转变。我们应该逐渐学会宽恕与接纳，感恩疾病让自己明白了很多关于生命的信息，包括如何深度地了解自己、提高个体的力量、丰富思考问题的角度、了解生命的意义等。</text>
+              <text class="self-end font_3">{{text}}</text>
             </view>
           </view>
         </view>
 		
 		<view class="flex-col list space-y-16">
-		  <view class="flex-col section_3" >
-		    <view class="flex-col justify-start items-center self-start text-wrapper">
+		  <view class="flex-col section_3 section_4" >
+		    <view class="flex-col justify-start items-center self-start text-wrapper text-wrapper_3">
 		      <text class="font_4 text_8">知识学习</text>
 		    </view>
 		    <view class="flex-col group_4 space-y-4">
-		      <text class="self-end font_3">要想走出抑郁状态，要在对待疾病的态度上做出转变。我们应该逐渐学会宽恕与接纳，感恩疾病让自己明白了很多关于生命的信息，包括如何深度地了解自己、提高个体的力量、丰富思考问题的角度、了解生命的意义等。要想走出抑郁状态，要在对待疾病的态度上做出转变。我们应该逐渐学会宽恕与接纳，感恩疾病让自己明白了很多关于生命的信息，包括如何深度地了解自己、提高个体的力量、丰富思考问题的角度、了解生命的意义等。</text>
+		      <text class="self-end font_3">要想走出抑郁状态，要在对待疾病的态度上做出转变。我们应该逐渐学会宽恕与接纳，感恩疾病让自己明白了很多关于生命的信息，包括如</text>
 		    </view>
+			<view class="flex-row  xuexi">
+				<view class="img">
+					<image src="../../static/wjj.jpeg" mode=""></image>
+				</view>
+				<view class="flex-col wenzi">
+					<text class="zsxx">知识学习 | 学习更多</text>
+					<text class="wt">该如何走出抑郁的阴影？</text>
+				</view>
+				<view class="img1 flex-col">
+					<image src="../../static/youjiantou.png" mode=""></image>
+				</view>
+			</view>
 		  </view>
 		</view>
 		
@@ -49,7 +61,9 @@
             <text class="font_4 text_12">预约咨询</text>
           </view>
           <view class="flex-row section_6 space-x-12">
-            <view class="section_7"></view>
+            <view class="section_7">
+				<image src="../../static/teacher.png" mode=""></image>
+			</view>
             <view class="flex-col flex-auto group_6 space-y-7">
               <view class="flex-row justify-between items-start">
                 <view class="flex-row items-baseline group_7 space-x-6">
@@ -74,16 +88,21 @@
           </view>
         </view>
 		
+		<text class="ys">——灵犀知心全力保护您的隐私——</text>
       </view>
     </view>
   </view>
 </template>
 
 <script>
+  import dayjs from 'dayjs'
   export default {
     components: {},
     data() {
       return {
+		currentTime: '',
+		score: 0,  
+		text:'',
         list_u2h0dqFG: [null],
       };
     },
@@ -91,7 +110,19 @@
     methods: {},
 	onLoad(option) {//接受分数
 		const score = option.score;
-	}
+		this.score = score
+		if(this.score > 4) {
+		// 到时候4和优秀都改成this.detail.title
+			this.text = '优秀优秀优秀优秀优秀优秀优秀优秀优秀优秀优秀优秀'
+		} else if(this.score > 2) {
+			this.text = '合格合格合格合格合格合格合格合格合格合格合格'
+		} else {
+			this.text = '不合格不合格不合格不合格不合格不合格不合格不合格不合格不'  
+		}
+	},
+    mounted() {
+	    this.currentTime = dayjs().format('YYYY.M.D')  
+    }
   };
 </script>
 
@@ -139,10 +170,10 @@
           }
         }
         .group_2 {
-          margin-right: 36rpx;
+          margin-right: 0rpx;
           margin-top: 12rpx;
           .text_3 {
-            color: #ffa000;
+            color: #fa8a3a;
             font-size: 200rpx;
             font-family: SegoeUI;
             line-height: 143rpx;
@@ -154,7 +185,7 @@
               margin-top: 64rpx;
             }
             .section_2 {
-              background-color: #ffa000;
+              background-color: #fa8a3a;
               border-radius: 50%;
               width: 36rpx;
               height: 36rpx;
@@ -191,11 +222,74 @@
           padding-bottom: 30rpx;
           .section_3 {
             padding: 24rpx 12rpx 0;
-            background-color: #edf1f6;
+             //background-color: #edf1f6;
+			background: linear-gradient(
+			    to bottom right, 
+			    #eafbff 0%,
+			    #edfbff 20%,
+			    #edfbfe 40%,
+			    #e8f8fe 60%,
+			    #eaf1fb 80%,
+			    #e8e6fb 100%
+			  );
             border-radius: 24rpx;
+			.xuexi{
+				margin-bottom: 30rpx;
+				margin-right: 20rpx;
+				margin-left: 20rpx;
+				background-color: #ffffff;
+				border-radius: 24rpx;
+				//width: 100%;
+				height: 150rpx;
+				position: relative;
+				.img{
+					margin:15rpx 0 15rpx 15rpx ;
+					background-color: #dbf3f7;
+					width: 120rpx;
+					height: 120rpx;
+					border-radius: 24rpx;
+					overflow: hidden;
+					image{
+					    width: 120rpx;
+					    height: 120rpx;
+					}
+				}
+				.wenzi{
+					//margin-right: 30rpx;
+					.zsxx{
+						margin-left: 30rpx;
+						margin-top: 30rpx;
+						font-size: 20rpx;
+						color: #8a8a8a;
+					}
+					.wt{
+						margin-left: 30rpx;
+						margin-top: 10rpx;
+						font-size: 30rpx;
+						font-weight: 700;
+						color: #3f3f3f;
+					}
+				}
+				.img1{
+					right: 15rpx;
+					top: 15rpx;
+					position: absolute;
+					//margin:15rpx 15rpx 0 15rpx ;
+					background-color: #d0d0d0;
+					width: 70rpx;
+					height: 45rpx;
+					border-radius: 15rpx;
+					overflow: hidden;
+					image{
+						margin: auto auto;
+					    width: 25rpx;
+					    height: 25rpx;
+					}
+				}
+			}
             .text-wrapper {
               //padding-top: 24rpx;
-              background-color: #65cbc8;
+              background-color: #88c6ee;
               border-radius: 32rpx;
               width: 200rpx;
               height: 60rpx;
@@ -204,6 +298,9 @@
 				margin: auto auto;
               }
             }
+			.text-wrapper_3{
+				background-color: #a1b6d5;
+			}
             .group_4 {
               padding: 20rpx 20rpx 30rpx 20rpx;
             }
@@ -215,6 +312,9 @@
               }
             }
           }
+		  .section_4{
+			  background: #edf1f6;
+		  }
         }
         .space-y-16 {
           & > view:not(:first-child),
@@ -229,7 +329,7 @@
           border-radius: 24rpx;
           .text-wrapper_2 {
             padding: 16rpx 0 16rpx;
-            background-color: #65cbc8;
+            background-color: #a1b6d5;
             border-radius: 32rpx;
             width: 200rpx;
             .text_12 {
@@ -239,18 +339,24 @@
           }
           .section_6 {
             margin: 16rpx 8rpx 0;
-            padding: 16rpx 20rpx;
+            padding: 16rpx 15rpx;
             background-color: #ffffff;
-            border-radius: 40rpx;
-            box-shadow: 0px 10rpx 6rpx #00000029;
+            border-radius: 24rpx;
+            box-shadow: 0px 4rpx 4rpx #00000029;
             .section_7 {
               background-color: #ebebeb;
-              border-radius: 40rpx;
-              width: 154rpx;
-              height: 154rpx;
+              border-radius: 24rpx;
+			  margin: auto 0;
+              width: 120rpx;
+              height: 120rpx;
+			  overflow: hidden;
+			  image{
+				width: 120rpx;
+				height: 120rpx;
+			  }
             }
             .group_6 {
-              margin-right: 10rpx;
+              margin-right: 0rpx;
               .group_7 {
                 margin-top: 16rpx;
                 .text_14 {
@@ -278,15 +384,15 @@
               .button {
                 padding: 8rpx 0;
                 background-color: #96a1f9;
-                border-radius: 60rpx;
-                width: 78rpx;
-                height: 36rpx;
+                border-radius: 15rpx;
+                width: 70rpx;
+                height: 45rpx;
                 .text_13 {
                   color: #ebebeb;
                   font-size: 22rpx;
                   font-family: SegoeUI-Bold;
                   font-weight: 700;
-                  line-height: 20rpx;
+                  line-height: 30rpx;
                 }
               }
               .group_8 {
@@ -326,11 +432,16 @@
             }
           }
         }
+		.ys{
+			margin: 40rpx auto;
+			color: #797979;
+			font-size: 30rpx;
+		}
         .font_4 {
-          font-size: 40rpx;
+          font-size: 36rpx;
           font-family: SegoeUI-Bold;
           line-height: 38rpx;
-          font-weight: 700;
+          font-weight: 600;
           color: #ffffff;
         }
       }

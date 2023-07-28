@@ -85,7 +85,6 @@
 				        <text class="self-start font_2">{{item.title}}</text>
 				        <view class="flex-col justify-start items-center self-start text-wrapper_5">
 				          <text class="font_4">需签到</text>
-						  
 				        </view>
 						
 				        <view class="flex-row justify-between items-center group_7">

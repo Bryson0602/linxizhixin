@@ -102,62 +102,62 @@
 		      id: 1,
 		      isMultiple: false, // 是否多选
 		      title: '今天星期几?',
-		      answer: 'A', // 答案
-		      score: 2, // 分值
+		      //answer: 'A', // 答案
+		      //score: 2, // 分值
 		      options: [ // 选项列表
-		        {id: 1, name:'选项1', label: 'A', selected: false},
-		        {id: 2, name:'选项2', label: 'B', selected: false}, 
-		        {id: 3, name:'选项3', label: 'C', selected: false}
+		        {id: 1, name:'选项1', label: 'A', selected: false ,score: 1},
+		        {id: 2, name:'选项2', label: 'B', selected: false ,score: 2}, 
+		        {id: 3, name:'选项3', label: 'C', selected: false ,score: 3}
 		      ]
 		    },
 		    {
 		      id: 2,
 		      isMultiple: false,
 		      title: '你喜欢吃什么?',
-		      answer: 'C',
-		      score: 2,
+		      //answer: 'C',
+		      //score: 2,
 		      options: [
-		    	{id: 1, name:'香蕉', label: 'A', selected: false},
-		    	{id: 2, name:'苹果', label: 'B', selected: false},
-		    	{id: 3, name:'橘子', label: 'C', selected: false}
+		    	{id: 1, name:'香蕉', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'苹果', label: 'B', selected: false ,score: 2},
+		    	{id: 3, name:'橘子', label: 'C', selected: false ,score: 3}
 		      ]
 		    },
 		    {
 		      id: 3,  
 		      isMultiple: false,
 		      title: '你的梦想是什么?',
-		      answer: 'B',
-		      score: 2,
+		      //answer: 'B',
+		      //score: 2,
 		      options: [
-		    	{id: 1, name:'当一名程序员', label: 'A', selected: false},
-		    	{id: 2, name:'当一名测试员', label: 'B', selected: false},
-		    	{id: 3, name:'当一名运维', label: 'C', selected: false}
+		    	{id: 1, name:'当一名程序员', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'当一名测试员', label: 'B', selected: false ,score: 2},
+		    	{id: 3, name:'当一名运维', label: 'C', selected: false ,score: 3}
 		      ]
 		    },
 		    {
 		      id: 4,
-		      isMultiple: true,
+		      isMultiple: false,
 		      title: '这是一题多选吗?',
-		      answer: 'BC',
-		      score: 2,
+		      //answer: 'C',
+		      //score: 2,
 		      options: [
-		    	{id: 1, name:'不是', label: 'A', selected: false},
-		    	{id: 2, name:'是的', label: 'B', selected: false},
-		    	{id: 3, name:'是的', label: 'C', selected: false},
-				{id: 4, name:'是的', label: 'D', selected: false},
+		    	{id: 1, name:'不是', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'是的', label: 'B', selected: false ,score: 2},
+		    	{id: 3, name:'是的', label: 'C', selected: false ,score: 3},
+				// {id: 4, name:'是的', label: 'D', selected: false ,score: 1},
 		      ]
 		    },
 		    {
 		      id: 5,
-		      isMultiple: true,
+		      isMultiple: false,
 		      title: '是多选吧是多选吧是多选?是多选吧是多选吧是多选?',
-		      answer: 'ABC',
-		      score: 2,
+		      //answer: 'C',
+		      //score: 2,
 		      options: [
-		    	{id: 1, name:'是的', label: 'A', selected: false},
-		    	{id: 2, name:'是的', label: 'B', selected: false},
-		    	{id: 3, name:'是的', label: 'C', selected: false},
-				{id: 4, name:'是的', label: 'D', selected: false},
+		    	{id: 1, name:'是的', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'是的', label: 'B', selected: false ,score: 2},
+		    	{id: 3, name:'是的', label: 'C', selected: false ,score: 3},
+				// {id: 4, name:'是的', label: 'D', selected: false},
 		      ]
 		    }
 		  ],
@@ -182,22 +182,31 @@
 		},
 		// 检查答案的方法
 		checkAnswer() {
-		  // 当前题目  
-		  const currentQuestion = this.questionList[this.currentIdx]
-		  // 获得所有选中的选项标签
-		  let selectedLabels = currentQuestion.options
-		    .filter(option => option.selected)
-		    .map(option => option.label)
-		  // 拼接为字符串,与答案比较  
-		  selectedLabels = selectedLabels.join('')
+			const currentQuestion = this.questionList[this.currentIdx]
+			const selectedOptions = currentQuestion.options.filter(o => o.selected)
+			  
+			let score = 0
+			selectedOptions.forEach(option => {
+			    score += option.score
+			})
+			
+			this.score += score
+		  // // 当前题目  
+		  // const currentQuestion = this.questionList[this.currentIdx]
+		  // // 获得所有选中的选项标签
+		  // let selectedLabels = currentQuestion.options
+		  //   .filter(option => option.selected)
+		  //   .map(option => option.label)
+		  // // 拼接为字符串,与答案比较  
+		  // selectedLabels = selectedLabels.join('')
 		  
-		  if (selectedLabels === currentQuestion.answer) {
-		    // 如果符合答案,得分
-		    currentQuestion.isCorrect = true
-		    this.score += currentQuestion.score   
-		  } else {
-		    currentQuestion.isCorrect = false
-		  }
+		  // if (selectedLabels === currentQuestion.answer) {
+		  //   // 如果符合答案,得分
+		  //   currentQuestion.isCorrect = true
+		  //   this.score += currentQuestion.score   
+		  // } else {
+		  //   currentQuestion.isCorrect = false
+		  // }
 		},
 		// 上一题方法
 		prev() {
