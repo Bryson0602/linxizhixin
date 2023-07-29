@@ -4,8 +4,8 @@
 	    <view class="flex-col space-y-15">
 	      <view class="flex-col section_2">
 	        <view class="flex-col items-center space-y-6">
-	          <text class="text_2">PHQ-9抑郁自评测试</text>
-	          <text class="text_3">PHQ-9 Depression test</text>
+	          <text class="text_2">GAD7焦虑障碍量表</text>
+	          <text class="text_3">Generalized Anxiety Disorder-7</text>
 	        </view>
 	        <view class="flex-row items-center group_2 space-x-9">
 	          <view class="section_3"></view>
@@ -168,7 +168,7 @@
 		//获取网络数据
 		getData(){
 			uni.request({
-				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/PHQ-9_get_All",
+				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/GAD-7_get_All",
 				success:res=>{
 					console.log(res);
 					this.questionList=res.data.data
@@ -258,7 +258,7 @@
 		  // 允许显示答案
 		  this.canShowAnswer = true
 		  uni.navigateTo({
-		  	url:"/pages/ceshibaogao/ceshibaogao?score=" + this.score
+		  	url:"/pages/ceshibaogao1/ceshibaogao1?score=" + this.score
 		  })
 		},
 

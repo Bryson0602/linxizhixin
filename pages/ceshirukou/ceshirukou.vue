@@ -35,20 +35,38 @@
           <!-- <text class="text_9">不知如何选择？点这里</text> -->
         </view>
         <view class="flex-col list space-y-18">
-          <view class="flex-row justify-start items-start list-item" :key="i" v-for="(item, i) in list_cHax5sNc">
+			
+          <view class="flex-row justify-start items-start list-item" @click="goceshi">
             <view class="flex-row section_6">
               <image
                 class="image_3"
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701522414704453.png"
               />
               <view class="flex-auto flex-col items-start self-start group_5">
-                <text class="font_3">APESK心理自评</text>
-                <text class="font_4 text_10">PESK基于瑞士荣格模型是一种迫选型、自我报告式的性格评估理论模型...</text>
+                <text class="font_3">PHQ-9抑郁自评测试</text>
+                <text class="font_4 text_10">PHQ-9抑郁自评量表，用于评估个体是否存在抑郁症状及其严重程度。</text>
                 <!-- <text class="font_4 text_11"></text> -->
               </view>
             </view>
 			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
           </view>
+		  
+		  <view class="flex-row justify-start items-start list-item" @click="goceshi1">
+		    <view class="flex-row section_6">
+		      <image
+		        class="image_3"
+		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701522414704453.png"
+		      />
+		      <view class="flex-auto flex-col items-start self-start group_5">
+		        <text class="font_3">GAD7焦虑障碍量表</text>
+		        <text class="font_4 text_10">焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。</text>
+		        <!-- <text class="font_4 text_11"></text> -->
+		      </view>
+		    </view>
+		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
+		  </view>
+		  
+		  
         </view>
       </view>
     </view>
@@ -69,7 +87,12 @@
 			uni.navigateTo({
 				url:'/pages/sdszice/sdszice'
 			})
-		}
+		},
+		goceshi1(){
+			uni.navigateTo({
+				url:'/pages/zice1/zice1'
+			})
+		},
 	},
   };
 </script>

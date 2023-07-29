@@ -226,13 +226,31 @@
             "path" : "pages/sdszice/sdszice",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "测试",
+                "navigationBarTitleText": "PHQ-9抑郁自评测试",
                 "enablePullDownRefresh": false
             }
             
         }
         ,{
             "path" : "pages/ceshibaogao/ceshibaogao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "测试报告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zice1/zice1",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "GAD7焦虑障碍量表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ceshibaogao1/ceshibaogao1",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "测试报告",
