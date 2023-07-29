@@ -45,9 +45,12 @@
 		      type="line"
 		      :opts="opts"
 		      :chartData="chartData"
-		      :canvas2d="true"
-		      canvasId="JTKjBDhRiZZSwDgwRwxGnavZNyyIalHI"
 		    />
+		  	<view class="date-container">
+		  	  <view v-for="(date, index) in sortedDates" :key="index" class="date-item">
+		  	    {{ formatDate(date) }}
+		  	  </view>
+		  	</view>
 		  </view>
         </view>
 		
@@ -118,7 +121,7 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-		  			  <img class="tupian" src=".../../static/jiantou.png" alt="">
+		  			  <img class="tupian" src="../../static/jiantou.png" alt="">	
 					  
 		    </view>
 		  </view>
@@ -149,51 +152,178 @@
     		cWidth: '',
     		cHeight: '',
         chartData: {},
+        latestDates: [],
         //您可以通过修改 config-ucharts.js 文件中下标为 ['line'] 的节点来配置全局默认参数，如都是默认参数，此处可以不传 opts 。实际应用过程中 opts 只需传入与全局默认参数中不一致的【某一个属性】即可实现同类型的图表显示不同的样式，达到页面简洁的需求。
+		opts: {
+		  timing: "easeOut",
+		  duration: 500,
+		  rotate: false,
+		  rotateLock: false,
+		  color: ["#1890FF","#91CB74","#FAC858","#EE6666","#73C0DE","#3CA272","#FC8452","#9A60B4","#ea7ccc"],
+		  padding: [60,10,10,18],
+		  fontSize: 13,
+		  fontColor: "#666666",
+		  dataLabel: false,
+		  dataPointShape: false,
+		  dataPointShapeType: "solid",
+		  touchMoveLimit: 60,
+		  enableScroll: false,
+		  enableMarkLine: false,
+		  legend: {
+		    show: true,
+		    position: "top",
+		    float: "center",
+		    padding: 5,
+		    margin: 5,
+		    backgroundColor: "rgba(0,0,0,0)",
+		    borderColor: "rgba(0,0,0,0)",
+		    borderWidth: 0,
+		    fontSize: 13,
+		    fontColor: "#666666",
+		    lineHeight: 11,
+		    hiddenColor: "#CECECE",
+		    itemGap: 10
+		  },
+		  xAxis: {
+		    disableGrid: true,
+		    disabled: true,
+		    axisLine: true,
+		    axisLineColor: "#CCCCCC",
+		    calibration: false,
+		    fontColor: "#666666",
+		    fontSize: 13,
+		    lineHeight: 20,
+		    marginTop: 4,
+		    rotateLabel: false,
+		    rotateAngle: 45,
+		    itemCount: 5,
+		    boundaryGap: "center",
+		    splitNumber: 5,
+		    gridColor: "#CCCCCC",
+		    gridType: "solid",
+		    dashLength: 8,
+		    gridEval: 1,
+		    scrollShow: false,
+		    scrollAlign: "left",
+		    scrollColor: "#A6A6A6",
+		    scrollBackgroundColor: "#EFEBEF",
+		    title: "",
+		    titleFontSize: 13,
+		    titleOffsetY: 0,
+		    titleOffsetX: 0,
+		    titleFontColor: "#666666",
+		    format: ""
+		  },
+		  yAxis: {
+		    gridType: "dash",
+		    dashLength: 2,
+		    disabled: false,
+		    disableGrid: true,
+		    splitNumber: 5,
+		    gridColor: "#CCCCCC",
+		    padding: 0,
+		    showTitle: true,
+		    data: [
+		      {
+		        type: "value",
+		        position: "left",
+		        disabled: true,
+		        axisLine: true,
+		        axisLineColor: "#CCCCCC",
+		        calibration: false,
+		        fontColor: "#666666",
+		        fontSize: 13,
+		        textAlign: "right",
+		        title: "数值",
+		        titleFontSize: 15,
+		        titleOffsetY: -5,
+		        titleOffsetX: 0,
+		        titleFontColor: "#666666",
+		        min: 0,
+		        max: 150,
+		        tofix: null,
+		        unit: "",
+		        format: ""
+		      },
+		      {
+		        type: "categories",
+		        position: "left",
+		        disabled: false,
+		        axisLine: true,
+		        axisLineColor: "#CCCCCC",
+		        calibration: false,
+		        fontColor: "#666666",
+		        fontSize: 13,
+		        textAlign: "right",
+		        title: "情绪",
+		        titleFontSize: 15,
+		        titleOffsetY: 0,
+		        titleOffsetX: 0,
+		        titleFontColor: "#666666",
+		        min: 0,
+		        max: 20,
+		        tofix: null,
+		        unit: "",
+		        format: ""
+		      }
+		    ]
+		  },
+		  extra: {
+		    line: {
+		      type: "curve",
+		      width: 10,
+		      activeType: "hollow",
+		      linearType: "custom",
+		      onShadow: true,
+		      animation: "vertical"
+		    },
+		    tooltip: {
+		      showBox: true,
+		      showArrow: true,
+		      showCategory: false,
+		      borderWidth: 0,
+		      borderRadius: 5,
+		      borderColor: "#000000",
+		      borderOpacity: 0.7,
+		      bgColor: "#6852CC",
+		      bgOpacity: 0.7,
+		      gridType: "solid",
+		      dashLength: 4,
+		      gridColor: "#CCCCCC",
+		      boxPadding: 3,
+		      fontSize: 13,
+		      lineHeight: 20,
+		      fontColor: "#FFFFFF",
+		      legendShow: true,
+		      legendShape: "auto",
+		      splitLine: true,
+		      horizentalLine: false,
+		      xAxisLabel: false,
+		      yAxisLabel: false,
+		      labelBgColor: "#FFFFFF",
+		      labelBgOpacity: 0.7,
+		      labelFontColor: "#666666"
+		    },
+		    markLine: {
+		      type: "solid",
+		      dashLength: 4,
+		      data: []
+		    }
+		  }
+		}
     	  
-        opts: {
-          color: ["#1890FF","#91CB74","#FAC858","#EE6666","#73C0DE","#3CA272","#FC8452","#9A60B4","#ea7ccc"],
-          padding: [50, 1, 0, 20],
-          dataLabel: false,
-          dataPointShape: false,
-          enableScroll: false,
-          legend: {},
-          xAxis: {
-            disableGrid: true,
-			gridType: "dash",
-			dashLength: 8,
-          },
-          yAxis: {
-			disableGrid: true,
-            gridType: "dash",
-            dashLength: 8,
-            data: [
-              {
-                min: 0,
-                max: 100
-              }
-            ],
-			format: (val) => {
-			  if (val === 0) return '低落';
-			  if (val === 100) return '高兴';
-			  return '';
-			}
-          },
-          extra: {
-            line: {
-              type: "curve",
-              width: 10,
-              activeType: "hollow",
-              linearType: "custom",
-              onShadow: true,
-              animation: "horizontal"
-            }
-          }
-        }
       };
     },
 	onReady() {
 	  this.getServerData();
+	},
+	mounted() {
+	  this.getLatestDates();
+	},
+	computed: {
+	  sortedDates() {
+	    return this.latestDates.sort((a, b) => a - b);
+	  }
 	},
     methods: {
       getServerData() {
@@ -201,77 +331,67 @@
         setTimeout(() => {
           //模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
           let res = {
-              categories: ["7-22","7-23","7-24","7-25","7-26"],
+              categories: ["高兴","乐观","平静","低迷","沮丧"],
               series: [
                 {
-                  name: "情绪",
-                  linearColor: [
-                    [
-                      0,
-                      "#1890FF"
-                    ],
-                    [
-                      0.25,
-                      "#00B5FF"
-                    ],
-                    [
-                      0.5,
-                      "#00D1ED"
-                    ],
-                    [
-                      0.75,
-                      "#00E6BB"
-                    ],
-                    [
-                      1,
-                      "#90F489"
-                    ]
-                  ],
-                  setShadow: [
-                    3,
-                    8,
-                    10,
-                    "#1890FF"
-                  ],
-                  data: [10,45,15,45,20]
+                  name: "情绪轨迹",
+      			linearColor: [
+      			  [
+      			    0,
+      			    "#1890FF"
+      			  ],
+      			  [
+      			    0.25,
+      			    "#00B5FF"
+      			  ],
+      			  [
+      			    0.5,
+      			    "#00D1ED"
+      			  ],
+      			  [
+      			    0.75,
+      			    "#00E6BB"
+      			  ],
+      			  [
+      			    1,
+      			    "#90F489"
+      			  ]
+      			],
+      			setShadow: [
+      			  3,
+      			  8,
+      			  10,
+      			  "#1890FF"
+      			],
+                  data: [50,20,30,50,20]
                 },
                 // {
                 //   name: "成交量B",
-                //   data: [75,85,55,85,55,85]
+                //   data: [70,40,65,100,44]
                 // },
                 // {
                 //   name: "成交量C",
-                //   linearColor: [
-                //     [
-                //       0,
-                //       "#FAC858"
-                //     ],
-                //     [
-                //       0.33,
-                //       "#FFC371"
-                //     ],
-                //     [
-                //       0.66,
-                //       "#FFC2B2"
-                //     ],
-                //     [
-                //       1,
-                //       "#FA7D8D"
-                //     ]
-                //   ],
-                //   setShadow: [
-                //     3,
-                //     8,
-                //     10,
-                //     "#FC8452"
-                //   ],
-                //   data: [95,125,95,125,95,125]
+                //   data: [100,80,95,150,112]
                 // }
               ]
             };
           this.chartData = JSON.parse(JSON.stringify(res));
         }, 500);
       },
+      getLatestDates() {
+        const currentDate = new Date();
+        const latestDates = [];
+        for (let i = 0; i < 5; i++) {
+          const date = new Date(currentDate.getTime() - i * 24 * 60 * 60 * 1000);
+          latestDates.push(date);
+        }
+        this.latestDates = latestDates;
+      },
+      formatDate(date) {
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        return `${month}-${day}`;
+      }
     }
   };
 </script>
@@ -279,7 +399,28 @@
 <style scoped lang="scss">
 	.charts-box {
 	  width: 600rpx;
-	  height: 290px;
+	  height: 305px;
+	  margin-top: -95rpx;
+	  // position: relative;
+	}
+	.date-container {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: space-between;
+		margin-left: 81rpx;
+		margin-top: -20rpx;
+	}
+	
+	.date-item {
+	  flex: 1;
+	  text-align: center;
+	  margin-right: -50rpx; /* 调整日期项之间的间距 */
+	  color: #666666;
+		font-size: 30rpx;
+	}
+	
+	.date-item:last-child {
+	  margin-right: 8rpx; /* 最后一个日期项的右间距设为0 */
 	}
 .tupian3{
 	padding-left: 198rpx;
@@ -316,8 +457,8 @@
           margin-left: 12rpx;
         }
         .section {
-			border-radius: 30rpx;
-          padding: 46rpx 0rpx 24rpx;
+		border-radius: 30rpx;
+          padding: 46rpx 0rpx 36rpx;
           background-color: #ffffff;
           box-shadow: 0px 6rpx 16rpx #a5a5a529;
           .group_2 {
