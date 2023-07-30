@@ -258,6 +258,42 @@
             }
             
         }
+        ,{
+            "path" : "pages/zice2/zice2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "PSS心理压力量表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ceshibaogao2/ceshibaogao2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "测试报告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zice3/zice3",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "MBTI人格自测",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ceshibaogao3/ceshibaogao3",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "测试报告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

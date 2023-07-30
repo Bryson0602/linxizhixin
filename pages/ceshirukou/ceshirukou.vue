@@ -43,7 +43,7 @@
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701522414704453.png"
               />
               <view class="flex-auto flex-col items-start self-start group_5">
-                <text class="font_3">PHQ-9抑郁自评测试</text>
+                <text class="font_3">PHQ-9(抑郁自评测试)</text>
                 <text class="font_4 text_10">PHQ-9抑郁自评量表，用于评估个体是否存在抑郁症状及其严重程度。</text>
                 <!-- <text class="font_4 text_11"></text> -->
               </view>
@@ -53,10 +53,43 @@
 		  
 		  <view class="flex-row justify-start items-start list-item" @click="goceshi1">
 		    <view class="flex-row section_6">
-		      <image
-		        class="image_3"
-		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701522414704453.png"
-		      />
+		      <image class="image_3" src="../../static/bq-yellow.png" mode=""></image>
+		      <view class="flex-auto flex-col items-start self-start group_5">
+		        <text class="font_3">GAD7(焦虑障碍量表)</text>
+		        <text class="font_4 text_10">焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。</text>
+		        <!-- <text class="font_4 text_11"></text> -->
+		      </view>
+		    </view>
+		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
+		  </view>
+		  
+		  <view class="flex-row justify-start items-start list-item" @click="goceshi2">
+		    <view class="flex-row section_6">
+		      <image class="image_3" src="../../static/bq-pink.png" mode=""></image>
+		      <view class="flex-auto flex-col items-start self-start group_5">
+		        <text class="font_3">PSS(心理压力量表)</text>
+		        <text class="font_4 text_10">心理压力自评量表，用于评估个体对生活中的压力感知程度。</text>
+		        <!-- <text class="font_4 text_11"></text> -->
+		      </view>
+		    </view>
+		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
+		  </view>
+		  
+		  <view class="flex-row justify-start items-start list-item" @click="goceshi1">
+		    <view class="flex-row section_6">
+		      <image class="image_3" src="../../static/bq-green.png" mode=""></image>
+		      <view class="flex-auto flex-col items-start self-start group_5">
+		        <text class="font_3">MBTI人格自测</text>
+		        <text class="font_4 text_10">人格自测工具，用于评估个体的人格类型。测量结果基于四个维度的偏好。</text>
+		        <!-- <text class="font_4 text_11"></text> -->
+		      </view>
+		    </view>
+		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
+		  </view>
+		  
+		  <view class="flex-row justify-start items-start list-item" @click="goceshi1">
+		    <view class="flex-row section_6">
+		      <image class="image_3" src="../../static/bq-huang.png" mode=""></image>
 		      <view class="flex-auto flex-col items-start self-start group_5">
 		        <text class="font_3">GAD7焦虑障碍量表</text>
 		        <text class="font_4 text_10">焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。</text>
@@ -65,7 +98,6 @@
 		    </view>
 		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
 		  </view>
-		  
 		  
         </view>
       </view>
@@ -93,6 +125,11 @@
 				url:'/pages/zice1/zice1'
 			})
 		},
+		goceshi2(){
+			uni.navigateTo({
+				url:'/pages/zice2/zice2'
+			})
+		},
 	},
   };
 </script>
@@ -106,7 +143,7 @@
     overflow-x: hidden;
     height: 100%;
     .group {
-      padding: 22rpx 36rpx 0rpx 36rpx;
+      padding: 22rpx 36rpx 300rpx 36rpx;
       overflow-y: auto;
       .section {
 		width: 100%;
