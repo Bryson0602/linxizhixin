@@ -49,7 +49,7 @@
 				</view>
 				<view class="flex-col wenzi">
 					<text class="zsxx">知识学习 | 学习更多</text>
-					<text class="wt">该如何走出抑郁的阴影？</text>
+					<text class="wt">常常感到焦虑怎么办？</text>
 				</view>
 				<view class="img1 flex-col">
 					<image src="../../static/youjiantou.png" mode=""></image>
@@ -70,14 +70,14 @@
             <view class="flex-col flex-auto group_6 space-y-7">
               <view class="flex-row justify-between items-start">
                 <view class="flex-row items-baseline group_7 space-x-6">
-                  <text class="text_14">孙老师</text>
+                  <text class="text_14">徐老师</text>
                   <text class="text_15">心理咨询师</text>
                 </view>
                 <view class="flex-col justify-start items-center button"><text class="text_13">预约</text></view>
               </view>
               <view class="flex-row space-x-18">
-                <text class="font_5">北京大学</text>
-                <text class="font_5 text_16">临床心理学</text>
+                <text class="font_5">清华大学</text>
+                <text class="font_5 text_16">心理学</text>
               </view>
               <text class="self-start font_5">抑郁症、焦虑症、自闭症咨询...</text>
               <view class="flex-row items-center group_8 space-x-4">
@@ -119,7 +119,7 @@
 		//获取网络数据
 		getData(){
 			uni.request({
-				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/PHQ-9_plus",
+				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/GAD_get_plus",
 				success:res=>{
 					console.log(res);
 					this.ArrList=res.data.data
@@ -133,7 +133,7 @@
 		},
 		goxuexi(){
 			uni.navigateTo({
-				url:"/pages/xuexi/xuexi?id=64bf82e3652341bd6453e62f"
+				url:"/pages/xuexi1/xuexi1?id=64bf82e3652341bd6453e62f"
 			})
 		},
 		goyuyue(){
