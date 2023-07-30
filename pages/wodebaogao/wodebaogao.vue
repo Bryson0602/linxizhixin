@@ -48,7 +48,9 @@
 		    />
 		  	<view class="date-container">
 		  	  <view v-for="(date, index) in sortedDates" :key="index" class="date-item">
-		  	    {{ formatDate(date) }}
+		  	    <transition name="fade">
+		  	      <p v-if="showText">{{ formatDate(date) }}</p>
+		  	    </transition>
 		  	  </view>
 		  	</view>
 		  </view>
@@ -153,6 +155,7 @@
     		cHeight: '',
         chartData: {},
         latestDates: [],
+		showText: false,
         //您可以通过修改 config-ucharts.js 文件中下标为 ['line'] 的节点来配置全局默认参数，如都是默认参数，此处可以不传 opts 。实际应用过程中 opts 只需传入与全局默认参数中不一致的【某一个属性】即可实现同类型的图表显示不同的样式，达到页面简洁的需求。
 		opts: {
 		  timing: "easeOut",
@@ -319,6 +322,9 @@
 	},
 	mounted() {
 	  this.getLatestDates();
+	  setTimeout(() => {
+	      this.showText = true;
+	    }, 500); // 延时1秒后显示文字
 	},
 	computed: {
 	  sortedDates() {
@@ -363,7 +369,7 @@
       			  10,
       			  "#1890FF"
       			],
-                  data: [50,20,30,50,20]
+                  data: [75,75,75,75,75]
                 },
                 // {
                 //   name: "成交量B",
@@ -397,6 +403,14 @@
 </script>
 
 <style scoped lang="scss">
+	.fade-enter-active,
+	.fade-leave-active {
+	  transition: opacity 0.5s;
+	}
+	.fade-enter,
+	.fade-leave-to {
+	  opacity: 0;
+	}
 	.charts-box {
 	  width: 600rpx;
 	  height: 305px;
