@@ -329,10 +329,10 @@ created() {
 	  uni.navigateTo({
 	    url: '/pages/ceshibaogao3/ceshibaogao3?type=' + personalityType
 	  });
-	  uni.showToast({
-	    title: personalityType,
-	    icon: 'none'  
-	  })
+	  // uni.showToast({
+	  //   title: personalityType,
+	  //   icon: 'none'  
+	  // })
     },
 	
     startTimer() {

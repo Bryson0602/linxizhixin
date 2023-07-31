@@ -250,10 +250,10 @@
 		    return
 		  }
 		  // 显示得分
-		  uni.showToast({
-		    title: `获得${this.score}分`,
-		    icon: 'none'  
-		  })
+		  // uni.showToast({
+		  //   title: `获得${this.score}分`,
+		  //   icon: 'none'  
+		  // })
 		  console.log(this.score)
 		  // 允许显示答案
 		  this.canShowAnswer = true

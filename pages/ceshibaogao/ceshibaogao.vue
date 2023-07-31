@@ -103,6 +103,8 @@
     components: {},
     data() {
       return {
+		// isLoading: false,
+		// loadingText: '加载中...',
 		currentTime: '',
 		score: 0,  
 		text:'',
@@ -118,6 +120,7 @@
     methods: {
 		//获取网络数据
 		getData(){
+			
 			uni.request({
 				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/PHQ-9_plus",
 				success:res=>{
@@ -128,6 +131,7 @@
 					this.text3=this.ArrList[0].suggestion3
 					this.text4=this.ArrList[0].suggestion4
 					//console.log(this.text1);
+					
 				}
 			})
 		},
@@ -144,6 +148,16 @@
 
 	},
 	onLoad(option) {
+		// 延迟两秒显示loading效果
+		uni.showLoading({
+		  title: '加载中...',
+		  mask: true
+		});
+		  setTimeout(() => {
+			// 隐藏loading
+			uni.hideLoading();
+		  }, 1000);
+			  
 		this.getData();
 		//接受分数
 		const score = option.score;
@@ -175,6 +189,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
+
     .font_1 {
       font-size: 48rpx;
       font-family: SegoeUI-Bold;
