@@ -123,11 +123,11 @@
 		
       <view class="flex-col justify-start items-center flex-auto text-wrapper_5">
         <!-- <text class="font_4 text_14">随手记录心情吧~</text> -->
-		<input type="text" placeholder="随手记录心情吧~" class="font_4 text_14 placeholder-color">
+		<input type="text" placeholder="随手记录心情吧~" class="font_4 text_14 placeholder-color" v-model="formValue.content">
       </view>
 	  
       <view class="flex-col justify-start items-center shrink-0 text-wrapper_6" @click="clickjl">
-        <text class="font_4 text text_13">快速记录</text>
+        <text class="font_4 text text_13" @click='onSubmit'>快速记录</text>
       </view>
     </view>
   </view>
@@ -140,6 +140,11 @@
     components: {},
     data() {
       return {
+		  formValue:{
+		  					title:"",
+		  					author:"",
+		  					content:""
+		  				},
 		  date: new Date().toISOString(),	
 		  title: 'Hello',
 		  companyList: [{}, {}, {}],
@@ -178,8 +183,27 @@
 	},
 	
     methods: {
+		onSubmit(e){
+						let detail=this.formValue
+						uniCloud.callFunction({
+							name:"add_Diary",
+							data:{
+								detail,
+								
+							}
+						}).then(res=>{
+							
+							// uni.showToast({
+							// 	title:"发布成功"
+							// })
+							
+						
+						})
+					},
+
 		selectEmoji(emoji) {
 		  this.selectedEmoji = emoji.url;
+		  uni.$emit('updateChartData', emoji.url);
 		},
 		clickjl(){
 			uni.showToast({
