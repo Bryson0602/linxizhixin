@@ -12,10 +12,10 @@
           <view class="section_3 pos_2"></view>
           <view class="flex-row items-center section_2 space-x-12 pos">
             <view class="flex-col items-start flex-auto">
-              <text class="text_3">SDS抑郁自评测试</text>
-              <text class="font_2 text_5">抑郁自评量表（Self-rating depression scale），是含有20个项目，分为4级评分的自评量表，原型是W.K.Zung...</text>
+              <text class="text_3">{{ currentItem.title }}</text>
+              <text class="font_2 text_5">{{ currentItem.content }}</text>
             </view>
-            <view class="flex-col items-center shrink-0 section_4 space-y-12" @click="goceshi">
+            <view class="flex-col items-center shrink-0 section_4 space-y-12" @click="goceshix(currentItem.id)">
               <text class="font_1 text_4">开始测试</text>
               <image
                 class="image_2"
@@ -75,7 +75,7 @@
 		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
 		  </view>
 		  
-		  <view class="flex-row justify-start items-start list-item" @click="goceshi1">
+		  <view class="flex-row justify-start items-start list-item" @click="goceshi3">
 		    <view class="flex-row section_6">
 		      <image class="image_3" src="../../static/bq-green.png" mode=""></image>
 		      <view class="flex-auto flex-col items-start self-start group_5">
@@ -87,18 +87,32 @@
 		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
 		  </view>
 		  
-		  <view class="flex-row justify-start items-start list-item" @click="goceshi1">
+		  <view class="flex-row justify-start items-start list-item">
 		    <view class="flex-row section_6">
 		      <image class="image_3" src="../../static/bq-huang.png" mode=""></image>
 		      <view class="flex-auto flex-col items-start self-start group_5">
-		        <text class="font_3">GAD7焦虑障碍量表</text>
-		        <text class="font_4 text_10">焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。</text>
+		        <text class="font_3">SHS(主观幸福感量表)</text>
+		        <text class="font_4 text_10">通过问卷调查来评估个体对自己生活的总体满意程度和幸福感。</text>
 		        <!-- <text class="font_4 text_11"></text> -->
 		      </view>
 		    </view>
 		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
 		  </view>
 		  
+		  <view class="flex-row justify-start items-start list-item" >
+		    <view class="flex-row section_6">
+		      <image
+		        class="image_3"
+		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701522414704453.png"
+		      />
+		      <view class="flex-auto flex-col items-start self-start group_5">
+		        <text class="font_3">SCL90(症状自评量表)</text>
+		        <text class="font_4 text_10">一种常用的症状自评量表，用于评估个体的心理健康状况和心理症状。</text>
+		        <!-- <text class="font_4 text_11"></text> -->
+		      </view>
+		    </view>
+		  			<image class="jiantou" src="../../static/jiantou.png" mode="widthFix"></image>
+		  </view>
         </view>
       </view>
     </view>
@@ -110,7 +124,12 @@
     components: {},
     data() {
       return {
-        list_cHax5sNc: [null, null, null, null, null, null],
+        items: [
+              { title: 'GAD7(焦虑障碍量表)', content: '焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。' ,id:1},
+              { title: 'MBTI人格自测', content: '人格自测工具，用于评估个体的人格类型。测量结果基于四个维度的偏好。' ,id:3},
+              { title: 'PSS(心理压力量表)', content: '心理压力自评量表，用于评估个体对生活中的压力感知程度。' ,id:2}
+            ],
+        currentItem: {},
       };
     },
 
@@ -130,7 +149,24 @@
 				url:'/pages/zice2/zice2'
 			})
 		},
+		goceshi3(){
+			uni.navigateTo({
+				url:'/pages/zice3/zice3'
+			})
+		},
+		goceshix(index){
+			const url = '/pages/zice' + index + '/zice' + index ;
+			uni.navigateTo({
+				url:url
+			})
+		},
 	},
+	onLoad() {
+	  const randomIndex = Math.floor(Math.random() * this.items.length);
+	  this.currentItem = this.items[randomIndex];
+	  this.clickFunction = this.urls[randomIndex];
+	}
+
   };
 </script>
 
@@ -203,12 +239,12 @@
               font-size: 40rpx;
               font-family: SegoeUI-Bold;
               font-weight: 700;
-              line-height: 37rpx;
+              line-height: 40rpx;
             }
             .font_2 {
               font-size: 20rpx;
               font-family: SegoeUI;
-              line-height: 24rpx;
+              line-height: 28rpx;
               color: #d8d8d8;
             }
             .text_5 {

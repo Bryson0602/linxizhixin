@@ -140,37 +140,73 @@ export default {
 		{
 		  id: 5,
 		  isMultiple: false,
-		  title: '新增题目1',
+		  title: '在处理冲突时，你更倾向于？',
 		  options: [
-			{ id: 1, name: '选项1', label: 'A', selected: false },
-			{ id: 2, name: '选项2', label: 'B', selected: false }
+			{ id: 1, name: '保持冷静和客观，寻求解决问题的最佳方案', label: 'A', selected: false },
+			{ id: 2, name: '关注他人的感受和情绪，寻求和谐和共识', label: 'B', selected: false }
 		  ]
 		},
 		{
 		  id: 6,
 		  isMultiple: false,
-		  title: '新增题目2',
+		  title: '在学习新事物时，你更倾向于？',
 		  options: [
-			{ id: 1, name: '选项1', label: 'A', selected: false },
-			{ id: 2, name: '选项2', label: 'B', selected: false }
-		  ]
-		},
-		{
-		  id: 6,
-		  isMultiple: false,
-		  title: '新增题目3',
-		  options: [
-			{ id: 1, name: '选项1', label: 'A', selected: false },
-			{ id: 2, name: '选项2', label: 'B', selected: false }
+			{ id: 1, name: '喜欢通过实践和实际操作来学习', label: 'A', selected: false },
+			{ id: 2, name: '喜欢通过阅读和理论来学习', label: 'B', selected: false }
 		  ]
 		},
 		{
 		  id: 7,
 		  isMultiple: false,
-		  title: '新增题目4',
+		  title: '在工作中，你更倾向于？',
 		  options: [
-			{ id: 1, name: '选项1', label: 'A', selected: false },
-			{ id: 2, name: '选项2', label: 'B', selected: false }
+			{ id: 1, name: '独立工作，有自己的空间和时间', label: 'A', selected: false },
+			{ id: 2, name: '与他人合作，共同完成任务', label: 'B', selected: false }
+		  ]
+		},
+		{
+		  id: 8,
+		  isMultiple: false,
+		  title: '当面临压力和挑战时，你更倾向于？',
+		  options: [
+			{ id: 1, name: '勇敢面对，寻求解决方案', label: 'A', selected: false },
+			{ id: 2, name: '寻求支持和安慰，与他人分享感受', label: 'B', selected: false }
+		  ]
+		},
+		{
+		  id: 9,
+		  isMultiple: false,
+		  title: '在现实中，你更倾向于？',
+		  options: [
+			{ id: 1, name: '注重实际和现实情况', label: 'A', selected: false },
+			{ id: 2, name: '喜欢探索新的可能性和想象力', label: 'B', selected: false }
+		  ]
+		},
+		{
+		  id: 10,
+		  isMultiple: false,
+		  title: '在组织活动时，你更倾向于？',
+		  options: [
+			{ id: 1, name: '喜欢提前安排并遵循计划', label: 'A', selected: false },
+			{ id: 2, name: '更喜欢灵活调整和随机应变', label: 'B', selected: false }
+		  ]
+		},
+		{
+		  id: 11,
+		  isMultiple: false,
+		  title: '在与他人交往时，你更倾向于？',
+		  options: [
+			{ id: 1, name: '喜欢直接表达自己的观点和感受', label: 'A', selected: false },
+			{ id: 2, name: '更倾向于倾听他人并保持和谐', label: 'B', selected: false }
+		  ]
+		},
+		{
+		  id: 12,
+		  isMultiple: false,
+		  title: '在学习中，你更倾向于？',
+		  options: [
+			{ id: 1, name: '喜欢专注于一项任务直到完成', label: 'A', selected: false },
+			{ id: 2, name: '可以同时处理多个任务并灵活切换', label: 'B', selected: false }
 		  ]
 		},
 		// 可以继续添加更多的题目
@@ -498,12 +534,13 @@ created() {
           .font_3 {
             font-size: 40rpx;
             font-family: SegoeUI-Bold;
-            line-height: 37rpx;
+            line-height: 50rpx;
             font-weight: 700;
             color: #202020;
           }
           .text_7 {
             margin-left: 52rpx;
+			margin-right: 20rpx;
           }
         }
       }

@@ -372,34 +372,7 @@
 					url:'/pages/ceshirukou/ceshirukou'
 				})
 			},
-		  geturl(){
-			  uni.request({
-			  	url:"https://dog.ceo/api/breeds/image/random",
-				success:res=>{
-					console.log(res);
-					this.picurl=res.data.message
-				}
-			  })
-		  },
-		  getvurl(){
-			  uni.request({
-				url:"https://api.gmit.vip/Api/DouYin?format=json&url=https://v.douyin.com/JooqHLX/",
-				success:res=>{
-					console.log(res);
-					this.vidurl=res.data.data.cover
-					this.vtitle=res.data.data.title
-				}
-			  })
-		  },
-		  // getaurl(){
-			 //  uni.request({
-				// url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
-				// success:res=>{
-				// 	console.log(res);
-				// }
-			 //  })
-		  // }
-		  // ,
+
 		  //获取网络数据
 		  getData(){
 		  	uni.request({
@@ -418,10 +391,7 @@
 		  }
 		},
 		onLoad(){
-			this.geturl(),
-			this.getvurl(),
 			this.getData();
-			// this.getaurl()
 		},
 		computed: {
 		  weekday() {

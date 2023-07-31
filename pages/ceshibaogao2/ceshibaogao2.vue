@@ -49,7 +49,7 @@
 				</view>
 				<view class="flex-col wenzi">
 					<text class="zsxx">知识学习 | 学习更多</text>
-					<text class="wt">心理压力大怎么办？</text>
+					<text class="wt">心理压力太大怎么办？</text>
 				</view>
 				<view class="img1 flex-col">
 					<image src="../../static/youjiantou.png" mode=""></image>
@@ -119,7 +119,7 @@
 		//获取网络数据
 		getData(){
 			uni.request({
-				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/GAD_get_plus",
+				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/PSS_plus",
 				success:res=>{
 					console.log(res);
 					this.ArrList=res.data.data
