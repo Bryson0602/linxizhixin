@@ -325,6 +325,97 @@
 	  setTimeout(() => {
 	      this.showText = true;
 	    }, 500); // 延时1秒后显示文字
+		
+	this.chartData = {
+		categories: ["高兴","乐观","平静","低迷","沮丧"],
+		series: [
+		  {
+		    name: "情绪轨迹",
+		      			linearColor: [
+		      			  [
+		      			    0,
+		      			    "#1890FF"
+		      			  ],
+		      			  [
+		      			    0.25,
+		      			    "#00B5FF"
+		      			  ],
+		      			  [
+		      			    0.5,
+		      			    "#00D1ED"
+		      			  ],
+		      			  [
+		      			    0.75,
+		      			    "#00E6BB"
+		      			  ],
+		      			  [
+		      			    1,
+		      			    "#90F489"
+		      			  ]
+		      			],
+		      			setShadow: [
+		      			  3,
+		      			  8,
+		      			  10,
+		      			  "#1890FF"
+		      			],
+		    data: [75,75,75,75,75]
+		  },
+		  // {
+		  //   name: "成交量B",
+		  //   data: [70,40,65,100,44]
+		  // },
+		  // {
+		  //   name: "成交量C",
+		  //   data: [100,80,95,150,112]
+		  // }
+		]
+		};
+		
+		const emoji = decodeURIComponent(this.$route.query.emoji);
+		console.log(emoji);
+		
+		if (emoji === "../../static/bqb1.png") {
+		  // 选择第一个图片，最右边的数据加10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] += 10;
+		  });
+		} else if (emoji === "../../static/bqb2.png") {
+		  // 选择第二个图片，最右边的数据加20
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] += 5;
+		  });
+		} else if (emoji === "../../static/bqb3.png") {
+		  // 选择第三个图片，最右边的数据减10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] += 20;
+		  });
+		} else if (emoji === "../../static/bqb4.png") {
+		  // 选择第三个图片，最右边的数据减10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] += 35;
+		  });
+		} else if (emoji === "../../static/bqb5.png") {
+		  // 选择第三个图片，最右边的数据减10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] -= 10;
+		  });
+		} else if (emoji === "../../static/bqb6.png") {
+		  // 选择第三个图片，最右边的数据减10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] -= 25;
+		  });
+		} else if (emoji === "../../static/bqb7.png") {
+		  // 选择第三个图片，最右边的数据减10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] -= 35;
+		  });
+		} else if (emoji === "../../static/bqb8.png") {
+		  // 选择第三个图片，最右边的数据减10
+		  this.chartData.series.forEach((series) => {
+		    series.data[series.data.length - 1] += 30;
+		  });
+		}
 	},
 	computed: {
 	  sortedDates() {
@@ -337,39 +428,39 @@
         setTimeout(() => {
           //模拟服务器返回数据，如果数据格式和标准格式不同，需自行按下面的格式拼接
           let res = {
-              categories: ["高兴","乐观","平静","低迷","沮丧"],
+              // categories: ["高兴","乐观","平静","低迷","沮丧"],
               series: [
                 {
-                  name: "情绪轨迹",
-      			linearColor: [
-      			  [
-      			    0,
-      			    "#1890FF"
-      			  ],
-      			  [
-      			    0.25,
-      			    "#00B5FF"
-      			  ],
-      			  [
-      			    0.5,
-      			    "#00D1ED"
-      			  ],
-      			  [
-      			    0.75,
-      			    "#00E6BB"
-      			  ],
-      			  [
-      			    1,
-      			    "#90F489"
-      			  ]
-      			],
-      			setShadow: [
-      			  3,
-      			  8,
-      			  10,
-      			  "#1890FF"
-      			],
-                  data: [75,75,75,75,75]
+         //          name: "情绪轨迹",
+      			// linearColor: [
+      			//   [
+      			//     0,
+      			//     "#1890FF"
+      			//   ],
+      			//   [
+      			//     0.25,
+      			//     "#00B5FF"
+      			//   ],
+      			//   [
+      			//     0.5,
+      			//     "#00D1ED"
+      			//   ],
+      			//   [
+      			//     0.75,
+      			//     "#00E6BB"
+      			//   ],
+      			//   [
+      			//     1,
+      			//     "#90F489"
+      			//   ]
+      			// ],
+      			// setShadow: [
+      			//   3,
+      			//   8,
+      			//   10,
+      			//   "#1890FF"
+      			// ],
+         //          data: [75,75,75,75,75]
                 },
                 // {
                 //   name: "成交量B",

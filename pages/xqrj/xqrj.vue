@@ -114,10 +114,18 @@
 	  
 	  </view>
 	  
+
       <view class="flex-row items-center self-center section_3 space-x-2" @click="popupClick">
         <view class="section_4"></view>
         <text class="font_3 text text_12" >换个心情</text>
+		<!-- <button @click="navigateToChartPage">查看数据</button> -->
       </view>
+	<view class="container items-center  space-x-2" @click="navigateToChartPage">
+	  <view class="section_40 yidong"></view>
+	  <text class="font_3 text text_120" >更新</text>
+	</view>  
+ 
+	  
     </view>
     <view class="flex-row group_3 space-x-8">
 		
@@ -204,6 +212,11 @@
 		selectEmoji(emoji) {
 		  this.selectedEmoji = emoji.url;
 		  uni.$emit('updateChartData', emoji.url);
+		},
+		navigateToChartPage() {
+		uni.navigateTo({
+			url: `/pages/wodebaogao/wodebaogao?emoji=${encodeURIComponent(this.selectedEmoji)}`
+		      });
 		},
 		clickjl(){
 			uni.showToast({
@@ -452,6 +465,29 @@
           line-height: 30rpx;
         }
       }
+	  .section_30 {
+	    margin-top: 0rpx;
+	    padding: 2rpx 0rpx 5rpx;
+	    background-color: #ffffff59;
+	    border-radius: 60rpx;
+	    .section_40 {
+	      background-color: #00000000;
+	      width: 72rpx;
+	      height: 72rpx;
+	    }
+	    .text_120 {
+	      margin-right: 36rpx;
+	      line-height: 24rpx;
+	    }
+	  }
+	  .yidong{
+		  margin-bottom: -500rpx;
+	  }
+	  .container {
+	    display: flex;
+	    justify-content: flex-end;
+	    /* other styles */
+	  }
       .space-x-2 {
         & > view:not(:first-child),
         & > text:not(:first-child),
