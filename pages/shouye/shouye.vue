@@ -304,7 +304,7 @@
 			  <view class="flex-row group_13 space-x-4">
 				<text class="read">阅读量：</text><text class="read">1123</text>
 			  </view>
-		    </view>
+		    </view>66666655
 		  </view> -->
 
 	    </view>
