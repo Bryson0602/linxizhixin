@@ -304,6 +304,17 @@
             }
             
         }
+        
+        ,{
+            "path" : "pages/AI/AI",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "AI小助手",
+				
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -358,6 +369,7 @@
 			"height": "65px",
 			"iconPath": "static/newai.png",
 			"iconWidth": "65px"
+			
 		}
 		
 	}
