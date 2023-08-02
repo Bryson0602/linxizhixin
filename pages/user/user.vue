@@ -19,7 +19,7 @@
         </view>
 		
         <view class="flex-row space-x-14">
-          <view class="flex-col justify-start items-center equal-division-item">
+          <view class="flex-col justify-start items-center equal-division-item" @click="gopipei">
             <text class="font_1">智能匹配</text>
           </view>
           <view class="flex-col justify-start items-center relative equal-division-item">
@@ -34,7 +34,7 @@
 	  
       <view class="flex-col relative section_2 space-y-11">
         <text class="self-start text_2">消息</text>
-        <view class="flex-row items-center space-x-14">
+        <view class="flex-row items-center space-x-14" @click="gochat">
           <view class="section_3">
 			  <image src="../../static/teacher.png" mode=""></image>
 		  </view>
@@ -135,7 +135,18 @@
       return {};
     },
 
-    methods: {},
+    methods: {
+		gochat(){
+			uni.navigateTo({
+				url:"/pages/chat/chat"
+			})
+		},
+		gopipei(){
+			uni.navigateTo({
+				url:"/pages/pipei/pipei"
+			})
+		},
+	},
   };
 </script>
 
@@ -230,7 +241,8 @@
           flex: 1 1 314rpx;
           //padding: 96rpx 0 88rpx;
           filter: drop-shadow(0px 6rpx 6rpx #00000029);
-		  background-color: #ffe1ff;
+		  background-color: #fff0eb;
+		  //background-image: linear-gradient(180deg, #ffe4dd 0%, #ffffff 100%);
 		  // background: linear-gradient(
 		  //     to bottom right, 
 		  //     #ffffff 0%,
