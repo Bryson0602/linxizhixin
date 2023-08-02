@@ -57,18 +57,50 @@
 						</view>
 					</view>
 				</view>
+				
+				<view v-for="(item,index1) in msgList2" :key="index1">
+					
+					<!-- 机器人发的消息 -->
+					<view class="item Ai" v-if="item.botContent != ''">
+						<!-- 头像 -->     
+						<view class="avatar">
+						</view>
+						<!-- 文字内容 -->
+						<view class="content left">
+							{{item.botContent}}
+						</view>
+					</view>
+					<view class="guess">
+						<view class="text">
+						<text>猜你想问</text></br>
+						<text class="small" @click="send1">{{text1}}</text></br>
+						<text class="small" @click="send2">{{text2}}</text></br>
+						<text class="small" @click="send3">{{text3}}</text></br>
+						<text class="small" @click="send4">{{text4}}</text>
+						</view>
+					</view>
+				</view>
+				
 			</view>
+			
+			
+			
 		</scroll-view>
 		<!-- 底部消息发送栏 -->
 		<!-- 用来占位，防止聊天消息被发送框遮挡 -->
-		<view class="chat-bottom">
-			<view class="send-msg">
+		<view class="chat-bottom" :style="{height: `${inputHeight}rpx`}">
+			<view class="send-msg" :style="{bottom:`${keyboardHeight}rpx`}">
                 <view class="uni-textarea">
 					
 					<textarea v-model="chatMsg"
-					  maxlength="300"
-					  :show-confirm-bar="false"
-					 auto-height></textarea>
+						maxlength="300"
+						confirm-type="send"
+						@confirm="handleSend"
+						:show-confirm-bar="false"
+						:adjust-position="false"
+						@linechange="sendHeight"
+					    @focus="focus" @blur="blur"
+						auto-height></textarea>
 				</view>
 				<button @click="handleSend" class="send-btn">发送</button>
 			</view>
@@ -79,6 +111,10 @@
 	export default {
 		data() {
 			return {
+				//键盘高度
+				keyboardHeight:0,
+				//底部消息发送高度
+				bottomHeight: 0,
 				text1:"1.如何自我缓解抑郁情绪",
 				text2:"2.面对负面情绪时该选择什么样的方式释放？",
 				text3:"3.怎么结束“自我内耗”？",
@@ -102,17 +138,40 @@
 					
 					
 				]	,
+				msgList2:[
+					
+				]	,
 				msgList:[
 					
 				]	
 			}
 		},
-		computed: {
+		updated(){
+					//页面更新时调用聊天消息定位到最底部
+					this.scrollToBottom();
+				},
+		computed:{
 			windowHeight() {
-				
 			    return this.rpxTopx(uni.getSystemInfoSync().windowHeight)
+			},
+			// 键盘弹起来的高度+发送框高度
+			inputHeight(){
+				return this.bottomHeight+this.keyboardHeight
 			}
 		},
+		onLoad(){
+					uni.onKeyboardHeightChange(res => {
+						//这里正常来讲代码直接写
+						//this.keyboardHeight=this.rpxTopx(res.height)就行了
+						//但是之前界面ui设计聊天框的高度有点高,为了不让键盘和聊天输入框之间距离差太大所以我改动了一下。
+						this.keyboardHeight = this.rpxTopx(res.height-30)
+						if(this.keyboardHeight<0)this.keyboardHeight = 0;
+					})
+				},
+				onUnload(){
+					uni.offKeyboardHeightChange()
+				},
+		
 		methods:
 		{
 			send1(){
@@ -127,7 +186,9 @@
 				}
 							
 				this.msgList.push(obj);
+				
 				this.answer1();
+				
 			},
 			send2(){
 				this.chatMsg2=this.text2
@@ -171,12 +232,43 @@
 				this.msgList.push(obj);
 				this.answer1();
 			},
+			focus(){
+				this.scrollToBottom()
+				},
+			blur(){
+				this.scrollToBottom()
+				},
 			// px转换成rpx
 			rpxTopx(px){
 				let deviceWidth = wx.getSystemInfoSync().windowWidth
 				let rpx = ( 750 / deviceWidth ) * Number(px)
 				return Math.floor(rpx)
 			},
+			sendHeight(){
+							setTimeout(()=>{
+								let query = uni.createSelectorQuery();
+								query.select('.send-msg').boundingClientRect()
+								query.exec(res =>{
+									this.bottomHeight = this.rpxTopx(res[0].height)
+								})
+							},10)
+						},
+		
+			scrollToBottom(){
+			   				 //外层加一个延时函数是为了能获取到节点的准确信息
+							setTimeout(()=>{
+								let query = uni.createSelectorQuery().in(this);
+			       				 //获取节点信息
+								query.select('#scrollview').boundingClientRect();
+								query.select('#msglistview').boundingClientRect();
+								query.exec((res) =>{
+								if(res[1].height > res[0].height){
+									this.scrollTop = this.rpxTopx(res[1].height - res[0].height)
+								}
+							})
+						},150)
+						},
+			
 			// 发送消息
 			handleSend() {
 				//如果消息不为空
@@ -188,8 +280,10 @@
 						userContent: this.chatMsg,
 						userId: 0
 					}
+					
 					this.msgList.push(obj);
 					this.answer();
+					
 					this.chatMsg = "";
 				}else {
 					this.$modal.showToast('不能发送空白消息')
@@ -230,8 +324,8 @@
 		   									userContent: "",
 		   									userId: 0
 		   								}
-		   											
-		   								this.msgList.push(obj);
+
+										this.msgList2.push(obj);
 		   			   				}
 		   							 
 		   			   })
@@ -269,7 +363,7 @@
 		font-size: 31rpx;
 		//text-decoration:underline;
 		border-bottom: 1rpx solid darkgrey;
-		padding-bottom: 5rpx;
+		padding-bottom: 2rpx;
 	}
 
 	/* 聊天消息 */
@@ -388,14 +482,14 @@
                 
 				textarea {
 					width: 537rpx;
-					min-height: 75rpx;
+					min-height: 65rpx;
 					max-height: 500rpx;
 					background: #FFFFFF;
 					border-radius: 8rpx;
 					font-size: 32rpx;
 					font-family: PingFang SC;
 					color: #333333;
-					line-height: 43rpx;
+					line-height: 72rpx;
 					padding: 5rpx 8rpx;
 				}
 			}
@@ -407,7 +501,7 @@
 				margin-bottom: 70rpx;
 				margin-left: 25rpx;
 				width: 128rpx;
-				height: 75rpx;
+				height: 78rpx;
 				background: $sendBtnbgc;
 				border-radius: 8rpx;
 				font-size: 28rpx;
