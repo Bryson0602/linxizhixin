@@ -120,10 +120,14 @@
         <text class="font_3 text text_12" >换个心情</text>
 		<!-- <button @click="navigateToChartPage">查看数据</button> -->
       </view>
-	<view class="container items-center  space-x-2" @click="navigateToChartPage">
-	  <view class="section_40 yidong"></view>
-	  <text class="font_3 text text_120" >更新</text>
-	</view>  
+	<!-- <view class="container items-center  space-x-2">
+	  <text class="font_3 text text_120 yidong" @click="navigateToChartPage">更新</text>
+	</view>  -->
+	<view class="flex-row items-center self-center  space-x-2 container">
+	  <view class="section_40"></view>
+	  <text class="font_3 textt text_120"  @click="navigateToChartPage">更新</text>
+			<!-- <button @click="navigateToChartPage">查看数据</button> -->
+	</view>
  
 	  
     </view>
@@ -180,7 +184,7 @@
 		  // emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
 		  // textList: ['开心','无语','难过','思考','生气','得瑟','惊讶','心动'],
 		   // 表情图片路径列表
-		  selectedEmoji: '', // 存储选择的表情图片路径
+		  selectedEmoji:uni.getStorageSync('selectedEmoji') || '', // 存储选择的表情图片路径
 	  };
     },
 	onLoad(){
@@ -212,6 +216,7 @@
 		selectEmoji(emoji) {
 		  this.selectedEmoji = emoji.url;
 		  uni.$emit('updateChartData', emoji.url);
+		  uni.setStorageSync('selectedEmoji', emoji.url);
 		},
 		navigateToChartPage() {
 		uni.navigateTo({
@@ -293,8 +298,8 @@
     overflow-x: hidden;
     height: 100%;
 	position: fixed;
-    .text {
-      // opacity: 0.7;
+    .textt {
+      opacity: 0.8;
     }
     .text_2 {
       color: #202020;
@@ -466,8 +471,8 @@
         }
       }
 	  .section_30 {
-	    margin-top: 0rpx;
-	    padding: 2rpx 0rpx 5rpx;
+	    margin-top: 8rpx;
+	    padding: 0rpx 0rpx 5rpx;
 	    background-color: #ffffff59;
 	    border-radius: 60rpx;
 	    .section_40 {
@@ -481,11 +486,13 @@
 	    }
 	  }
 	  .yidong{
-		  margin-bottom: -500rpx;
+		  margin-bottom: 300rpx;
 	  }
 	  .container {
+		margin-left: 35rpx;
+		margin-top: 20rpx;
 	    display: flex;
-	    justify-content: flex-end;
+	    justify-content: center;
 	    /* other styles */
 	  }
       .space-x-2 {

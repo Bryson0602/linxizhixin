@@ -6,7 +6,7 @@
         <view class="flex-col section">
           <view class="flex-row justify-center group_2 space-x-20">
             <view class="flex-col justify-start items-center text-wrapper">
-              <text class="font_2 text_3">近7天</text>
+              <text class="font_2 text_3">近5天</text>
             </view>
             <view class="flex-col justify-start items-center text-wrapper_2">
               <text class="font_2 text_4">近30天</text>
@@ -153,9 +153,26 @@
       return {
     		cWidth: '',
     		cHeight: '',
-        chartData: {},
+      chartData: JSON.parse(uni.getStorageSync('chartData')) || {
+        categories: ["高兴","乐观","平静","低迷","沮丧"],
+        series: [
+          {
+            name: "情绪轨迹",
+            linearColor: [
+              [0, "#1890FF"],
+              [0.25, "#00B5FF"],
+              [0.5, "#00D1ED"],
+              [0.75, "#00E6BB"],
+              [1, "#90F489"]
+            ],
+            setShadow: [3, 8, 10, "#1890FF"],
+            data: [75,75,75,75,75]
+          },
+        ]
+      }, // 从本地存储中获取折线图的数据
         latestDates: [],
 		showText: false,
+		// chartData: uni.getStorageSync('chartData') || [],
         //您可以通过修改 config-ucharts.js 文件中下标为 ['line'] 的节点来配置全局默认参数，如都是默认参数，此处可以不传 opts 。实际应用过程中 opts 只需传入与全局默认参数中不一致的【某一个属性】即可实现同类型的图表显示不同的样式，达到页面简洁的需求。
 		opts: {
 		  timing: "easeOut",
@@ -320,57 +337,65 @@
 	onReady() {
 	  this.getServerData();
 	},
+	// onLoad() {
+	//     // 从本地存储中获取数据
+	// 	this.chartData=JSON.parse(uni.getStorageSync('chartData'));
+	//     // const storedData = uni.getStorageSync('chartData');
+	//     // if (storedData) {
+	//     // this.chartData = JSON.parse(storedData);
+	//     // }
+	//   },
 	mounted() {
 	  this.getLatestDates();
 	  setTimeout(() => {
 	      this.showText = true;
-	    }, 500); // 延时1秒后显示文字
+	    }, 200); // 延时1秒后显示文字
 		
-	this.chartData = {
-		categories: ["高兴","乐观","平静","低迷","沮丧"],
-		series: [
-		  {
-		    name: "情绪轨迹",
-		      			linearColor: [
-		      			  [
-		      			    0,
-		      			    "#1890FF"
-		      			  ],
-		      			  [
-		      			    0.25,
-		      			    "#00B5FF"
-		      			  ],
-		      			  [
-		      			    0.5,
-		      			    "#00D1ED"
-		      			  ],
-		      			  [
-		      			    0.75,
-		      			    "#00E6BB"
-		      			  ],
-		      			  [
-		      			    1,
-		      			    "#90F489"
-		      			  ]
-		      			],
-		      			setShadow: [
-		      			  3,
-		      			  8,
-		      			  10,
-		      			  "#1890FF"
-		      			],
-		    data: [75,75,75,75,75]
-		  },
-		  // {
-		  //   name: "成交量B",
-		  //   data: [70,40,65,100,44]
-		  // },
-		  // {
-		  //   name: "成交量C",
-		  //   data: [100,80,95,150,112]
-		  // }
-		]
-		};
+	// this.chartData = {
+	// 	categories: ["高兴","乐观","平静","低迷","沮丧"],
+	// 	series: [
+	// 	  {
+	// 	    name: "情绪轨迹",
+	// 	      			linearColor: [
+	// 	      			  [
+	// 	      			    0,
+	// 	      			    "#1890FF"
+	// 	      			  ],
+	// 	      			  [
+	// 	      			    0.25,
+	// 	      			    "#00B5FF"
+	// 	      			  ],
+	// 	      			  [
+	// 	      			    0.5,
+	// 	      			    "#00D1ED"
+	// 	      			  ],
+	// 	      			  [
+	// 	      			    0.75,
+	// 	      			    "#00E6BB"
+	// 	      			  ],
+	// 	      			  [
+	// 	      			    1,
+	// 	      			    "#90F489"
+	// 	      			  ]
+	// 	      			],
+	// 	      			setShadow: [
+	// 	      			  3,
+	// 	      			  8,
+	// 	      			  10,
+	// 	      			  "#1890FF"
+	// 	      			],
+	// 	    data: [75,75,75,75,75]
+	// 	  },
+	// 	  // {
+	// 	  //   name: "成交量B",
+	// 	  //   data: [70,40,65,100,44]
+	// 	  // },
+	// 	  // {
+	// 	  //   name: "成交量C",
+	// 	  //   data: [100,80,95,150,112]
+	// 	  // }
+	// 	]
+	// 	};
 		
 		const emoji = decodeURIComponent(this.$route.query.emoji);
 		console.log(emoji);
@@ -416,7 +441,69 @@
 		    series.data[series.data.length - 1] += 30;
 		  });
 		}
+		
+		// 将更新后的数据保存到本地存储
+		uni.setStorageSync('chartData', JSON.stringify(this.chartData));
+		
+    // 获取传递过来的图片路径参数
+    // const emoji = decodeURIComponent(this.$route.query.emoji);
+
+    // 根据选择的图片路径对折线图最右边的数据进行增减操作
+ //    if (emoji === "../../static/bqb1.png") {
+ //      // 选择第一个图片，最右边的数据加10
+ //      const series = this.chartData.series.data;
+ //      series.data[series.data.length - 1] += 10;
+ //      this.chartData.series.data = series;
+ //    } else if (emoji === "../../static/bqb2.png") {
+ //      // 选择第二个图片，最右边的数据加20
+ //      const series = this.chartData.series;
+ //      series[series.length - 1] += 20;
+ //      this.chartData.series.data = series;
+ //    } else if (emoji === "../../static/bqb3.png") {
+ //      // 选择第三个图片，最右边的数据减10
+ //      const series = this.chartData.series;
+ //      series[series.length - 1] -= 10;
+ //      this.chartData.series.data = series;
+ //    }
+	// else if (emoji === "../../static/bqb4.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb5.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb6.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb7.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb8.png") {
+	//   // 选择第三个图片，最右边的数据减10
+ //      const series = this.chartData.series.data;
+ //      series.data[series.data.length - 1] += 10;
+ //      this.chartData.series.data = series;
+	// }
+	
+	
+	
+	
+	
+	
+		
 	},
+	
 	computed: {
 	  sortedDates() {
 	    return this.latestDates.sort((a, b) => a - b);
