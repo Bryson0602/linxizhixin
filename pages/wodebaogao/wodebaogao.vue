@@ -324,7 +324,7 @@
 	  this.getLatestDates();
 	  setTimeout(() => {
 	      this.showText = true;
-	    }, 500); // 延时1秒后显示文字
+	    }, 200); // 延时1秒后显示文字
 		
 	this.chartData = {
 		categories: ["高兴","乐观","平静","低迷","沮丧"],
@@ -416,7 +416,75 @@
 		    series.data[series.data.length - 1] += 30;
 		  });
 		}
+		
+		// 将更新后的数据保存到本地存储
+		    uni.setStorageSync('chartData', JSON.stringify(this.chartData));
+		
+    // 获取传递过来的图片路径参数
+    // const emoji = decodeURIComponent(this.$route.query.emoji);
+
+    // 根据选择的图片路径对折线图最右边的数据进行增减操作
+ //    if (emoji === "../../static/bqb1.png") {
+ //      // 选择第一个图片，最右边的数据加10
+ //      const series = this.chartData.series.data;
+ //      series.data[series.data.length - 1] += 10;
+ //      this.chartData.series.data = series;
+ //    } else if (emoji === "../../static/bqb2.png") {
+ //      // 选择第二个图片，最右边的数据加20
+ //      const series = this.chartData.series;
+ //      series[series.length - 1] += 20;
+ //      this.chartData.series.data = series;
+ //    } else if (emoji === "../../static/bqb3.png") {
+ //      // 选择第三个图片，最右边的数据减10
+ //      const series = this.chartData.series;
+ //      series[series.length - 1] -= 10;
+ //      this.chartData.series.data = series;
+ //    }
+	// else if (emoji === "../../static/bqb4.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb5.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb6.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb7.png") {
+	//   // 选择第三个图片，最右边的数据减10
+	//   const series = this.chartData.series;
+	//   series[series.length - 1] -= 10;
+	//   this.chartData.series.data = series;
+	// }
+	// else if (emoji === "../../static/bqb8.png") {
+	//   // 选择第三个图片，最右边的数据减10
+ //      const series = this.chartData.series.data;
+ //      series.data[series.data.length - 1] += 10;
+ //      this.chartData.series.data = series;
+	// }
+	
+	
+	
+	
+	
+	
+		
 	},
+	onLoad() {
+	    // 从本地存储中获取数据
+	    const storedData = uni.getStorageSync('chartData');
+	    if (storedData) {
+	      this.chartData = JSON.parse(storedData);
+	    }
+	  },
 	computed: {
 	  sortedDates() {
 	    return this.latestDates.sort((a, b) => a - b);
