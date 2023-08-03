@@ -359,6 +359,7 @@
 			};
 		},
 		methods: {
+			
 			selectEmoji(emoji) {
 			  this.selectedEmoji = emoji;
 			},
