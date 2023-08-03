@@ -34,6 +34,10 @@
 						</view>
 					</view>
 				</view>
+				
+				
+				
+				
 				<!-- 聊天记录 -->
 				<view v-for="(item,index) in msgList" :key="index">
 					<!-- 自己发的消息 -->
@@ -56,32 +60,25 @@
 							{{item.botContent}}
 						</view>
 					</view>
+					
 				</view>
 				
-				<view v-for="(item,index1) in msgList2" :key="index1">
-					
-					<!-- 机器人发的消息 -->
-					<view class="item Ai" v-if="item.botContent != ''">
-						<!-- 头像 -->     
-						<view class="avatar">
-						</view>
-						<!-- 文字内容 -->
-						<view class="content left">
-							{{item.botContent}}
-						</view>
-					</view>
-					<view class="guess">
-						<view class="text">
-						<text>猜你想问</text></br>
-						<text class="small" @click="send1">{{text1}}</text></br>
-						<text class="small" @click="send2">{{text2}}</text></br>
-						<text class="small" @click="send3">{{text3}}</text></br>
-						<text class="small" @click="send4">{{text4}}</text>
-						</view>
+				<transition name="fade">
+				<view class="guess" v-if="flag!=''">
+					<view class="text">
+					<text>猜你想问</text></br>
+					<text class="small" @click="send5">{{text5}}</text></br>
+					<text class="small" @click="send6">{{text6}}</text></br>
+					<text class="small" @click="send7">{{text7}}</text></br>
+					<text class="small" @click="send8">{{text8}}</text>
 					</view>
 				</view>
+			    </transition>
+					
+				
 				
 			</view>
+			
 			
 			
 			
@@ -111,6 +108,7 @@
 	export default {
 		data() {
 			return {
+				flag:"",
 				//键盘高度
 				keyboardHeight:0,
 				//底部消息发送高度
@@ -119,6 +117,10 @@
 				text2:"2.面对负面情绪时该选择什么样的方式释放？",
 				text3:"3.怎么结束“自我内耗”？",
 				text4:"4.心理保健自修室",
+				text5:"1.如何应对失恋和分手的伤痛？",
+				text6:"2.如何处理学习与生活的平衡问题？",
+				text7:"3.如何有效地沟通和解决冲突？",
+				text8:"4.如何应对社交焦虑和害羞？",
 				//滚动距离
 				scrollTop: 0,
 				userId:'',
@@ -127,6 +129,7 @@
 				chatMsg1:"",
 				chatMsg2:"",
 				chatMsg3:"",
+				
 				msgList1:[
 					{
 					    botContent: "你好，我是智能心理助手小犀~有什么可以帮助你的呢？",
@@ -143,7 +146,10 @@
 				]	,
 				msgList:[
 					
-				]	
+				]	,
+				msgList3:[
+					
+				]
 			}
 		},
 		updated(){
@@ -188,7 +194,6 @@
 				this.msgList.push(obj);
 				
 				this.answer1();
-				
 			},
 			send2(){
 				this.chatMsg2=this.text2
@@ -203,6 +208,7 @@
 							
 				this.msgList.push(obj);
 				this.answer1();
+			
 			},
 			send3(){
 				this.chatMsg2=this.text3
@@ -231,6 +237,64 @@
 							
 				this.msgList.push(obj);
 				this.answer1();
+			},
+			send5(){
+				this.chatMsg2=this.text5
+				console.log(this.text1)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0
+				}
+							
+				this.msgList.push(obj);
+				
+				this.answer2();
+			},
+			send6(){
+				this.chatMsg2=this.text6
+				console.log(this.text2)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+			
+			},
+			send7(){
+				this.chatMsg2=this.text7
+				console.log(this.text3)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+			},
+			send8(){
+				this.chatMsg2=this.text8
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
 			},
 			focus(){
 				this.scrollToBottom()
@@ -280,7 +344,7 @@
 						userContent: this.chatMsg,
 						userId: 0
 					}
-					
+					this.flag="";
 					this.msgList.push(obj);
 					this.answer();
 					
@@ -325,13 +389,38 @@
 		   									userId: 0
 		   								}
 
-										this.msgList2.push(obj);
+										this.msgList.push(obj);
+										this.flag="1";
 		   			   				}
 		   							 
 		   			   })
 		   			  
 		   			   
-		   }
+		   },
+		   answer2(){
+		   			   uni.request({
+		   			   	url:"https://api.ownthink.com/bot?appid=386a5bb9d5eb623023988f0e52cd4df3&userid=user&spoken="+this.chatMsg2,
+		   			   				success:res=>{
+		   								console.log(res.data.data.info.text);
+		   								this.chatMsg3=res.data.data.info.text
+		   								let obj = {
+		   									botContent: this.chatMsg3,
+		   									recordId: 0,
+		   									titleId: 0,
+		   									userContent: "",
+		   									userId: 0
+		   								}
+		   
+		   										this.msgList.push(obj);
+		   										this.flag="";
+		   			   				}
+		   							 
+		   			   })
+		   			  
+		   			   
+		   },
+		  
+		   
 		}
 	}
 </script>
@@ -344,6 +433,13 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+	}
+	.fade-enter-active, .fade-leave-active {
+	  transition: opacity .5s;
+	}
+	
+	.fade-enter, .fade-leave-to {
+	  opacity: 0;
 	}
 	.text{
 		margin-top: 15rpx;
