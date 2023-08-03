@@ -150,10 +150,11 @@
   export default {
     components: {},
     data() {
+	let storedData = uni.getStorageSync('chartData');
       return {
     		cWidth: '',
     		cHeight: '',
-      chartData: JSON.parse(uni.getStorageSync('chartData')) || {
+		chartData: storedData ? JSON.parse(storedData) : {
         categories: ["高兴","乐观","平静","低迷","沮丧"],
         series: [
           {
@@ -398,7 +399,6 @@
 	// 	};
 		
 		const emoji = decodeURIComponent(this.$route.query.emoji);
-		console.log(emoji);
 		
 		if (emoji === "../../static/bqb1.png") {
 		  // 选择第一个图片，最右边的数据加10
