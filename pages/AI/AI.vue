@@ -26,7 +26,7 @@
 					</view>
 					<view class="guess">
 						<view class="text">
-						<text>猜你想问</text></br>
+						<b><text style="color: #616161;">猜你想问</text></b> </br>
 						<text class="small" @click="send1">{{text1}}</text></br>
 						<text class="small" @click="send2">{{text2}}</text></br>
 						<text class="small" @click="send3">{{text3}}</text></br>
@@ -64,13 +64,19 @@
 				</view>
 				
 				<transition name="fade">
-				<view class="guess" v-if="flag!=''">
-					<view class="text">
-					<text>猜你想问</text></br>
-					<text class="small" @click="send5">{{text5}}</text></br>
-					<text class="small" @click="send6">{{text6}}</text></br>
-					<text class="small" @click="send7">{{text7}}</text></br>
-					<text class="small" @click="send8">{{text8}}</text>
+				<view class="guess1" v-if="flag!=''">
+					<view class="text1">
+					<b><text style="color: #616161;">猜你想问</text></b> 
+					
+					<uni-icons type="refreshempty" size="10" class="refresh"></uni-icons>
+					  <text class="huan">换一换</text></br>
+					  <view>
+						<text class="small" @click="send5">{{text5}}</text></br>
+						<text class="small" @click="send6">{{text6}}</text></br>
+						<text class="small" @click="send7">{{text7}}</text></br>
+						<text class="small" @click="send8">{{text8}}</text>  
+					  </view>
+					
 					</view>
 				</view>
 			    </transition>
@@ -97,7 +103,7 @@
 						:adjust-position="false"
 						@linechange="sendHeight"
 					    @focus="focus" @blur="blur"
-						auto-height></textarea>
+						auto-height placeholder="请输入你的问题~" placeholder-style="color: #C0C0C0"></textarea>
 				</view>
 				<button @click="handleSend" class="send-btn">发送</button>
 			</view>
@@ -376,26 +382,23 @@
 			   
 		   },
 		   answer1(){
-		   			   uni.request({
-		   			   	url:"https://api.ownthink.com/bot?appid=386a5bb9d5eb623023988f0e52cd4df3&userid=user&spoken="+this.chatMsg2,
-		   			   				success:res=>{
-		   								console.log(res.data.data.info.text);
-		   								this.chatMsg3=res.data.data.info.text
-		   								let obj = {
-		   									botContent: this.chatMsg3,
-		   									recordId: 0,
-		   									titleId: 0,
-		   									userContent: "",
-		   									userId: 0
-		   								}
+			   uni.request({
+				url:"https://api.ownthink.com/bot?appid=386a5bb9d5eb623023988f0e52cd4df3&userid=user&spoken="+this.chatMsg2,
+					success:res=>{
+						console.log(res.data.data.info.text);
+						this.chatMsg3=res.data.data.info.text
+						let obj = {
+							botContent: this.chatMsg3,
+							recordId: 0,
+							titleId: 0,
+							userContent: "",
+							userId: 0
+						}
 
-										this.msgList.push(obj);
-										this.flag="1";
-		   			   				}
-		   							 
-		   			   })
-		   			  
-		   			   
+						this.msgList.push(obj);
+						this.flag="1";
+					}			 
+			   })
 		   },
 		   answer2(){
 		   			   uni.request({
@@ -424,6 +427,7 @@
 		}
 	}
 </script>
+
 <style lang="scss" scoped>
 	
 	$chatContentbgc: #C2DCFF;
@@ -441,10 +445,24 @@
 	.fade-enter, .fade-leave-to {
 	  opacity: 0;
 	}
+		
+	.huan{
+		width:35rpx;
+		font-size: 20rpx;
+		margin-left: 5rpx;
+		color: grey;
+	}
 	.text{
 		margin-top: 15rpx;
 		padding-top: 25rpx;
 		padding-left: 25rpx;
+		color:#4fd0f0
+	}
+	.text1{
+		margin-top: 15rpx;
+		padding-top: 25rpx;
+		padding-left: 25rpx;
+		color:#eba76f
 	}
 	.guess{
 		position: flex;
@@ -452,16 +470,27 @@
 		margin-left:7%;
 		width:85%;
 		height:280rpx;
-		background-color:navajowhite;
+		background-image: radial-gradient(37.8% 37.8% at 77.9% 3.6%, #d5e7ff 0%, #ffffff 100%);
+		box-shadow: black;
+	}
+	.guess1{
+		position: flex;
+		border-radius: 25rpx;
+		margin-left:7%;
+		width:85%;
+		height:280rpx;
+		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
 		box-shadow: black;
 	}
     .small{
 		font-size: 31rpx;
 		//text-decoration:underline;
-		border-bottom: 1rpx solid darkgrey;
+		
 		padding-bottom: 2rpx;
 	}
-
+    .refresh{
+	margin-left: 350rpx;
+	}
 	/* 聊天消息 */
 	.chat {
 		position: flex;
@@ -482,7 +511,7 @@
 				display: flex;
 				flex-direction: column;
 				padding-top: 23rpx;
-				// background-color:skyblue;
+				background-color:#F2F2F2;
 				
 				.self {
 					justify-content: flex-end;
@@ -493,7 +522,9 @@
 					// background-color: greenyellow;
 
 					.right {
-						background-color: $chatContentbgc;
+						background: linear-gradient(to bottom right, #d9fffc, white);
+
+                            //#ffefda #d5e7ff
 					}
 					.left {
 						background-color: #FFFFFF;
@@ -508,7 +539,7 @@
 						left: 100%;
 						top: 10px;
 						border: 12rpx solid transparent;
-						border-left: 12rpx solid $chatContentbgc;
+						border-left: 12rpx solid white;
 					}
 
 					.left::after {
@@ -526,15 +557,15 @@
 					.content {
 						position: relative;
 						max-width: 486rpx;
-						border-radius: 8rpx;
+						border-radius: 28rpx;
 						word-wrap: break-word;
 						padding: 24rpx 24rpx;
 						margin: 0 24rpx;
-						border-radius: 5px;
+						border-radius: 15px;
 						font-size: 32rpx;
 						font-family: PingFang SC;
 						font-weight: 500;
-						color: #333333;
+						color: #616161;
 						line-height: 42rpx;
 					}
 
@@ -543,7 +574,7 @@
 						justify-content: center;
 						width: 78rpx;
 						height: 78rpx;
-						background: $sendBtnbgc;
+						background: #ccd0c2;
 						border-radius: 8rpx;
 						overflow: hidden;
 						
@@ -581,7 +612,7 @@
 					min-height: 65rpx;
 					max-height: 500rpx;
 					background: #FFFFFF;
-					border-radius: 8rpx;
+					border-radius: 48rpx;
 					font-size: 32rpx;
 					font-family: PingFang SC;
 					color: #333333;
@@ -598,12 +629,12 @@
 				margin-left: 25rpx;
 				width: 128rpx;
 				height: 78rpx;
-				background: $sendBtnbgc;
-				border-radius: 8rpx;
+				background: #3adbdd;
+				border-radius: 38rpx;
 				font-size: 28rpx;
 				font-family: PingFang SC;
 				font-weight: 500;
-				color: #FFFFFF;
+				color: white;
 				line-height: 28rpx;
 			}
 		}
