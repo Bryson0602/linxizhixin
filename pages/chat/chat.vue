@@ -25,7 +25,7 @@
 					<view class="item Ai" v-if="item.botContent != ''">
 						<!-- 头像 -->     
 						<view class="avatar">
-							<image src="../../static/bqb1.png" mode=""></image>
+							<image :src="url" mode=""></image>
 						</view>
 						<!-- 文字内容 -->
 						<view class="content left">
@@ -61,6 +61,8 @@
 	export default {
 		data() {
 			return {
+				name:'',
+				url:"",
 				//键盘高度
 				keyboardHeight:0,
 				//底部消息发送高度
@@ -78,20 +80,13 @@
 					    userContent: "",
 					    userId: 0
 					},
-					{
-					    botContent: "",
-					    recordId: 0,
-					    titleId: 0,
-					    userContent: "你好呀我想问你一件事",//自己
-					    userId: 0
-					},
-					{
-					    botContent: "？",//机器人
-					    recordId: 0,
-					    titleId: 0,
-					    userContent: "",
-					    userId: 0
-					},
+					// {
+					//     botContent: "",
+					//     recordId: 0,
+					//     titleId: 0,
+					//     userContent: "你好呀",//自己
+					//     userId: 0
+					// }
 				]	
 			}
 		},
@@ -108,7 +103,16 @@
 				return this.bottomHeight+this.keyboardHeight
 			}
 		},
-		onLoad(){
+		onLoad(option){
+			//接受信息
+			const name = option.name;
+			const url = option.url;
+			this.name = name;
+			this.url = url;
+			uni.setNavigationBarTitle({
+				title:this.name
+			})
+
 			uni.onKeyboardHeightChange(res => {
 				//这里正常来讲代码直接写
 				//this.keyboardHeight=this.rpxTopx(res.height)就行了
@@ -156,24 +160,59 @@
 					})
 				},15)
 			},
-			// 发送消息
 			handleSend() {
-				//如果消息不为空
-				if(!this.chatMsg||!/^\s+$/.test(this.chatMsg)){
-					let obj = {
-						botContent: "",
-						recordId: 0,
-						titleId: 0,
-						userContent: this.chatMsg,
-						userId: 0
-					}
-					this.msgList.push(obj);
-					this.chatMsg = '';
-					this.scrollToBottom()
-				}else {
-					this.$modal.showToast('不能发送空白消息')
-				}
-			},
+			  if (!this.chatMsg || /^\s+$/.test(this.chatMsg)) {
+			    this.$modal.showToast('不能发送空白消息')
+			    return
+			  }
+			  const userMsg = this.chatMsg.trim(); // 去除消息前后的空格
+			  
+			  // 添加延时回复的逻辑
+			  const obj = {
+			    botContent: "",
+			    recordId: 0,
+			    titleId: 0,
+			    userContent: userMsg,
+			    userId: 0
+			  };
+			  this.msgList.push(obj);
+			  this.chatMsg = '';
+			  this.scrollToBottom();
+			  
+			  setTimeout(() => {
+			    let botMsg = ""; // 机器人回复的消息
+			    if (userMsg === "你好呀") {
+			      botMsg = "请问有什么事情";
+			    } else if (userMsg === "你在干嘛") {
+			      botMsg = "我在工作";
+			    } else if (userMsg === "你爱我吗") {
+			      botMsg = "讨厌，人家害羞啦";
+			    } else {
+			      botMsg = "抱歉，我不明白你的意思";
+			    }
+			    obj.botContent = botMsg; // 更新机器人回复的消息
+			    this.scrollToBottom();
+			  }, 2000); // 设置延时为2秒
+			}
+
+			// 发送消息
+			// handleSend() {
+			// 	//如果消息不为空
+			// 	if(!this.chatMsg||!/^\s+$/.test(this.chatMsg)){
+			// 		let obj = {
+			// 			botContent: "",
+			// 			recordId: 0,
+			// 			titleId: 0,
+			// 			userContent: this.chatMsg,
+			// 			userId: 0
+			// 		}
+			// 		this.msgList.push(obj);
+			// 		this.chatMsg = '';
+			// 		this.scrollToBottom()
+			// 	}else {
+			// 		this.$modal.showToast('不能发送空白消息')
+			// 	}
+			// },
 		}
 	}
 </script>

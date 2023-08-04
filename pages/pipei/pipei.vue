@@ -23,10 +23,16 @@
       <view class="section_3 pos_6"></view>
       <view class="section_10 pos_14"></view>
       <view class="section_4 pos_7"></view>
-      <view class="section pos_2"></view>
-      <view class="section_11 pos_15"></view>
+      <view class="section pos_2">
+		  <image src="../../static/lxzx.png" mode=""></image>
+	  </view>
+      <view class="section_11 pos_15">
+		  <image src="../../static/teacher.png" mode=""></image>
+	  </view>
       <view class="section_8 pos_12"></view>
-      <view class="section_7 pos_11"></view>
+      <view class="section_7 pos_11">
+		  <image src="../../static/lxzx.png" mode=""></image>
+	  </view>
       <view class="section_5 pos_9"></view>
       
       <!-- <view class="flex-col justify-start items-end text-wrapper pos">
@@ -43,8 +49,10 @@
 			</view>
 		  </view>
 		  <view class="flex-col items-center group_2">
-		    <text class="font_1">灵犀知心</text>
-		    <view class="section"></view>
+		    <text class="font_1">{{this.name}}</text>
+		    <view class="section">
+				<image :src="url" mode=""></image>
+			</view>
 		  </view>
 		</view>
 	</view>
@@ -79,6 +87,8 @@
     components: {},
     data() {
       return {
+		  name:'',
+		  url:"",
 		  matchingStatus: 'matching'
 	  };
     },
@@ -96,15 +106,46 @@
     methods: {
 		gochat(){
 			uni.navigateTo({
-				url:"/pages/chat/chat"
+				url:"/pages/chat/chat?name=" + this.name + '&url=' + encodeURIComponent(this.url)
 			})
 		}
+	},
+	onLoad(option) {
+		//接受信息
+		const name = option.name;
+		const url = option.url;
+		this.name = name;
+		this.url = url;
 	},
   };
 </script>
 
 <style scoped lang="scss">
+	@keyframes floating {
+	  0% {
+	    transform: translateY(0);
+	  }
+	  50% {
+	    transform: translateY(-10px);
+	  }
+	  100% {
+	    transform: translateY(0);
+	  }
+	}
+	@keyframes floating1 {
+	  0% {
+	    transform: translateY(0);
+	  }
+	  50% {
+	    transform: translateY(10px);
+	  }
+	  100% {
+	    transform: translateY(0);
+	  }
+	}
   .page {
+	  
+	  
 	  position: fixed;
     padding: 100rpx 0 100rpx;
 	background-image: linear-gradient(180deg, #4f4f66 0%, #3c4755 21.4%, #4e595e 48.5%, #342b43 76.7%, #243e3a 100%);
@@ -193,12 +234,18 @@
         position: absolute;
         left: 180rpx;
         top: 201rpx;
+		animation: floating 2s infinite ease-in-out;
       }
       .section_9 {
         background-color: #e0e0e0;
         border-radius: 50%;
         width: 52rpx;
         height: 52rpx;
+		overflow: hidden;
+		image{
+		  width: 52rpx;
+		  height: 52rpx;
+		}
       }
       .pos_13 {
         position: absolute;
@@ -210,6 +257,11 @@
         border-radius: 50%;
         width: 56rpx;
         height: 54rpx;
+		overflow: hidden;
+		image{
+		  width: 56rpx;
+		  height: 54rpx;
+		}
       }
       .pos_6 {
         position: absolute;
@@ -221,6 +273,11 @@
         border-radius: 50%;
         width: 72rpx;
         height: 70rpx;
+		overflow: hidden;
+		image{
+		  width: 72rpx;
+		  height: 70rpx;
+		}
       }
       .pos_14 {
         position: absolute;
@@ -232,6 +289,11 @@
         border-radius: 50%;
         width: 68rpx;
         height: 64rpx;
+		overflow: hidden;
+		image{
+		  width: 68rpx;
+		  height: 64rpx;
+		}
       }
       .pos_7 {
         position: absolute;
@@ -243,28 +305,45 @@
         border-radius: 50%;
         width: 116rpx;
         height: 118rpx;
+		overflow: hidden;
+		image{
+			width: 116rpx;
+			height: 118rpx;
+		}
       }
       .pos_2 {
         position: absolute;
         left: 66rpx;
         top: 41rpx;
+		animation: floating1 2s infinite ease-in-out;
       }
       .section_11 {
         background-color: #e0e0e0;
         border-radius: 50%;
         width: 136rpx;
         height: 136rpx;
+		overflow: hidden;
+		image{
+			width: 136rpx;
+			height: 136rpx;
+		}
       }
       .pos_15 {
         position: absolute;
         right: 82rpx;
         top: 713rpx;
+		animation: floating1 2s infinite ease-in-out;
       }
       .section_8 {
         background-color: #e0e0e0;
         border-radius: 50%;
         width: 102rpx;
         height: 98rpx;
+		overflow: hidden;
+		image{
+		  width: 102rpx;
+		  height: 98rpx;
+		}
       }
       .pos_12 {
         position: absolute;
@@ -276,17 +355,28 @@
         border-radius: 50%;
         width: 60rpx;
         height: 60rpx;
+		overflow: hidden;
+		image{
+			width: 60rpx;
+			height: 60rpx;
+		}
       }
       .pos_11 {
         position: absolute;
         right: 148rpx;
         top: 465rpx;
+		animation: floating 2s infinite ease-in-out;
       }
       .section_5 {
         background-color: #e0e0e0;
         border-radius: 50%;
         width: 104rpx;
         height: 106rpx;
+		overflow: hidden;
+		image{
+		  width: 104rpx;
+		  height: 106rpx;
+		}
       }
       .pos_9 {
         position: absolute;
@@ -358,7 +448,7 @@
         line-height: 40rpx;
 		font-weight: 700;
       }
-    .text-wrapper_2 {
+    .text-wrapper_2 {//开始聊天
 		background-color: #fff;
 		padding: 25rpx 50rpx;
 		border-radius: 30rpx;
