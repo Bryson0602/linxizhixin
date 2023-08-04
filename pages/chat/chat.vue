@@ -18,7 +18,7 @@
 						</view>
 						<!-- 头像 -->
 						<view class="avatar">
-							<image src="../../static/teacher.png" mode=""></image>
+							<image src="../../static/lxzx.png" mode=""></image>
 						</view>
 					</view>
 					<!-- 机器人发的消息 -->
@@ -63,6 +63,7 @@
 			return {
 				name:'',
 				url:"",
+				id:100,
 				//键盘高度
 				keyboardHeight:0,
 				//底部消息发送高度
@@ -107,12 +108,18 @@
 			//接受信息
 			const name = option.name;
 			const url = option.url;
+			const id = option.id;
 			this.name = name;
 			this.url = url;
+			this.id = id;
 			uni.setNavigationBarTitle({
 				title:this.name
 			})
-
+			// 从本地缓存中读取聊天记录（缓存）---------------------------------------
+			  // const chatMsgList = uni.getStorageSync('chatMsgList');
+			  // if (chatMsgList && chatMsgList.length > 0) {
+			  //   this.msgList = chatMsgList;
+			  // }
 			uni.onKeyboardHeightChange(res => {
 				//这里正常来讲代码直接写
 				//this.keyboardHeight=this.rpxTopx(res.height)就行了
@@ -120,10 +127,45 @@
 				this.keyboardHeight = this.rpxTopx(res.height-30)
 				if(this.keyboardHeight<0)this.keyboardHeight = 0;
 			})
+			
+			if(this.id<=4)//固定的部分前台显示
+			{
+				this.msgList = [
+					{
+					    botContent: "",
+					    recordId: 0,
+					    titleId: 0,
+					    userContent: "明天一起参加活动怎么样？",//自己
+					    userId: 0
+					},
+					{
+					    botContent: "好啊，地址在哪呀？",//机器人
+					    recordId: 0,
+					    titleId: 0,
+					    userContent: "",
+					    userId: 0
+					},
+					{
+					    botContent: "",
+					    recordId: 0,
+					    titleId: 0,
+					    userContent: "我到时候发你哦",//自己
+					    userId: 0
+					},
+					{
+					    botContent: "OK",//机器人
+					    recordId: 0,
+					    titleId: 0,
+					    userContent: "",
+					    userId: 0
+					},
+				];
+			}
 		},
 		onUnload(){
 			uni.offKeyboardHeightChange()
 		},
+		
 		methods: {
 			focus(){
 				this.scrollToBottom()
@@ -178,20 +220,27 @@
 			  this.msgList.push(obj);
 			  this.chatMsg = '';
 			  this.scrollToBottom();
-			  
+			  // 将聊天记录存储到本地缓存中
+			  uni.setStorageSync('chatMsgList', this.msgList);//-----------------
 			  setTimeout(() => {
 			    let botMsg = ""; // 机器人回复的消息
 			    if (userMsg === "你好呀") {
-			      botMsg = "请问有什么事情";
-			    } else if (userMsg === "你在干嘛") {
-			      botMsg = "我在工作";
-			    } else if (userMsg === "你爱我吗") {
-			      botMsg = "讨厌，人家害羞啦";
-			    } else {
-			      botMsg = "抱歉，我不明白你的意思";
+			      botMsg = "Hello，你好~";
+			    } else if (userMsg === "我跟你说一件事") {
+			      botMsg = "咋啦？";
+			    } else if (userMsg === "我最近学习压力好大，真的不知道该怎么办了") {
+			      botMsg = "我在这呢，学习压力确实很大，但你要知道你不是一个人在战斗。我们都经历过类似的情况，所以我相信你有足够的力量来应对的。";
+			    } else if (userMsg === "感觉学习真的好累啊") {
+			      botMsg = "不要过分压力自己啦。学习是一个长期的过程，每个人都会有起伏和困难的。";
+			    } else if (userMsg === "我们一起出去玩吧") {
+			      botMsg = "OK！到时候你把地址发我哦~";
+			    } 
+				else {
+			      botMsg = "你好呀~";
 			    }
 			    obj.botContent = botMsg; // 更新机器人回复的消息
 			    this.scrollToBottom();
+				uni.setStorageSync('chatMsgList', this.msgList);//-----------------
 			  }, 2000); // 设置延时为2秒
 			}
 
@@ -219,7 +268,7 @@
 
 <style lang="scss" scoped>
 	
-	$chatContentbgc: #C2DCFF;
+	$chatContentbgc: #ffd2b7;
 	$sendBtnbgc: #4F7DF5;
 	
 	view,button,text,input,textarea {

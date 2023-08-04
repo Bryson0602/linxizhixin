@@ -326,7 +326,7 @@ created() {
       }
       //return personalityType;
 	  console.log(personalityType);
-	  uni.navigateTo({
+	  uni.redirectTo({
 	    url: '/pages/ceshibaogao3/ceshibaogao3?type=' + personalityType
 	  });
 	  // uni.showToast({

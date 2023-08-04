@@ -69,34 +69,64 @@
 		  arrList: [
 		    {
 		      id: 1,
-		      url: "../../static/teacher.png",
+		      url: "../../static/tx11.jpeg",
 		      name: '新朋友',
-		      msg: '今天去那玩？',
+		      msg: 'OK',
 		    },
 		    {
 		      id: 2,
-		      url: "../../static/teacher.png",
-		      name: '小王',
-		      msg: '你干嘛',
+		      url: "../../static/tx14.jpeg",
+		      name: '好爱笑',
+		      msg: '没关系的',
 		    },
+			{
+			  id: 3,
+			  url: "../../static/tx12.jpeg",
+			  name: '小雨',
+			  msg: '明天去哪里玩？',
+			},
+			{
+			  id: 4,
+			  url: "../../static/tx15.jpeg",
+			  name: '圆圆',
+			  msg: '到时候一起去参加活动吧~',
+			},
+			{
+			  id: 5,
+			  url: "../../static/tx13.jpeg",
+			  name: '若楠',
+			  msg: '不见不散哦',
+			},
 		  ],
 		  arrList1: [
 		    {
-		      id: 3,
-		      url: "../../static/bqb1.png",
-		      name: '饼干',
+		      id: 6,
+		      url: "../../static/tx16.jpeg",
+		      name: '小曲奇',
 		      msg: '我们已经是好友了，现在可以开始...',
 		    },
 		    {
-		      id: 4,
-		      url: "../../static/bqb2.png",
-		      name: '小明',
+		      id: 7,
+		      url: "../../static/tx17.jpeg",
+		      name: '快乐小猫',
 		      msg: '我们已经是好友了，现在可以开始...',
 		    },
 			{
-			  id: 5,
-			  url: "../../static/bqb3.png",
+			  id: 8,
+			  url: "../../static/tx18.jpeg",
 			  name: '小晨',
+			  msg: '我们已经是好友了，现在可以开始...',
+			},
+			{
+			  id: 9,
+			  url: "../../static/tx19.jpeg",
+			  name: '梦想家',
+			  msg: '我们已经是好友了，现在可以开始...',
+			},
+			{
+			  id: 10,
+			  url: "../../static/tx20.jpeg",
+			  name: '自由飞翔',
 			  msg: '我们已经是好友了，现在可以开始...',
 			},
 		  ],
@@ -106,8 +136,9 @@
 		gochat(item){
 			console.log(item.name);
 			console.log(item.url);
+			console.log(item.id);
 			uni.navigateTo({
-				url:"/pages/chat/chat?name=" + item.name + '&url=' + encodeURIComponent(item.url)
+				url:"/pages/chat/chat?name=" + item.name + '&url=' + encodeURIComponent(item.url) + "&id=" + item.id
 			})
 		},
 		gopipei(){
@@ -125,7 +156,7 @@
 			})
 		},
 		loadData() {
-			//localStorage.clear();
+			localStorage.clear();//此处取消缓存
 			const storedArrList = localStorage.getItem("arrList");
 			if (storedArrList) {
 			  this.arrList = JSON.parse(storedArrList);
