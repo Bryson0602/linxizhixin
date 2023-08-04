@@ -1,17 +1,96 @@
 <template>
   <view class="flex-col page">
+
     <view class="flex-col flex-auto group">
       <view class="flex-col space-y-16">
         <text class="self-start font_1 text_2">数据分析</text>
+		
         <view class="flex-col section">
-          <view class="flex-row justify-center group_2 space-x-20">
+			<view class="ct_tab flex-row justify-center group_2 space-x-20">
+				<view class="ct_item" :class="{'ct_active' : 0 == tabCur}" @click="clickCtTab(0)">
+					<text class="font_2">近五天</text>
+				</view>
+				<view class="ct_item" :class="{'ct_active2' : 1 == tabCur}" @click="clickCtTab(1)">
+					<text class="font_2">AI分析</text>
+				</view>
+			
+			</view>
+<!-- 			<br> -->
+			
+			<!-- <view class="flex-row justify-center group_2 space-x-20" v-if="showTab">
+				<view class="flex-col justify-start items-center text-wrapper" :class="{'ct_active' : 0 == tabCur}" @click="clickCtTab(0)">
+					<text class="font_2 text_3">近五天</text>
+				</view>
+				<view class="flex-col justify-start items-center text-wrapper_2" :class="{'ct_active' : 1 == tabCur}" @click="clickCtTab(1)">
+					<text class="font_2 text_4">近来日记</text>
+				</view>
+			</view> -->
+			
+			<!-- <view class="ct_tab">
+				<view class="ct_item" :class="{'ct_active' : 0 == tabCur}" @click="clickCtTab(0)">
+					<text>文章</text>
+				</view>
+				<view class="ct_item" :class="{'ct_active' : 1 == tabCur}" @click="clickCtTab(1)">
+					<text>视频</text>
+				</view>
+			
+			</view> -->
+			
+			<!-- <view v-if="tabCur===0"> -->
+				<view v-if="tabCur===0" class="charts-box">
+				  <qiun-data-charts 
+				    type="line"
+				    :opts="opts"
+				    :chartData="chartData"
+				  />
+					<view class="date-container">
+					  <view v-for="(date, index) in sortedDates" :key="index" class="date-item">
+					    <transition name="fade">
+					      <p v-if="showText">{{ formatDate(date) }}</p>
+					    </transition>
+					  </view>
+					</view>
+				</view>
+				<!-- </view> -->
+				
+			<view v-if="tabCur===1">
+				<!-- <view class="jinqi">
+					<text class=" texta">近期状况:</text>
+					<text class="textb">较为稳定，无太大的情绪波动</text>
+				</view>
+				<view class="jianyi">
+					<text class="textc">建议</text>
+				</view> -->
+				<view class="container">
+				  <view class="sectiona1">
+				    <view class="jiaonang">
+						<text class="header1">近期状况</text>
+					</view>
+					<view class="zhuangtai">
+						<!-- <text class="pinjia">心情状态：</text> -->	
+						<view class="youyi">
+							<text class="pinjia2">平静</text>
+						</view>
+					</view>
+				    <view class="content1">AI分析：{{ recentStatus }}</view>
+				  </view>
+				  <view class="sectiona2">
+				    <view class="jiaonang2">
+						<text class="header2">AI建议</text>
+					</view>
+				    <view class="content2">{{ suggestions }}</view>
+				  </view>
+				</view>
+				
+				</view>
+          <!-- <view class="flex-row justify-center group_2 space-x-20">
             <view class="flex-col justify-start items-center text-wrapper">
               <text class="font_2 text_3">近5天</text>
             </view>
             <view class="flex-col justify-start items-center text-wrapper_2">
               <text class="font_2 text_4">近30天</text>
             </view>
-          </view>
+          </view> -->
           <!-- <view class="flex-row justify-around group_3">
             <view class="flex-row space-x-20">
               <view class="flex-col items-center space-y-50">
@@ -40,7 +119,8 @@
             <view class="section_8"></view>
             <view class="section_8"></view>
           </view> -->
-		  <view class="charts-box">
+		  
+		  <!-- <view class="charts-box">
 		    <qiun-data-charts 
 		      type="line"
 		      :opts="opts"
@@ -53,7 +133,7 @@
 		  	    </transition>
 		  	  </view>
 		  	</view>
-		  </view>
+		  </view> -->
         </view>
 		
 		
@@ -152,6 +232,10 @@
     data() {
 	let storedData = uni.getStorageSync('chartData');
       return {
+		  recentStatus: "心情状态比较平稳，没有较大的起伏",
+		  suggestions: "建议多出去走走，释放工作带来的压力。",
+			showTab: true,
+		    tabCur:0,
     		cWidth: '',
     		cHeight: '',
 		chartData: storedData ? JSON.parse(storedData) : {
@@ -299,8 +383,8 @@
 		      animation: "vertical"
 		    },
 		    tooltip: {
-		      showBox: true,
-		      showArrow: true,
+		      showBox: false,
+		      showArrow: false,
 		      showCategory: false,
 		      borderWidth: 0,
 		      borderRadius: 5,
@@ -510,6 +594,11 @@
 	  }
 	},
     methods: {
+		clickCtTab(ctCur){
+			this.tabCur  = ctCur
+			console.log(this.tabCur )
+		},
+		
       getServerData() {
         //模拟从服务器获取数据时的延时
         setTimeout(() => {
@@ -559,8 +648,8 @@
                 // }
               ]
             };
-          this.chartData = JSON.parse(JSON.stringify(res));
-        }, 500);
+          // this.chartData = JSON.parse(JSON.stringify(res));
+        },500);
       },
       getLatestDates() {
         const currentDate = new Date();
@@ -581,6 +670,157 @@
 </script>
 
 <style scoped lang="scss">
+	.jiaonang2{
+		text-align: center;
+		width:150rpx;
+		background-color: rgb(104,82,204 );
+		border-radius: 10px;
+		margin-bottom: 15rpx;
+	}
+	.jiaonang{
+		padding-right: 20rpx;
+		text-align: center;
+		width:180rpx;
+		// background-color: rgb(104,82,204 );
+		border-radius: 10px;
+		margin-top: 20rpx;
+	}
+.container {
+  padding: 20px;
+/*  background-color: #f2f2f2; */
+
+}
+.sectiona1 {
+  margin-bottom: 11px;
+  background-color:#fff;
+  // background-color: rgba(109,203,200, 0.4);
+   // background-color: rgb(245,246,250);
+  // padding: 15px;
+  border-radius: 15px;
+  padding-left: 10rpx;
+  
+}
+.sectiona2 {
+	margin-top: 10rpx;
+  margin-bottom: 11px;
+  background-color:#f2f2f2;
+  // background-color: rgba(109,203,200, 0.4);
+   // background-color: rgb(245,246,250);
+  padding: 15px;
+  border-radius: 15px;
+}
+.header1 {
+	font-family: SegoeUI;
+  font-size: 18px;
+  color: #666666;
+  font-weight: bold;
+}
+.header2 {
+	font-family: SegoeUI;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+.zhuangtai{
+	padding-bottom: 30rpx;
+}
+.pinjia{
+	font-family: SegoeUI;
+	font-size: 16px;
+	color: #666666;
+	line-height: 1.5;
+	padding-left: 8rpx;
+}
+.pinjia2{
+	color:#fff;
+	font-size: 70rpx;
+	font-weight: 700;
+	justify-content: center;
+	padding-left: 15rpx;
+	
+}
+.youyi{
+	float: right;
+	margin-top: -50rpx;
+	padding-right: 20rpx;
+	padding-bottom: 0rpx;
+	// background: linear-gradient(45deg, rgb(104,82,204 ),#65cbc8);
+	background: repeating-linear-gradient(45deg, #65cbc8,rgb(104,82,204 ));
+	border-radius: 50rpx;
+}
+.content1 {
+	font-family: SegoeUI;
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+  padding-left: 8rpx;
+  margin-top: -20rpx;
+}	
+.content2 {
+	font-family: SegoeUI;
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.5;
+  padding-left: 8rpx;
+}	
+
+	.jinqi{
+		margin-top: 30rpx;
+		margin-left: 20rpx;
+		
+	}
+	.texta{
+		  font-size: 38rpx;
+		  font-family: SegoeUI;
+		  line-height: 33rpx;
+		  color: #787a8c;
+		  line-height: 32rpx;
+	}
+	.textb{
+		  font-family: SegoeUI;
+		  color: #787a9c;
+		  line-height: 32rpx;
+	}
+	.ct_item{
+		//width: 20%;
+		padding-bottom: 15rpx;
+	}
+	// .ct_item text{//小横杠字体距离
+	// 	padding: 5rpx 0;
+		
+	// }
+	.ct_active{
+		color: #fff;//字体颜色
+		background-color: #65cbc8;
+		border-radius: 30rpx;
+		width: 200rpx;
+		text-align: center;
+	}
+	.ct_active2{
+		color: #fff;//字体颜色
+		background-color: #65cbc8;
+		border-radius: 30rpx;
+		width: 200rpx;
+		text-align: center;
+	}
+	// .ct_active text{
+	// 	//小横杠
+	// 	border-bottom: 5px solid #65cbc8;
+		
+	// }
+	.ct_tab{
+		width: 100%;
+		margin: 0 auto;
+		padding: 15rpx 0;
+		font-size: 45rpx;
+		font-weight: bold;
+		color: #666666;
+		background-color: #fff;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	
 	.fade-enter-active,
 	.fade-leave-active {
 	  transition: opacity 0.5s;
@@ -591,8 +831,8 @@
 	}
 	.charts-box {
 	  width: 600rpx;
-	  height: 305px;
-	  margin-top: -95rpx;
+	  height: 300px;
+	  margin-top: -40rpx;
 	  // position: relative;
 	}
 	.date-container {
@@ -650,7 +890,7 @@
         }
         .section {
 		border-radius: 30rpx;
-          padding: 46rpx 0rpx 36rpx;
+          padding: 46rpx 10rpx 36rpx;
           background-color: #ffffff;
           box-shadow: 0px 6rpx 16rpx #a5a5a529;
           .group_2 {
@@ -659,26 +899,26 @@
               padding: 16rpx 0;
               background-color: #65cbc8;
               border-radius: 40rpx;
-              width: 230rpx;
+              width: 220rpx;
               height: 66rpx;
               .text_3 {
-                color: #ffffff;
+                color: #000000;
               }
             }
             .text-wrapper_2 {
               padding: 16rpx 0;
               background-color: #edf2f7;
               border-radius: 40rpx;
-              width: 230rpx;
+              width: 220rpx;
               height: 66rpx;
               .text_4 {
-                color: #b0b0b0;
+                color: #000000;
               }
             }
             .font_2 {
               font-size: 40rpx;
               font-family: SegoeUI-Bold;
-              line-height: 37rpx;
+              line-height: 30rpx;
               font-weight: 700;
             }
           }
