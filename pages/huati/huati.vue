@@ -22,7 +22,7 @@
 	  <view class="self-start section_2"></view>
 	  <view class="flex-col list space-y-8">
 	    <view class="flex-row justify-between items-center list-item" :key="i" v-for="(item, i) in list_yYZhF3Yo">
-	      <view class="flex-row items-baseline space-x-22">
+	       <view class="flex-row items-baseline space-x-22" :class="{'color-red': i < 4}">
 	        <text class="font_3 text_5">{{i+1}}</text>
 	        <text class="font_1 text_6">{{item}}</text>
 	      </view>
@@ -50,6 +50,9 @@
 </script>
 
 <style scoped lang="scss">
+.color-red {
+  color: gold; /* 设置需要修改的颜色，这里设为红色 */
+}
   .page {
 	  position: fixed;
     padding-bottom: 52rpx;
@@ -60,7 +63,15 @@
     height: 100%;
     .section {
       padding: 40rpx 166rpx 32rpx;
-      background-color: #ffffff;
+      background: linear-gradient(
+             to bottom right, 
+             #eafbff 0%,
+             #edfbff 20%,
+             #edfbfe 40%,
+             #e8f8fe 60%,
+             #eaf1fb 80%,
+             #e8e6fb 100%
+           );
       .text {
         color: #1e1c1c;
       }
@@ -159,5 +170,12 @@
       font-weight: 700;
       color: #898989;
     }
+	.font_a {
+		font-size: 40rpx;
+		font-family: SegoeUI-Bold;
+		line-height: 37rpx;
+		font-weight: 700;
+		color: #000000;
+	}
   }
 </style>

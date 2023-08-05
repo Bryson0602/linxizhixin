@@ -151,7 +151,10 @@
                 <text class="font_4">SDS抑郁自评测试</text>
                 <text class="font_5 text_7">2023.7.9</text>
               </view>
-			  <img class="tupian2" src="../../static/jiantou.png" alt="">
+			  <view class="weizhi1">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
+			  
             </view>
           </view>
           <view class="flex-col justify-start items-start relative section_9 view">
@@ -164,7 +167,9 @@
                 <text class="font_4">心理卫生评定测试</text>
                 <text class="font_5 text_7">2023.6.15</text>
               </view>
-			  <img class="tupian3" src="../../static/jiantou.png" alt="">
+			  <view class="weizhi2">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
             </view>
           </view>
 		  <view class="flex-col justify-start items-start relative section_9 view">
@@ -177,7 +182,9 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-			  <img class="tupian" src="../../static/jiantou.png" alt="">
+			  <view class="weizhi3">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
 		    </view>
 		  </view>
 		  <view class="flex-col justify-start items-start relative section_9 view">
@@ -190,7 +197,9 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-		  			  <img class="tupian" src="../../static/jiantou.png" alt="">
+		  			  <view class="weizhi3">
+		  			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+		  			  </view>
 		    </view>
 		  </view>
 		  <view class="flex-col justify-start items-start relative section_9 view">
@@ -203,7 +212,9 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-		  			  <img class="tupian" src="../../static/jiantou.png" alt="">	
+					<view class="weizhi3">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
 					  
 		    </view>
 		  </view>
@@ -690,6 +701,19 @@
 </script>
 
 <style scoped lang="scss">
+	.weizhi1{
+		padding-left: 175rpx;
+	}
+	.weizhi2{
+		padding-left: 170rpx;
+	}
+	.weizhi3{
+		padding-left: 152rpx;
+	}
+	.tupiana{
+		width: 30rpx;
+		height: 30rpx;
+	}
 	.jiaonang2{
 		text-align: center;
 		width:150rpx;
@@ -892,7 +916,7 @@
 }
 .tupian2{
 	padding-left: 203rpx;
-	width: 30rpx;
+	width: 100rpx;
 	height: 30rpx;
 }
 .tupian{
