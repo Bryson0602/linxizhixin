@@ -81,7 +81,7 @@
                 }
             },
             "splashscreen" : {
-                "androidStyle" : "default"
+                "androidStyle" : "common"
             }
         }
     },
