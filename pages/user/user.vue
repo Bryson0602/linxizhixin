@@ -1,5 +1,8 @@
 <template>
   <view class="flex-col page">
+	  <view class="status_bar">
+	      <!-- 这里是状态栏 -->
+	  </view>
     <view class="flex-col flex-auto group">
       <view class="flex-col section space-y-13">
 		  
