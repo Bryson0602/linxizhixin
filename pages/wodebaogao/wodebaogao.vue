@@ -69,7 +69,7 @@
 					<view class="zhuangtai">
 						<!-- <text class="pinjia">心情状态：</text> -->	
 						<view class="youyi">
-							<text class="pinjia2">平静</text>
+							<text class="pinjia2" v-if="">{{zhuangTai}}</text>
 						</view>
 					</view>
 				    <view class="content1">AI分析：{{ recentStatus }}</view>
@@ -151,7 +151,10 @@
                 <text class="font_4">SDS抑郁自评测试</text>
                 <text class="font_5 text_7">2023.7.9</text>
               </view>
-			  <img class="tupian2" src="../../static/jiantou.png" alt="">
+			  <view class="weizhi1">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
+			  
             </view>
           </view>
           <view class="flex-col justify-start items-start relative section_9 view">
@@ -164,7 +167,9 @@
                 <text class="font_4">心理卫生评定测试</text>
                 <text class="font_5 text_7">2023.6.15</text>
               </view>
-			  <img class="tupian3" src="../../static/jiantou.png" alt="">
+			  <view class="weizhi2">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
             </view>
           </view>
 		  <view class="flex-col justify-start items-start relative section_9 view">
@@ -177,7 +182,9 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-			  <img class="tupian" src="../../static/jiantou.png" alt="">
+			  <view class="weizhi3">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
 		    </view>
 		  </view>
 		  <view class="flex-col justify-start items-start relative section_9 view">
@@ -190,7 +197,9 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-		  			  <img class="tupian" src="../../static/jiantou.png" alt="">
+		  			  <view class="weizhi3">
+		  			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+		  			  </view>
 		    </view>
 		  </view>
 		  <view class="flex-col justify-start items-start relative section_9 view">
@@ -203,7 +212,9 @@
 		        <text class="font_4">MBTI人格测试分析</text>
 		        <text class="font_5 text_7">2023.6.15</text>
 		      </view>
-		  			  <img class="tupian" src="../../static/jiantou.png" alt="">	
+					<view class="weizhi3">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
 					  
 		    </view>
 		  </view>
@@ -232,8 +243,9 @@
     data() {
 	let storedData = uni.getStorageSync('chartData');
       return {
-		  recentStatus: "心情状态比较平稳，没有较大的起伏",
-		  suggestions: "建议多出去走走，释放工作带来的压力。",
+		  zhuangTai:"平静",
+		  recentStatus: "心情状态比较平稳，没有较大的起伏。",
+		  suggestions: "建议多出去走走，释放自己内心的压力。",
 			showTab: true,
 		    tabCur:0,
     		cWidth: '',
@@ -251,7 +263,7 @@
               [1, "#90F489"]
             ],
             setShadow: [3, 8, 10, "#1890FF"],
-            data: [75,75,75,75,75]
+            data: [75,75,90,75,75]
           },
         ]
       }, // 从本地存储中获取折线图的数据
@@ -499,11 +511,17 @@
 		  this.chartData.series.forEach((series) => {
 		    series.data[series.data.length - 1] += 20;
 		  });
+		  this.zhuangTai="乐观";
+		  this.recentStatus="心情状态良好，情绪曲线呈现一定的上升趋势。";
+		  this.suggestions="保持积极心态，寻找乐趣和感恩之心。同时也要积极面对挑战，将注意力集中在积极的方面，并寻找解决问题的方法。"
 		} else if (emoji === "../../static/bqb4.png") {
 		  // 选择第三个图片，最右边的数据减10
 		  this.chartData.series.forEach((series) => {
 		    series.data[series.data.length - 1] += 35;
 		  });
+		  this.zhuangTai="高兴";
+		  this.recentStatus="心情状态优秀，情绪曲线上升趋势明显。";
+		  this.suggestions="继续保持积极乐观的心态，享受当下的快乐。同时，分享快乐，传递正能量。也可以尝试新的事物，挑战自己，扩展自己的兴趣爱好，让快乐不断延续。"
 		} else if (emoji === "../../static/bqb5.png") {
 		  // 选择第三个图片，最右边的数据减10
 		  this.chartData.series.forEach((series) => {
@@ -514,20 +532,33 @@
 		  this.chartData.series.forEach((series) => {
 		    series.data[series.data.length - 1] -= 25;
 		  });
+		  this.zhuangTai="低迷";
+		  this.recentStatus="心情状态低落，情绪曲线有一定的下降趋势。";
+		  this.suggestions="倾听内心，寻求支持。关注身体，调整思维。寻找乐趣，接受帮助。坚持与希望同行，你不孤单。相信自己，迎接新的开始。"
 		} else if (emoji === "../../static/bqb7.png") {
 		  // 选择第三个图片，最右边的数据减10
 		  this.chartData.series.forEach((series) => {
-		    series.data[series.data.length - 1] -= 35;
+		    series.data[series.data.length - 1] -= 30;
 		  });
+		  this.zhuangTai="沮丧";
+		  this.recentStatus="心情状态消沉，情绪曲线下降趋势明显。";
+		  this.suggestions="跟亲朋好友分享，寻求支持；找些让自己开心的活动，舒缓压力；加入支持性社交群体，获得情感支持；注重身体健康和情绪护理；如果需要，寻求专业帮助。"
 		} else if (emoji === "../../static/bqb8.png") {
 		  // 选择第三个图片，最右边的数据减10
 		  this.chartData.series.forEach((series) => {
 		    series.data[series.data.length - 1] += 30;
 		  });
+		  this.zhuangTai="高兴";
+		  this.recentStatus="心情状态优秀，上升趋势明显。";
+		  this.suggestions="继续保持积极乐观的心态，享受当下的快乐。同时，分享快乐，传递正能量。也可以尝试新的事物，挑战自己，扩展自己的兴趣爱好，让快乐不断延续。"
 		}
 		
 		// 将更新后的数据保存到本地存储
 		uni.setStorageSync('chartData', JSON.stringify(this.chartData));
+		
+		const lastData = this.chartData.series[this.chartData.series.length - 1];
+
+		console.log(lastData);
 		
     // 获取传递过来的图片路径参数
     // const emoji = decodeURIComponent(this.$route.query.emoji);
@@ -670,12 +701,26 @@
 </script>
 
 <style scoped lang="scss">
+	.weizhi1{
+		padding-left: 175rpx;
+	}
+	.weizhi2{
+		padding-left: 170rpx;
+	}
+	.weizhi3{
+		padding-left: 152rpx;
+	}
+	.tupiana{
+		width: 30rpx;
+		height: 30rpx;
+	}
 	.jiaonang2{
 		text-align: center;
 		width:150rpx;
 		background-color: rgb(104,82,204 );
 		border-radius: 10px;
 		margin-bottom: 15rpx;
+		
 	}
 	.jiaonang{
 		padding-right: 20rpx;
@@ -701,7 +746,7 @@
   
 }
 .sectiona2 {
-	margin-top: 10rpx;
+	margin-top: 50rpx;
   margin-bottom: 11px;
   background-color:#f2f2f2;
   // background-color: rgba(109,203,200, 0.4);
@@ -733,7 +778,7 @@
 }
 .pinjia2{
 	color:#fff;
-	font-size: 70rpx;
+	font-size: 55rpx;
 	font-weight: 700;
 	justify-content: center;
 	padding-left: 15rpx;
@@ -745,16 +790,26 @@
 	padding-right: 20rpx;
 	padding-bottom: 0rpx;
 	// background: linear-gradient(45deg, rgb(104,82,204 ),#65cbc8);
-	background: repeating-linear-gradient(45deg, #65cbc8,rgb(104,82,204 ));
-	border-radius: 50rpx;
+	 background: linear-gradient(45deg, rgba(148,210,243, 1), rgba(137,250,178, 1));
+	 // background-color:rgb(104,82,204);
+	 // background: linear-gradient(
+	 //        to bottom right, 
+	 //        #eafbff 40%,
+	 //        #edfbff 80%,
+	 //        #edfbfe 80%,
+	 //        #e8f8fe 80%,
+	 //        #eaf1fb 80%,
+	 //        #e8e6fb 100%
+	 //      );
+	border-radius: 30rpx;
 }
 .content1 {
 	font-family: SegoeUI;
-  font-size: 14px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.5;
   padding-left: 8rpx;
-  margin-top: -20rpx;
+  margin-top: -15rpx;
 }	
 .content2 {
 	font-family: SegoeUI;
@@ -861,7 +916,7 @@
 }
 .tupian2{
 	padding-left: 203rpx;
-	width: 30rpx;
+	width: 100rpx;
 	height: 30rpx;
 }
 .tupian{
