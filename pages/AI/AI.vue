@@ -1,8 +1,7 @@
 <template>
 	<view class="chat">
-		<view class="status_bar">
-		    <!-- 这里是状态栏 -->
-		</view>
+		
+		
 		<scroll-view  :style="{height: `${windowHeight}rpx`}"
 		id="scrollview"
 		scroll-y="true" 
@@ -91,47 +90,47 @@
 			    </transition>
 				
 				<view>
-					<view v-if="tuijie==1">
+					<view v-if="tuijie==1" class="juzhong">
 						<view class="flex-row xuexi" @click="gotuijie1">
 						<view class="img">
 							<image src="../../static/tuijie1.jpg" mode=""></image>
 						</view>
-						<view class="flex-col wenzi">
-							<text class="zsxx">推荐文章 | 学习更多</text>
+						<view class="flex-col wenzi" >
+							<text class="zsxx">小犀推荐 | 学习更多</text>
 							<text class="wt">不确定的生活，也要勇敢去爱</text>
 						</view>	
 						</view>
 						
 					</view>
-					<view v-if="tuijie==2">
+					<view v-if="tuijie==2" class="juzhong">
 						<view class="flex-row xuexi" @click="gotuijie2">
 						<view class="img">
 							<image src="../../static/tuijie2.jpg" mode=""></image>
 						</view>
 						<view class="flex-col wenzi">
-							<text class="zsxx">推荐文章 | 学习更多</text>
+							<text class="zsxx">小犀推荐~ | 学习更多</text>
 							<text class="wt">降低考前精神内耗，区分这些疲惫</text>
 						</view>	
 						</view>
 					</view>
-					<view v-if="tuijie==3">
+					<view v-if="tuijie==3" class="juzhong">
 						<view class="flex-row xuexi" @click="gotuijie3">
 						<view class="img">
 							<image src="../../static/tuijie3.png" mode=""></image>
 						</view>
 						<view class="flex-col wenzi">
-							<text class="zsxx">推荐文章 | 学习更多</text>
+							<text class="zsxx">小犀推荐~ | 学习更多</text>
 							<text class="wt">转载｜《头脑特工队》电影赏析</text>
 						</view>	
 						</view>
 					</view>
-					<view v-if="tuijie==4">
+					<view v-if="tuijie==4" class="juzhong">
 						<view class="flex-row xuexi"  @click="gotuijie4">
 						<view class="img">
 							<image src="../../static/tuijie4.jpg" mode=""></image>
 						</view>
 						<view class="flex-col wenzi">
-							<text class="zsxx">推荐活动 | 学习更多</text>
+							<text class="zsxx">小犀推荐~ | 学习更多</text>
 							<text class="wt">和博物馆来一场心灵的约会~</text>
 						</view>	
 						</view>
@@ -151,8 +150,8 @@
 			<view class="send-msg" :style="{bottom:`${keyboardHeight}rpx`}">
                 <view class="uni-textarea">
 					<view class="flex">
-						<button @click="change" class="send-btn1">猜你想问</button>
-						<button @click="change1" class="send-btn2">天气小灵通</button>
+						<view @click="change" class="send-btn1">猜你想问</view>
+						<view @click="change1" class="send-btn2">天气小灵通</view>
 					</view>
 					
 					<textarea v-model="chatMsg"
@@ -165,7 +164,7 @@
 					    @focus="focus" @blur="blur"
 						auto-height placeholder="请输入你的问题~" placeholder-style="color: #C0C0C0"></textarea>
 				</view>
-				<button @click="handleSend" class="send-btn">发送</button>
+				<view @click="handleSend" class="send-btn">发送</view>
 				
 				
 			</view>
@@ -564,12 +563,13 @@
 		box-sizing: border-box;
 	}
 	.xuexi{
-		margin-bottom: 30rpx;
+		margin-top: 20rpx;
+		margin-bottom: 20rpx;
 		margin-right: 20rpx;
-		margin-left: 20rpx;
+		margin-left: 48rpx;
 		background-color: #ffffff;
 		border-radius: 24rpx;
-		//width: 100%;
+		width: 660rpx;
 		height: 150rpx;
 		position: relative;
 		.img{
@@ -663,7 +663,9 @@
 	.fade-enter, .fade-leave-to {
 	  opacity: 0;
 	}
-		
+	.juzhong{
+		text-align: center;
+	}	
 	.huan{
 		width:35rpx;
 		font-size: 20rpx;
@@ -684,11 +686,12 @@
 		color:#eba76f
 	}
 	.guess{
+		margin-bottom: 20rpx;
 		position: flex;
 		border-radius: 25rpx;
 		margin-left:7%;
 		width:85%;
-		height:280rpx;
+		height:250rpx;
 		background-image: radial-gradient(37.8% 37.8% at 77.9% 3.6%, #d5e7ff 0%, #ffffff 100%);
 		box-shadow: black;
 	}
@@ -727,11 +730,12 @@
 			background-color: #F2F2F2;//需改
 			
 			.chat-body {
+				border-top: none;
 				display: flex;
 				flex-direction: column;
-				padding-top: 23rpx;
-				background-color:#F2F2F2;
 				
+				background-color:#F2F2F2;
+				height:100%;
 				.self {
 					justify-content: flex-end;
 				}
@@ -871,3 +875,4 @@
 		
 	}
 </style>
+
