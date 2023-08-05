@@ -2,8 +2,8 @@
     "name" : "灵犀知心",
     "appid" : "__UNI__9BD88E8",
     "description" : "",
-    "versionName" : "1.0.3",
-    "versionCode" : 103,
+    "versionName" : "1.0.4",
+    "versionCode" : 104,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -81,7 +81,12 @@
                 }
             },
             "splashscreen" : {
-                "androidStyle" : "common"
+                "androidStyle" : "default",
+                "android" : {
+                    "hdpi" : "static/open480.9.png",
+                    "xhdpi" : "static/open720.9.png",
+                    "xxhdpi" : "static/open1080.9.png"
+                }
             }
         }
     },
