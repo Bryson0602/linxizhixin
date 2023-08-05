@@ -9,10 +9,12 @@
 			  <image class="shezhi" src="../../static/shezhi.png" mode="heightFix"></image>
 		  </view>
 	      <view class="flex-col items-start group_2 space-y-10">
-	        <text class="text">HI，孤独的一匹狼</text>
+	        <text class="text">HI，小灵</text>
 	        <text class="text_2">灵犀号：2333456678</text>
 	      </view>
-	      <view class="section_3 pos"></view>
+	      <view class="section_3 pos">
+			  <image src="../../static/lxzx.png" mode=""></image>
+		  </view>
 	    </view>
 	    <view class="flex-col group_3">
 	      <view class="flex-col items-center relative section_4 space-y-4">
@@ -160,6 +162,11 @@
           border-radius: 50%;
           width: 140rpx;
           height: 140rpx;
+		  overflow: hidden;
+		  image{
+			  width: 140rpx;
+			  height: 140rpx;
+		  }
         }
         .pos {
           position: absolute;

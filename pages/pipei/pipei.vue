@@ -17,23 +17,35 @@
 		  <image src="../../static/lxzx.png" mode=""></image>
 	  </view>
       <view class="section_2 pos_4">
-		  <image src="../../static/teacher.png" mode=""></image>
+		  <image src="../../static/tx3.jpg" mode=""></image>
 	  </view>
-      <view class="section_9 pos_13"></view>
-      <view class="section_3 pos_6"></view>
-      <view class="section_10 pos_14"></view>
-      <view class="section_4 pos_7"></view>
+      <view class="section_9 pos_13">
+		  <image src="../../static/tx4.jpeg" mode=""></image>
+	  </view>
+      <view class="section_3 pos_6">
+		  <image src="../../static/tx5.jpeg" mode=""></image>
+	  </view>
+      <view class="section_10 pos_14">
+		  <image src="../../static/tx6.jpeg" mode=""></image>
+	  </view>
+      <view class="section_4 pos_7">
+		  <image src="../../static/tx7.jpeg" mode=""></image>
+	  </view>
       <view class="section pos_2">
-		  <image src="../../static/lxzx.png" mode=""></image>
+		  <image src="../../static/tx2.jpg" mode=""></image>
 	  </view>
       <view class="section_11 pos_15">
-		  <image src="../../static/teacher.png" mode=""></image>
+		  <image src="../../static/tx8.jpeg" mode=""></image>
 	  </view>
-      <view class="section_8 pos_12"></view>
+      <view class="section_8 pos_12">
+		  <image src="../../static/tx9.jpeg" mode=""></image>
+	  </view>
       <view class="section_7 pos_11">
-		  <image src="../../static/lxzx.png" mode=""></image>
+		  <image src="../../static/tx1.jpg" mode=""></image>
 	  </view>
-      <view class="section_5 pos_9"></view>
+      <view class="section_5 pos_9">
+		  <image src="../../static/tx10.jpeg" mode=""></image>
+	  </view>
       
       <!-- <view class="flex-col justify-start items-end text-wrapper pos">
         <text class="text">星球越大匹配概率越高哦...</text>
@@ -43,7 +55,7 @@
 	<view class="flex-row self-center relative group" v-else>
 		<view class="flex-row justify-between page1">
 		  <view class="flex-col items-center group_2">
-		    <text class="font_1">Smile</text>
+		    <text class="font_1">小灵</text>
 			<view class="section">
 				<image src="../../static/lxzx.png" mode=""></image>
 			</view>
@@ -105,7 +117,7 @@
 	  },
     methods: {
 		gochat(){
-			uni.navigateTo({
+			uni.redirectTo({
 				url:"/pages/chat/chat?name=" + this.name + '&url=' + encodeURIComponent(this.url)
 			})
 		}

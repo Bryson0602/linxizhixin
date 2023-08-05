@@ -257,7 +257,7 @@
 		  console.log(this.score)
 		  // 允许显示答案
 		  this.canShowAnswer = true
-		  uni.navigateTo({
+		  uni.redirectTo({
 		  	url:"/pages/ceshibaogao1/ceshibaogao1?score=" + this.score
 		  })
 		},
