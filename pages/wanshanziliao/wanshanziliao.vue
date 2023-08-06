@@ -11,13 +11,17 @@
 	  <view class="flex-col group">
 	    <text class="self-start font_2">性别</text>
 	    <view class="flex-row self-center">
-	      <view class="flex-col equal-division-item space-y-8">
-	        <view class="section"></view>
+	      <view class="flex-col equal-division-item space-y-8"@click="selectGender('男生')" >
+	        <view class="section" :class="{ 'selected': gender === '男生' }">
+				<image src="../../static/boy.png" mode=""></image>
+			</view>
 	        <text class="self-center font_2">男生</text>
 	        <view class="self-center group_2"></view>
 	      </view>
-	      <view class="flex-col equal-division-item space-y-8">
-	        <view class="section"></view>
+	      <view class="flex-col equal-division-item space-y-8"@click="selectGender('女生')">
+	        <view class="section" :class="{ 'selected': gender === '女生' }">
+				<image src="../../static/girl.png" mode=""></image>
+			</view>
 	        <text class="self-center font_2">女生</text>
 	        <view class="self-center group_2"></view>
 	      </view>
@@ -51,15 +55,19 @@
 	export default {
 		data() {
 			return {
-				array: ['中国', '美国', '巴西', '日本'],
+				gender:"男生",
+				array: ['1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010'],
 				index: 0,
 				array1: ['1', '2', '3', '4','5', '6', '7', '8','9', '10', '11', '12'],
 				index1: 0,
-				array2: ['1', '2', '3', '4','5', '6', '7', '8','9', '10', '11', '12'],
+				array2: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
 				index2: 0,
 			};
 		},
 		methods:{
+			selectGender(value) { // 添加selectGender方法来设置gender变量的值
+			      this.gender = value;
+			},
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.detail.value)
 				this.index = e.detail.value
@@ -134,7 +142,16 @@
           background-color: #ffffff;
           border-radius: 50%;
           height: 156rpx;
+		  width: 156rpx;
+		  overflow: hidden;
+		  image{
+			  height: 156rpx;
+			  width: 156rpx; 
+		  }
         }
+		.selected{
+		    border: 8rpx solid #7b82ff; /* 添加蓝色边框样式 */
+		}
         .group_2 {
           border-radius: 50%;
           width: 26rpx;
@@ -198,9 +215,10 @@
     }
     .section_4 {
       margin-top: 60rpx;
+	  padding: 20rpx 0;
       background-color: #ffffff;
       border-radius: 60rpx;
-      width: 500rpx;
+      width: 400rpx;
       height: 70rpx;
 	  text-align: center;
     }

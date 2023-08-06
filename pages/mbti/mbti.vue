@@ -7,13 +7,13 @@
 	    <text class="text">HELLO!</text>
 	    <text class="text_2">欢迎来到灵犀知心</text>
 	  </view>
-	  <text class="self-center font_1 text_3">您是否有做过MBTI人格测试？</text>
+	  <text class="self-center font_1 text_3">您是否做过MBTI人格测试？</text>
 	  <view class="self-center section">
-		  <image src="../../static/lxzx.png" mode="heightFix"></image>
+		  <image src="../../static/lxzx-tm.png" mode="heightFix"></image>
 	  </view>
 	  <view class="flex-row justify-between group">
-	    <view class="flex-col justify-start items-center relative text-wrapper" @click="changecolor" :style="{backgroundColor:bgcolor}"><text class="font_2">是</text></view>
-	    <view class="flex-col justify-start items-center text-wrapper_1" @click="changecolor1" :style="{backgroundColor:bgcolor1}"><text class="font_2 text_4">否</text></view>
+	    <view class="flex-col justify-start items-center relative text-wrapper" @click="changecolor('是')" :class="{ 'selected': yes === '是' }"><text class="font_2">是</text></view>
+	    <view class="flex-col justify-start items-center text-wrapper_1" @click="changecolor('否')" :class="{ 'selected': yes === '否' }"><text class="font_2 text_4">否</text></view>
 	  </view>
 	  <view class="flex-col items-center group_2 space-y-6">
 	    <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1" @click="goxuanzexinqu">下一页</text></view>
@@ -26,16 +26,12 @@
 	export default {
 		data() {
 			return {
-				bgcolor: '#ffffff',
-				bgcolor1: '#ffffff'
+				yes:"",
 			};
 		},
 		methods:{
-			changecolor(){
-				this.bgcolor = '#65cbc8'
-			},
-			changecolor1(){
-				this.bgcolor1 = '#65cbc8'
+			changecolor(value){
+				this.yes = value;
 			},
 			goxuanzexinqu(){
 				uni.navigateTo({
@@ -86,8 +82,8 @@
 	  
     }
     .text_3 {
-      margin-top: 236rpx;
-      line-height: 44rpx;
+      margin-top: 220rpx;
+      line-height: 50rpx;
     }
     .section {
       margin-top: 48rpx;
@@ -129,6 +125,12 @@
 		  line-height: 42rpx;
 		  color: #202020;
 		}
+	  }
+	  .selected{
+	      background-color: #95dbf8;
+		  .font_2 {
+		    color: #ffffff;
+		  }
 	  }
     }
     .group_2 {
