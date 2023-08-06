@@ -59,11 +59,14 @@
 							{{item.botContent}}
 						</view>
 					</view>
-					
+					<view v-if="mark=false">
+						123456
+					</view>
 				</view>
 				
+				
 				<transition name="fade">
-				<view class="guess1" v-if="flag!=''">
+				<view class="guess1" v-if="flag=='1'">
 					
 					<view class="text1">
 					<b><text style="color: #616161;">猜你想问</text></b> 
@@ -89,6 +92,26 @@
 				</view>
 			    </transition>
 				
+				<transition name="fade">
+				<view class="guess2" v-if="flag1==2">
+					
+					<view class="text1">
+					<b><text style="color: #616161;">传送门！！！</text></b> </br>
+					
+					
+					
+						<text class="small" @click="send9">{{text9}}</text></br>
+						<text class="small" @click="send10">{{text10}}</text></br>
+						<text class="small" @click="send11">{{text11}}</text></br>
+						<text class="small" @click="send12">{{text12}}</text>  
+					
+					  
+					
+					</view>
+				</view>
+				</transition>
+				
+				<transition name="fade">
 				<view>
 					<view v-if="tuijie==1" class="juzhong">
 						<view class="flex-row xuexi" @click="gotuijie1">
@@ -99,6 +122,9 @@
 							<text class="zsxx">小犀推荐 | 学习更多</text>
 							<text class="wt">不确定的生活，也要勇敢去爱</text>
 						</view>	
+						<view class="img1 flex-col">
+							<image src="../../static/youjiantou.png" mode=""></image>
+						</view>
 						</view>
 						
 					</view>
@@ -136,7 +162,76 @@
 						</view>
 					</view>
 				</view>	
+				</transition>
 				
+				<transition name="fade">
+				<view>
+					<view v-if="chuansong==1" class="juzhong">
+						<!-- <view class="flex-col flex-auto group_6 space-y-7">
+						  <view class="flex-row justify-between items-start">
+						    <view class="flex-row items-baseline group_7 space-x-6">
+						      <text class="text_14">孙老师</text>
+						      <text class="text_15">心理咨询师</text>
+						    </view>
+						    <view class="flex-col justify-start items-center button"><text class="text_13">预约</text></view>
+						  </view>
+						  <view class="flex-row space-x-18">
+						    <text class="font_5">北京大学</text>
+						    <text class="font_5 text_16">临床心理学</text>
+						  </view>
+						  <text class="self-start font_5">抑郁症、焦虑症、自闭症咨询...</text>
+						  <view class="flex-row items-center group_8 space-x-4">
+						    <image
+						      class="image"
+						      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701527561561730.png"
+						    />
+						    <text class="font_6">预约咨询（多点）</text>
+						  </view>
+						</view> -->
+						
+					</view>
+					<view v-if="chuansong==2" class="juzhong">
+						<view class="flex-row xuexi" @click="gochuansong2">
+						<view class="img">
+							<image src="../../static/xinqinriji.jpeg" mode=""></image>
+						</view>
+						<view class="flex-col wenzi">
+							<text class="zsxx">传送门 | 心情日记</text>
+							<text class="wt">记录每一天的心情晴雨表~</text>
+						</view>	
+						</view>
+					</view>
+					<view v-if="chuansong==3" class="juzhong">
+						<view class="flex-row xuexi" @click="gochuansong3">
+						<view class="img">
+							<image src="../../static/xinlizice.jpeg" mode=""></image>
+						</view>
+						<view class="flex-col wenzi">
+							<text class="zsxx">传送门 | 心理自测</text>
+							<text class="wt">测测你的心理指数吧~</text>
+						</view>	
+						</view>
+					</view>
+					<view v-if="chuansong==4" class="juzhong">
+						<view class="flex-row xuexi"  @click="gotuijie4">
+						<view class="img">
+							<image src="../../static/zhinengpipei.jpeg" mode=""></image>
+						</view>
+						<view class="flex-col wenzi">
+							<text class="zsxx">传送门 | 智能匹配</text>
+							<text class="wt">和陌生人来一场心灵的约会~</text>
+						</view>	
+						</view>
+					</view>
+				</view>	
+				</transition>
+				
+				
+				<view class="flex">
+					<view @click="change" class="send-btn1">猜你想问</view>
+					<view @click="change2" class="send-btn3">{{'传送门~'}}</view>
+					<view @click="change1" class="send-btn2">天气小灵通</view>
+				</view>
 				
 			</view>
 			
@@ -149,10 +244,7 @@
 		<view class="chat-bottom" :style="{height: `${inputHeight}rpx`}">
 			<view class="send-msg" :style="{bottom:`${keyboardHeight}rpx`}">
                 <view class="uni-textarea">
-					<view class="flex">
-						<view @click="change" class="send-btn1">猜你想问</view>
-						<view @click="change1" class="send-btn2">天气小灵通</view>
-					</view>
+					
 					
 					<textarea v-model="chatMsg"
 						maxlength="300"
@@ -177,6 +269,10 @@
 	export default {
 		data() {
 			return {
+				chuansong:0,
+				flag1:1,
+				mark:false,
+				dataList: ['自测', '匹配', '预约', '日记'],
 				tuijie:0,
 				symbol:true,
 				flag:"",
@@ -192,6 +288,10 @@
 				text6:"2.如何处理学习与生活的平衡问题？",
 				text7:"3.如何有效地沟通和解决冲突？",
 				text8:"4.如何应对社交焦虑和害羞？",
+				text9:"1.我想预约Doctor Sun",
+				text10:"2.我要记心情日记",
+				text11:"3.我想参加心理测试",
+				text12:"4.我想找新朋友",
 				//滚动距离
 				scrollTop: 0,
 				userId:'',
@@ -251,6 +351,29 @@
 		
 		methods:
 		{
+			change3(e){
+				if(e=="自测"){
+					uni.navigateTo({
+						url:"/pages/ceshirukou/ceshirukou"
+					})
+				}
+				else if(e=="预约"){
+					uni.navigateTo({
+						url:"/pages/yuyue/yuyue?id=64bf388fe0ec19bea1385782"
+					})
+				}
+				if(e=="匹配"){
+					uni.navigateTo({
+						url:"/pages/pipei/pipei?name=%E5%B0%8F%E6%9B%B2%E5%A5%87&url=..%252F..%252Fstatic%252Ftx16.jpeg"
+					})
+				}
+				if(e=="日记"){
+					uni.navigateTo({
+						url:"/pages/xqrj/xqrj"
+					})
+				}
+				
+			},
 			tuijie1(){
 				this.tuijie=1
 			},
@@ -262,6 +385,18 @@
 			},
 			tuijie4(){
 				this.tuijie=4
+			},
+			tuijie5(){
+				this.chuansong=1
+			},
+			tuijie6(){
+				this.chuansong=2
+			},
+			tuijie7(){
+				this.chuansong=3
+			},
+			tuijie8(){
+				this.chuansong=4
 			},
 			exchange(){
 				this.symbol=!this.symbol
@@ -392,6 +527,70 @@
 				this.answer2();
 				this.tuijie4();
 			},
+			send9(){
+				this.chatMsg2=this.text9
+				console.log(this.text9)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie5();
+			},
+			send10(){
+				this.chatMsg2=this.text10
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie6();
+			},
+			send11(){
+				this.chatMsg2=this.text11
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie7();
+			},
+			send12(){
+				this.chatMsg2=this.text12
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie8();
+			},
 			focus(){
 				this.scrollToBottom()
 				},
@@ -442,6 +641,8 @@
 			},
 			// 发送消息
 			handleSend() {
+				
+				
 				//如果消息不为空
 				if(!this.chatMsg||!/^\s+$/.test(this.chatMsg)){
 					let obj = {
@@ -454,14 +655,20 @@
 					this.flag="";
 					this.msgList.push(obj);
 					this.answer();
-					
+					this.tuijie=0;
+					this.chuansong=0;
+					this.flag1=0;
 					this.chatMsg = "";
 				}else {
 					this.$modal.showToast('不能发送空白消息')
 				}
+				   
 			},
 			change(){
 				this.flag="1";
+			},
+			change2(){
+				this.flag1=2;
 			},
            answer(){
 			   uni.request({
@@ -485,6 +692,11 @@
 			   
 			   
 		   },
+		   goyuyue(){
+		   	uni.navigateTo({
+		   		url:"/pages/yuyue/yuyue?id=64bf388fe0ec19bea1385782"
+		   	})
+		   },
 		   gotuijie1(){
 			   uni.navigateTo({
 			   	url:"/pages/wzdetail/wzdetail?id=64bbda86652341bd64d48e59"
@@ -504,6 +716,16 @@
 		   			   uni.navigateTo({
 		   			   	url:"/pages/wzdetail/wzdetail?id=64bdf32f7ad52ddc64db6f4e"
 		   			   })
+		   },
+		   gochuansong2(){
+			           uni.navigateTo({
+			           	url:"/pages/xqrj/xqrj"
+			           })
+		   },
+		   gochuansong3(){
+		   			           uni.navigateTo({
+		   			           	url:"/pages/ceshirukou/ceshirukou"
+		   			           })
 		   },
 		   answer1(){
 			   uni.request({
@@ -569,7 +791,7 @@
 		margin-left: 48rpx;
 		background-color: #ffffff;
 		border-radius: 24rpx;
-		width: 660rpx;
+		width: 650rpx;
 		height: 150rpx;
 		position: relative;
 		.img{
@@ -619,6 +841,8 @@
 	}
 	.flex{
 		display:flex;
+		text-align: center;
+		margin-top: 0rpx;
 	}
 	.send-btn1 {
 		display: flex;
@@ -630,6 +854,24 @@
 		width: 150rpx;
 		height: 78rpx;
 		background: linear-gradient(to bottom right, #d9fffc, white);
+		border-radius: 38rpx;
+		font-size: 28rpx;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #767481;;
+		line-height: 28rpx;
+	}
+	
+	.send-btn3 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 7rpx;
+		margin-bottom: 15rpx;
+		margin-left: 25rpx;
+		width: 150rpx;
+		height: 78rpx;
+		background: linear-gradient(to bottom right, #ffe0bb, white);
 		border-radius: 38rpx;
 		font-size: 28rpx;
 		font-family: PingFang SC;
@@ -664,7 +906,7 @@
 	  opacity: 0;
 	}
 	.juzhong{
-		text-align: center;
+		
 	}	
 	.huan{
 		width:35rpx;
@@ -699,6 +941,17 @@
 		position: flex;
 		border-radius: 25rpx;
 		margin-left:7%;
+		margin-bottom: 15rpx;
+		width:85%;
+		height:280rpx;
+		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
+		box-shadow: black;
+	}
+	.guess2{
+		position: flex;
+		border-radius: 25rpx;
+		margin-left:7%;
+		margin-bottom: 15rpx;
 		width:85%;
 		height:280rpx;
 		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
@@ -839,7 +1092,7 @@
 			}
 
 			.uni-textarea {
-				padding-bottom: 7rpx;
+				padding-bottom: 70rpx;
                 
 				textarea {
 					width: 537rpx;
@@ -859,7 +1112,8 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding-bottom: 7rpx;
+				margin-bottom: 70rpx;
+				
 				margin-left: 25rpx;
 				width: 128rpx;
 				height: 78rpx;

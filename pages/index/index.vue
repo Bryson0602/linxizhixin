@@ -28,7 +28,7 @@
 				<view v-show="statue=='first'" >
 					<view class="box1">
 							<view class="onclick1" >账号</view>
-							<input class="text" maxlength="10" type="text"  @blur="onblue" :value="user_name" placeholder="  输入用户名/手机号/邮箱" />
+							<input class="text" maxlength="11" type="text"  @blur="onblue" :value="user_name" placeholder="  输入用户名/手机号/邮箱" />
 							
 					
 					
@@ -491,13 +491,14 @@
 		width:32%;
 		border-radius: 50rpx;
 		background-color: #eaeaea;
-		
+		font-size: 35rpx;
 		font-weight: 700;
 	}
 	.btn2{
 		border-style:none;
 		color: #202020;
 		width:32%;
+		font-size: 35rpx;
 		border-radius: 50rpx;
 		font-weight: 700;
 		box-shadow: 0px 6rpx 12rpx #00000029;
