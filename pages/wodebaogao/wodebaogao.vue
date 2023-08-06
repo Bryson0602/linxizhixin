@@ -245,7 +245,7 @@
       return {
 		  zhuangTai:"平静",
 		  recentStatus: "心情状态比较平稳，没有较大的起伏。",
-		  suggestions: "建议多出去走走，释放自己内心的压力。",
+		  suggestions: "培养积极思维，保持健康生活习惯，学会情绪管理，寻找支持和放松方式，设定合理目标和时间管理，以及进行自我关爱和照顾。",
 			showTab: true,
 		    tabCur:0,
     		cWidth: '',
@@ -627,7 +627,7 @@
     methods: {
 		clickCtTab(ctCur){
 			this.tabCur  = ctCur
-			console.log(this.tabCur )
+			// console.log(this.tabCur )
 		},
 		
       getServerData() {
@@ -789,8 +789,8 @@
 	margin-top: -50rpx;
 	padding-right: 20rpx;
 	padding-bottom: 0rpx;
-	// background: linear-gradient(45deg, rgb(104,82,204 ),#65cbc8);
-	 background: linear-gradient(45deg, rgba(148,210,243, 1), rgba(137,250,178, 1));
+	background: linear-gradient(135deg, rgb(104,82,204 ),#65cbc8);
+	 // background: linear-gradient(45deg, rgba(148,210,243, 1), rgba(137,250,178, 1));
 	 // background-color:rgb(104,82,204);
 	 // background: linear-gradient(
 	 //        to bottom right, 
