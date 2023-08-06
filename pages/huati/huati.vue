@@ -3,7 +3,7 @@
 	  <view class="flex-col section space-y-22">
 	    <text class="self-center font_1 text">话题</text>
 	    <view class="flex-col justify-start items-center text-wrapper">
-	      <text class="font_1 text_2">热门话题·每日更新</text>
+	      <text class="font_b text_2">热门话题·每日更新</text>
 	    </view>
 	  </view>
 	  <view class="flex-col group space-y-6">
@@ -19,10 +19,10 @@
 	      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385880085263447.png"
 	    />
 	  </view>
-	  <view class="self-start section_2"></view>
+	  <!-- <view class="self-start section_2"></view> -->
 	  <view class="flex-col list space-y-8">
-	    <view class="flex-row justify-between items-center list-item" :key="i" v-for="(item, i) in list_yYZhF3Yo">
-	       <view class="flex-row items-baseline space-x-22" :class="{'color-red': i < 4}">
+	    <view class="flex-row justify-between items-center list-item" :key="i" v-for="(item, i) in list_yYZhF3Yo" :class="{'color-red': i < 5}">
+	       <view class="flex-row items-baseline space-x-22">
 	        <text class="font_3 text_5">{{i+1}}</text>
 	        <text class="font_1 text_6">{{item}}</text>
 	      </view>
@@ -41,7 +41,7 @@
     components: {},
     data() {
       return {
-        list_yYZhF3Yo: ["什么是阳光抑郁症？", "解压小妙招", "抑郁症早期表现", "拒绝自我内耗", "双向情感障碍", "心理健康的重要性", "焦虑症的综合治疗", "寝室纠纷如何完美化解", "什么是阳光抑郁症？", "什么是阳光抑郁症？", "什么是阳光抑郁症？","什么是阳光抑郁症？"],
+        list_yYZhF3Yo: ["什么是阳光抑郁症？", "解压小妙招", "抑郁症早期表现", "拒绝自我内耗", "双向情感障碍", "心理健康的重要性", "焦虑症的综合治疗", "寝室纠纷如何完美化解", "如何处理人际关系冲突", "如何在工作中促进心理健康", "讨论儿童的认知、情感","了解睡眠对心理健康的重要性"],
       };
     },
 
@@ -79,8 +79,10 @@
         padding: 28rpx 0;
         background-color: #cdecec;
         border-radius: 60rpx;
+		width: 450rpx;
         .text_2 {
-          color: #202020;
+          color: #555;
+		  margin-left: 15rpx;
         }
       }
     }
@@ -169,6 +171,7 @@
       line-height: 37rpx;
       font-weight: 700;
       color: #898989;
+	  
     }
 	.font_a {
 		font-size: 40rpx;
@@ -176,6 +179,14 @@
 		line-height: 37rpx;
 		font-weight: 700;
 		color: #000000;
+	}
+	.font_b {
+		font-size: 40rpx;
+		font-family: SegoeUI-Bold;
+		line-height: 37rpx;
+		font-weight: 700;
+		color: #666;
+		letter-spacing:6rpx;
 	}
   }
 </style>
