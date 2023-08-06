@@ -272,15 +272,25 @@
           //padding: 96rpx 0 88rpx;
           filter: drop-shadow(0px 6rpx 6rpx #00000029);
 		  background-color: #fff0eb;
+		  //background-image: radial-gradient(37.8% 37.8% at 77.9% 33.6%, #d5e7ff 0%, #ffffff 100%);
 		  //background-image: linear-gradient(180deg, #ffe4dd 0%, #ffffff 100%);
+		  background: linear-gradient(
+		      to bottom right, 
+		      #fbffde 0%,
+		      #fffbe1 20%,
+		      #fff4e0 40%,
+		      #ffe7cf 60%,
+		      #ffe6cd 80%,
+		      #f9d4ca 100%
+		    );
 		  // background: linear-gradient(
 		  //     to bottom right, 
 		  //     #ffffff 0%,
 		  //     #fff6f3 20%,
 		  //     #fffaf6 40%,
-		  //     #fff5ed 60%,
-		  //     #ffefe5 80%,
-		  //     #f9dfd2 100%
+		  //     #fff2e1 60%,
+		  //     #ffecdd 80%,
+		  //     #f9cdbe 100%
 		  //   );
 		  //background-image: url(../../static/xinqiu.jpg);
 		  border-radius: 60rpx;
