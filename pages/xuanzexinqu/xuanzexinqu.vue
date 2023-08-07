@@ -145,7 +145,7 @@
       }
     }
     .group_2 {
-      padding: 0 66rpx;
+      padding: 150rpx 66rpx;
       .font_1 {
         font-size: 48rpx;
         font-family: SegoeUI-Bold;
@@ -154,7 +154,7 @@
         color: #202020;
       }
       .group_3 {
-        margin-top: 64rpx;
+        margin-top: 100rpx;
       }
       .group_4 {
         margin-top: 46rpx;
@@ -279,7 +279,7 @@
     & > view:not(:first-child),
     & > text:not(:first-child),
     & > image:not(:first-child) {
-      margin-top: 212rpx;
+      margin-top: 100rpx;
     }
   }
 </style>
