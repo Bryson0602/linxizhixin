@@ -13,7 +13,7 @@
 	  </view>
 	  <view class="flex-col items-center group_2 space-y-6">
 	    <view class="flex-col justify-start items-center text-wrapper" @click="gowanshanziliao"><text class="font_1 text_3">下一页</text></view>
-	    <text class="text_4">跳 过</text>
+	    <text class="text_4"@click="goshouye">跳 过</text>
 	  </view>
 	</view>
 </template>
@@ -26,6 +26,11 @@
 			};
 		},
 		methods:{
+			goshouye(){
+				uni.switchTab({
+					url:'/pages/shouye/shouye'
+				})
+			},
 			gowanshanziliao(){
 				uni.navigateTo({
 					url:'/pages/wanshanziliao/wanshanziliao'
