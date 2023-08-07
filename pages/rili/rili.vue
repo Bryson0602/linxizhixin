@@ -6,6 +6,7 @@
 	  	:start-date="'2022-3-2'"
 	  	:end-date="'2024-5-20'"
 		:showMonth="false"
+		:selected="info.selected"
 	  	@change="change"
 	  	 />
     
@@ -17,13 +18,18 @@
       <!-- <view class="self-center section_4"></view> -->
       <!-- <text class="self-center text_20">今日没有报名的活动哦</text> -->
 	  <view class="flex-col list space-y-10">
-	    <view class="flex-col items-start relative list-item" :key="i" v-for="(item, i) in list_RiXSrhKo" @click="gogfhd1">
+	    <view class="flex-col items-start relative list-item" @click="gogfhd1">
 	      <text class="font_6">心理知识大讲堂</text>
 	      <text class="font_8 text_25">2023.09.08-2023.09.15</text>
 	      <view class="flex-col justify-start items-center text-wrapper_3 pos"><text class="font_7">进行中</text></view>
 	    </view>
+		
+		<view class="flex-col items-start relative list-item" >
+		  <text class="font_6">预约心理咨询（程老师）</text>
+		  <text class="font_8 text_25">2023.09.10下午</text>
+		  <view class="flex-col justify-start items-center text-wrapper_3 pos bj"><text class="font_7">未开始</text></view>
+		</view>
 	  </view>
-	  
     </view>
   </view>
 </template>
@@ -33,7 +39,27 @@
 	  components: {},
 	  data() {
 	    return {
-	      list_RiXSrhKo: [null, null, null],
+			info: {
+				selected: [
+					{
+						date: '2023-09-08',
+						info: '活动'
+					},
+					{
+						date: '2023-09-10',
+						info: '预约',
+						data: {
+							custom: '自定义信息',
+							name: '自定义消息头'
+						}
+					},
+					{
+						date: '2023-09-15',
+						info: '活动'
+					}
+				]
+			}
+	      // list_RiXSrhKo: [null, null, null],
 	    };
 	  },
 	  methods: {
@@ -63,8 +89,13 @@
 	      padding: 32rpx 24rpx 32rpx;
 	      background-color: #e6f3ff;
 	      border-radius: 32rpx;
+		  .font_6 {
+		    //font-size: 34rpx;
+		    //line-height: 28rpx;
+		    //color: #707070;
+		  }
 	      .font_8 {
-	        font-size: 24rpx;
+	        font-size: 26rpx;
 	        font-family: SegoeUI;
 	        line-height: 28rpx;
 	        color: #707070;
@@ -79,13 +110,16 @@
 	        border-radius: 60rpx;
 	        width: 118rpx;
 	        .font_7 {
-	          font-size: 24rpx;
+	          font-size: 26rpx;
 	          font-family: SegoeUI-Bold;
-	          line-height: 22rpx;
+	          line-height: 36rpx;
 	          font-weight: 700;
 	          color: #ffffff;
 	        }
 	      }
+		  .bj{
+			  background-color: #6aadff;
+		  }
 	      .pos {
 	        position: absolute;
 	        right: 16rpx;

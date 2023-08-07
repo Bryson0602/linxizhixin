@@ -342,6 +342,24 @@
             }
             
         }
+        ,{
+            "path" : "pages/lishibaogao/lishibaogao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "MBTI人格自测-历史报告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/lishibaogao1/lishibaogao1",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "PSS心理压力量表-历史报告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

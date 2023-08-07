@@ -141,37 +141,38 @@
       <view class="flex-col group_6 space-y-12">
         <text class="self-start font_1 text_6">历史报告</text>
         <view class="flex-col">
-          <view class="flex-col justify-start items-start section_9">
+          <view class="flex-col justify-start items-start section_9" @click="golishi">
             <view class="flex-row items-center section_10 space-x-12">
               <image
                 class="image_2"
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541890096354.png"
               />
               <view class="flex-col items-start space-y-8">
-                <text class="font_4">SDS抑郁自评测试</text>
-                <text class="font_5 text_7">2023.7.9</text>
+                <text class="font_4">MBTI人格自测</text>
+                <text class="font_5 text_7">2023.9.10</text>
               </view>
 			  <view class="weizhi1">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
 			  </view>
-			  
             </view>
           </view>
-          <view class="flex-col justify-start items-start relative section_9 view">
+		  
+          <view class="flex-col justify-start items-start relative section_9 view"@click="golishi1">
             <view class="flex-row items-center section_10 space-x-12">
               <image
                 class="image_2"
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541912876113.png"
               />
               <view class="flex-col items-start space-y-12">
-                <text class="font_4">心理卫生评定测试</text>
-                <text class="font_5 text_7">2023.6.15</text>
+                <text class="font_4">PSS(心理压力量表)</text>
+                <text class="font_5 text_7">2023.9.10</text>
               </view>
 			  <view class="weizhi2">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
 			  </view>
             </view>
           </view>
+		  
 		  <view class="flex-col justify-start items-start relative section_9 view">
 		    <view class="flex-row items-center section_10 space-x-12">
 		      <image
@@ -179,29 +180,47 @@
 		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541927764165.png"
 		      />
 		      <view class="flex-col items-start space-y-12">
-		        <text class="font_4">MBTI人格测试分析</text>
-		        <text class="font_5 text_7">2023.6.15</text>
+		        <text class="font_4">SHS(主观幸福感量表)</text>
+		        <text class="font_5 text_7">2023.9.9</text>
 		      </view>
 			  <view class="weizhi3">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
 			  </view>
 		    </view>
 		  </view>
+		  
 		  <view class="flex-col justify-start items-start relative section_9 view">
 		    <view class="flex-row items-center section_10 space-x-12">
 		      <image
 		        class="image_2"
-		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541927764165.png"
+		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541890096354.png"
 		      />
 		      <view class="flex-col items-start space-y-12">
-		        <text class="font_4">MBTI人格测试分析</text>
-		        <text class="font_5 text_7">2023.6.15</text>
+		        <text class="font_4">PHQ-9(抑郁自评测试)</text>
+		        <text class="font_5 text_7">2023.9.8</text>
 		      </view>
 		  			  <view class="weizhi3">
 		  			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
 		  			  </view>
 		    </view>
 		  </view>
+		  
+		  <view class="flex-col justify-start items-start relative section_9 view">
+		    <view class="flex-row items-center section_10 space-x-12">
+		      <image
+		        class="image_2"
+		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541912876113.png"
+		      />
+		      <view class="flex-col items-start space-y-12">
+		        <text class="font_4">PHQ-9(抑郁自评测试)</text>
+		        <text class="font_5 text_7">2023.9.8</text>
+		      </view>
+					<view class="weizhi3">
+			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+			  </view>
+		    </view>
+		  </view>
+		  
 		  <view class="flex-col justify-start items-start relative section_9 view">
 		    <view class="flex-row items-center section_10 space-x-12">
 		      <image
@@ -209,13 +228,12 @@
 		        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901700541927764165.png"
 		      />
 		      <view class="flex-col items-start space-y-12">
-		        <text class="font_4">MBTI人格测试分析</text>
-		        <text class="font_5 text_7">2023.6.15</text>
+		        <text class="font_4">GAD7(焦虑障碍量表)</text>
+		        <text class="font_5 text_7">2023.9.8</text>
 		      </view>
-					<view class="weizhi3">
-			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
-			  </view>
-					  
+		  					<view class="weizhi3">
+		  			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
+		  			  </view>
 		    </view>
 		  </view>
           <!-- <view class="flex-col justify-start items-start relative group_7">
@@ -625,6 +643,16 @@
 	  }
 	},
     methods: {
+		golishi(){
+			uni.navigateTo({
+				url:"/pages/lishibaogao/lishibaogao"
+			})
+		},
+		golishi1(){
+			uni.navigateTo({
+				url:"/pages/lishibaogao1/lishibaogao1"
+			})
+		},
 		clickCtTab(ctCur){
 			this.tabCur  = ctCur
 			// console.log(this.tabCur )
@@ -702,13 +730,17 @@
 
 <style scoped lang="scss">
 	.weizhi1{
-		padding-left: 175rpx;
+		position: absolute;
+		right: 5%;
+		//padding-left: 175rpx;
 	}
 	.weizhi2{
-		padding-left: 170rpx;
+		position: absolute;
+		right: 5%;
 	}
 	.weizhi3{
-		padding-left: 152rpx;
+		position: absolute;
+		right: 5%;
 	}
 	.tupiana{
 		width: 30rpx;
@@ -1062,14 +1094,16 @@
           line-height: 45rpx;
         }
         .section_9 {
+			position: relative;
           background-color: #ffffff;
           border-radius: 24rpx;
           box-shadow: 0px 6rpx 16rpx #93939329;
           .section_10 {
+			
             background-color: #ffffff;
             border-radius: 24rpx;
             box-shadow: 12rpx 6rpx 16rpx #93939329;
-            width: 582rpx;
+            width: 85%;
             .space-y-8 {
               & > view:not(:first-child),
               & > text:not(:first-child),
@@ -1084,6 +1118,7 @@
               color: #787a8c;
             }
             .text_7 {
+			  font-size: 36rpx;
               line-height: 32rpx;
             }
           }

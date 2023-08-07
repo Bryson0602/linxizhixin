@@ -25,7 +25,7 @@
           <view class="flex-col justify-start items-center equal-division-item" @click="gopipei" >
             <text class="font_1">智能匹配</text>
           </view>
-          <view class="flex-col justify-start items-center relative equal-division-item" >
+          <view class="flex-col justify-start items-center relative equal-division-item bj" >
             <image
               class="image_3 pos"
               src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385893796236975.png"
@@ -274,15 +274,16 @@
 		  background-color: #fff0eb;
 		  //background-image: radial-gradient(37.8% 37.8% at 77.9% 33.6%, #d5e7ff 0%, #ffffff 100%);
 		  //background-image: linear-gradient(180deg, #ffe4dd 0%, #ffffff 100%);
-		  background: linear-gradient(
-		      to bottom right, 
-		      #fbffde 0%,
-		      #fffbe1 20%,
-		      #fff4e0 40%,
-		      #ffe7cf 60%,
-		      #ffe6cd 80%,
-		      #f9d4ca 100%
-		    );
+		  // background: linear-gradient(
+		  //     to bottom right, 
+		  //     #fbffde 0%,
+		  //     #fffbe1 20%,
+		  //     #fff4e0 40%,
+		  //     #ffe7cf 60%,
+		  //     #ffe6cd 80%,
+		  //     #f9d4ca 100%
+		  //   );
+		  background-image: linear-gradient(180deg, #ffe4dd 0%, #ffffff 100%);
 		  // background: linear-gradient(
 		  //     to bottom right, 
 		  //     #ffffff 0%,
@@ -315,6 +316,9 @@
             top: 24rpx;
           }
         }
+		.bj{
+			background-image: linear-gradient(180deg, #c9dfff 0%, #ffffff 100%);
+		}
         .section_3 {
           background-color: #d4d0d0;
           border-radius: 50%;
