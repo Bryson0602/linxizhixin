@@ -5,7 +5,7 @@
       <view class="flex-col">
         <view class="flex-row justify-between items-center group">
           <view class="flex-col justify-start items-center text-wrapper">
-            <text class="font_1 text_2">每日签</text>
+            <text class="font_1 text_2">每日一签</text>
           </view>
           <view class="flex-col justify-start items-center text-wrapper_2">
             <text class="font_2 text_3">签到规则</text>
@@ -42,7 +42,7 @@
                 <text class="font_4 text_8">奖品</text>
               </view>
 			  <view v-if="showSuccess" class="success-dialog">
-			    <text>签到成功！</text>
+			    <text class="ziti">签到成功！</text>
 			  </view>
               <view class="flex-col items-center equal-division-item_3 space-y-6">
                 <image
@@ -102,16 +102,26 @@
     <view class="flex-col section_3 space-y-12">
       <text class="self-start font_7">小犀活动</text>
       <view class="flex-row space-x-15">
-        <view class="section_4"></view>
+        <view class="section_4">
+			<image class="daxiao1"  src="../../static/qiandao2 - 1.png" mode=""></image>
+		</view>
         <view class="flex-col group_5 space-y-17">
-          <view class="section_5"></view>
-          <view class="section_5"></view>
+          <view class="section_5">
+			  <image class="daxiao2"  src="../../static/qiandao3.png" mode=""></image>
+		  </view>
+          <view class="section_5">
+			  <image class="daxiao2" src="../../static/qiandao4-2.png" mode=""></image>
+		  </view>
         </view>
       </view>
       <text class="self-start font_7 text_11">今日热门</text>
       <view class="flex-row space-x-15">
-        <view class="section_6"></view>
-        <view class="section_6"></view>
+        <view class="section_6">
+			<image class="daxiao3" src="../../static/qiandao5.png" mode=""></image>
+		</view>
+        <view class="section_6">
+			<image class="daxiao3" src="../../static/qiandao6.png" mode=""></image>
+		</view>
       </view>
     </view>
   </view>
@@ -194,7 +204,7 @@
           padding: 24rpx 0;
           background-color: #96a1f9;
           border-radius: 60rpx;
-          width: 200rpx;
+          width: 210rpx;
           height: 82rpx;
           .text_2 {
             color: #ffffff;
@@ -421,14 +431,28 @@
           background-color: #e7e7e7;
           border-radius: 24rpx;
           width: 320rpx;
-          height: 344rpx;
+          height: 352rpx;
+		  position: relative;
+		  .daxiao1{
+			  width: 100%;
+			  height: 100%;
+			  object-fit: contain;
+			  border-radius: 24rpx;
+		  }
         }
         .group_5 {
           flex: 1 1 320rpx;
           .section_5 {
             background-color: #e7e7e7;
             border-radius: 24rpx;
-            height: 156rpx;
+            height: 160rpx;
+			position: relative;
+			.daxiao2{
+				    width: 100%;
+				    height: 100%;
+				    object-fit: contain;
+					border-radius: 24rpx;
+			}
           }
         }
         .space-y-17 {
@@ -444,6 +468,13 @@
           border-radius: 24rpx 24rpx 0 0;
           width: 320rpx;
           height: 338rpx;
+		  position: relative;
+		  .daxiao3{
+			  width: 100%;
+			  height: 100%;
+			  object-fit: contain;
+			  border-radius: 24rpx 24rpx 0 0;
+		  }
         }
       }
       .text_11 {

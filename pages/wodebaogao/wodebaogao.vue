@@ -755,9 +755,9 @@
 		
 	}
 	.jiaonang{
-		padding-right: 20rpx;
-		text-align: center;
-		width:180rpx;
+		padding-left: 5rpx;
+		text-align: left;
+		width:200rpx;
 		// background-color: rgb(104,82,204 );
 		border-radius: 10px;
 		margin-top: 20rpx;
