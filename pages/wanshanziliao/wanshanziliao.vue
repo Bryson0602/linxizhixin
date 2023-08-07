@@ -46,7 +46,7 @@
 	  <input class="self-center section_4"></input>
 	  <view class="flex-col items-center group_4 space-y-6">
 	    <view class="flex-col justify-start items-center text-wrapper" @click="gombti"><text class="font_1 text_8">下一页</text></view>
-	    <text class="font_2 text_9">跳 过</text>
+	    <text class="font_2 text_9"@click="goshouye">跳 过</text>
 	  </view>
 	</view>
 </template>
@@ -65,6 +65,11 @@
 			};
 		},
 		methods:{
+			goshouye(){
+				uni.switchTab({
+					url:'/pages/shouye/shouye'
+				})
+			},
 			selectGender(value) { // 添加selectGender方法来设置gender变量的值
 			      this.gender = value;
 			},
@@ -150,7 +155,7 @@
 		  }
         }
 		.selected{
-		    border: 8rpx solid #7b82ff; /* 添加蓝色边框样式 */
+		    border: 8rpx solid #af9ef3; /* 添加蓝色边框样式 */
 		}
         .group_2 {
           border-radius: 50%;
