@@ -167,27 +167,15 @@
 				<transition name="fade">
 				<view>
 					<view v-if="chuansong==1" class="juzhong">
-						<!-- <view class="flex-col flex-auto group_6 space-y-7">
-						  <view class="flex-row justify-between items-start">
-						    <view class="flex-row items-baseline group_7 space-x-6">
-						      <text class="text_14">孙老师</text>
-						      <text class="text_15">心理咨询师</text>
-						    </view>
-						    <view class="flex-col justify-start items-center button"><text class="text_13">预约</text></view>
-						  </view>
-						  <view class="flex-row space-x-18">
-						    <text class="font_5">北京大学</text>
-						    <text class="font_5 text_16">临床心理学</text>
-						  </view>
-						  <text class="self-start font_5">抑郁症、焦虑症、自闭症咨询...</text>
-						  <view class="flex-row items-center group_8 space-x-4">
-						    <image
-						      class="image"
-						      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16901701527561561730.png"
-						    />
-						    <text class="font_6">预约咨询（多点）</text>
-						  </view>
-						</view> -->
+						<view class="flex-row xuexi" @click="goyuyue">
+						<view class="img2">
+							<image src="../../static/teacher.png" mode=""></image>
+						</view>
+						<view class="flex-col wenzi">
+							<text class="zsxx">传送门 | 心理预约</text>
+							<text class="wt">孙老师将对你进行心灵鞭挞~</text>
+						</view>	
+						</view>
 						
 					</view>
 					<view v-if="chuansong==2" class="juzhong">
@@ -233,6 +221,14 @@
 					<view @click="change1" class="send-btn2">天气小灵通</view>
 				</view>
 				
+				<view v-show="chatMsged=='我想预约9.10上午孙老师的心理咨询'" class="card">
+					<uni-card   margin=0px border=false title="预约成功!" sub-title="孙老师"  extra="2023.9.10 9:00" thumbnail="../../static/teacher.png">
+						<text>二级心理咨询师，2001年硕士毕业于北京大学临床心理学专业。对抑郁症，焦虑有深入研究。</text>
+					</uni-card>
+
+				</view>
+				
+				
 			</view>
 			
 			
@@ -269,6 +265,8 @@
 	export default {
 		data() {
 			return {
+				chatMsged:"",
+				mark1:false,
 				chuansong:0,
 				flag1:1,
 				mark:false,
@@ -642,7 +640,7 @@
 			// 发送消息
 			handleSend() {
 				
-				
+				this.mark1=true
 				//如果消息不为空
 				if(!this.chatMsg||!/^\s+$/.test(this.chatMsg)){
 					let obj = {
@@ -658,10 +656,13 @@
 					this.tuijie=0;
 					this.chuansong=0;
 					this.flag1=0;
+					this.chatMsged=this.chatMsg
 					this.chatMsg = "";
+					
 				}else {
 					this.$modal.showToast('不能发送空白消息')
 				}
+				
 				   
 			},
 			change(){
@@ -685,6 +686,7 @@
 								}
 											
 								this.msgList.push(obj);
+								
 			   				}
 							 
 			   })
@@ -805,6 +807,20 @@
 			    width: 160rpx;
 			    height: 120rpx;
 			}
+			
+		}
+		.img2{
+			margin:15rpx 0 15rpx 15rpx ;
+			background-color: #dbf3f7;
+			width: 120rpx;
+			height: 120rpx;
+			border-radius: 24rpx;
+			overflow: hidden;
+			image{
+			    width: 120rpx;
+			    height: 120rpx;
+			}
+			
 		}
 		.wenzi{
 			//margin-right: 30rpx;
@@ -844,6 +860,15 @@
 		text-align: center;
 		margin-top: 0rpx;
 	}
+	.card{
+		background-color: white;
+		border-radius: 36rpx;
+		
+		margin-left: 37rpx;
+		width:90%
+		
+	}
+	
 	.send-btn1 {
 		display: flex;
 		align-items: center;
@@ -933,17 +958,20 @@
 		border-radius: 25rpx;
 		margin-left:7%;
 		width:85%;
-		height:250rpx;
+		padding-bottom: 5rpx;
 		background-image: radial-gradient(37.8% 37.8% at 77.9% 3.6%, #d5e7ff 0%, #ffffff 100%);
 		box-shadow: black;
 	}
+	
+	
+	
 	.guess1{
 		position: flex;
 		border-radius: 25rpx;
 		margin-left:7%;
 		margin-bottom: 15rpx;
 		width:85%;
-		height:280rpx;
+		padding-bottom: 5rpx;
 		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
 		box-shadow: black;
 	}
@@ -953,7 +981,7 @@
 		margin-left:7%;
 		margin-bottom: 15rpx;
 		width:85%;
-		height:280rpx;
+		padding-bottom: 5rpx;
 		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
 		box-shadow: black;
 	}
