@@ -17,7 +17,7 @@
 	  </view>
 	  <view class="flex-col items-center group_2 space-y-6">
 	    <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1" @click="goxuanzexinqu">下一页</text></view>
-	    <text class="text_5">跳 过</text>
+	    <text class="text_5"@click="goshouye">跳 过</text>
 	  </view>
 	</view>
 </template>
@@ -36,6 +36,11 @@
 			goxuanzexinqu(){
 				uni.navigateTo({
 					url:'/pages/xuanzexinqu/xuanzexinqu'
+				})
+			},
+			goshouye(){
+				uni.switchTab({
+					url:'/pages/shouye/shouye'
 				})
 			}
 		}

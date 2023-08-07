@@ -63,7 +63,7 @@
 	    
 	    <view class="flex-col group_5 space-y-6">
 	      <view class="flex-col justify-start items-center text-wrapper_5" @click="goshouye"><text class="font_1 text_7">完成</text></view>
-	      <text class="self-center font_4 text_8">跳 过</text>
+	      <text class="self-center font_4 text_8"@click="goshouye">跳 过</text>
 	    </view>
 	  </view>
 	</view>

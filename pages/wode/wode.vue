@@ -9,8 +9,8 @@
 			  <image class="shezhi" src="../../static/shezhi.png" mode="heightFix"></image>
 		  </view>
 	      <view class="flex-col items-start group_2 space-y-10">
-	        <text class="text">HI，小灵</text>
-	        <text class="text_2">灵犀号：2333456678</text>
+	        <text class="text">Hi，小灵</text>
+	        <text class="text_2">灵犀号：2387063291</text>
 	      </view>
 	      <view class="section_3 pos">
 			  <image src="../../static/lxzx.png" mode=""></image>
@@ -27,14 +27,14 @@
 	            <text class="self-start font_2 text_3">我的报告</text>
 	            <view class="flex-col items-start section_5 space-y-14">
 	              <text class="font_3">最近更新</text>
-	              <text class="font_4">2023.07.08</text>
+	              <text class="font_4">2023.09.10</text>
 	            </view>
 	          </view>
 	          <view class="flex-col equal-division-item space-y-8" @click="toxqrj">
 	            <text class="self-start font_2 text_3">心情日记</text>
 	            <view class="flex-col items-start section_5 space-y-14">
 	              <text class="font_3">最近更新</text>
-	              <text class="font_4">2023.07.08</text>
+	              <text class="font_4">2023.09.10</text>
 	            </view>
 	          </view>
 	        </view>
