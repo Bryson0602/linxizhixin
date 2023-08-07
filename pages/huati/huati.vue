@@ -1,7 +1,7 @@
 <template>
 	<view class="flex-col page">
 	  <view class="flex-col section space-y-22">
-	    <text class="self-center font_1 text">话题</text>
+	    <!-- <text class="self-center font_1 text"></text> -->
 	    <view class="flex-col justify-start items-center text-wrapper">
 	      <text class="font_b text_2">热门话题·每日更新</text>
 	    </view>
@@ -63,6 +63,9 @@
     height: 100%;
     .section {
       padding: 40rpx 166rpx 32rpx;
+		height: 250rpx;
+		align-items: center;
+		justify-content: center;
       background: linear-gradient(
              to bottom right, 
              #eafbff 0%,
@@ -80,6 +83,7 @@
         background-color: #cdecec;
         border-radius: 60rpx;
 		width: 450rpx;
+		
         .text_2 {
           color: #555;
 		  margin-left: 15rpx;
