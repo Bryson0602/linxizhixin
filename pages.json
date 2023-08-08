@@ -360,6 +360,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/saoyisao/saoyisao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "扫一扫",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
