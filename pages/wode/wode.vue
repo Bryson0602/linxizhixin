@@ -46,14 +46,14 @@
 				  </view>
 				  <image src="../../static/jiantou.png" class="icon1" mode="heightFix"></image>
 			  </view>
-			  <view class="demo">
+			  <view class="demo" @click="gorili">
 				  <view class="mat">
 				  	<image src="../../static/huodong.png" class="icon" mode="heightFix"></image>
 					<text class="font_5">活动中心</text>
 				  </view>
 				<image src="../../static/jiantou.png" class="icon1" mode="heightFix"></image>
 			  </view>
-			  <view class="demo">
+			  <view class="demo" @click="golsbg">
 				  <view class="mat">
 					<image src="../../static/baogao.png" class="icon" mode="heightFix"></image>
 					<text class="font_5">历史报告</text>
@@ -105,6 +105,16 @@
 			golljl(){
 				uni.navigateTo({
 					url:'/pages/liulanjilu/liulanjilu'
+				})
+			},
+			golsbg(){
+				uni.navigateTo({
+					url:'/pages/wodebaogao/wodebaogao'
+				})
+			},
+			gorili(){
+				uni.navigateTo({
+					url:'/pages/rili/rili'
 				})
 			}
 		}
