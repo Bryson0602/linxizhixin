@@ -79,7 +79,7 @@
                 <text class="font_5">北京大学</text>
                 <text class="font_5 text_16">临床心理学</text>
               </view>
-              <text class="self-start font_5">抑郁症、焦虑症、自闭症咨询...</text>
+              <text class="self-start font_5">二级心理咨询师，2011年毕...</text>
               <view class="flex-row items-center group_8 space-x-4">
                 <image
                   class="image"
