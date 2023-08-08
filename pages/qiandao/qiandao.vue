@@ -1,7 +1,7 @@
 <template>
   <view class="flex-col page space-y-8">
     <view class="flex-col section space-y-24">
-      <text class="self-center font_1 text">签到</text>
+      <!-- <text class="self-center font_1 text">签到</text> -->
       <view class="flex-col">
         <view class="flex-row justify-between items-center group">
           <view class="flex-col justify-start items-center text-wrapper">
@@ -162,8 +162,9 @@
 
 <style scoped lang="scss">
 	.success-dialog {
+		display: flex;
 	  position: fixed;
-	  top: 50%;
+	  top: 48%;
 	  left: 50%;
 	  transform: translate(-50%, -50%);
 	  background: linear-gradient(
@@ -199,6 +200,7 @@
         line-height: 36rpx;
       }
       .group {
+		  // padding-top: 0rpx;
         padding-bottom: 28rpx;
         .text-wrapper {
           padding: 24rpx 0;
