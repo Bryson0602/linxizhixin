@@ -216,13 +216,13 @@
 		}
 	}
 	.dz{		
-		margin-left: 50%;
+		margin-left: 45%;
 		border: 4rpx solid #d8d8d8; /* 添加蓝色边框样式 */
 		border-radius: 30rpx;
 		justify-content: space-evenly;
 		background-color: #fff;
 		image{
-			margin-top: 15rpx;
+			margin-top: 10rpx;
 			//margin-right: 15rpx;
 			width: 70rpx;
 			height: 70rpx;
