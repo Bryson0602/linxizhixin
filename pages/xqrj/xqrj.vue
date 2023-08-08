@@ -225,9 +225,10 @@
 		  uni.$emit('updateChartData', emoji.url);
 		  uni.setStorageSync('selectedEmoji', emoji.url);
 		},
-		navigateToChartPage() {
+		navigateToChartPage() {console.log(this.selectedEmoji);
 		uni.navigateTo({
-			url: `/pages/wodebaogao/wodebaogao?emoji=${encodeURIComponent(this.selectedEmoji)}`
+			
+			url: `/pages/wodebaogao/wodebaogao?emoji=`+ this.selectedEmoji
 		      });
 		},
 		clickjl(){

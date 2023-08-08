@@ -513,7 +513,7 @@
 	// 	};
 		
 		const emoji = decodeURIComponent(this.$route.query.emoji);
-		
+		console.log(emoji);
 		if (emoji === "../../static/bqb1.png") {
 		  // 选择第一个图片，最右边的数据加10
 		  this.chartData.series.forEach((series) => {
@@ -574,9 +574,9 @@
 		// 将更新后的数据保存到本地存储
 		uni.setStorageSync('chartData', JSON.stringify(this.chartData));
 		
-		const lastData = this.chartData.series[this.chartData.series.length - 1];
+		// const lastData = this.chartData.series[this.chartData.series.length - 1];
 
-		console.log(lastData);
+		// console.log(lastData);
 		
     // 获取传递过来的图片路径参数
     // const emoji = decodeURIComponent(this.$route.query.emoji);
