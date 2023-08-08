@@ -115,9 +115,13 @@
 	  </view>
 	  
 
-      <view class="flex-row items-center self-center section_3 space-x-2" @click="popupClick">
-        <view class="section_4"></view>
-        <text class="font_3 text text_12" >换个心情</text>
+      <view class="flex-row self-center section_3 space-x-2" @click="popupClick">
+        <view class="section_4">
+			<image class="daxiao" src="../../static/xqrj2.png" mode=""></image>
+		</view>
+        <text class="font_3 text text_12" >
+			换个心情
+		</text>
 		<!-- <button @click="navigateToChartPage">查看数据</button> -->
       </view>
 	<!-- <view class="container items-center  space-x-2">
@@ -184,9 +188,12 @@
 		  // emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
 		  // textList: ['开心','无语','难过','思考','生气','得瑟','惊讶','心动'],
 		   // 表情图片路径列表
-		  selectedEmoji:uni.getStorageSync('selectedEmoji') || '', // 存储选择的表情图片路径
+		  selectedEmoji:'', // 存储选择的表情图片路径
 	  };
     },
+	  created() {
+	    this.selectedEmoji = uni.getStorageSync('selectedEmoji') || '../../static/bqb8.png'; // 从本地存储中获取已选择的表情，如果没有则默认为表情包1的图片
+	  },
 	onLoad(){
 		let _this = this;
 		setInterval(function() {
@@ -290,9 +297,19 @@
 </script>
 
 <style scoped lang="scss">
+	.daxiao{
+		height: 45rpx;
+		width: 45rpx;
+	}
   .page {
     padding: 44rpx 32rpx 62rpx;
     background-image: linear-gradient(180deg, #bdf5f0 0%, #f2f2e8 26.4%, #e8f5f4 51.1%, #59d5d3 100%);
+	// background-image: linear-gradient(180deg, rgb(124,204,255) 0%, #f2f2e8 26.4%, #e8f5f4 51.1%, rgb(75,167,254) 100%);
+	// background-image: radial-gradient(at center,rgb(121,205,251) 0%,rgb(111,201,253) 26.4%,#bdf5f0 51.1%, #59d5d3 100%);
+	// background-image: radial-gradient(at center,rgb(141, 237, 251) 10%,rgb(111,201,253) 26.4%,rgb(94,186,253) 51.1%, rgb(79,171,254) 100%);
+	// background-image: radial-gradient(at center,#bdf5f0 0%,#bdf5f0 15%,#59d5d3 51.1%, #59d5d3 100%);
+	// background-size: 50px 50px; /* 调整圈圈的大小 */
+	// background-image: linear-gradient(180deg, #FFB69A 0%, #FF8597 50%, #FF86D8 100%);
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -460,13 +477,17 @@
         padding: 4rpx 16rpx 10rpx;
         background-color: #ffffff59;
         border-radius: 60rpx;
+		display: flex;
+		align-items: center;
         .section_4 {
           background-color: #00000000;
           width: 72rpx;
           height: 72rpx;
+			padding-top: 16rpx;
+			padding-left: 20rpx;
         }
         .text_12 {
-          margin-right: 36rpx;
+          margin-right: 0rpx;
           line-height: 30rpx;
         }
       }
