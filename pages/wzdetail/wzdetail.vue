@@ -20,8 +20,22 @@
 				<image :src="detail.picture2" mode="widthFix"></image>
 				<text>{{detail.content3}}</text>
 				<image :src="detail.picture3" mode="widthFix"></image>
+				
 			</view>
-			
+			<view class="flex-row dz">
+				<view class="flex-col items-center">
+					<image @click="toggleImage" :src="currentImage" mode=""></image>
+					<text>{{num}}</text>
+				</view>
+				<view class="flex-col items-center">
+					<image @click="toggleImage1" :src="currentImage1"  mode=""></image>
+					<text>{{num1}}</text>
+				</view>
+				<view class="flex-col items-center">
+					<image src="../../static/fenxiang.png" mode=""></image>
+					<text>33</text>
+				</view>	
+			</view>
 			<!-- <view class="picurls" v-if="detail.picurls && detail.picurls.length">
 				<image v-for="item in detail.picurls" :src="item" mode="widthFix"></image>
 			</view> -->
@@ -46,7 +60,17 @@
 		data() {
 			return {
 				detail:{},
-				loadState:false
+				loadState:false,
+				currentImage: '../../static/dianzan.png',
+				image1: '../../static/dianzan.png',
+				image2: '../../static/dianzan-xz.png',
+				num:223,
+				isImage1: true,
+				currentImage1: '../../static/shoucang.png',
+				image11: '../../static/shoucang.png',
+				image21: '../../static/shoucang-xz.png',
+				num1:56,
+				isImage11: true,
 			};
 		},
 		onLoad(e){			
@@ -95,9 +119,36 @@
 			// 	// 	},800)
 			// 	// })
 			// },
-			
-			
-			
+			toggleImage() {
+			  this.isImage1 = !this.isImage1;
+			  if(this.isImage1===false)
+			  {
+				  this.num++
+				  uni.showToast({
+				    title: `点赞成功`,
+				    icon: 'none'  
+				  })
+			  }
+			  else{
+				  this.num--
+			  }
+			  this.currentImage = this.isImage1 ? this.image1 : this.image2;
+			},
+			toggleImage1() {
+			  this.isImage11 = !this.isImage11;
+			  if(this.isImage11===false)
+			  {
+				  this.num1++
+				  uni.showToast({
+					title: `收藏成功`,
+					icon: 'none'  
+				  })
+			  }
+			  else{
+			  	  this.num1--
+			  }
+			  this.currentImage1 = this.isImage11 ? this.image11 : this.image21;
+			},
 			//获取详情
 			getDetail(){
 				uniCloud.callFunction({
@@ -163,7 +214,24 @@
 			display: block;
 			margin-bottom:30rpx;
 		}
-		
+	}
+	.dz{		
+		margin-left: 50%;
+		border: 4rpx solid #d8d8d8; /* 添加蓝色边框样式 */
+		border-radius: 30rpx;
+		justify-content: space-evenly;
+		background-color: #fff;
+		image{
+			margin-top: 15rpx;
+			//margin-right: 15rpx;
+			width: 70rpx;
+			height: 70rpx;
+		}
+
+		text{
+			font-size: 16rpx;
+			color: #767676;
+		}
 	}
 	.picurls{
 		

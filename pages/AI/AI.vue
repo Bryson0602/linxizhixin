@@ -70,22 +70,30 @@
 					
 					<view class="text1">
 					<b><text style="color: #616161;">猜你想问</text></b> 
-					
-					<uni-icons type="refreshempty" size="10" class="refresh" @click="exchange"></uni-icons>
-					
-					  <text class="huan" @click="exchange">换一换</text></br>
+					<view class="bao">
+						<uni-icons type="refreshempty" size="10" class="refresh" @click="exchange"></uni-icons>
+						
+						  <text class="huan" @click="exchange">换一换</text>
+					</view>
+					</br>
 					  <!-- 需要替换的模块 -->
-					  <view v-if="symbol==true">
+					  <view v-if="symbol==0">
 						<text class="small" @click="send5">{{text5}}</text></br>
 						<text class="small" @click="send6">{{text6}}</text></br>
 						<text class="small" @click="send7">{{text7}}</text></br>
 						<text class="small" @click="send8">{{text8}}</text>  
 					  </view>
-					  <view v-else>
+					  <view v-else-if="symbol==1">
 						<text class="small" @click="send1">{{text1}}</text></br>
 						<text class="small" @click="send2">{{text2}}</text></br>
 						<text class="small" @click="send3">{{text3}}</text></br>
 						<text class="small" @click="send4">{{text4}}</text>
+					  </view>
+					  <view v-else>
+				        <text class="small" @click="send13">{{text13}}</text></br>
+					  	<text class="small" @click="send14">{{text14}}</text></br>
+					  	<text class="small" @click="send15">{{text15}}</text></br>
+					    <text class="small" @click="send16">{{text16}}</text>
 					  </view>
 					
 					</view>
@@ -222,7 +230,7 @@
 				</view>
 				
 				<view v-show="chatMsged=='我想预约9.10上午孙老师的心理咨询'" class="card">
-					<uni-card   margin=0px border=false title="预约成功!" sub-title="孙老师"  extra="2023.9.10 9:00" thumbnail="../../static/teacher.png">
+					<uni-card   margin=0px  title="预约成功!" sub-title="孙老师"  extra="2023.9.10 9:00" thumbnail="../../static/teacher.png">
 						<text>二级心理咨询师，2001年硕士毕业于北京大学临床心理学专业。对抑郁症，焦虑有深入研究。</text>
 					</uni-card>
 
@@ -244,6 +252,7 @@
 					
 					<textarea v-model="chatMsg"
 						maxlength="300"
+						style="margin:2px 1px 0px 15px;" rows="10" cols="40"
 						confirm-type="send"
 						@confirm="handleSend"
 						:show-confirm-bar="false"
@@ -272,7 +281,7 @@
 				mark:false,
 				dataList: ['自测', '匹配', '预约', '日记'],
 				tuijie:0,
-				symbol:true,
+				symbol:0,
 				flag:"",
 				//键盘高度
 				keyboardHeight:0,
@@ -286,10 +295,14 @@
 				text6:"2.如何处理学习与生活的平衡问题？",
 				text7:"3.如何有效地沟通和解决冲突？",
 				text8:"4.如何应对社交焦虑和害羞？",
-				text9:"1.我想预约Doctor Sun",
+				text9:"1.我想预约孙老师",
 				text10:"2.我要记心情日记",
 				text11:"3.我想参加心理测试",
 				text12:"4.我想找新朋友",
+				text13:"1.如何减少'自我内耗'？",
+				text14:"2.'自我内耗'是怎样形成的？",
+				text15:"3.如何调整心态应对'自我内耗'？",
+				text16:"4.'自我内耗'对身心有什么影响？",
 				//滚动距离
 				scrollTop: 0,
 				userId:'',
@@ -322,6 +335,7 @@
 			}
 		},
 		updated(){
+			        
 					//页面更新时调用聊天消息定位到最底部
 					this.scrollToBottom();
 				},
@@ -397,7 +411,7 @@
 				this.chuansong=4
 			},
 			exchange(){
-				this.symbol=!this.symbol
+				this.symbol=(this.symbol+1)%3
 			},
 			send1(){
 				this.chatMsg2=this.text1
@@ -430,6 +444,7 @@
 			
 			},
 			send3(){
+				this.symbol=2;
 				this.chatMsg2=this.text3
 				console.log(this.text3)
 				let obj = {
@@ -526,7 +541,8 @@
 				this.tuijie4();
 			},
 			send9(){
-				this.chatMsg2=this.text9
+				this.chatMsg2=this.text9,
+				this.flag1=0
 				console.log(this.text9)
 				let obj = {
 					botContent: "",
@@ -544,6 +560,7 @@
 			send10(){
 				this.chatMsg2=this.text10
 				console.log(this.text4)
+				this.flag1=0
 				let obj = {
 					botContent: "",
 					recordId: 0,
@@ -560,6 +577,7 @@
 			send11(){
 				this.chatMsg2=this.text11
 				console.log(this.text4)
+				this.flag1=0
 				let obj = {
 					botContent: "",
 					recordId: 0,
@@ -574,6 +592,7 @@
 				this.tuijie7();
 			},
 			send12(){
+				this.flag1=0
 				this.chatMsg2=this.text12
 				console.log(this.text4)
 				let obj = {
@@ -589,6 +608,74 @@
 				this.answer2();
 				this.tuijie8();
 			},
+			send13(){
+				this.flag1=0
+				this.chatMsg2=this.text13
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie1();
+			},
+			send14(){
+				this.flag1=0
+				this.chatMsg2=this.text14
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie2();
+			},
+			send15(){
+				this.flag1=0
+				this.chatMsg2=this.text15
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie3();
+			},
+			send16(){
+				this.flag1=0
+				this.chatMsg2=this.text15
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie4();
+			},
 			focus(){
 				this.scrollToBottom()
 				},
@@ -601,6 +688,15 @@
 				let rpx = ( 750 / deviceWidth ) * Number(px)
 				return Math.floor(rpx)
 			},
+			setBottom(){
+			      const me = this;
+			      setTimeout(()=>{
+			        this.$nextTick(() => {//一定要在this.$nextTick进行设置
+			          me.$refs.scrollContent.scrollTop = 100000;
+			        })
+			      },100)
+			    },
+			
 			sendHeight(){
 							setTimeout(()=>{
 								let query = uni.createSelectorQuery();
@@ -772,7 +868,8 @@
 		   },
 		  
 		   
-		}
+		},
+		 
 	}
 </script>
 
@@ -932,11 +1029,21 @@
 	}
 	.juzhong{
 		
-	}	
+	}
+	.refresh{
+	
+	}
+	.bao{
+		position: absolute;
+		top: 13%;
+		right: 4%;
+	}
 	.huan{
-		width:35rpx;
+		
 		font-size: 20rpx;
-		margin-left: 5rpx;
+		
+		margin-right: 15rpx;
+		
 		color: grey;
 	}
 	.text{
@@ -958,7 +1065,7 @@
 		border-radius: 25rpx;
 		margin-left:7%;
 		width:85%;
-		padding-bottom: 5rpx;
+		padding-bottom: 35rpx;
 		background-image: radial-gradient(37.8% 37.8% at 77.9% 3.6%, #d5e7ff 0%, #ffffff 100%);
 		box-shadow: black;
 	}
@@ -967,11 +1074,12 @@
 	
 	.guess1{
 		position: flex;
+		position: relative;
 		border-radius: 25rpx;
 		margin-left:7%;
 		margin-bottom: 15rpx;
 		width:85%;
-		padding-bottom: 5rpx;
+		padding-bottom: 35rpx;
 		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
 		box-shadow: black;
 	}
@@ -981,7 +1089,7 @@
 		margin-left:7%;
 		margin-bottom: 15rpx;
 		width:85%;
-		padding-bottom: 5rpx;
+		padding-bottom: 35rpx;
 		background-image: radial-gradient(56% 56% at 41.4% 4.2%, #ffefda 0%, #ffffff 100%);
 		box-shadow: black;
 	}
@@ -991,9 +1099,7 @@
 		
 		padding-bottom: 2rpx;
 	}
-    .refresh{
-	margin-left: 350rpx;
-	}
+    
 	/* 聊天消息 */
 	.chat {
 		position: flex;
@@ -1124,6 +1230,7 @@
                 
 				textarea {
 					width: 537rpx;
+					border-width: 5px;
 					min-height: 65rpx;
 					max-height: 500rpx;
 					background: #FFFFFF;

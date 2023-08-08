@@ -15,7 +15,7 @@
 	          <text class="font_2">不限人数</text>
 
 	        </view>
-	        <text class="font_2">已报名：21人</text>
+	        <text class="font_2">已报名：{{num}}人</text>
 	        <text class="font_2 text_8">已签到：0人</text>
 	      </view>
 	    </view>
@@ -66,6 +66,7 @@
 			return {
 				status: false,
 				text: '报名',
+				num:21,
 			};
 		},
 		methods: {
@@ -74,8 +75,10 @@
 			if (this.status) {
 			  this.text = '已报名';
 			  this.showSuccessModal(); // 调用弹窗方法
+			  this.num++
 			} else {
 			  this.text = '报名';  
+			  this.num--
 			}
 			},
 			showSuccessModal() {

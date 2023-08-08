@@ -28,12 +28,12 @@
 				<view v-show="statue=='first'" >
 					<view class="box1">
 							<view class="onclick1" >账号</view>
-							<input class="text" maxlength="11" type="text"  @blur="onblue" :value="user_name" placeholder="  输入用户名/手机号/邮箱" />
+							<input style="padding:0px 0px 0px 15px;" class="text" maxlength="11" type="text"  @blur="onblue" :value="user_name" placeholder="输入用户名/手机号/邮箱" />
 							
 					
 					
 							<view class="onclick1">密码</view>
-							<input class="text" maxlength="11" type="password" :value="password" @blur="onpassblue" placeholder="  输入密码（6-12个数字或字母）" />
+							<input style="padding:0px 0px 0px 15px;" class="text" maxlength="11" type="password" :value="password" @blur="onpassblue" placeholder="输入密码（6-12个数字或字母）" />
 						
 						    <text class="text_6">忘记密码</text>
 						      <button class="btn3" @click="login" style="color: white;">登录</button>
@@ -54,12 +54,12 @@
 				<view v-show="statue=='second'" >
 					<view class="box1">
 							<view class="onclick1">手机号</view>
-							<input v-on:blur="resname(phone)" class="text" v-model="phone"  maxlength="11" type="text"  placeholder="  请输入手机号" />
+							<input  style="padding:0px 0px 0px 15px;" v-on:blur="resname(phone)" class="text" v-model="phone"  maxlength="11" type="text"  placeholder="请输入手机号" />
 							
 					
 					
 							<view class="onclick1">验证码</view>
-							<input class="text" maxlength="11" type="password" placeholder="  请输入密码" />
+							<input  style="padding:0px 0px 0px 15px;" class="text" maxlength="11" type="password" placeholder="请输入密码" />
 						
 						    <text class="text_6">忘记密码</text>
 						    <button class="btn3" style="color: white;">登录</button>
@@ -83,18 +83,18 @@
 				<view v-show="statue=='third'" >
 					<view class="box1">
 							<view class="onclick1" >手机号</view>
-							<input class="text" v-on:blur="restname(phone)" maxlength="11" type="text" v-model="phone" placeholder="  请输入手机号" />
+							<input style="padding:0px 0px 0px 15px;" class="text" v-on:blur="restname(phone)" maxlength="11" type="text" v-model="phone" placeholder="请输入手机号" />
 							
 					
 					
 							<view class="onclick1" >账号</view>
-							<input class="text"  maxlength="11" type="text" v-model="user_name" placeholder="  请输入账号" />
+							<input  style="padding:0px 0px 0px 15px;" class="text"  maxlength="11" type="text" v-model="user_name" placeholder="请输入账号" />
 						
 						    <view class="onclick1" >密码</view>
-						    <input class="text" @blur="respassword(password)" maxlength="11" type="password" v-model="password" placeholder="  请输入密码" />
+						    <input  style="padding:0px 0px 0px 15px;" class="text" @blur="respassword(password)" maxlength="11" type="password" v-model="password" placeholder="请输入密码" />
 							
 							<view class="onclick1">确认密码</view>
-							<input class="text" maxlength="11" type="password" v-model="qpassword" placeholder="  请输入确认密码" />
+							<input  style="padding:0px 0px 0px 15px;" class="text" maxlength="11" type="password" v-model="qpassword" placeholder="请输入确认密码" />
 							
 						    
 								
