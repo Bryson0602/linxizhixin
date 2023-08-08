@@ -70,16 +70,16 @@
             <view class="flex-col flex-auto group_6 space-y-7">
               <view class="flex-row justify-between items-start">
                 <view class="flex-row items-baseline group_7 space-x-6">
-                  <text class="text_14">徐老师</text>
+                  <text class="text_14">骆老师</text>
                   <text class="text_15">心理咨询师</text>
                 </view>
                 <view class="flex-col justify-start items-center button"><text class="text_13">预约</text></view>
               </view>
               <view class="flex-row space-x-18">
-                <text class="font_5">清华大学</text>
-                <text class="font_5 text_16">心理学</text>
+                <text class="font_5">北京体育大学</text>
+                <text class="font_5 text_16">运动与康复心理学</text>
               </view>
-              <text class="self-start font_5">抑郁症、焦虑症、自闭症咨询...</text>
+              <text class="self-start font_5">一级康复治疗师，2005年毕...</text>
               <view class="flex-row items-center group_8 space-x-4">
                 <image
                   class="image"
@@ -138,7 +138,7 @@
 		},
 		goyuyue(){
 			uni.navigateTo({
-				url:"/pages/yuyue/yuyue?id=64bf388fe0ec19bea1385782"
+				url:"/pages/yuyue/yuyue?id=64bf38be09664caf296046d1"
 			})
 		}
 

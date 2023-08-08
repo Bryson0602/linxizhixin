@@ -147,7 +147,7 @@
 	    </view>
 	    <view class="flex-col justify-start relative section_6">
 	      <view class="grid">
-	        <view class="flex-col items-center relative grid-item">
+	        <view class="flex-col items-center relative grid-item" @click="tosaoyisao">
 	          <image
 	            class="image_3"
 	            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385864418377735.png"
@@ -302,6 +302,11 @@
 			toqiandao() {
 				uni.navigateTo({
 					url:'/pages/qiandao/qiandao'
+				})
+			},
+			tosaoyisao() {
+				uni.navigateTo({
+					url:'/pages/saoyisao/saoyisao'
 				})
 			},
 			tohuati() {
