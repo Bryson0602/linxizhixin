@@ -225,10 +225,11 @@
 		  uni.$emit('updateChartData', emoji.url);
 		  uni.setStorageSync('selectedEmoji', emoji.url);
 		},
-		navigateToChartPage() {console.log(this.selectedEmoji);
+		navigateToChartPage() {
+			//console.log(this.selectedEmoji);
 		uni.navigateTo({
-			
-			url: `/pages/wodebaogao/wodebaogao?emoji=`+ this.selectedEmoji
+			// + item.name + '&url=' + encodeURIComponent(item.url) + "&id=" + item.id
+			url: `/pages/wodebaogao/wodebaogao?emoji=`+ encodeURIComponent(this.selectedEmoji)
 		      });
 		},
 		clickjl(){

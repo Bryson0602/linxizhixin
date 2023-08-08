@@ -126,6 +126,7 @@
 		//接受信息
 		const name = option.name;
 		const url = option.url;
+		console.log(option.url);
 		this.name = name;
 		this.url = url;
 	},
