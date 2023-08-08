@@ -92,8 +92,8 @@
 					  <view v-else>
 				        <text class="small" @click="send13">{{text13}}</text></br>
 					  	<text class="small" @click="send14">{{text14}}</text></br>
-					  	<text class="small" @click="send15">{{text15}}</text>
-					
+					  	<text class="small" @click="send15">{{text15}}</text></br>
+					    <text class="small" @click="send16">{{text16}}</text>
 					  </view>
 					
 					</view>
@@ -299,9 +299,10 @@
 				text10:"2.我要记心情日记",
 				text11:"3.我想参加心理测试",
 				text12:"4.我想找新朋友",
-				text13:"1.如何减少自我内耗？",
-				text14:"2.自我内耗是怎样形成的？",
-				text15:"3.如何调整心态应对自我内耗？",
+				text13:"1.如何减少'自我内耗'？",
+				text14:"2.'自我内耗'是怎样形成的？",
+				text15:"3.如何调整心态应对'自我内耗'？",
+				text16:"4.'自我内耗'对身心有什么影响？",
 				//滚动距离
 				scrollTop: 0,
 				userId:'',
@@ -657,6 +658,23 @@
 				this.msgList.push(obj);
 				this.answer2();
 				this.tuijie3();
+			},
+			send16(){
+				this.flag1=0
+				this.chatMsg2=this.text15
+				console.log(this.text4)
+				let obj = {
+					botContent: "",
+					recordId: 0,
+					titleId: 0,
+					userContent: this.chatMsg2,
+					userId: 0,
+					
+				}
+							
+				this.msgList.push(obj);
+				this.answer2();
+				this.tuijie4();
 			},
 			focus(){
 				this.scrollToBottom()
