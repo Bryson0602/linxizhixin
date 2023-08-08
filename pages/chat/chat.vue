@@ -116,10 +116,10 @@
 				title:this.name
 			})
 			// 从本地缓存中读取聊天记录（缓存）---------------------------------------
-			  // const chatMsgList = uni.getStorageSync('chatMsgList');
-			  // if (chatMsgList && chatMsgList.length > 0) {
-			  //   this.msgList = chatMsgList;
-			  // }
+			  const chatMsgList = uni.getStorageSync('chatMsgList');
+			  if (chatMsgList && chatMsgList.length > 0) {
+			    this.msgList = chatMsgList;
+			  }
 			uni.onKeyboardHeightChange(res => {
 				//这里正常来讲代码直接写
 				//this.keyboardHeight=this.rpxTopx(res.height)就行了
