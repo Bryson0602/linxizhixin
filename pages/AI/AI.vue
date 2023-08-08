@@ -104,7 +104,7 @@
 				<view class="guess2" v-if="flag1==2">
 					
 					<view class="text1">
-					<b><text style="color: #616161;">传送门！！！</text></b> </br>
+					<b><text style="color: #616161;">传送门</text></b> </br>
 					
 					
 					
@@ -956,6 +956,7 @@
 		display:flex;
 		text-align: center;
 		margin-top: 0rpx;
+		margin-left: 22rpx;
 	}
 	.card{
 		background-color: white;
@@ -1248,8 +1249,8 @@
 				align-items: center;
 				justify-content: center;
 				margin-bottom: 70rpx;
-				
-				margin-left: 25rpx;
+				margin-right: 15rpx;
+				margin-left: 15rpx;
 				width: 128rpx;
 				height: 78rpx;
 				background: #3adbdd;
