@@ -252,7 +252,7 @@
 					
 					<textarea v-model="chatMsg"
 						maxlength="300"
-						style="margin:2px 1px 0px 15px;" rows="10" cols="40"
+						style="padding:2px 1px 0px 15px;" rows="10" cols="40"
 						confirm-type="send"
 						@confirm="handleSend"
 						:show-confirm-bar="false"
