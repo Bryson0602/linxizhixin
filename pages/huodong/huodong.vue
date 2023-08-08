@@ -82,7 +82,9 @@
 			if (this.status) {
 			  this.text = '已报名';
 			  this.showSuccessModal(); // 调用弹窗方法
+			  this.detail.bpeople++
 			} else {
+			  this.detail.bpeople--
 			  this.text = '报名';  
 			}
 			},

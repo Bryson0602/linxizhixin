@@ -141,8 +141,10 @@
 		    if (this.status) {
 		      this.text = '已预约';
 			  this.showSuccessModal(); // 调用弹窗方法
+			  this.detail.yuxun++
 		    } else {
 		      this.text = '预约';  
+			  this.detail.yuxun--
 		    }
 		  },
 		  toggleStatus1() {
@@ -150,8 +152,10 @@
 		    if (this.status1) {
 		      this.text1 = '已预约';
 		  			  this.showSuccessModal(); // 调用弹窗方法
+					  this.detail.yuxun++
 		    } else {
 		      this.text1 = '预约';  
+			  this.detail.yuxun--
 		    }
 		  },
 		  toggleStatus2() {
@@ -159,8 +163,10 @@
 		    if (this.status2) {
 		      this.text2 = '已预约';
 		  			  this.showSuccessModal(); // 调用弹窗方法
+					  this.detail.yuxun++
 		    } else {
 		      this.text2 = '预约';  
+			  this.detail.yuxun--
 		    }
 		  },
 		  toggleStatus3() {
@@ -168,8 +174,10 @@
 		    if (this.status3) {
 		      this.text3 = '已预约';
 		  			  this.showSuccessModal(); // 调用弹窗方法
+					  this.detail.yuxun++
 		    } else {
 		      this.text3 = '预约';  
+			  this.detail.yuxun--
 		    }
 		  },
 		  toggleStatus4() {
@@ -177,8 +185,10 @@
 		    if (this.status4) {
 		      this.text4 = '已预约';
 		  			  this.showSuccessModal(); // 调用弹窗方法
+					  this.detail.yuxun++
 		    } else {
 		      this.text4 = '预约';  
+			  this.detail.yuxun--
 		    }
 		  },
 		  toggleStatus5() {
@@ -186,8 +196,10 @@
 		    if (this.status5) {
 		      this.text5 = '已预约';
 		  			  this.showSuccessModal(); // 调用弹窗方法
+					  this.detail.yuxun++
 		    } else {
 		      this.text5 = '预约';  
+			  this.detail.yuxun--
 		    }
 		  },
 		  showSuccessModal() {
