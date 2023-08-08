@@ -11,14 +11,14 @@
 	  <view class="flex-col group">
 	    <text class="self-start font_2">性别</text>
 	    <view class="flex-row self-center">
-	      <view class="flex-col equal-division-item space-y-8"@click="selectGender('男生')" >
+	      <view class="flex-col equal-division-item space-y-8" @click="selectGender('男生')" >
 	        <view class="section" :class="{ 'selected': gender === '男生' }">
 				<image src="../../static/boy.png" mode=""></image>
 			</view>
 	        <text class="self-center font_2">男生</text>
 	        <view class="self-center group_2"></view>
 	      </view>
-	      <view class="flex-col equal-division-item space-y-8"@click="selectGender('女生')">
+	      <view class="flex-col equal-division-item space-y-8" @click="selectGender('女生')">
 	        <view class="section" :class="{ 'selected': gender === '女生' }">
 				<image src="../../static/girl.png" mode=""></image>
 			</view>
@@ -46,7 +46,7 @@
 	  <input class="self-center section_4"></input>
 	  <view class="flex-col items-center group_4 space-y-6">
 	    <view class="flex-col justify-start items-center text-wrapper" @click="gombti"><text class="font_1 text_8">下一页</text></view>
-	    <text class="font_2 text_9"@click="goshouye">跳 过</text>
+	    <text class="font_2 text_9" @click="goshouye">跳 过</text>
 	  </view>
 	</view>
 </template>
@@ -181,6 +181,7 @@
     .text_4 {
       margin-left: 16rpx;
       margin-top: 52rpx;
+	  
       color: #434343;
     }
     .group_3 {
