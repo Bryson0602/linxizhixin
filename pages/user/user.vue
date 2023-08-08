@@ -159,7 +159,7 @@
 			})
 		},
 		loadData() {
-			localStorage.clear();//此处取消缓存
+			//localStorage.clear();//此处取消缓存
 			const storedArrList = localStorage.getItem("arrList");
 			if (storedArrList) {
 			  this.arrList = JSON.parse(storedArrList);
