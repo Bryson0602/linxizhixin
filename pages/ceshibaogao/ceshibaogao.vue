@@ -21,6 +21,32 @@
       <text class="self-start font_3 text_7">{{this.ArrList[0].shuomin}}</text>
       <view class="flex-col group_3">
 		  
+		<view class="flex-col list space-y-16" v-if="score==27">
+		  <view class="flex-col section_3 section_x" >
+		    <!-- <view class="flex-col justify-start items-center self-start text-wrapper text-wrapper_3">
+		      <text class="font_4 text_8">温馨提示</text>
+		    </view> -->
+		    <view class="flex-row group_4 space-y-4 jingao">
+			  <view class="jg">
+			  	<image src="../../static/jg.png" mode=""></image>
+			  </view>
+		      <text class="font_3 shrink">AI检测此次答题可能存在一些不一致或乱填的情况。为确保测试结果的准确性和可靠性，我们诚挚地建议您重新完成测试。</text>
+		    </view>
+			<!-- <view class="flex-row xuexi" @click="goxuexi">
+				<view class="img">
+					<image src="../../static/wjj.jpeg" mode=""></image>
+				</view>
+				<view class="flex-col wenzi">
+					<text class="zsxx">知识学习 | 学习更多</text>
+					<text class="wt">该如何走出抑郁的阴影？</text>
+				</view>
+				<view class="img1 flex-col">
+					<image src="../../static/youjiantou.png" mode=""></image>
+				</view>
+			</view> -->
+		  </view>
+		</view>
+		  
         <view class="flex-col list space-y-16">
           <view class="flex-col section_3" :key="i" v-for="(item, i) in list_u2h0dqFG">
             <view class="flex-col justify-start items-center self-start text-wrapper">
@@ -286,6 +312,20 @@
 			    #e8e6fb 100%
 			  );
             border-radius: 24rpx;
+			.jingao{
+				.jg{
+					width: 120rpx;
+					height: 120rpx;
+					border-radius: 24rpx;
+					overflow: hidden;
+					margin: auto 0;
+					margin-right: 20rpx;
+					image{
+					    width: 120rpx;
+					    height: 120rpx;
+					}
+				}
+			}
 			.xuexi{
 				margin-bottom: 30rpx;
 				margin-right: 20rpx;
@@ -367,6 +407,10 @@
           }
 		  .section_4{
 			  background: #edf1f6;
+		  }
+		  .section_x{
+			  padding: 5rpx 10rpx;
+		  	  background: #faf5da;
 		  }
         }
         .space-y-16 {
