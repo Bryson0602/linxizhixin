@@ -17,6 +17,7 @@
 					<view class="item Ai" v-if="item.botContent != ''">
 						<!-- 头像 -->     
 						<view class="avatar">
+							<image class="avatar" src="../../static/lxzx.png"></image>
 						</view>
 						<!-- 文字内容 -->
 						<view class="content left">
@@ -47,12 +48,14 @@
 						</view>
 						<!-- 头像 -->
 						<view class="avatar">
+							<image class="avatar" src="../../static/yonghu.png"></image>
 						</view>
 					</view>
 					<!-- 机器人发的消息 -->
 					<view class="item Ai" v-if="item.botContent != ''">
 						<!-- 头像 -->     
 						<view class="avatar">
+							<image class="avatar" src="../../static/lxzx.png"></image>
 						</view>
 						<!-- 文字内容 -->
 						<view class="content left">
@@ -181,7 +184,7 @@
 						</view>
 						<view class="flex-col wenzi">
 							<text class="zsxx">传送门 | 心理预约</text>
-							<text class="wt">孙老师将对你进行心灵鞭挞~</text>
+							<text class="wt">愿托春霖梦，润心入佳境~</text>
 						</view>	
 						</view>
 						
