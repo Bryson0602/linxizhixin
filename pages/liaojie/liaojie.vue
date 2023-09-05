@@ -107,7 +107,7 @@
         font-size: 36rpx;
         font-family: SegoeUI-Bold;
         font-weight: 700;
-        line-height: 33rpx;
+        line-height: 63rpx;
       }
     }
     .font_1 {

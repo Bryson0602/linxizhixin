@@ -60,7 +60,7 @@
 				  </view>
 				<image src="../../static/jiantou.png" class="icon1" mode="heightFix"></image>
 			  </view>
-			  <view class="demo">
+			  <view class="demo" @click="gosc">
 				  <view class="mat">
 					<image src="../../static/fuli.png" class="icon" mode="heightFix"></image>
 					<text class="font_5">福利中心</text>
@@ -105,6 +105,11 @@
 			golljl(){
 				uni.navigateTo({
 					url:'/pages/liulanjilu/liulanjilu'
+				})
+			},
+			gosc(){
+				uni.navigateTo({
+					url:'/pages/qiandao/qiandao'
 				})
 			},
 			golsbg(){

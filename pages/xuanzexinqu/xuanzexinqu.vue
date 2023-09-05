@@ -264,6 +264,7 @@
         }
         .text_8 {
           color: #b6c5c5;
+		   line-height: 63rpx;
         }
       }
       .space-y-6 {
