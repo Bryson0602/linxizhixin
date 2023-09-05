@@ -32,7 +32,8 @@
 					<text>{{num1}}</text>
 				</view>
 				<view class="flex-col items-center">
-					<image src="../../static/fenxiang.png" mode=""></image>
+					<image src="../../static/fenxiang.png" mode="" @click="goShareClick"></image>
+					<cc-shareMenu ref="share" :contentHeight="580" :shareList="shareList" @click="shareMenuClick"></cc-shareMenu>
 					<text>33</text>
 				</view>	
 			</view>
@@ -59,6 +60,7 @@
 	export default {
 		data() {
 			return {
+				shareList: [],
 				detail:{},
 				loadState:false,
 				currentImage: '../../static/dianzan.png',
@@ -80,7 +82,46 @@
 		onShow(){
 			this.getDetail();
 		},
+		mounted() {
+		    this.shareList = [{
+		            type: 1,
+		            icon: '/static/icon_weixin.png',
+		            text: '微信好友'
+		        },
+		        {
+		            type: 2,
+		            icon: '/static/icon_pengyouquan.png',
+		            text: '朋友圈'
+		        },
+		        {
+		            type: 3,
+		            icon: '/static/icon_qq.png',
+		            text: 'QQ好友'
+		        },
+		        {
+		            type: 4,
+		            icon: '/static/icon_QQkongjian.png',
+		            text: 'QQ空间'
+		        },
+		        {
+		            type: 5,
+		            icon: '/static/icon_weibo.png',
+		            text: '微博'
+		        }
+		    ];
+		},
 		methods:{
+			goShareClick() {
+			    this.$refs.share.toggleMask();
+			},
+			
+			shareMenuClick(name){
+			
+			    uni.showModal({
+			        title: '温馨提示',
+			        content:'点击的分享菜单名称是 = ' + name
+			    })
+			},
 			//跳转到修改页面
 			// goEdit(){
 			// 	uni.navigateTo({
@@ -182,6 +223,11 @@
 </script>
 
 <style lang="scss" scoped>
+	.content {
+	    display: flex;
+	    flex-direction: column;
+	
+	}
 	.page{
 		
 	}
