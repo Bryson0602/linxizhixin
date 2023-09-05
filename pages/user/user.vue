@@ -12,10 +12,12 @@
             <text class="text">搜索你的好友</text>
           </view>
           <image
+		    @click="gotxl"
             class="image"
             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16908596901104497480.png"
           />
           <image
+		    
             class="image_2"
             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385894443945464.png"
           />
@@ -317,6 +319,11 @@
 			console.log(item.id);
 			uni.navigateTo({
 				url:"/pages/chat/chat?name=" + item.name + '&url=' + encodeURIComponent(item.url) + "&id=" + item.id
+			})
+		},
+		gotxl(){
+			uni.navigateTo({
+				url:"/pages/txl/txl"
 			})
 		},
 		gopipei(){

@@ -26,7 +26,7 @@
 		
 		<view class="flex-col items-start relative list-item" >
 		  <text class="font_6">预约心理咨询（程老师）</text>
-		  <text class="font_8 text_25">2023.09.10下午</text>
+		  <text class="font_8 text_25">2023.09.11上午</text>
 		  <view class="flex-col justify-start items-center text-wrapper_3 pos bj"><text class="font_7">未开始</text></view>
 		</view>
 	  </view>
@@ -46,7 +46,7 @@
 						info: '活动'
 					},
 					{
-						date: '2023-09-10',
+						date: '2023-09-11',
 						info: '预约',
 						data: {
 							custom: '自定义信息',

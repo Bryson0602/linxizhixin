@@ -369,6 +369,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/txl/txl",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "通讯录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

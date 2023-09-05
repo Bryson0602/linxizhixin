@@ -50,12 +50,12 @@
 		  </view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos">
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">09/08</text>
-	          <text class="font_7">周六上午</text>
+	          <text class="font_6">09/11</text>
+	          <text class="font_7">周一上午</text>
 	        </view>
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">09/08</text>
-	          <text class="font_7">周六下午</text>
+	          <text class="font_6">09/11</text>
+	          <text class="font_7">周一下午</text>
 	        </view>
 	      </view>
 	    </view>
@@ -65,12 +65,12 @@
 	      <view class="flex-col justify-start items-center text-wrapper view_2" @click="toggleStatus3" :class="status3 ? 'active' : ''"><text class="font_4">{{ text3 }}</text></view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos_2">
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">09/09</text>
-	          <text class="font_7">周六上午</text>
+	          <text class="font_6">09/12</text>
+	          <text class="font_7">周二上午</text>
 	        </view>
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">09/09</text>
-	          <text class="font_7">周六下午</text>
+	          <text class="font_6">09/12</text>
+	          <text class="font_7">周二下午</text>
 	        </view>
 	      </view>
 	    </view>
@@ -127,12 +127,12 @@
 	      <view class="flex-col justify-start items-center text-wrapper view_3" @click="toggleStatus5" :class="status5 ? 'active' : ''"><text class="font_4">{{ text5 }}</text></view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos_3">
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">09/10</text>
-	          <text class="font_7">周六上午</text>
+	          <text class="font_6">09/13</text>
+	          <text class="font_7">周三上午</text>
 	        </view>
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">09/10</text>
-	          <text class="font_7">周六下午</text>
+	          <text class="font_6">09/13</text>
+	          <text class="font_7">周三下午</text>
 	        </view>
 	      </view>
 	    </view>
