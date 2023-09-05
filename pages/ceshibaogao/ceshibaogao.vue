@@ -21,7 +21,7 @@
       <text class="self-start font_3 text_7">{{this.ArrList[0].shuomin}}</text>
       <view class="flex-col group_3">
 		  
-		<view class="flex-col list space-y-16" v-if="score==27">
+		<view class="flex-col list space-y-16" v-if="score==27 || number == 1">
 		  <view class="flex-col section_3 section_x" >
 		    <!-- <view class="flex-col justify-start items-center self-start text-wrapper text-wrapper_3">
 		      <text class="font_4 text_8">温馨提示</text>
@@ -132,7 +132,8 @@
 		// isLoading: false,
 		// loadingText: '加载中...',
 		currentTime: '',
-		score: 0,  
+		score: 0,
+		number: 0,
 		text:'',
 		text1:'',
 		text2:'',
@@ -188,6 +189,9 @@
 		//接受分数
 		const score = option.score;
 		this.score = score
+		//接受number
+		const number = option.number;
+		this.number = number
 	},
     mounted() {
 	    this.currentTime = dayjs().format('YYYY.M.D')
