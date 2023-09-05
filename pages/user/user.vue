@@ -25,15 +25,35 @@
           <view class="flex-col justify-start items-center equal-division-item" @click="gopipei" >
             <text class="font_1">智能匹配</text>
           </view>
-          <view class="flex-col justify-start items-center relative equal-division-item bj" >
+          <view class="flex-col justify-start items-center relative equal-division-item bj" @click="popupClick">
             <image
               class="image_3 pos"
+			  
               src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385893796236975.png"
             />
-            <text class="relative font_1">我的状态</text>
+			
+			
+			<view class="dingwei">
+
+				<image
+				  class="image_4 weizhi"
+				  
+				  :src="selectedEmoji.url"
+				/>
+				
+				<text class="relative font_2">{{ selectedEmoji.name }}</text>
+			</view>
+            
+			<!-- <image
+			  class="self-center tupian"
+			  :src="selectedEmoji"
+			/> -->
           </view>
         </view>
       </view>
+	  
+	  
+	  
 	  
       <view class="flex-col relative section_2 space-y-11">
         <text class="self-start text_2">消息</text>
@@ -56,6 +76,128 @@
 		 </view>-->
 
       </view>
+	  
+	  <view class="content">
+	  
+	      <!-- <view class="popUpBtn" @click="popupClick">
+	          点击显示弹框</view> -->
+	  
+	      <!-- 使用组件 isShow：设置弹框是否显示 width：宽度 height：高度 radius：圆角 -->
+	      <cc-popup :isShow='isshow' width="0rpx" height="700rpx" radius="26rpx">
+	  		<!-- calc(100vw - 70px) -->
+	          <!-- 自定义展示内容 -->
+	          <view class="modelContent">
+	              <!-- <view style="margin-top: 6px;">
+	  
+	                  弹框标题
+	              </view> -->
+	  
+	              <!-- <view style="margin-top: 20px; color: #666666; margin: 6px 12px;">
+	  
+	                  这是弹框内容 这是弹框内容 这是弹框内容 这是弹框内容
+	              </view> -->
+	  			<view class="flex-col pig">
+	  			  <view class="flex-col flex-auto grass">
+	  			    <view class="flex-col section space-y-13">
+	  			      
+	  			      <view class="flex-row space-x-14">
+	  			        
+	  					  <!-- </br> </br> </br></br></br></br></br> -->
+	  			      </view>
+	  			    </view>
+	  			    <view class="flex-col justify-start relative group_3">
+	  			      <view class="flex-col section_3 space-y-10">
+	  
+	  			      </view>
+	  					
+	  			      <view class="flex-col section_2 space-y-84 pos_2">
+	  			        
+	  					  <view class="flex-row justify-between container">
+	  					    <view class="flex-row items-center equal-division-item_2 space-x-6 image-container" v-for="(emoji, index) in emojiList" :key="index">
+	  					      <image
+	  					        class="shrink-0 image8"
+
+								:src="emoji.url"
+								@click="selectEmoji(emoji)"
+	  					      />
+	  					      <text class="font_2" @click="selectEmoji(emoji)">{{emoji.name}}</text>
+	  					    </view>
+	  					    <!-- <view class="flex-row items-center equal-division-item_2 space-x-6">
+	  					      <image
+	  					        class="shrink-0 image_5"
+	  					        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924027035923.png"
+	  					      />
+	  					      <text class="font_2">摸鱼中</text>
+	  					    </view> -->
+	  					  </view>
+	  					  
+	  			        <!-- <view class="flex-row justify-between">
+	  			          <view class="flex-row items-center equal-division-item_2 space-x-6">
+	  			            <image
+	  			              class="shrink-0 image_5"
+	  			              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924048861981.png"
+	  			            />
+	  			            <text class="font_2">约咖啡</text>
+	  			          </view>
+	  			          <view class="flex-row items-center equal-division-item_2 space-x-6">
+	  			            <image
+	  			              class="shrink-0 image_5"
+	  			              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924054722157.png"
+	  			            />
+	  			            <text class="font_2">想回家</text>
+	  			          </view>
+	  			        </view> -->
+	  			        <!-- <view class="flex-row justify-between equal-division">
+	  			          <view class="flex-row equal-division-item_2 space-x-4">
+	  			            <image
+	  			              class="shrink-0 image_6"
+	  			              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924061154530.png"
+	  			            />
+	  			            <text class="self-center font_2">心情好</text>
+	  			          </view>
+	  			          <view class="flex-row equal-division-item_2 space-x-4">
+	  			            <image
+	  			              class="shrink-0 image_6"
+	  			              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924064398945.png"
+	  			            />
+	  			            <text class="self-center font_2">运动中</text>
+	  			          </view>
+	  			        </view> -->
+	  					<!-- <view class="flex-row justify-between equal-division">
+	  					  <view class="flex-row equal-division-item_2 space-x-4">
+	  					    <image
+	  					      class="shrink-0 image_6"
+	  					      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924074625101.png"
+	  					    />
+	  					    <text class="self-center font_2">等天晴</text>
+	  					  </view>
+	  					  <view class="flex-row equal-division-item_2 space-x-4">
+	  					    <image
+	  					      class="shrink-0 image_6"
+	  					      src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924094761713.png"
+	  					    />
+	  					    <text class="self-center font_2">社交中</text>
+	  					  </view>
+	  					</view> -->
+	  			      </view>
+	  					
+	  					
+	  			    </view>
+	  			  </view>
+	  			
+	  			</view>
+	              <!-- <image class="imageV" :src="mySrc"></image> -->
+	  
+	              <!-- <button style="width: 80%; height: 48px;margin-top: 20px; background-color: seagreen;color: white;"> 确定
+	              </button> -->
+	  			
+	          </view>
+	          <!-- 自定义关闭按钮 -->
+	          <view class="close" @click="isshow=false">✕</view>
+	      </cc-popup>
+	  
+	  </view>
+	  
     </view>
 
   </view>
@@ -66,6 +208,23 @@
     components: {},
     data() {
       return {
+			emojiList:[
+					{ url: '../../static/liaoyiliao4.png', name: '想聊天' },
+					{ url: '../../static/moyu2.png', name: '摸鱼中' },
+					{ url: 'https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924048861981.png', name: '约咖啡' },
+					{ url: '../../static/fangzi.png', name: '想回家' },
+					{ url: '../../static/kaixin2.png', name: '心情好' },
+					{ url: 'https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924064398945.png', name: '运动中' },
+					{ url: 'https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16914818924074625101.png', name: '等天晴' },
+					{ url: '../../static/jiaoliu2.png', name: '社交中' },
+					
+				],		  
+		  // selectedEmoji:'',
+		  selectedEmoji: { url: '', name: '我的状态' },
+		  title: 'Hello',
+		  companyList: [{}, {}, {}],
+		  isshow: false,
+		  mySrc: '../../static/apple.jpg',
 		  nextname:"",
 		  nexturl:"",
 		  currentIndex: 0, // 当前要添加的元素在arrList1中的索引
@@ -136,6 +295,22 @@
 	  };
     },
     methods: {
+		    selectEmoji(emoji) {
+		      this.selectedEmoji.url = emoji.url;
+		      this.selectedEmoji.name = this.getEmojiName(emoji);
+		    },
+		    getEmojiName(emoji) {
+		      // 根据表情获取对应的名称
+		      return emoji.name;
+		    },
+		// selectEmoji(emoji) {
+		//     this.selectedEmoji = emoji.url;
+		// // uni.setStorageSync('selectedEmoji', emoji); // 将选择的表情保存到本地存储
+		//   },
+		popupClick() {
+		    
+		    this.isshow = !this.isshow;
+		},
 		gochat(item){
 			console.log(item.name);
 			console.log(item.url);
@@ -181,6 +356,162 @@
 </script>
 
 <style scoped lang="scss">
+	.dingwei{
+		display: inline-block;
+		line-height: 155rpx;
+		
+	}
+	.weizhi{
+		position: absolute;
+            right: 215rpx;
+            top: 57rpx;
+	}
+	.content {
+	      display: flex;
+	      flex-direction: column;
+	
+	  }
+	  .modelContent {
+	      width: 100%;
+	      height: 100%;
+	      display: flex;
+	      align-items: center;
+	      flex-direction: column;
+			background-image: linear-gradient(180deg, #c9dfff 0%, #ffffff 100%);
+			border-radius: 30rpx;
+	  }
+	
+	  .imageV {
+	
+	      margin-top: 0px;
+	      width: calc(100vw - 100px);
+	      height: calc((100vw - 100px) * 0.567);
+	  }
+	
+	  .close {
+	      width: 60rpx;
+	      height: 60rpx;
+	      color: #FFFFFF;
+	      line-height: 60rpx;
+	      text-align: center;
+	      border-radius: 50%;
+	      border: 1px solid #FFFFFF;
+	      position: relative;
+	      bottom: +20%;
+	      left: 50%;
+	      transform: translate(-50%, -50%);
+	  }
+	  .container {
+			display: flex;
+			flex-wrap: wrap;
+			}
+	  .image-container:hover image {
+	              transform: scale(1.3);  
+	              transition: all 1s ease 0s;  
+	              -webkit-transform: all 1s ease 0s;  
+	              -webkit-transform: scale(1.3); /*放大1.3倍*/
+	  			transition-duration: .5s;
+	  			overflow:hidden;
+	  }
+	  .pig {
+	    .grass {
+	      .group_3 {
+	        margin: -25rpx 0 -26rpx;
+	  		margin-right: 761rpx;
+	        // padding-top: 20rpx;
+	        // .section_3 {
+	        //   margin: 0 40rpx;
+	        //   padding: 0rpx 26rpx 0;
+	        //   background-color: #f5f5f5;
+	        //   border-radius: 24rpx 24rpx 0 0;
+	        // }
+	        .section_2 {
+				margin-left: 30rpx;
+	  			width: 620rpx;
+	  			height: 450rpx;
+	          padding: 40rpx 60rpx 120rpx 90rpx;
+	          background-image: linear-gradient(180deg, #c9dfff 0%, #ffffff 100%);
+	          border-radius: 40rpx;
+	          // box-shadow: 0px 8rpx 16rpx #00000029;
+	          .group_4 {
+	            padding-left: 60rpx;
+	            .space-x-8 {
+	              & > view:not(:first-child),
+	              & > text:not(:first-child),
+	              & > image:not(:first-child) {
+	                margin-left: 16rpx;
+	              }
+	            }
+	          }
+	          .equal-division-item_2 {
+	            padding: 25rpx 0;
+	            .image_5 {
+	              width: 49rpx;
+	              height: 49rpx;
+	            }
+	            .image_6 {
+	              width: 50rpx;
+	              height: 50rpx;
+	            }
+	          }
+	          .space-x-6 {
+	            & > view:not(:first-child),
+	            & > text:not(:first-child),
+	            & > image:not(:first-child) {
+	              margin-left: 12rpx;
+	  			  margin-right: 50rpx;
+	            }
+	          }
+	          .font_2 {
+	            font-size: 40rpx;
+	            font-family: SegoeUI;
+	            line-height: 44rpx;
+	            color: #838383;
+	          }
+	          .equal-division {
+	            margin-left: 6rpx;
+	            .space-x-4 {
+	              & > view:not(:first-child),
+	              & > text:not(:first-child),
+	              & > image:not(:first-child) {
+	                margin-left: 8rpx;
+	  				margin-right: 50rpx;
+	              }
+	            }
+	          }
+	          .image_7 {
+	            width: 58rpx;
+	            height: 51rpx;
+	          }
+	        }
+	        .space-y-84 {
+	          & > view:not(:first-child),
+	          & > text:not(:first-child),
+	          & > image:not(:first-child) {
+	            margin-top: 100rpx;
+	  
+	          }
+	        }
+	        .pos_2 {
+	          position: absolute;
+	          left: 40rpx;
+	          right: 40rpx;
+	          top: 0;
+	        }
+	      }
+	      
+	      .image {
+	        width: 48rpx;
+	        height: 48rpx;
+	      }
+	  	  .image8 {
+	  	    width: 50rpx;
+	  	    height: 45rpx;
+	  	  }
+	    }
+	    
+	    
+	  }
   .page {
 	  position: fixed;
     //background-color: #ffffff;
@@ -299,17 +630,34 @@
           background-repeat: no-repeat;
           height: 150rpx;
           .font_1 {
+			  
             font-size: 40rpx;
             font-family: SegoeUI;
             //line-height: 120rpx;
 			margin: auto auto;
 			font-weight: 700;
             color: #535766;
+			padding-left: 3rpx;
           }
+		  .font_2 {
+
+		    font-size: 40rpx;
+		    font-family: SegoeUI;
+		    //line-height: 120rpx;
+		  		padding-left: 10rpx;
+		  		font-weight: 700;
+		    color: #535766;
+		  }
           .image_3 {
-            width: 24rpx;
-            height: 24rpx;
+            width: 25rpx;
+            height: 25rpx;
           }
+		  .image_4 {
+
+		    width: 45rpx;
+		    height: 40rpx;
+			
+		  }
           .pos {
             position: absolute;
             right: 30rpx;
