@@ -261,6 +261,7 @@
     data() {
 	let storedData = uni.getStorageSync('chartData');
       return {
+		  url:"",
 		  zhuangTai:"平静",
 		  recentStatus: "心情状态比较平稳，没有较大的起伏。",
 		  suggestions: "培养积极思维，保持健康生活习惯，学会情绪管理，寻找支持和放松方式，设定合理目标和时间管理，以及进行自我关爱和照顾。",
@@ -452,14 +453,17 @@
 	onReady() {
 	  this.getServerData();
 	},
-	// onLoad() {
-	//     // 从本地存储中获取数据
-	// 	this.chartData=JSON.parse(uni.getStorageSync('chartData'));
-	//     // const storedData = uni.getStorageSync('chartData');
-	//     // if (storedData) {
-	//     // this.chartData = JSON.parse(storedData);
-	//     // }
-	//   },
+	onLoad(option) {
+		const url = option.emoji;
+		console.log(option.emoji);
+		this.url = url;
+	    // 从本地存储中获取数据
+		//this.chartData=JSON.parse(uni.getStorageSync('chartData'));
+	    // const storedData = uni.getStorageSync('chartData');
+	    // if (storedData) {
+	    // this.chartData = JSON.parse(storedData);
+	    // }
+	  },
 	mounted() {
 	  this.getLatestDates();
 	  setTimeout(() => {
@@ -512,7 +516,7 @@
 	// 	]
 	// 	};
 		
-		const emoji = decodeURIComponent(this.$route.query.emoji);
+		const emoji = this.url;
 		console.log(emoji);
 		if (emoji === "../../static/bqb1.png") {
 		  // 选择第一个图片，最右边的数据加10

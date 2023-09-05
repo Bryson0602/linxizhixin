@@ -1,8 +1,8 @@
 <template>
   <view class="container">
-    <view class="scan-box">
+   <!-- <view class="scan-box">
       <image class="scan-line" :src="scanLineSrc"></image>
-    </view>
+    </view> -->
     <view class="result" v-if="scanResult">
       <text class="result-text">扫描结果：</text>
       <text class="result-value">{{ scanResult }}</text>
@@ -19,6 +19,9 @@ export default {
       scanLineSrc: '@/static/scan-line.png', // 扫码线动画图片路径
       scanTimer: null, // 扫码线动画定时器
     }
+  },
+  onLoad(){
+	this.startScan()  
   },
   methods: {
     startScan() {

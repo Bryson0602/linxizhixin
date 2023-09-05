@@ -50,11 +50,11 @@
 		  </view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos">
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">07/08</text>
+	          <text class="font_6">09/08</text>
 	          <text class="font_7">周六上午</text>
 	        </view>
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">07/08</text>
+	          <text class="font_6">09/08</text>
 	          <text class="font_7">周六下午</text>
 	        </view>
 	      </view>
@@ -65,26 +65,73 @@
 	      <view class="flex-col justify-start items-center text-wrapper view_2" @click="toggleStatus3" :class="status3 ? 'active' : ''"><text class="font_4">{{ text3 }}</text></view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos_2">
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">07/09</text>
+	          <text class="font_6">09/09</text>
 	          <text class="font_7">周六上午</text>
 	        </view>
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">07/09</text>
+	          <text class="font_6">09/09</text>
 	          <text class="font_7">周六下午</text>
 	        </view>
 	      </view>
 	    </view>
+		
+		<transition name="fade"><!-- 输入框出现消失动画的衔接 -->
+			<view v-show="showInputBox" class="input-box">
+				<view class="text">— 咨询预约表单 —</view>
+				<view class="form-group">
+				  <view class="xyz">
+				  	<text class="xy">*</text>
+				  	<text class="label">姓名：</text>  
+				  </view>
+				  <input class="input" v-model="name" placeholder-color="grey" placeholder="请输入姓名" />
+				</view>
+			    <view class="form-group">
+			      <view class="xyz">
+			      	<text class="xy">*</text>
+			      	<text class="label">电话：</text>  
+			      </view>
+			      <input class="input" v-model="phone" placeholder="请输入电话" />
+			    </view>
+				<view class="form-group">
+				  <view class="xyz">
+				  	<text class="xy">*</text>
+				  	<text class="label">心理咨询：</text>  
+				  </view>
+				  <textarea row="5" class="input"  v-model="phone" placeholder="请简单描述生活中遇到的烦心事"> </textarea>
+				</view>
+				<view>
+					<view class="flex-row justify-evenly" justify-evenly>
+					  <button class="button" @click="cancelInput">取消</button>
+					  <button class="button" @click="recordNote">提交</button>
+					</view>
+					
+				</view>
+				
+				<!-- <text class="bj">心理咨询：</text> -->
+			  <!-- 输入框 -->
+			  <!-- <textarea type="text" v-model="note" /></textarea> -->
+			  <!-- <view class="flex-row justify-evenly ">
+				  <view class="button" @click="cancelInput">
+					  <text>取消</text>
+				  </view> -->
+				  <!-- 记录按钮 -->
+				  <!-- <view class="button" @click="recordNote">
+					  <text>记录</text>
+				  </view> -->
+			 <!-- </view> -->
+			</view>
+		</transition>
 		
 	    <view class="flex-row relative">
 	      <view class="flex-col justify-start items-center text-wrapper" @click="toggleStatus4" :class="status4 ? 'active' : ''"><text class="font_4">{{ text4 }}</text></view>
 	      <view class="flex-col justify-start items-center text-wrapper view_3" @click="toggleStatus5" :class="status5 ? 'active' : ''"><text class="font_4">{{ text5 }}</text></view>
 	      <view class="flex-row shrink-0 group_4 space-x-30 pos_3">
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">07/10</text>
+	          <text class="font_6">09/10</text>
 	          <text class="font_7">周六上午</text>
 	        </view>
 	        <view class="flex-col items-center section_5 space-y-18">
-	          <text class="font_6">07/10</text>
+	          <text class="font_6">09/10</text>
 	          <text class="font_7">周六下午</text>
 	        </view>
 	      </view>
@@ -98,6 +145,7 @@
 	export default {
 		data() {
 		  return {
+			showInputBox: false,
 		    status: false,
 		    text: '预约',
 			status1: false,
@@ -122,6 +170,20 @@
 		},
 		methods: {
 		  //获取详情-----------------------------------------------
+		  cancelInput() {//（新增）
+		    this.showInputBox = false; // 关闭输入框
+		  },
+		  recordNote() {//（新增）
+		    // 处理记录笔记的逻辑
+		    // 记录成功后可以添加一个提示弹窗
+		 
+		    this.showInputBox = false; 
+			
+			this.showSuccessModal();// 关闭输入框
+		  },
+		  showInput() {//（新增）
+		    this.showInputBox = true; // 显示输入框
+		  },
 		  getDetail(){
 		  	uniCloud.callFunction({
 		  		name:"tea_get_row",
@@ -137,10 +199,11 @@
 		  	})
 		  },
 		  toggleStatus() {
+			  this.showInputBox = true;
 		    this.status = !this.status;
 		    if (this.status) {
 		      this.text = '已预约';
-			  this.showSuccessModal(); // 调用弹窗方法
+			   // 调用弹窗方法
 			  this.detail.yuxun++
 		    } else {
 		      this.text = '预约';  
@@ -214,6 +277,15 @@
 </script>
 
 <style scoped lang="scss">
+	.fade-enter-active,//输入框出现消失动画的衔接
+	.fade-leave-active {
+	  transition: opacity 0.3s;
+	}
+	
+	.fade-enter,
+	.fade-leave-to {
+	  opacity: 0;
+	}
 .page {
     padding-bottom: 96rpx;
     background-color: #ffffff;
@@ -331,6 +403,65 @@
         }
       }
     }
+	.input-box {////////////////////////////////////笔记框
+	  position: fixed; // 设置为浮动在页面上
+	  top: 40%; // 设置在页面中间
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background-color: #fffeea;
+	  padding: 20rpx;
+	  border-radius: 40rpx;
+	  border: 2px solid #ccc;
+	  //border: 1rpx solid gray;
+	  width: 650rpx; /* 调整输入框的宽度 */
+	  //height: 1000rpx;
+	  .bj{
+		  color: #ffffff;
+		  font-size: 45rpx;
+		  font-weight: 700;
+		  
+		  margin-left: 10rpx;
+	  }
+	  .button {
+	    display: inline-block;
+	    display: flex;
+	    text-align: center;
+	    justify-content: center;
+	    background-color: #fcc5a0;
+	    color: #fff;
+	    width:40%;
+	    height:80rpx;
+	    border-radius: 24px;
+	    cursor: pointer;
+		line-height: 40px;
+	    margin-bottom: 5%;
+	  }
+	  .button-group {
+	    margin-top: 20px;
+	    text-align: center;
+	  }
+	  
+	  textarea{
+		  margin: 10rpx auto 20rpx;
+		  padding:20rpx; /* 设置内边距，增加文字与边框之间的间距 */
+		  border-radius: 40rpx;
+		  background-color: #f0f0f0;
+		  width: 90%; /* 输入框宽度占满输入框容器 */
+	      height: 200rpx;
+		  color: #78708c;
+		  line-height: 1.5;
+	  }
+	  .bk{
+	   background-color: #fff;
+	   border-radius: 20rpx;
+	   //margin-right: 20rpx;
+		 text{
+			 font-size: 50rpx;
+			 color: #e5e500;
+			 margin: auto 40rpx;
+		    } 
+	    }
+	}
     .space-y-20 {
       & > view:not(:first-child),
       & > text:not(:first-child),
@@ -338,6 +469,18 @@
         margin-top: 40rpx;
       }
     }
+	.input1 {
+	  border-radius: 15rpx;
+	  height: 180rpx;
+	  padding: 0 10px;
+	  background-color: #f0f0f0;
+	}
+	.input {
+	  border-radius: 15rpx;
+	  height: 80rpx;
+	  padding: 0 10px;
+	  background-color: #f0f0f0;
+	}
     .section_3 {
       margin-top: 30rpx;
       padding: 28rpx 36rpx;
@@ -347,6 +490,7 @@
       .text_4 {
         color: #202020;
       }
+	  
       .font_5 {
         font-size: 32rpx;
         font-family: SegoeUI-Bold;
@@ -363,6 +507,27 @@
         line-height: 30rpx;
       }
     }
+	.xy{
+		color:red
+	}
+	.xyz{
+		margin-bottom: 3%;
+	}
+	.text{
+		display:flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 7%;
+		font-weight: bold;
+		font-size:35rpx;
+		margin-bottom: 5%;
+	}
+	.label {
+	  width: 80px;
+	  text-align: right;
+	  margin-right: 10px;
+	  margin-bottom: 5%;
+	}
     .section_4 {
       margin: 24rpx 40rpx 0;
       padding: 36rpx 56rpx 48rpx;
@@ -375,6 +540,12 @@
         border-radius: 60rpx;
         height: 248rpx;
       }
+	  .form-group {
+	    display: flex;
+	    flex-direction: column;
+	    margin-bottom: 20px;
+		margin-top: 26rpx;
+	  }
 	  .active{
 			background-color: #b7b0ff;
 		}

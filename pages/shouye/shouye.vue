@@ -17,7 +17,7 @@
 	          <text class="font_1 text_3">搜索</text>
 	        </view>
 	      </view>
-		  <image class="dinwei" src="../../static/rili.png" mode="heightFix"></image>
+		  <image class="dinwei" src="../../static/rili.png" mode="heightFix" @click="gorili"></image>
 	    </view>
 	    <swiper class="flex-row justify-center section_2 space-x-4" circular indicator-dots autoplay interval="3000" duration="500" indicator-active-color="#fff" indicator-inactive-color="#aaa"  style="border-radius: 10px;">
 	        <swiper-item v-for="item in bannerList" :key="item.id">
@@ -189,7 +189,7 @@
 	          />
 	          <text class="font_1">社团</text>
 	        </view>
-	        <view class="flex-col items-center relative grid-item">
+	        <view class="flex-col items-center relative grid-item" @click="tozhixin">
 	          <image
 	            class="image_3"
 	            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385867430965549.png"
@@ -305,8 +305,44 @@
 				})
 			},
 			tosaoyisao() {
+			      // #ifdef H5
+					        uni.showModal({
+						        title: '提示',
+						        content: '抱歉H5界面暂不支持扫码功能',
+								showCancel: false,
+								confirmText: '确定'
+					        });
+			      // #endif
+			      // #ifdef MP-WEIXIN
+					        uni.scanCode({
+					          success: (res) => {
+					        	this.result = res.result;
+					          }
+					        });
+			      // #endif
+						// #ifdef APP-PLUS
+						  uni.scanCode({
+							success: (res) => {
+							this.result = res.result;
+							
+			
+							}
+						  });
+						// #endif
+			},
+			// tosaoyisao() {
+			// 	uni.navigateTo({
+			// 		url:'/pages/saoyisao/saoyisao'
+			// 	})
+			// },
+			gorili(){
 				uni.navigateTo({
-					url:'/pages/saoyisao/saoyisao'
+					url:'/pages/rili/rili'
+				})
+			},
+			tozhixin() {
+				uni.switchTab({
+					url:'/pages/user/user'
 				})
 			},
 			tohuati() {

@@ -84,6 +84,9 @@
     components: {},
     data() {
       return {
+		  //诈病标记
+		  number: 0,
+		  //计时器
 		  timer: '00:00',
 		  // 当前题目索引
 		  currentIdx: 0, 
@@ -238,10 +241,6 @@
 		  })
 		  if (answeredList.length < this.questionList.length) {
 		    // 如果有未作答的,提示
-		    // uni.showToast({
-		    //   title: '还有题目未作答',
-		    //   icon: 'none'
-		    // })
 			uni.showModal({
 				title: '温馨提示',
 				content: '还有题目未作答',
@@ -257,8 +256,17 @@
 		  console.log(this.score)
 		  // 允许显示答案
 		  this.canShowAnswer = true
+		  // 时间小于30s，判断诈病
+		  const time = this.timer.split(':')
+		  const minute = parseInt(time[0]) 
+		  const second = parseInt(time[1])
+		  console.log(minute);
+	      console.log(second);
+		  if(minute===0 && second<=10) {
+		      this.number = 1
+		  }
 		  uni.redirectTo({
-		  	url:"/pages/ceshibaogao/ceshibaogao?score=" + this.score
+		  	url:"/pages/ceshibaogao/ceshibaogao?score=" + this.score + "&number=" + this.number
 		  })
 		},
 
