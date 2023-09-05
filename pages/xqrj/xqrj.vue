@@ -188,7 +188,7 @@
 		  // emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],
 		  // textList: ['开心','无语','难过','思考','生气','得瑟','惊讶','心动'],
 		   // 表情图片路径列表
-		  selectedEmoji:'', // 存储选择的表情图片路径
+		  selectedEmoji:uni.getStorageSync('selectedEmoji') || '',  // 存储选择的表情图片路径
 	  };
     },
 	  created() {
