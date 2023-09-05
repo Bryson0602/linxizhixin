@@ -20,7 +20,7 @@
 		  <image class="dinwei" src="../../static/rili.png" mode="heightFix" @click="gorili"></image>
 	    </view>
 	    <swiper class="flex-row justify-center section_2 space-x-4" circular indicator-dots autoplay interval="3000" duration="500" indicator-active-color="#fff" indicator-inactive-color="#aaa"  style="border-radius: 10px;">
-	        <swiper-item v-for="item in bannerList" :key="item.id">
+	        <swiper-item v-for="item in bannerList" :key="item.id" :data-url="item.linkUrl" @click="handleBannerClick(item.linkUrl)">
 	          <image style="width: 100%; vertical-align: bottom;" mode="aspectFill" :src="item.picUrl"></image>
 	        </swiper-item>
 	    </swiper>
@@ -259,9 +259,9 @@
 				dayindex:0,
 				bannerList: [//轮播图
 				  {id: 1, picUrl: '/static/lb1.jpg'},
-				  {id: 2, picUrl: '/static/lb2.jpeg'},
-				  {id: 3, picUrl: '/static/lb3.jpg'},
-				  {id: 4, picUrl: '/static/lb4.jpg'},
+				  {id: 2, picUrl: '/static/lb2.png',linkUrl:'/pages/wzdetail/wzdetail?id=64bbda86652341bd64d48e59'},
+				  {id: 3, picUrl: '/static/lb3.png',linkUrl:'/pages/wzdetail/wzdetail?id=64bb8fcea7c432baa0677fc5'},
+				  {id: 4, picUrl: '/static/lb4.png',linkUrl:'/pages/gfhd2/gfhd2'},
 				  {id: 5, picUrl: '/static/lb5.jpg'},
 				],
 				picurl:"",
@@ -299,6 +299,11 @@
 			};
 		},
 		methods: {
+			handleBannerClick(linkUrl) {
+			    uni.navigateTo({
+			    	url:linkUrl
+			    })
+			},
 			toqiandao() {
 				uni.navigateTo({
 					url:'/pages/qiandao/qiandao'
