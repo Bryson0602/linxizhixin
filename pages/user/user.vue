@@ -7,7 +7,7 @@
       <view class="flex-col section space-y-13">
 		  
         <view class="flex-row justify-center items-center group_2">
-			<image class="image1" src="../../static/plus.png" mode=""></image>
+			<image @click="goTXLadd" class="image1" src="../../static/plus.png" mode=""></image>
           <view class="flex-col justify-start items-start relative text-wrapper">
             <text class="text">搜索你的好友</text>
           </view>
