@@ -9,13 +9,13 @@
       <view class="flex-col group_2">
         <view class="flex-col justify-start relative group_3">
           <view class="relative section_5"></view>
-          <view class="section_3 pos_2"></view>
-          <view class="flex-row items-center section_2 space-x-12 pos">
+          <view class="section_3 pos_2":style="section3Style"></view>
+          <view class="flex-row items-center section_2 space-x-12 pos" :style="section2Style">
             <view class="flex-col items-start flex-auto">
               <text class="text_3">{{ currentItem.title }}</text>
               <text class="font_2 text_5">{{ currentItem.content }}</text>
             </view>
-            <view class="flex-col items-center shrink-0 section_4 space-y-12" @click="goceshix(currentItem.id)">
+            <view class="flex-col items-center shrink-0 section_4 space-y-12" @click="goceshix(currentItem.id)" :style="section4Style">
               <text class="font_1 text_4">开始测试</text>
               <image
                 class="image_2"
@@ -125,11 +125,20 @@
     data() {
       return {
         items: [
-              { title: 'GAD7(焦虑障碍量表)', content: '焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。' ,id:1},
-              { title: 'MBTI人格自测', content: '人格自测工具，用于评估个体的人格类型。测量结果基于四个维度的偏好。' ,id:3},
-              { title: 'PSS(心理压力量表)', content: '心理压力自评量表，用于评估个体对生活中的压力感知程度。' ,id:2}
+              { title: 'GAD7(焦虑障碍量表)', content: '焦虑症自评量表，用于评估个体是否存在焦虑症状，由7个问题组成。' ,id:1, color: '#6453ce'},
+              { title: 'MBTI人格自测', content: '人格自测工具，用于评估个体的人格类型。测量结果基于四个维度的偏好。' ,id:3, color: '#07c8a2',color1: '#97d4c0'},
+              { title: 'PSS(心理压力量表)', content: '心理压力自评量表，用于评估个体对生活中的压力感知程度。' ,id:2, color: '#3370ff',color1: '#9cbaff' }
             ],
         currentItem: {},
+		section2Style: {
+		    backgroundColor: '#6453ce',
+		},
+		section4Style: {
+		    backgroundColor: '#be9ed2',
+		},
+		section3Style: {
+		    backgroundColor: '#be9ed2',
+		}
       };
     },
 
@@ -164,7 +173,11 @@
 	onLoad() {
 	  const randomIndex = Math.floor(Math.random() * this.items.length);
 	  this.currentItem = this.items[randomIndex];
-	  this.clickFunction = this.urls[randomIndex];
+	  //this.clickFunction = this.urls[randomIndex];
+	  console.log(this.currentItem.color);
+	  this.section2Style.backgroundColor = this.currentItem.color;
+	  this.section4Style.backgroundColor = this.currentItem.color1;
+	  this.section3Style.backgroundColor = this.currentItem.color1;
 	}
 
   };

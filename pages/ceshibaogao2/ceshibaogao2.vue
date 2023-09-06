@@ -65,7 +65,7 @@
           </view>
           <view class="flex-row section_6 space-x-12" @click="goyuyue">
             <view class="section_7">
-				<image src="../../static/teacher.png" mode=""></image>
+				<image src="../../static/teacher4.jpeg" mode=""></image>
 			</view>
             <view class="flex-col flex-auto group_6 space-y-7">
               <view class="flex-row justify-between items-start">
