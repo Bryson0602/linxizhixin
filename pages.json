@@ -378,6 +378,25 @@
             }
             
         }
+        ,{
+            "path" : "pages/fankui/fankui",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "反馈",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/shetuan/shetuan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "社团",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

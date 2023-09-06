@@ -168,7 +168,7 @@
 	          />
 	          <text class="font_1">话题</text>
 	        </view>
-	        <view class="flex-col items-center relative grid-item">
+	        <view class="flex-col items-center relative grid-item" @click="tofankui">
 	          <image
 	            class="image_3"
 	            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385864440525868.png"
@@ -182,7 +182,7 @@
 	          />
 	          <text class="font_1">收藏</text>
 	        </view>
-	        <view class="flex-col items-center relative grid-item">
+	        <view class="flex-col items-center relative grid-item" @click="toshetuan">
 	          <image
 	            class="image_3"
 	            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385867369836328.png"
@@ -307,6 +307,16 @@
 			toqiandao() {
 				uni.navigateTo({
 					url:'/pages/qiandao/qiandao'
+				})
+			},
+			tofankui() {
+				uni.navigateTo({
+					url:'/pages/fankui/fankui'
+				})
+			},
+			toshetuan() {
+				uni.navigateTo({
+					url:'/pages/shetuan/shetuan'
 				})
 			},
 			tosaoyisao() {
