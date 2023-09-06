@@ -7,7 +7,7 @@
       <view class="flex-col section space-y-13">
 		  
         <view class="flex-row justify-center items-center group_2">
-			<image class="image1" src="../../static/plus.png" mode=""></image>
+			<image @click="goTXLadd" class="image1" src="../../static/plus.png" mode=""></image>
           <view class="flex-col justify-start items-start relative text-wrapper">
             <text class="text">搜索你的好友</text>
           </view>
@@ -17,7 +17,7 @@
             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16908596901104497480.png"
           />
           <image
-		    
+		    @click="goTXLadd"
             class="image_2"
             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385894443945464.png"
           />
@@ -324,6 +324,11 @@
 		gotxl(){
 			uni.navigateTo({
 				url:"/pages/txl/txl"
+			})
+		},
+		goTXLadd(){
+			uni.navigateTo({
+				url:"/pages/TXLadd/TXLadd"
 			})
 		},
 		gopipei(){

@@ -397,6 +397,15 @@
             
         }
         
+        ,{
+            "path" : "pages/TXLadd/TXLadd",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "添加好友",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
