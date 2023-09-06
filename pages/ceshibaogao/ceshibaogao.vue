@@ -91,21 +91,21 @@
           </view>
           <view class="flex-row section_6 space-x-12" @click="goyuyue">
             <view class="section_7">
-				<image src="../../static/teacher.png" mode=""></image>
+				<image src="../../static/teacher1.jpg" mode=""></image>
 			</view>
             <view class="flex-col flex-auto group_6 space-y-7">
               <view class="flex-row justify-between items-start">
                 <view class="flex-row items-baseline group_7 space-x-6">
-                  <text class="text_14">孙老师</text>
-                  <text class="text_15">心理咨询师</text>
-                </view>
-                <view class="flex-col justify-start items-center button"><text class="text_13">预约</text></view>
-              </view>
-              <view class="flex-row space-x-18">
-                <text class="font_5">北京大学</text>
-                <text class="font_5 text_16">临床心理学</text>
-              </view>
-              <text class="self-start font_5">二级心理咨询师，2011年毕...</text>
+                  <text class="text_14">沈老师</text>
+                      <text class="text_15">心理咨询师</text>
+                    </view>
+                    <view class="flex-col justify-start items-center button"><text class="text_13">预约</text></view>
+                  </view>
+                  <view class="flex-row space-x-18">
+                    <text class="font_5">四川大学</text>
+                    <text class="font_5 text_16">心理学</text>
+                  </view>
+                  <text class="self-start font_5">心理测评师，2007年毕业于...</text>
               <view class="flex-row items-center group_8 space-x-4">
                 <image
                   class="image"
@@ -169,7 +169,7 @@
 		},
 		goyuyue(){
 			uni.navigateTo({
-				url:"/pages/yuyue/yuyue?id=64bf388fe0ec19bea1385782"
+				url:"/pages/yuyue/yuyue?id=64bf38a921821b2af53d8219"
 			})
 		}
 

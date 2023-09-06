@@ -95,7 +95,7 @@
           </view>
           <view class="flex-row section_6 space-x-12" @click="goyuyue">
             <view class="section_7">
-				<image src="../../static/teacher.png" mode=""></image>
+				<image src="../../static/teacher3.jpeg" mode=""></image>
 			</view>
             <view class="flex-col flex-auto group_6 space-y-7">
               <view class="flex-row justify-between items-start">
@@ -198,6 +198,16 @@
 
 	},
 	onLoad(option) {
+		// 延迟两秒显示loading效果
+		uni.showLoading({
+		  title: '加载中...',
+		  mask: true
+		});
+		  setTimeout(() => {
+			// 隐藏loading
+			uni.hideLoading();
+		  }, 1000);
+			  
 		this.getData();
 		//接受分数
 		const score = option.type;
