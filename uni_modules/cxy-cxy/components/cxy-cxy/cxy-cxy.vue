@@ -445,7 +445,7 @@
 	  display: flex;
 	  text-align: center;
 	  justify-content: center;
-	  background-color: #74e324;
+	  background-color: #71d420;
 	  color: #fff;
 	  width:25%;
 	  padding-top: 1%;
