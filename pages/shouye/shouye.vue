@@ -320,30 +320,28 @@
 				})
 			},
 			tosaoyisao() {
-			      // #ifdef H5
-					        uni.showModal({
-						        title: '提示',
-						        content: '抱歉H5界面暂不支持扫码功能',
-								showCancel: false,
-								confirmText: '确定'
-					        });
-			      // #endif
-			      // #ifdef MP-WEIXIN
-					        uni.scanCode({
-					          success: (res) => {
-					        	this.result = res.result;
-					          }
-					        });
-			      // #endif
-						// #ifdef APP-PLUS
-						  uni.scanCode({
-							success: (res) => {
-							this.result = res.result;
-							
-			
-							}
-						  });
-						// #endif
+			  uni.scanCode({
+			  success: (res) => {
+			    this.result = res.result;
+			    this.jumpPage(res.result);
+			  },
+			  fail: (err) => {
+			    console.log(err);
+			  }
+			  });
+			},
+			jumpPage(result) {
+			  if (result !== '') {
+			  console.log(result);
+			  uni.navigateTo({
+			    url: result
+			  });
+			  } else {
+			  uni.showToast({
+			    title: '未识别的二维码',
+			    icon: 'none'
+			  });
+			  }
 			},
 			// tosaoyisao() {
 			// 	uni.navigateTo({
