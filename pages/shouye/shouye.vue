@@ -274,7 +274,22 @@
 				
 				emojiList:[
 					'😄', '😊', '😂','🤣','🤡','🤗','😍'
-									
+									// {img:require('../../static/bqb4.png'),text:'开心'},
+									// {img:'../../static/bqb5.png',text:'无语'},
+									// {img:'../../static/bqb6.png',text:'难过'},
+									// {img:'../../static/bqb1.png',text:'思考'},
+									// {img:'../../static/bqb7.png',text:'生气'},
+									// {img:'../../static/bqb3.png',text:'得瑟'},
+									// {img:'../../static/bqb2.png',text:'惊讶'},
+									// {img:'../../static/bqb8.png',text:'心动'},
+									// { url: '../../static/bqb4.png', name: '开心' },
+									// { url: '../../static/bqb5.png', name: '无语' },
+									// { url: '../../static/bqb6.png', name: '难过' },
+									// { url: '../../static/bqb1.png', name: '思考' },
+									// { url: '../../static/bqb7.png', name: '生气' },
+									// { url: '../../static/bqb3.png', name: '得瑟' },
+									// { url: '../../static/bqb2.png', name: '惊讶' },
+									// { url: '../../static/bqb8.png', name: '心动' },
 									
 				 ],
 				// emojiList: ['../../static/bqb4.png', '../../static/bqb5.png', '../../static/bqb6.png','../../static/bqb1.png','../../static/bqb7.png','../../static/bqb3.png','../../static/bqb2.png','../../static/bqb8.png'],

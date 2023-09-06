@@ -397,15 +397,6 @@
             
         }
         
-        ,{
-            "path" : "pages/quanzi/quanzi",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
