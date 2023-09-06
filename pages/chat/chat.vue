@@ -228,8 +228,8 @@
 			      botMsg = "Hello，你好~";
 			    } else if (userMsg === "我跟你说一件事") {
 			      botMsg = "咋啦？";
-			    } else if (userMsg === "我最近学习压力好大，真的不知道该怎么办了") {
-			      botMsg = "我在这呢，学习压力确实很大，但你要知道你不是一个人在战斗。我们都经历过类似的情况，所以我相信你有足够的力量来应对的。";
+			    } else if (userMsg === "我最近学习压力好大") {
+			      botMsg = "学习压力确实很大，但你要知道你不是一个人在战斗。我们都经历过类似的情况，我相信你有足够的力量来应对的。";
 			    } else if (userMsg === "感觉学习真的好累啊") {
 			      botMsg = "不要过分压力自己啦。学习是一个长期的过程，每个人都会有起伏和困难的。";
 			    } else if (userMsg === "我们一起出去玩吧") {
@@ -269,7 +269,7 @@
 <style lang="scss" scoped>
 	
 	$chatContentbgc: #ffd2b7;
-	$sendBtnbgc: #4F7DF5;
+	$sendBtnbgc: #4ebfae;
 	
 	view,button,text,input,textarea {
 		margin: 0;
@@ -403,7 +403,7 @@
 					min-height: 75rpx;
 					max-height: 500rpx;
 					background: #FFFFFF;
-					border-radius: 8rpx;
+					border-radius: 20rpx;
 					font-size: 32rpx;
 					font-family: PingFang SC;
 					color: #333333;
@@ -422,7 +422,7 @@
 				width: 128rpx;
 				height: 82rpx;//75
 				background: $sendBtnbgc;
-				border-radius: 8rpx;
+				border-radius: 20rpx;
 				font-size: 28rpx;
 				font-family: PingFang SC;
 				font-weight: 500;
