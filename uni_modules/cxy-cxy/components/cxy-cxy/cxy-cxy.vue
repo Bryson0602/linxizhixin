@@ -9,7 +9,7 @@
 			</view>
 			
 			<view class="total">
-			<view v-if="!show" class="card">
+			<view v-show="!show" class="card">
 				<view class="text">我的灵犀号：2387063291</view>
 				<view class="notice">好友通知</view>
 				<view class="box">
@@ -96,7 +96,7 @@
 			</view>
 			</view>
 			
-			<view v-if="show" class="left-list" v-for="(item,index) of scrollLeftObj" :key="index" :id="index!='#'?index:'BOTTOM'">
+			<view v-show="show" class="left-list" v-for="(item,index) of scrollLeftObj" :key="index" :id="index!='#'?index:'BOTTOM'">
 				<!-- <view class="left-item-title" v-if="item && item.length">{{index}}</view> -->
 				<view class="left-item-card" v-for="(mess,inx) in item" @click.stop="chooseItem(mess)">
 					<image :style="'border-radius:'+radius" class="left-item-card-img img-info" :src="mess[imgKey]"
@@ -192,7 +192,7 @@
 				},
 			},
 		},
-		onload:{
+		onLoad:{
 			hand(){
 				if(event.target.value=='')
 				this.show=false
@@ -246,7 +246,7 @@
 			},
 			search() {
 				
-				if(event.target.value.length==10||event.target.value.length>10){
+			
 					this.show=true
 					if (this.searchStr) {
 						let has = false
@@ -264,11 +264,7 @@
 						this.hasData = true
 						this.scrollLeftObj = JSON.parse(JSON.stringify(this.oldObj))
 					}
-				}
-				else{
-					this.show=false
-					this.isAgreed=false
-				}
+				
 				
 				
 			},
