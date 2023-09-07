@@ -5,7 +5,23 @@
 		  <image src="../../static/tx11.jpeg" mode="" class="section_2"></image>
 	  </view>
       <text class="font_1 text">好想吃饭</text>
+	  <view class="guanzhu">
+	  	 <text class="font_22 text_">关注</text>
+	  </view>
+	  <image src="../../static/fenxiang.png" mode="" class="tupian2"></image>
     </view>
+	<!-- <image src="../../static/gou4.png" mode="" class="tupian"></image> -->
+	<view class="">
+		<swiper :autoplay="false" :duration="500" @change="swiperChange">
+	      <swiper-item v-for="(item, index) in imageList" :key="index">
+			  <view class="">
+			  	<image :src="item" mode="aspectFill" class="da"></image>
+			  </view>
+	      </swiper-item>
+	    </swiper>
+	</view>
+	    
+		
     <view class="flex-col section_3 space-y-102">
       <view class="flex-col self-start group">
         <view>
@@ -48,7 +64,14 @@
   export default {
     components: {},
     data() {
-      return {};
+      return {
+		        imageList: [
+		          '../../static/gou4.png',
+		          '../../static/gou5.png',
+		          '../../static/gou6.png'
+		        ]
+
+	  };
     },
 
     methods: {},
@@ -56,6 +79,35 @@
 </script>
 
 <style scoped lang="scss">
+	.da{
+		width: 100%;
+		height: 500rpx;
+	}
+	.guanzhu{
+		line-height: 42rpx;
+		text-align: center;
+		width: 110rpx;
+		border-radius: 40rpx;
+		border: 1px solid #ff0000;
+	}
+	.font_22 {
+		
+	  font-size: 20rpx;
+	  font-family: SegoeUI-Bold;
+	  // line-height: 10rpx;
+	  font-weight: 700;
+	  color: red;
+	padding-bottom: 5rpx;
+	}
+	.tupian{
+		width: 750rpx;
+		height: 1000rpx;
+	}
+	.tupian2{
+		margin-top: 5rpx;
+		width: 45rpx;
+		height: 45rpx;
+	}
   .page {
     background-color: #edeff1;
     width: 100%;
@@ -73,6 +125,7 @@
       }
       .text {
         line-height: 33rpx;
+		margin-right: 240rpx;
       }
     }
     .space-x-14 {
@@ -195,7 +248,7 @@
     & > view:not(:first-child),
     & > text:not(:first-child),
     & > image:not(:first-child) {
-      margin-top: 832rpx;
+      // margin-top: 100rpx;
     }
   }
 </style>
