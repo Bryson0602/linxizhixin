@@ -1,7 +1,7 @@
 <template>
   <view class="flex-col page space-y-13">
     <view class="flex-row justify-center items-center relative group">
-      <text class="text">圈子</text>
+      <!-- <text class="text">圈子</text> -->
       <image
         class="image pos"
         src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385887396145539.png"
@@ -11,7 +11,7 @@
       <view class="flex-col section">
         <view class="flex-row justify-between items-center group_2">
           <view class="flex-row space-x-8">
-            <view class="flex-col justify-start items-center text-wrapper"><text class="font_1">热门</text></view>
+            <view class="flex-col justify-start items-center text-wrapper"><text class="font_2">热门</text></view>
             <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1">校园</text></view>
             <view class="flex-col justify-start items-center text-wrapper_2">
               <text class="font_1 text_2">生活</text>
@@ -27,39 +27,51 @@
         </view>
         <view class="grid">
           <view class="flex-col grid-item space-y-14">
-            <view class="section_2"></view>
+            <view class="section_2">
+				<image src="../../static/yuan.png" mode="" class="section_2"></image>
+			</view>
             <text class="self-center font_2">动漫二次元</text>
-            <text class="self-center font_3">200人关注</text>
+            <text class="self-center font_3">2000人关注</text>
           </view>
           <view class="flex-col grid-item">
-            <view class="section_2"></view>
+            <view class="section_2">
+				<image src="../../static/dianyin.png" mode="" class="section_2"></image>
+			</view>
             <text class="self-center font_2 text_4">影视发烧迷</text>
             <text class="self-center font_3 text_6">200人关注</text>
           </view>
           <view class="flex-col grid-item">
-            <view class="section_2"></view>
+            <view class="section_2">
+				<image src="../../static/jianshen3.png" mode="" class="section_2"></image>
+			</view>
             <text class="self-center font_2 text_5">健身俱乐部</text>
-            <text class="self-center font_3 text_7">200人关注</text>
+            <text class="self-center font_3 text_7">100人关注</text>
           </view>
           <view class="flex-col grid-item_2">
-            <view class="relative section_2"></view>
+            <view class="relative section_2">
+				<image src="../../static/mao.png" mode="" class="section_2"></image>
+			</view>
             <view class="flex-col items-center group_3 space-y-12">
               <text class="font_2">宠物交流会</text>
-              <text class="font_3">200人关注</text>
+              <text class="font_3">150人关注</text>
             </view>
           </view>
           <view class="flex-col grid-item_2">
-            <view class="relative section_2"></view>
+            <view class="relative section_2">
+				<image src="../../static/chenshi3.png" mode="" class="section_2"></image>
+			</view>
             <view class="flex-col items-center group_3 space-y-12">
               <text class="font_2">城市游玩会</text>
-              <text class="font_3">200人关注</text>
+              <text class="font_3">800人关注</text>
             </view>
           </view>
           <view class="flex-col grid-item_2">
-            <view class="relative section_2"></view>
+            <view class="relative section_2">
+				<image src="../../static/jiu2.png" mode="" class="section_2"></image>
+			</view>
             <view class="flex-col items-center group_3 space-y-12">
               <text class="font_2">日咖夜酒</text>
-              <text class="font_3">200人关注</text>
+              <text class="font_3">666人关注</text>
             </view>
           </view>
         </view>
@@ -68,7 +80,7 @@
         <view class="flex-col group_4 space-y-4">
           <view class="flex-row justify-between">
             <view class="flex-row items-center space-x-10">
-              <view class="section_4"></view>
+              <image src="../../static/tx11.jpeg" mode="" class="section_4"></image>
               <view class="flex-col space-y-12">
                 <text class="self-start font_2">好想吃饭</text>
                 <view class="flex-row space-x-6">
@@ -88,23 +100,82 @@
             <text class="font_5">小狗狗真是太可爱了，尤其是小金毛，就算今天心情不</text>
             <text class="font_5">好也能立马被小动物们治愈啊QAQ...</text>
           </view>
-          <text class="self-start font_5 text_10">...</text>
+          <text class="self-start font_66 text_10">...</text>
           <view class="flex-row equal-division space-x-10">
             <view class="flex-col equal-division-item space-y-16">
-              <view class="section_5"></view>
+              <view class="section_5">
+				  <image src="../../static/gou3.png" mode="" class="section_5"></image>
+			  </view>
+			  <image src="../../static/fenxiang.png" class="tupian1"></image>
               <text class="self-center font_6 text_11">转发</text>
             </view>
             <view class="flex-col equal-division-item space-y-16">
-              <view class="section_5"></view>
-              <text class="self-center font_6 text_11">30</text>
+              <view class="section_5">
+				  <image src="../../static/gou1.png" mode="" class="section_5"></image>
+			  </view>
+			  <image src="../../static/liaoyiliao3.png" class="tupian2"></image>
+              <text class="self-center font_6 text_11">130</text>
             </view>
             <view class="flex-col equal-division-item space-y-16">
-              <view class="section_5"></view>
-              <text class="self-center font_6 text_11">30</text>
+              <view class="section_5">
+				  <image src="../../static/gou2.png" mode="" class="section_5"></image>
+			  </view>
+			  <image src="../../static/dianzan.png" class="tupian3"></image>
+              <text class="self-center font_6 text_11">300</text>
             </view>
           </view>
         </view>
       </view>
+	  <view class="flex-col section_3 space-y-24">
+	    <view class="flex-col group_4 space-y-4">
+	      <view class="flex-row justify-between">
+	        <view class="flex-row items-center space-x-10">
+	          <image src="../../static/tx12.jpeg" mode="" class="section_4"></image>
+	          <view class="flex-col space-y-12">
+	            <text class="self-start font_2">不想睡觉</text>
+	            <view class="flex-row space-x-6">
+	              <text class="font_4">2023-9-1</text>
+	              <text class="font_4">13：22</text>
+	            </view>
+	          </view>
+	        </view>
+	        <view class="flex-col justify-start items-center self-start text-wrapper_3">
+	          <text class="font_2 text_8">关注</text>
+	        </view>
+	      </view>
+	      <text class="self-start text_9">来自宠物交流会</text>
+	    </view>
+	    <view class="flex-col">
+	      <view class="flex-col items-start group_5 space-y-4">
+	        <text class="font_5">总要去趟重庆吧！</text>
+	        <text class="font_5">吹一吹嘉陵江的晚风，走走南滨路，感受山城的热情</text>
+	      </view>
+	      <text class="self-start font_66 text_10">...</text>
+	      <view class="flex-row equal-division space-x-10">
+	        <view class="flex-col equal-division-item space-y-16">
+	          <view class="section_5">
+	  				  <image src="../../static/yejin3.png" mode="" class="section_5"></image>
+	  			  </view>
+	  			  <image src="../../static/fenxiang.png" class="tupian4"></image>
+	          <text class="self-center font_6 text_11">转发</text>
+	        </view>
+	        <view class="flex-col equal-division-item space-y-16">
+	          <view class="section_5">
+	  				  <image src="../../static/yejin2.png" mode="" class="section_5"></image>
+	  			  </view>
+	  			  <image src="../../static/liaoyiliao3.png" class="tupian5"></image>
+	          <text class="self-center font_6 text_11">30</text>
+	        </view>
+	        <view class="flex-col equal-division-item space-y-16">
+	          <view class="section_5">
+	  				  <image src="../../static/yejin.png" mode="" class="section_5"></image>
+	  			  </view>
+	  			  <image src="../../static/dianzan.png" class="tupian6"></image>
+	          <text class="self-center font_6 text_11">90</text>
+	        </view>
+	      </view>
+	    </view>
+	  </view>
     </view>
   </view>
 </template>
@@ -121,6 +192,48 @@
 </script>
 
 <style scoped lang="scss">
+	.tupian1{
+		position: absolute;
+		    left: 75rpx;
+		    top: 1414rpx;
+		width: 35rpx;
+		height: 35rpx;
+	}
+	.tupian2{
+		position: absolute;
+		    left: 310rpx;
+		    top: 1414rpx;
+		width: 35rpx;
+		height: 35rpx;
+	}
+	.tupian3{
+		position: absolute;
+		    left: 540rpx;
+		    top: 1412rpx;
+		width: 35rpx;
+		height: 35rpx;
+	}
+	.tupian4{
+		position: absolute;
+		    left: 75rpx;
+		    top: 2065rpx;
+		width: 35rpx;
+		height: 35rpx;
+	}
+	.tupian5{
+		position: absolute;
+		    left: 315rpx;
+		    top: 2065rpx;
+		width: 35rpx;
+		height: 35rpx;
+	}
+	.tupian6{
+		position: absolute;
+		    left: 548rpx;
+		    top: 2063rpx;
+		width: 35rpx;
+		height: 35rpx;
+	}
   .page {
     padding: 24rpx 24rpx 60rpx;
     background-color: #edeff1;
@@ -191,6 +304,13 @@
               font-weight: 700;
               color: #78708c;
             }
+			.font_2 {
+			  font-size: 32rpx;
+			  font-family: SegoeUI-Bold;
+			  line-height: 30rpx;
+			  font-weight: 700;
+			  color: #fff;
+			}
           }
           .space-x-4 {
             & > view:not(:first-child),
@@ -245,6 +365,7 @@
             border-radius: 40rpx;
             box-shadow: 0px 6rpx 12rpx #00000029;
             height: 178rpx;
+			width: 178rpx;
           }
           .font_3 {
             font-size: 24rpx;
@@ -299,6 +420,14 @@
           font-weight: 700;
           color: #202020;
         }
+		.font_66 {
+			opacity: 0;
+		  font-size: 28rpx;
+		  font-family: SegoeUI-Bold;
+		  line-height: 34rpx;
+		  font-weight: 700;
+		  color: #202020;
+		}
         .text_10 {
           margin-left: 16rpx;
           margin-top: 20rpx;
@@ -311,7 +440,8 @@
             .section_5 {
               background-color: #dbdbdb;
               border-radius: 40rpx;
-              height: 206rpx;
+              height: 192rpx;
+			  width: 192rpx;
             }
             .font_6 {
               font-size: 32rpx;
