@@ -189,7 +189,7 @@
 	          />
 	          <text class="font_1">社团</text>
 	        </view>
-	        <view class="flex-col items-center relative grid-item" @click="tozhixin">
+	        <view class="flex-col items-center relative grid-item" @click="toquanzi">
 	          <image
 	            class="image_3"
 	            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385867430965549.png"
@@ -353,9 +353,9 @@
 					url:'/pages/rili/rili'
 				})
 			},
-			tozhixin() {
-				uni.switchTab({
-					url:'/pages/user/user'
+			toquanzi() {
+				uni.navigateTo({
+					url:'/pages/quanzi/quanzi'
 				})
 			},
 			tohuati() {
