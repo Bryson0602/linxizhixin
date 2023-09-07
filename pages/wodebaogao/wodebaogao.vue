@@ -149,7 +149,7 @@
               />
               <view class="flex-col items-start space-y-8">
                 <text class="font_4">MBTI人格自测</text>
-                <text class="font_5 text_7">2023.9.10</text>
+                <text class="font_5 text_7">2023.9.6</text>
               </view>
 			  <view class="weizhi1">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
@@ -165,7 +165,7 @@
               />
               <view class="flex-col items-start space-y-12">
                 <text class="font_4">PSS(心理压力量表)</text>
-                <text class="font_5 text_7">2023.9.10</text>
+                <text class="font_5 text_7">2023.9.5</text>
               </view>
 			  <view class="weizhi2">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
@@ -181,7 +181,7 @@
 		      />
 		      <view class="flex-col items-start space-y-12">
 		        <text class="font_4">SHS(主观幸福感量表)</text>
-		        <text class="font_5 text_7">2023.9.9</text>
+		        <text class="font_5 text_7">2023.9.5</text>
 		      </view>
 			  <view class="weizhi3">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
@@ -197,7 +197,7 @@
 		      />
 		      <view class="flex-col items-start space-y-12">
 		        <text class="font_4">PHQ-9(抑郁自评测试)</text>
-		        <text class="font_5 text_7">2023.9.8</text>
+		        <text class="font_5 text_7">2023.9.4</text>
 		      </view>
 		  			  <view class="weizhi3">
 		  			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
@@ -213,7 +213,7 @@
 		      />
 		      <view class="flex-col items-start space-y-12">
 		        <text class="font_4">PHQ-9(抑郁自评测试)</text>
-		        <text class="font_5 text_7">2023.9.8</text>
+		        <text class="font_5 text_7">2023.9.2</text>
 		      </view>
 					<view class="weizhi3">
 			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
@@ -229,7 +229,7 @@
 		      />
 		      <view class="flex-col items-start space-y-12">
 		        <text class="font_4">GAD7(焦虑障碍量表)</text>
-		        <text class="font_5 text_7">2023.9.8</text>
+		        <text class="font_5 text_7">2023.9.2</text>
 		      </view>
 		  					<view class="weizhi3">
 		  			  	<image class="tupiana" src="../../static/jiantou.png" mode=""></image>
