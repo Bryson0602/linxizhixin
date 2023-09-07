@@ -11,15 +11,18 @@
 	  <image src="../../static/fenxiang.png" mode="" class="tupian2"></image>
     </view>
 	<!-- <image src="../../static/gou4.png" mode="" class="tupian"></image> -->
-	<view class="">
-		<swiper :autoplay="false" :duration="500" @change="swiperChange">
-	      <swiper-item v-for="(item, index) in imageList" :key="index">
-			  <view class="">
-			  	<image :src="item" mode="aspectFill" class="da"></image>
+	
+		<view class="swiper-container">
+			<view class="swiper-container">
+			  <swiper class="my-swiper" :style="swiperStyle" :indicator-dots="true" :autoplay="false" indicator-color=white :duration="500" @change="swiperChange">
+			    <swiper-item v-for="(item, index) in imageList" :key="index">
+			    <image :src="item" mode="aspectFit" class="da"></image>
+			    </swiper-item>
+			  </swiper>
 			  </view>
-	      </swiper-item>
-	    </swiper>
-	</view>
+		</view>
+		
+	
 	    
 		
     <view class="flex-col section_3 space-y-102">
@@ -65,6 +68,10 @@
     components: {},
     data() {
       return {
+		    swiperStyle: {
+		        width: '750rpx', // 设置轮播图的宽度
+		        height: '1000rpx', // 设置轮播图的高度
+		        },
 		        imageList: [
 		          '../../static/gou4.png',
 		          '../../static/gou5.png',
@@ -79,9 +86,21 @@
 </script>
 
 <style scoped lang="scss">
+	.swiper-container {
+	  width: 100%;
+	  height: 100%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	}
+	
+	.my-swiper {
+	  width: 100%;
+	  height: 100%;
+	}
 	.da{
-		width: 100%;
-		height: 500rpx;
+		width: 750rpx;
+		height:1000rpx;
 	}
 	.guanzhu{
 		line-height: 42rpx;
@@ -233,7 +252,7 @@
       & > view:not(:first-child),
       & > text:not(:first-child),
       & > image:not(:first-child) {
-        margin-top: 204rpx;
+        margin-top: 0rpx;
       }
     }
     .font_1 {
