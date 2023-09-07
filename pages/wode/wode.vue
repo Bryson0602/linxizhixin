@@ -31,7 +31,7 @@
 	            </view>
 	          </view>
 	          <view class="flex-col equal-division-item space-y-8" @click="toxqrj">
-	            <text class="self-start font_2 text_3">心情日记</text>
+	            <text class="self-start font_2 text_3">AI心情日记</text>
 	            <view class="flex-col items-start section_5 space-y-14">
 	              <text class="font_3">最近更新</text>
 	              <text class="font_4">2023.09.7</text>
