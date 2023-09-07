@@ -5,9 +5,13 @@
 		  <image src="../../static/tx11.jpeg" mode="" class="section_2"></image>
 	  </view>
       <text class="font_1 text">好想吃饭</text>
-	  <view class="guanzhu">
-	  	 <text class="font_22 text_">关注</text>
+	  <view v-if="status" class="guanzhu">
+	  	 <text  class="font_22 text_" @click="change">关注</text>
 	  </view>
+	  <view v-else class="guanzhued">
+		  <text  class="font_23" @click="change">已关注</text>
+	  </view>
+	  
 	  <image src="../../static/fenxiang.png" mode="" class="tupian2"></image>
     </view>
 	<!-- <image src="../../static/gou4.png" mode="" class="tupian"></image> -->
@@ -68,6 +72,7 @@
     components: {},
     data() {
       return {
+		  status:true,
 		    swiperStyle: {
 		        width: '750rpx', // 设置轮播图的宽度
 		        height: '1000rpx', // 设置轮播图的高度
@@ -81,7 +86,11 @@
 	  };
     },
 
-    methods: {},
+    methods: {
+		change(){
+			this.status=!this.status
+		}
+	},
   };
 </script>
 
@@ -102,6 +111,13 @@
 		width: 750rpx;
 		height:1000rpx;
 	}
+	.guanzhued{
+		line-height: 42rpx;
+		text-align: center;
+		width: 110rpx;
+		border-radius: 40rpx;
+		border: 1px solid #7e8183;
+	}
 	.guanzhu{
 		line-height: 42rpx;
 		text-align: center;
@@ -116,6 +132,15 @@
 	  // line-height: 10rpx;
 	  font-weight: 700;
 	  color: red;
+	padding-bottom: 5rpx;
+	}
+	.font_23 {
+		
+	  font-size: 20rpx;
+	  font-family: SegoeUI-Bold;
+	  // line-height: 10rpx;
+	  font-weight: 700;
+	  color: #6f7173;
 	padding-bottom: 5rpx;
 	}
 	.tupian{

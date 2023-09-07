@@ -76,7 +76,7 @@
           </view>
         </view>
       </view>
-      <view class="flex-col section_3 space-y-24">
+      <view @click="togou" class="flex-col section_3 space-y-24">
         <view class="flex-col group_4 space-y-4">
           <view class="flex-row justify-between">
             <view class="flex-row items-center space-x-10">
@@ -187,7 +187,13 @@
       return {};
     },
 
-    methods: {},
+    methods: {
+		togou(){
+			uni.navigateTo({
+				url:'/pages/quanzi2/quanzi2'
+			})
+		}
+	},
   };
 </script>
 
