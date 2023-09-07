@@ -410,7 +410,7 @@
             "path" : "pages/quanzi/quanzi",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "圈子",
                 "enablePullDownRefresh": false
             }
             
