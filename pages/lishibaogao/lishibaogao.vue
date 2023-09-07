@@ -5,12 +5,12 @@
       <view class="flex-col group space-y-12">
         <view class="flex-row justify-between items-start">
           <view class="flex-col items-start space-y-14">
-            <text class="font_1 text_2">2023.9.10</text>
+            <text class="font_1 text_2">2023.9.6</text>
             <text class="text_4">MBTI人格自测</text>
           </view>
           <view class="flex-row group_2 space-x-18">
 			  <view class="hz">
-				  <text class="text_3">ENTJ</text>
+				  <text class="text_3">ESFJ</text>
 			  </view>
             
             <!-- <view class="flex-col items-center shrink-0 space-y-32"> -->
@@ -19,7 +19,7 @@
             <!-- </view> -->
           </view>
         </view>
-		<text class="self-start font_2 text_6">人格类型：指挥官</text>
+		<text class="self-start font_2 text_6">人格类型：执政官</text>
       </view>
       <text class="self-start font_3 text_7">(I内向，E外向，S感觉，N直觉，T思考，F情感，J判断，P知觉)</text>
       <view class="flex-col group_3">
@@ -30,7 +30,7 @@
               <text class="font_4 text_8">AI分析</text>
             </view>
             <view class="flex-col group_4 space-y-4">
-              <text class="self-end font_3">ENTJ人格类型的人是天生的领导者。这种人格类型的人天生具有魅力和信心，他们所散发的权威性能召集大家为着一个共同目标努力。但与领导者人格类型有所不同的是，他们用强大的动力、坚定的决心和锋芒毕露的思想实现为自己制定的一切目标。\nENTJ型的人擅长发展并实施有效和全面的系统来解决问题。善于做长期的计划和目标的设定。通常见多识广，博览群书，喜欢拓广自己的知识面并将此分享给他人。在陈述自己的想法时非常强而有力。</text>
+              <text class="self-end font_3">ESFJ人格类型的人喜欢助人为乐，享受做有意义的事情，只要他们的重要性被认可并受到感激。这在家庭中尤其明显，ESFJ是忠诚爱奉献的伴侣和父母。ESFJ人格类型的人尊重等级，努力使自己取得一定的权利，无论在家庭还是工作中，这使他们可以让每个人的分工明确，稳定，有秩序 。\n与更为理想主义的人格类型不同的是，ESFJ们的道德指南针基于已有的传统和法律，他们支持权威和规则，而不会去从哲学和神秘主义中总结道德标准。</text>
             </view>
           </view>
         </view>

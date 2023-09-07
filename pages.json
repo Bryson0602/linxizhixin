@@ -108,7 +108,7 @@
             "path" : "pages/xqrj/xqrj",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "心情日记",
+                "navigationBarTitleText": "AI心情日记",
                 "enablePullDownRefresh": false
             }
             

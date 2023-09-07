@@ -5,7 +5,7 @@
       <view class="flex-col group space-y-12">
         <view class="flex-row justify-between items-start">
           <view class="flex-col items-start space-y-14">
-            <text class="font_1 text_2">2023.9.10</text>
+            <text class="font_1 text_2">2023.9.5</text>
             <text class="text_4">PSS心理压力量表</text>
           </view>
           <view class="flex-row group_2 space-x-18">
