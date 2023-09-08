@@ -13,6 +13,28 @@
 			<view class="tabCur1">
 				<view class="flex-col relative group_3">
 					
+					<view class="flex-row"@click="gojilu3">
+					  <view class="shrink-0 section_2">
+											<image src="../../static/lsjl3.png" mode="aspectFill"></image>
+										</view>
+					  <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
+					    <text class="font_2">毕业季 | 来时星辰大海，未来不止诗和月光：大学四年的沙漏...</text>
+					    <text class="font_3">幸福联盟+</text>
+						  <text class="font_4">9-8</text>
+					  </view>
+					</view>
+					
+					<view class="flex-row"@click="gojilu8">
+					  <view class="shrink-0 section_2">
+											<image src="../../static/lsjl8.png" mode="aspectFill"></image>
+										</view>
+					  <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
+					    <text class="font_2">“猫猫教”vs“狗狗教”，说说你的入教理由</text>
+					    <text class="font_3">幸福联盟+</text>
+						  <text class="font_4">9-8</text>
+					  </view>
+					</view>
+					
 				  <view class="flex-row"@click="gojilu">
 				    <view class="shrink-0 section_2">
 						<image src="../../static/lsjl.jpg" mode="aspectFill"></image>
@@ -20,7 +42,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">转载｜《头脑特工队》电影赏析：在这部奥斯卡金像奖最佳...</text>
 				      <text class="font_3">幸福联盟+</text>
-					  <text class="font_4">9-10</text>
+					  <text class="font_4">9-8</text>
 				    </view>
 				  </view>
 				  
@@ -31,7 +53,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">因为颜值，我对他一见钟情了？天性是百发百中，万无一失的...</text>
 				      <text class="font_3">幸福联盟+</text>
-					  <text class="font_4">9-10</text>
+					  <text class="font_4">9-7</text>
 				    </view>
 				  </view>
 				  
@@ -42,20 +64,10 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">继星座之后，MBTI也给你贴标签了吗？MBTI真的很神奇啊...</text>
 				      <text class="font_3">幸福联盟+</text>
-				  	  <text class="font_4">9-9</text>
+				  	  <text class="font_4">9-7</text>
 				    </view>
 				  </view>
 				  
-				  <view class="flex-row"@click="gojilu3">
-				    <view class="shrink-0 section_2">
-						<image src="../../static/lsjl3.png" mode="aspectFill"></image>
-					</view>
-				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
-				      <text class="font_2">毕业季 | 来时星辰大海，未来不止诗和月光：大学四年的沙漏...</text>
-				      <text class="font_3">幸福联盟+</text>
-				  	  <text class="font_4">9-9</text>
-				    </view>
-				  </view>
 				  
 				  <view class="flex-row"@click="gojilu4">
 				    <view class="shrink-0 section_2">
@@ -64,7 +76,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">不确定的生活，也要勇敢去爱：#1信息过滤——摒弃噪音...</text>
 				      <text class="font_3">幸福联盟+</text>
-				  	  <text class="font_4">9-8</text>
+				  	  <text class="font_4">9-6</text>
 				    </view>
 				  </view>
 				  
@@ -75,7 +87,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">和博物馆来一场心灵的约会，聊聊过去、当下和未来...</text>
 				      <text class="font_3">幸福联盟+</text>
-				  	  <text class="font_4">9-7</text>
+				  	  <text class="font_4">9-6</text>
 				    </view>
 				  </view>
 				  
@@ -86,7 +98,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">降低考前精神内耗，你需要区分这两种疲惫：想象一下我们尽...</text>
 				      <text class="font_3">幸福联盟+</text>
-				  	  <text class="font_4">9-7</text>
+				  	  <text class="font_4">9-5</text>
 				    </view>
 				  </view>
 				  
@@ -97,7 +109,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">别做互联网的“松鼠”，要做收藏界的“实干家”：在碎片化信息...</text>
 				      <text class="font_3">幸福联盟+</text>
-				  	  <text class="font_4">9-7</text>
+				  	  <text class="font_4">9-4</text>
 				    </view>
 				  </view>
 				</view>
@@ -193,6 +205,11 @@
 			gojilu7(){
 				uni.navigateTo({
 					url:'/pages/wzdetail/wzdetail?id=64bb8094bd0220bf8c7b367b'
+				})
+			},
+			gojilu8(){
+				uni.navigateTo({
+					url:'/pages/wzdetail/wzdetail?id=64bbc68de0ec19bea1c5e2c8'
 				})
 			}
 		}
