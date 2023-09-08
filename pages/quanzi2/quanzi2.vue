@@ -38,6 +38,11 @@
           <text class="font_11">#我家宠物好可爱</text>
           <br/>
           <text class="font_44">07-08</text>
+		  
+		  <view class="xian">
+		  	<text></text>
+		  </view>
+		  </br> </br> 
         </view>
         <view class="flex-col justify-start self-start relative text-wrapper">
           <!-- <text class="font_3 text_3">来自宠物交流会</text> -->
@@ -73,6 +78,38 @@
           </view>
         </view>
       </view>
+	  
+  <view class="container">
+    <view class="comment-list">
+      <!-- 一级评论列表 -->
+      <view class="comment-item" v-for="(comment, index) in comments" :key="index">
+        <view class="comment-avatar">
+          <image :src="comment.avatar" class="comment-avatar"></image>
+        </view>
+        <view class="comment-content">
+          <!-- 评论内容 -->
+          <view class="comment-username">{{ comment.username }}</view>
+          <view class="comment-text">{{ comment.text }}</view>
+          <!-- 二级评论列表 -->
+          <view class="sub-comment-list">
+            <view class="sub-comment-item" v-for="(subComment, subIndex) in comment.subComments" :key="subIndex">
+              <view class="comment-avatar">
+                <image class="comment-avatar" :src="subComment.avatar"></image>
+              </view>
+              <view class="comment-content">
+                <!-- 评论内容 -->
+                <view class="comment-username">{{ subComment.username }}</view>
+                <view class="comment-text">{{ subComment.text }}</view>
+              </view>
+            </view>
+          </view>
+          <!-- 二级评论输入框 -->
+        </view>
+      </view>
+    </view>
+<!-- <image src="../../static/tx15.jpeg" mode=""></image> -->
+  </view>
+  </br></br>
     </view>
   </view>
 </template>
@@ -82,6 +119,31 @@ export default {
   components: {},
   data() {
     return {
+		comments: [
+		  {
+		    username: "旺仔旺仔",
+		    text: "小狗好可爱！",
+		    avatar: "../../static/tx8.jpeg",
+		    subComments: [
+		      { username: "好想吃饭", text: "同感！", avatar: "../../static/tx11.jpeg" },
+		      { username: "阳阳想睡觉", text: "我也喜欢！", avatar: "../../static/tx7.jpeg" }
+		    ]
+		  },
+		  {
+		    username: "呆呆",
+		    text: "我也喜欢这个！",
+		    avatar: "../../static/tx10.jpeg",
+		    subComments: [
+		      { username: "哒哒鸭", text: "太赞了！", avatar: "../../static/tx9.jpeg" }
+		    ]
+		  },
+		  {
+		    username: "小熊饼干",
+		    text: "期待下次再来！",
+		    avatar: "../../static/tx15.jpeg",
+		    subComments: []
+		  }
+		],
       options: {},
       status: true,
       status2: true,
@@ -120,6 +182,12 @@ export default {
 
 
 <style scoped lang="scss">
+	.xian{
+		margin-top: 20rpx;
+		width: 665rpx;
+		border-top: 1px solid #a9a9a9;
+		opacity: 0.2;
+	}
 	.xin{
 		padding-top: 10rpx;
 	}
@@ -257,6 +325,13 @@ export default {
       .group_2 {
         padding-left: 4rpx;
 		width: 680rpx;
+		position: fixed;
+		    bottom: 0;
+		    
+		    
+		     /* 设置固定在底部部分的高度 */
+		    background-color: #fff;
+			 z-index: 10;
         .space-x-7 {
           & > view:not(:first-child),
           & > text:not(:first-child),
@@ -364,5 +439,63 @@ export default {
     & > image:not(:first-child) {
       // margin-top: 100rpx;
     }
+  }
+  .containera {
+    background-color: #f8f8f8;
+  
+    
+  }
+  .comment-list {
+    background-color: #fff;
+    padding: 0px;
+  }
+  .comment-item {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  .comment-content {
+    flex: 1;
+    margin-left: 10px;
+  }
+  .comment-username {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .comment-text {
+    font-size: 12px;
+    color: #888;
+  }
+  .sub-comment-list {
+    margin-top: 10px;
+  }
+  .sub-comment-item {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .sub-comment-input {
+    margin-top: 10px;
+    display: flex;
+    margin-left: 50px;
+  }
+  .input-box {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .submit-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
   }
 </style>
