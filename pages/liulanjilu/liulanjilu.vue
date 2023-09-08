@@ -53,7 +53,7 @@
 				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
 				      <text class="font_2">因为颜值，我对他一见钟情了？天性是百发百中，万无一失的...</text>
 				      <text class="font_3">幸福联盟+</text>
-					  <text class="font_4">9-7</text>
+					  <text class="font_4">9-8</text>
 				    </view>
 				  </view>
 				  
@@ -130,23 +130,7 @@
 				    </view>
 				  </view>
 				  
-				  <view class="flex-row">
-				    <view class="shrink-0 section_2"></view>
-				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
-				      <text class="font_2">健康观，随着医学的发展,人类对于健康的认识已经历了几个不同...</text>
-				      <text class="font_3">科普小达人</text>
-					  <text class="font_4">7-21</text>
-				    </view>
-				  </view>
-				  
-				  <view class="flex-row">
-				    <view class="shrink-0 section_2"></view>
-				    <view class="flex-col items-start flex-auto self-start group_4 space-y-4">
-				      <text class="font_2">健康观，随着医学的发展,人类对于健康的认识已经历了几个不同...</text>
-				      <text class="font_3">科普小达人</text>
-				  					  <text class="font_4">7-21</text>
-				    </view>
-				  </view>
+				 
 				</view>
 			</view>
 		</view>
