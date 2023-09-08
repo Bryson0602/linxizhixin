@@ -226,7 +226,9 @@
 					  
 				    </view>
 				  </view>
+				  <view class="aa"></view>
 				</view>
+				
 			</view>
 		</view>
 	</view>
@@ -345,6 +347,10 @@
 
 
 <style scoped lang="scss">
+	.aa{
+		width:100%;
+		height:200rpx;
+	}
 //顶部导航栏
 .ct_tab{
 	width: 100%;
