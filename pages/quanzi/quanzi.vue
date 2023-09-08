@@ -76,7 +76,7 @@
           </view>
         </view>
       </view>
-      <view @click="togou" class="flex-col section_3 space-y-24">
+      <view  class="flex-col section_3 space-y-24">
         <view class="flex-col group_4 space-y-4">
           <view class="flex-row justify-between">
             <view class="flex-row items-center space-x-10">
@@ -89,13 +89,16 @@
                 </view>
               </view>
             </view>
-            <view class="flex-col justify-start items-center self-start text-wrapper_3">
+            <view @click="change" v-if="status" class="flex-col justify-start items-center self-start text-wrapper_3">
               <text class="font_2 text_8">关注</text>
             </view>
+			<view @click="change" v-else class="flex-col justify-start items-center self-start text-wrapper_3">
+			  <text class="font_2 text_8">已关注</text>
+			</view>
           </view>
           <text class="self-start text_9">来自宠物交流会</text>
         </view>
-        <view class="flex-col">
+        <view @click="togou" class="flex-col">
           <view class="flex-col items-start group_5 space-y-4">
             <text class="font_5">小狗狗真是太可爱了，尤其是小金毛，就算今天心情不</text>
             <text class="font_5">好也能立马被小动物们治愈啊QAQ...</text>
@@ -139,9 +142,12 @@
 	            </view>
 	          </view>
 	        </view>
-	        <view class="flex-col justify-start items-center self-start text-wrapper_3">
+	        <view v-if="status1" @click="change1" class="flex-col justify-start items-center self-start text-wrapper_3">
 	          <text class="font_2 text_8">关注</text>
 	        </view>
+			<view @click="change1" v-else class="flex-col justify-start items-center self-start text-wrapper_3">
+			  <text class="font_2 text_8">已关注</text>
+			</view>
 	      </view>
 	      <text class="self-start text_9">来自宠物交流会</text>
 	    </view>
@@ -184,13 +190,22 @@
   export default {
     components: {},
     data() {
-      return {};
+      return {
+		  status:true,
+		  status1:true
+	  };
     },
 
     methods: {
+		change(){
+			this.status=!this.status
+		},
+		change1(){
+			this.status1=!this.status1
+		},
 		togou(){
 			uni.navigateTo({
-				url:'/pages/quanzi2/quanzi2'
+				url:'/pages/quanzi2/quanzi2?status='+this.status
 			})
 		}
 	},
