@@ -102,21 +102,21 @@
           </view>
           <text class="self-start font_66 text_10">...</text>
           <view class="flex-row equal-division space-x-10">
-            <view class="flex-col equal-division-item space-y-16">
+            <view class="equal-division-item space-y-16">
               <view class="section_5">
 				  <image src="../../static/gou3.png" mode="" class="section_5"></image>
 			  </view>
 			  <image src="../../static/fenxiang.png" class="tupian1"></image>
               <text class="self-center font_6 text_11">转发</text>
             </view>
-            <view class="flex-col equal-division-item space-y-16">
+            <view class="equal-division-item space-y-16">
               <view class="section_5">
 				  <image src="../../static/gou1.png" mode="" class="section_5"></image>
 			  </view>
 			  <image src="../../static/liaoyiliao3.png" class="tupian2"></image>
               <text class="self-center font_6 text_11">130</text>
             </view>
-            <view class="flex-col equal-division-item space-y-16">
+            <view class="equal-division-item space-y-16">
               <view class="section_5">
 				  <image src="../../static/gou2.png" mode="" class="section_5"></image>
 			  </view>
@@ -152,21 +152,21 @@
 	      </view>
 	      <text class="self-start font_66 text_10">...</text>
 	      <view class="flex-row equal-division space-x-10">
-	        <view class="flex-col equal-division-item space-y-16">
+	        <view class="equal-division-item space-y-16">
 	          <view class="section_5">
 	  				  <image src="../../static/yejin3.png" mode="" class="section_5"></image>
 	  			  </view>
 	  			  <image src="../../static/fenxiang.png" class="tupian4"></image>
 	          <text class="self-center font_6 text_11">转发</text>
 	        </view>
-	        <view class="flex-col equal-division-item space-y-16">
+	        <view class=" equal-division-item space-y-16">
 	          <view class="section_5">
 	  				  <image src="../../static/yejin2.png" mode="" class="section_5"></image>
 	  			  </view>
 	  			  <image src="../../static/liaoyiliao3.png" class="tupian5"></image>
 	          <text class="self-center font_6 text_11">30</text>
 	        </view>
-	        <view class="flex-col equal-division-item space-y-16">
+	        <view class=" equal-division-item space-y-16">
 	          <view class="section_5">
 	  				  <image src="../../static/yejin.png" mode="" class="section_5"></image>
 	  			  </view>
@@ -199,44 +199,38 @@
 
 <style scoped lang="scss">
 	.tupian1{
-		position: absolute;
-		    left: 75rpx;
-		    top: 1414rpx;
+		margin-bottom: -6rpx;
+		margin-left: 40rpx;
 		width: 35rpx;
 		height: 35rpx;
 	}
 	.tupian2{
-		position: absolute;
-		    left: 310rpx;
-		    top: 1414rpx;
+		margin-bottom: -6rpx;
+	margin-left: 40rpx;
 		width: 35rpx;
 		height: 35rpx;
 	}
 	.tupian3{
-		position: absolute;
-		    left: 540rpx;
-		    top: 1412rpx;
+		margin-bottom: -6rpx;
+	margin-left: 40rpx;
 		width: 35rpx;
 		height: 35rpx;
 	}
 	.tupian4{
-		position: absolute;
-		    left: 75rpx;
-		    top: 2065rpx;
+		margin-bottom: -6rpx;
+		margin-left: 40rpx;
 		width: 35rpx;
 		height: 35rpx;
 	}
 	.tupian5{
-		position: absolute;
-		    left: 315rpx;
-		    top: 2065rpx;
+		margin-bottom: -6rpx;
+		margin-left: 40rpx;
 		width: 35rpx;
 		height: 35rpx;
 	}
 	.tupian6{
-		position: absolute;
-		    left: 548rpx;
-		    top: 2063rpx;
+		margin-bottom: -6rpx;
+		margin-left: 40rpx;
 		width: 35rpx;
 		height: 35rpx;
 	}
@@ -457,6 +451,7 @@
               color: #707070;
             }
             .text_11 {
+				margin-left: 6rpx;
               line-height: 23rpx;
             }
           }
