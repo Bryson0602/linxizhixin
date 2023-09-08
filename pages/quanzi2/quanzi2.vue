@@ -2,50 +2,42 @@
   <view class="flex-col page space-y-416">
     <view class="flex-row items-center section space-x-14">
       <view class="section_2">
-		  <image src="../../static/tx11.jpeg" mode="" class="section_2"></image>
-	  </view>
+        <image src="../../static/tx11.jpeg" mode="" class="section_2"></image>
+      </view>
       <text class="font_1 text">好想吃饭</text>
-	  <view v-if="options.status=='true'&&status" class="guanzhu">
-	  	 <text  class="font_22 text_" @click="change">关注</text>
-	  </view>
-	  <view v-else class="guanzhued">
-		  <text  class="font_23" @click="change">已关注</text>
-	  </view>
-	  
-	  <image src="../../static/fenxiang.png" mode="" class="tupian2"></image>
+      <view v-if="options.status=='true'&&status" class="guanzhu">
+        <text class="font_22 text_" @click="change">关注</text>
+      </view>
+      <view v-else class="guanzhued">
+        <text class="font_23" @click="change">已关注</text>
+      </view>
+      <image src="../../static/fenxiang.png" mode="" class="tupian2"></image>
     </view>
-	<!-- <image src="../../static/gou4.png" mode="" class="tupian"></image> -->
-	
-		<view class="swiper-container">
-			<view class="swiper-container">
-			  <swiper class="my-swiper" :style="swiperStyle" :indicator-dots="true" :autoplay="false" indicator-color=#edeff1 :duration="500" @change="swiperChange">
-			    <swiper-item v-for="(item, index) in imageList" :key="index">
-			    <image :src="item" mode="aspectFill" class="da"></image>
-			    </swiper-item>
-			  </swiper>
-			  </view>
-		</view>
-		
-	
-	    
-		
+    <!-- <image src="../../static/gou4.png" mode="" class="tupian"></image> -->
+
+    <view class="swiper-container">
+      <swiper class="my-swiper" :style="swiperStyle" :indicator-dots="true" :autoplay="false" indicator-color=#edeff1 :duration="500" @change="swiperChange">
+        <swiper-item v-for="(item, index) in imageList" :key="index">
+          <image :src="item" mode="aspectFill" class="da"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+
     <view class="flex-col section_3 space-y-102">
       <view class="flex-col self-start group">
         <view>
           <text class="font_2 text_2">小狗狗真是太可爱了</text>
-		  </br>
-		  
+          <br/>
           <text class="font_1">尤其是小金毛，就算今天心情不</text>
           <text class="font_1">好也能立马被小动物们治愈啊QAQ</text>
           <text class="font_1">...</text>
           <text class="font_1">...</text>
-		  </br>
-		  </br>
-		  <text class="font_11">#金毛</text>
-		  <text class="font_11">#我的萌宠</text>
-		  <text class="font_11">#我家宠物好可爱</text>
-		  </br>
-		  <text class="font_44">07-08</text>
+          <br/><br/>
+          <text class="font_11">#金毛</text>
+          <text class="font_11">#我的萌宠</text>
+          <text class="font_11">#我家宠物好可爱</text>
+          <br/>
+          <text class="font_44">07-08</text>
         </view>
         <view class="flex-col justify-start self-start relative text-wrapper">
           <!-- <text class="font_3 text_3">来自宠物交流会</text> -->
@@ -54,43 +46,29 @@
       <view class="flex-row items-center group_2 space-x-20">
         <view class="flex-row items-center flex-auto space-x-7">
           <view class="shrink-0 section_4">
-			  <image src="../../static/shx.jpg" mode="" class="shrink-0 section_4"></image>
-		  </view>
+            <image src="../../static/shx.jpg" mode="" class="shrink-0 section_4"></image>
+          </view>
           <view class="flex-col justify-start items-start flex-auto text-wrapper_2">
             <text class="font_3 text_6">说些什么吧...</text>
           </view>
         </view>
         <view class="flex-row items-center shrink-0 space-x-16">
           <view class="flex-row items-center shrink-0 space-x-4">
-			  <view v-if="status3" @click="change3" class="xin">
-			  	<image
-              class="shrink-0 image"
-              src="../../static/aixin (1).png"
-            />
-			  </view>
-			  <view v-else @click="change3" class="xin">
-			  	<image
-			  	  class="shrink-0 image"
-			  	  src="../../static/aixin.png"
-			  	/>
-			  </view>
-            
+            <view v-if="status3" @click="change3" class="xin">
+              <image class="shrink-0 image" src="../../static/aixin (1).png" />
+            </view>
+            <view v-else @click="change3" class="xin">
+              <image class="shrink-0 image" src="../../static/aixin.png" />
+            </view>
             <text class="font_28 text_5">130</text>
           </view>
           <view class="flex-row items-center shrink-0 space-x-4">
-			  <view v-if="status2" @click="change2" class="xin">
-			  <image
-              class="shrink-0 image"
-              src="../../static/shoucang.png"
-            />
-			    </view>
-			    <view v-else @click="change2" class="xin">
-			    	<image
-			    	  class="shrink-0 image"
-			    	  src="../../static/shoucang-xz.png"
-			    	/>
-			    </view>
-            
+            <view v-if="status2" @click="change2" class="xin">
+              <image class="shrink-0 image" src="../../static/shoucang.png" />
+            </view>
+            <view v-else @click="change2" class="xin">
+              <image class="shrink-0 image" src="../../static/shoucang-xz.png" />
+            </view>
             <text class="font_28 text_5">300</text>
           </view>
         </view>
@@ -100,41 +78,46 @@
 </template>
 
 <script>
-  export default {
-    components: {},
-    data() {
-      return {
-		  status:true,
-		  status2:true,
-		  status3:true,
-		    swiperStyle: {
-		        width: '750rpx', // 设置轮播图的宽度
-		        height: '1000rpx', // 设置轮播图的高度
-		        },
-		        imageList: [
-		          '../../static/gou4.png',
-		          '../../static/gou5.png',
-		          '../../static/gou6.png'
-		        ]
-
-	  };
+export default {
+  components: {},
+  data() {
+    return {
+      options: {},
+      status: true,
+      status2: true,
+      status3: true,
+      swiperStyle: {
+        width: '750rpx', // 设置轮播图的宽度
+        height: '1000rpx', // 设置轮播图的高度
+      },
+      imageList: [
+        '../../static/gou4.png',
+        '../../static/gou5.png',
+        '../../static/gou6.png'
+      ]
+    };
+  },
+  onLoad(options) {
+    this.options = options;
+    this.status = options.status === 'true';
+  },
+  methods: {
+    change() {
+      this.status = !this.status;
     },
-	onLoad(options) {
-		this.status=options.status
-	},
-    methods: {
-		change(){
-			this.status=!this.status
-		},
-		change2(){
-			this.status2=!this.status2
-		},
-		change3(){
-			this.status3=!this.status3
-		},
-	},
-  };
+    change2() {
+      this.status2 = !this.status2;
+    },
+    change3() {
+      this.status3 = !this.status3;
+    },
+    swiperChange(e) {
+      console.log('Current index:', e.detail.current);
+    },
+  },
+};
 </script>
+
 
 <style scoped lang="scss">
 	.xin{
