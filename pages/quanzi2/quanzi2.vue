@@ -121,7 +121,7 @@ export default {
     return {
 		comments: [
 		  {
-		    username: "旺仔旺仔",
+		    username: "听海风吹",
 		    text: "小狗好可爱！",
 		    avatar: "../../static/tx8.jpeg",
 		    subComments: [
@@ -130,16 +130,16 @@ export default {
 		    ]
 		  },
 		  {
-		    username: "呆呆",
+		    username: "拥抱蓝天",
 		    text: "我也喜欢这个！",
 		    avatar: "../../static/tx10.jpeg",
 		    subComments: [
-		      { username: "哒哒鸭", text: "太赞了！", avatar: "../../static/tx9.jpeg" }
+		      { username: "冰川没有冰", text: "太赞了！", avatar: "../../static/tx9.jpeg" }
 		    ]
 		  },
 		  {
-		    username: "小熊饼干",
-		    text: "期待下次再来！",
+		    username: "圆圆",
+		    text: "好想要一只",
 		    avatar: "../../static/tx15.jpeg",
 		    subComments: []
 		  }
