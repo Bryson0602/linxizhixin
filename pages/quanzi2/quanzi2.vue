@@ -5,7 +5,7 @@
 		  <image src="../../static/tx11.jpeg" mode="" class="section_2"></image>
 	  </view>
       <text class="font_1 text">好想吃饭</text>
-	  <view v-if="status" class="guanzhu">
+	  <view v-if="options.status=='true'&&status" class="guanzhu">
 	  	 <text  class="font_22 text_" @click="change">关注</text>
 	  </view>
 	  <view v-else class="guanzhued">
@@ -18,9 +18,9 @@
 	
 		<view class="swiper-container">
 			<view class="swiper-container">
-			  <swiper class="my-swiper" :style="swiperStyle" :indicator-dots="true" :autoplay="false" indicator-color=white :duration="500" @change="swiperChange">
+			  <swiper class="my-swiper" :style="swiperStyle" :indicator-dots="true" :autoplay="false" indicator-color=#edeff1 :duration="500" @change="swiperChange">
 			    <swiper-item v-for="(item, index) in imageList" :key="index">
-			    <image :src="item" mode="aspectFit" class="da"></image>
+			    <image :src="item" mode="aspectFill" class="da"></image>
 			    </swiper-item>
 			  </swiper>
 			  </view>
@@ -34,10 +34,18 @@
         <view>
           <text class="font_2 text_2">小狗狗真是太可爱了</text>
 		  </br>
+		  
           <text class="font_1">尤其是小金毛，就算今天心情不</text>
           <text class="font_1">好也能立马被小动物们治愈啊QAQ</text>
           <text class="font_1">...</text>
           <text class="font_1">...</text>
+		  </br>
+		  </br>
+		  <text class="font_11">#金毛</text>
+		  <text class="font_11">#我的萌宠</text>
+		  <text class="font_11">#我家宠物好可爱</text>
+		  </br>
+		  <text class="font_44">07-08</text>
         </view>
         <view class="flex-col justify-start self-start relative text-wrapper">
           <!-- <text class="font_3 text_3">来自宠物交流会</text> -->
@@ -53,13 +61,37 @@
           </view>
         </view>
         <view class="flex-row items-center shrink-0 space-x-16">
-          <text class="font_2 text_4">30</text>
           <view class="flex-row items-center shrink-0 space-x-4">
-            <image
+			  <view v-if="status3" @click="change3" class="xin">
+			  	<image
               class="shrink-0 image"
-              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385889258153171.png"
+              src="../../static/aixin (1).png"
             />
-            <text class="font_2 text_5">30</text>
+			  </view>
+			  <view v-else @click="change3" class="xin">
+			  	<image
+			  	  class="shrink-0 image"
+			  	  src="../../static/aixin.png"
+			  	/>
+			  </view>
+            
+            <text class="font_28 text_5">130</text>
+          </view>
+          <view class="flex-row items-center shrink-0 space-x-4">
+			  <view v-if="status2" @click="change2" class="xin">
+			  <image
+              class="shrink-0 image"
+              src="../../static/shoucang.png"
+            />
+			    </view>
+			    <view v-else @click="change2" class="xin">
+			    	<image
+			    	  class="shrink-0 image"
+			    	  src="../../static/shoucang-xz.png"
+			    	/>
+			    </view>
+            
+            <text class="font_28 text_5">300</text>
           </view>
         </view>
       </view>
@@ -73,6 +105,8 @@
     data() {
       return {
 		  status:true,
+		  status2:true,
+		  status3:true,
 		    swiperStyle: {
 		        width: '750rpx', // 设置轮播图的宽度
 		        height: '1000rpx', // 设置轮播图的高度
@@ -85,16 +119,28 @@
 
 	  };
     },
-
+	onLoad(options) {
+		this.status=options.status
+	},
     methods: {
 		change(){
 			this.status=!this.status
-		}
+		},
+		change2(){
+			this.status2=!this.status2
+		},
+		change3(){
+			this.status3=!this.status3
+		},
 	},
   };
 </script>
 
 <style scoped lang="scss">
+	.xin{
+		padding-top: 10rpx;
+	}
+	//设置轮播的指示点位置
 	.swiper-container {
 	  width: 100%;
 	  height: 100%;
@@ -106,10 +152,26 @@
 	.my-swiper {
 	  width: 100%;
 	  height: 100%;
+	  /deep/ .uni-swiper-dots {
+	  			// 指示点整个区域的位置
+				position: absolute;
+	  			bottom: 4rpx;
+	  		}
+	/deep/ .uni-swiper-dot {
+				// 指示点元素默认样式
+				width: 12upx !important;
+				height: 12upx !important;
+				background: #C0C0C0 !important;
+			}
+	
+			/deep/ .uni-swiper-dot-active {
+				// 指示点元素激活（当前选中）状态样式
+				background: red !important;
+			}
 	}
 	.da{
 		width: 750rpx;
-		height:1000rpx;
+		height:970rpx;
 	}
 	.guanzhued{
 		line-height: 42rpx;
@@ -143,6 +205,13 @@
 	  color: #6f7173;
 	padding-bottom: 5rpx;
 	}
+	.font_44 {
+	  font-size: 28rpx;
+	  font-family: SegoeUI-Bold;
+	  line-height: 18rpx;
+	  font-weight: 700;
+	  color: #a9a9a9;
+	}
 	.tupian{
 		width: 750rpx;
 		height: 1000rpx;
@@ -153,7 +222,8 @@
 		height: 45rpx;
 	}
   .page {
-    background-color: #edeff1;
+    // background-color: #edeff1;
+	background-color: #fff;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -203,6 +273,7 @@
       }
       .group_2 {
         padding-left: 4rpx;
+		width: 680rpx;
         .space-x-7 {
           & > view:not(:first-child),
           & > text:not(:first-child),
@@ -220,10 +291,11 @@
             background-color: #f3f4ff;
             border-radius: 24rpx;
             height: 64rpx;
+			width: 50rpx;
             .text_6 {
               margin-left: 20rpx;
               color: #78708c;
-              line-height: 29rpx;
+              line-height: 25rpx;
             }
           }
         }
@@ -272,6 +344,13 @@
         font-weight: 700;
         color: #707070;
       }
+	  .font_28 {
+	    font-size: 34rpx;
+	    font-family: SegoeUI-Bold;
+	    line-height: 31rpx;
+	    font-weight: 700;
+	    color: #707070;
+	  }
     }
     .space-y-102 {
       & > view:not(:first-child),
@@ -281,12 +360,20 @@
       }
     }
     .font_1 {
-      font-size: 36rpx;
+      font-size: 34rpx;
       font-family: SegoeUI-Bold;
       line-height: 44rpx;
-      font-weight: 700;
+      font-weight: 400;
       color: #202020;
     }
+	.font_11 {
+	  font-size: 34rpx;
+	  font-family: SegoeUI-Bold;
+	  line-height: 44rpx;
+	  font-weight: 400;
+	  color: rgb(36, 130, 161);
+	  padding-right: 5rpx;
+	}
   }
   .space-y-416 {
     & > view:not(:first-child),
