@@ -50,11 +50,12 @@
       </view>
       <view class="flex-row items-center group_2 space-x-20">
         <view class="flex-row items-center flex-auto space-x-7">
-          <view class="shrink-0 section_4">
+          <!-- <view class="shrink-0 section_4">
             <image src="../../static/shx.jpg" mode="" class="shrink-0 section_4"></image>
-          </view>
+          </view> -->
           <view class="flex-col justify-start items-start flex-auto text-wrapper_2">
-            <text class="font_3 text_6">说些什么吧...</text>
+            <!-- <text class="font_3 text_6">说些什么吧...</text> -->
+			<input type="text" placeholder="说些什么吧..." class="font_3 text_6 placeholder-color" >
           </view>
         </view>
         <view class="flex-row items-center shrink-0 space-x-16">
@@ -76,9 +77,54 @@
             </view>
             <text class="font_28 text_5">300</text>
           </view>
+		  <view class="flex-row items-center shrink-0 space-x-4">
+		    <view  class="xin">
+		      <image class="shrink-0 image" src="../../static/pinlun2.png" />
+		    </view>
+		    <text class="font_28 text_5">20</text>
+		  </view>
         </view>
       </view>
 	  
+	  <view class="">
+	  	<text class="font_44">共3条评论</text>  
+	  </view>
+		</br>
+	  
+	  <view class="flex-row items-center group_22 space-x-20">
+	    <view class="flex-row items-center flex-auto space-x-7">
+	      <view class="shrink-0 section_4">
+	        <image src="../../static/shx.jpg" mode="" class="shrink-0 section_4"></image>
+	      </view>
+	      <view class="flex-col justify-start items-start flex-auto text-wrapper_2">
+	        <!-- <text class="font_3 text_6">留下你的想法吧...</text> -->
+			<input type="text" placeholder="留下你的想法吧..." class="font_3 text_6 placeholder-color" >
+	      </view>
+	    </view>
+	    <!-- <view class="flex-row items-center shrink-0 space-x-16">
+	      <view class="flex-row items-center shrink-0 space-x-4">
+	        <view v-if="status3" @click="change3" class="xin">
+	          <image class="shrink-0 image" src="../../static/aixin (1).png" />
+	        </view>
+	        <view v-else @click="change3" class="xin">
+	          <image class="shrink-0 image" src="../../static/aixin.png" />
+	        </view>
+	        <text class="font_28 text_5">130</text>
+	      </view>
+	      <view class="flex-row items-center shrink-0 space-x-4">
+	        <view v-if="status2" @click="change2" class="xin">
+	          <image class="shrink-0 image" src="../../static/shoucang.png" />
+	        </view>
+	        <view v-else @click="change2" class="xin">
+	          <image class="shrink-0 image" src="../../static/shoucang-xz.png" />
+	        </view>
+	        <text class="font_28 text_5">300</text>
+	      </view>
+	    </view> -->
+	  </view>
+	  
+	</br>
+	
   <view class="container">
     <view class="comment-list">
       <!-- 一级评论列表 -->
@@ -88,28 +134,35 @@
         </view>
         <view class="comment-content">
           <!-- 评论内容 -->
-          <view class="comment-username">{{ comment.username }}</view>
+          <view class="comment-username">{{ comment.username }}<image src="../../static/aixin (1).png" mode="" class="xin2"></image></view>
+		  
           <view class="comment-text">{{ comment.text }}</view>
           <!-- 二级评论列表 -->
           <view class="sub-comment-list">
             <view class="sub-comment-item" v-for="(subComment, subIndex) in comment.subComments" :key="subIndex">
-              <view class="comment-avatar">
-                <image class="comment-avatar" :src="subComment.avatar"></image>
+              <view class="comment-avatar2">
+                <image class="comment-avatar2" :src="subComment.avatar"></image>
               </view>
               <view class="comment-content">
                 <!-- 评论内容 -->
                 <view class="comment-username">{{ subComment.username }}</view>
                 <view class="comment-text">{{ subComment.text }}</view>
+				<!-- <view class="xian">
+					<text></text>
+				</view> -->
               </view>
             </view>
           </view>
           <!-- 二级评论输入框 -->
+		  <view class="xian2">
+		  	<text></text>
+		  </view>
         </view>
       </view>
     </view>
 <!-- <image src="../../static/tx15.jpeg" mode=""></image> -->
   </view>
-  </br></br>
+  </br></br></br>
     </view>
   </view>
 </template>
@@ -182,11 +235,23 @@ export default {
 
 
 <style scoped lang="scss">
+	.xin2{
+		
+		width: 40rpx;
+		height: 40rpx;
+		float: right;
+	}
 	.xian{
 		margin-top: 20rpx;
 		width: 665rpx;
 		border-top: 1px solid #a9a9a9;
 		opacity: 0.2;
+	}
+	.xian2{
+		margin-top: 20rpx;
+		width: 600rpx;
+		border-top: 1px solid #a9a9a9;
+		opacity: 15%;
 	}
 	.xin{
 		padding-top: 10rpx;
@@ -325,6 +390,7 @@ export default {
       .group_2 {
         padding-left: 4rpx;
 		width: 680rpx;
+		height: 150rpx;
 		position: fixed;
 		    bottom: 0;
 		    
@@ -346,14 +412,15 @@ export default {
           }
           .text-wrapper_2 {
             padding: 24rpx 0 12rpx;
-            background-color: #f3f4ff;
+            background-color: rgb(243,243,243);
             border-radius: 24rpx;
             height: 64rpx;
 			width: 50rpx;
             .text_6 {
               margin-left: 20rpx;
+			  margin-top: -10rpx;
               color: #78708c;
-              line-height: 25rpx;
+              line-height: 28rpx;
             }
           }
         }
@@ -382,6 +449,61 @@ export default {
           }
         }
       }
+	  .group_22 {
+	    // padding-left: 4rpx;
+	  		width: 680rpx;
+	  		    background-color: #fff;
+	    .space-x-7 {
+	      & > view:not(:first-child),
+	      & > text:not(:first-child),
+	      & > image:not(:first-child) {
+	        margin-left: 14rpx;
+	      }
+	      .section_4 {
+	        background-color: #ebebeb;
+	        border-radius: 50%;
+	        width: 60rpx;
+	        height: 60rpx;
+	      }
+	      .text-wrapper_2 {
+	        padding: 24rpx 0 12rpx;
+	        background-color: rgb(243,243,243);
+	        border-radius: 24rpx;
+	        height: 64rpx;
+	  			width: 50rpx;
+	        .text_6 {
+	          margin-left: 20rpx;
+			  margin-top: -12rpx;
+	          color: #78708c;
+	          line-height: 28rpx;
+	        }
+	      }
+	    }
+	    .space-x-16 {
+	      & > view:not(:first-child),
+	      & > text:not(:first-child),
+	      & > image:not(:first-child) {
+	        margin-left: 32rpx;
+	      }
+	      .text_4 {
+	        font-size: 42rpx;
+	      }
+	      .space-x-4 {
+	        & > view:not(:first-child),
+	        & > text:not(:first-child),
+	        & > image:not(:first-child) {
+	          margin-left: 8rpx;
+	        }
+	        .image {
+	          width: 54rpx;
+	          height: 50rpx;
+	        }
+	        .text_5 {
+	          line-height: 32rpx;
+	        }
+	      }
+	    }
+	  }
       .space-x-20 {
         & > view:not(:first-child),
         & > text:not(:first-child),
@@ -390,9 +512,9 @@ export default {
         }
       }
       .font_3 {
-        font-size: 32rpx;
+        font-size: 28rpx;
         font-family: SegoeUI-Bold;
-        line-height: 31rpx;
+        line-height: 28rpx;
         font-weight: 700;
       }
       .font_2 {
@@ -403,7 +525,7 @@ export default {
         color: #707070;
       }
 	  .font_28 {
-	    font-size: 34rpx;
+	    font-size: 28rpx;
 	    font-family: SegoeUI-Bold;
 	    line-height: 31rpx;
 	    font-weight: 700;
@@ -454,8 +576,14 @@ export default {
     margin-bottom: 10px;
   }
   .comment-avatar {
-    width: 40px;
-    height: 40px;
+    width: 60rpx;
+    height: 60rpx;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  .comment-avatar2 {
+    width: 45rpx;
+    height: 45rpx;
     background-color: #ccc;
     border-radius: 50%;
   }
@@ -464,7 +592,7 @@ export default {
     margin-left: 10px;
   }
   .comment-username {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     margin-bottom: 5px;
   }
