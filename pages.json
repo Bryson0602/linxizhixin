@@ -424,6 +424,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/kepu/kepu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
