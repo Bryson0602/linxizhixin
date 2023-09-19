@@ -58,6 +58,31 @@
 		  </view>
 		</view>
 		
+		<view class="flex-col list space-y-16" >
+		  <view class="flex-col section_3 section_x" @click="gotz" v-if="score >= 0 && score <= 4">
+		    <view class="flex-row group_4 space-y-4 jingao">
+			  <view class="jg">
+			  	<image src="../../static/newai.png" mode=""></image>
+			  </view>
+		      <text class="font_3 shrink1">做的不错！来检测一下你的AI知识吧~</text>
+			  <view class="img2 flex-col">
+			  	<image src="../../static/youjiantou.png" mode=""></image>
+			  </view>
+		    </view>
+			<!-- <view class="flex-row xuexi" @click="goxuexi">
+				<view class="img">
+					<image src="../../static/wjj.jpeg" mode=""></image>
+				</view>
+				<view class="flex-col wenzi">
+					<text class="zsxx">知识学习 | 学习更多</text>
+					<text class="wt">该如何走出抑郁的阴影？</text>
+				</view>
+				<view class="img1 flex-col">
+					<image src="../../static/youjiantou.png" mode=""></image>
+				</view>
+			</view> -->
+		  </view>
+		</view>
 		
         <view class="flex-col section_5">
           <view class="flex-col justify-start items-center self-start text-wrapper_2">
@@ -139,6 +164,11 @@
 		goyuyue(){
 			uni.navigateTo({
 				url:"/pages/yuyue/yuyue?id=64bf388fe0ec19bea1385782"
+			})
+		},
+		gotz(){
+			uni.navigateTo({
+				url:"/pages/aizhishiceshi/aizhishiceshi"
 			})
 		}
 
@@ -281,6 +311,45 @@
 			    #e8e6fb 100%
 			  );
             border-radius: 24rpx;
+			.jingao{
+				position: relative;
+				.shrink1{
+					//height: 100%;
+					width: 60%;
+					color: #24b9eb;
+					font-size: 36rpx;
+					font-weight: 700;
+					line-height: 45rpx;
+				}
+				.jg{
+					width: 120rpx;
+					height: 120rpx;
+					border-radius: 24rpx;
+					overflow: hidden;
+					margin: auto 0;
+					margin-right: 20rpx;
+					image{
+					    width: 120rpx;
+					    height: 120rpx;
+					}
+				}
+				.img2{
+					right: 15rpx;
+					top: 25%;
+					position: absolute;
+					//margin:15rpx 15rpx 0 15rpx ;
+					background-color: #dda0ff;
+					width: 70rpx;
+					height: 70rpx;
+					border-radius: 100rpx;
+					overflow: hidden;
+					image{
+						margin: auto auto;
+					    width: 45rpx;
+					    height: 45rpx;
+					}
+				}
+			}
 			.xuexi{
 				margin-bottom: 30rpx;
 				margin-right: 20rpx;
@@ -362,6 +431,10 @@
           }
 		  .section_4{
 			  background: #edf1f6;
+		  }
+		  .section_x{
+		  	  padding: 5rpx 10rpx;
+		  	  background-image: linear-gradient(50deg, #d4eeff 0%, #ffd8fc 100%);
 		  }
         }
         .space-y-16 {

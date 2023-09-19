@@ -442,6 +442,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/aizhishiceshi/aizhishiceshi",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "AI知识挑战",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
