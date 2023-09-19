@@ -433,6 +433,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/kepu2/kepu2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
