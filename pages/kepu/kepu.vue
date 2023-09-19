@@ -193,12 +193,12 @@
 		
 	    tozt2(){
 	    	uni.navigateTo({
-	    		url:'/pages/add1/add1'
+	    		url:'/pages/zt1/zt1'
 	    	})
 	    },
 		tozt1(){
 			uni.navigateTo({
-				url:'/pages/add/add'
+				url:'/pages/zt2/zt2'
 			})
 		},
 		selectMood(emoji, popupType) {
@@ -245,8 +245,9 @@
 		background-color: white;
 		font-weight: 700;
 		width:610rpx;
+		margin-top: -0.9%;
 		margin-left: -3%;
-		border-radius: 16rpx;
+		border-radius:0rpx 0rpx 16rpx 16rpx;
 		padding-left: 3%;
 		padding-right: 1%;
 		padding-bottom: 5px;
@@ -284,7 +285,7 @@
 		
 		.cover{
 			width: 100%;
-			border-radius: 10rpx;
+			border-radius: 10rpx 10rpx 0rpx 0rpx;
 		}
 		
 		.info{
@@ -394,7 +395,7 @@
 	        .section {
 	          padding: 50rpx 86rpx 32rpx 106rpx;
 	          background-color: #ffffff;
-	          border-radius: 24rpx;
+	          border-radius: 24rpx 24rpx 0rpx 0rpx;
 	          box-shadow: 0px 6rpx 12rpx #c3c5ca29;
 	          .group_2 {
 	            padding-left: 48rpx;

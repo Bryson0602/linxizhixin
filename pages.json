@@ -428,7 +428,25 @@
             "path" : "pages/kepu/kepu",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "AI知识学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zt1/zt1",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "每日学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zt2/zt2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "每日学习",
                 "enablePullDownRefresh": false
             }
             
