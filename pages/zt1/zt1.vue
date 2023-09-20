@@ -21,24 +21,57 @@
 	        </view>
 			
 	        <view class="flex-col section_4 space-y-12">
-	          <view class="flex-col items-start section_5 space-y-4">
-				  <image class="im"  mode="aspectFill" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/213cada9-229c-4b09-90fe-d1f99c32feca.png"></image>
-	            <text class="font_1 text_6">AI技术大解析：灵犀知心背后的秘密！</text>
+	          <view @click="clickItem" class="flex-col items-start section_5 space-y-4">
+				  <view class="oo">
+					  <image class="im"  mode="aspectFill" src="../../static/nlp.png"></image>
+				      <view class="kp">NLP技术</view>
+				  </view>
+				  
+	            <text class="font_1 text_6">NLP的力量：如何让机器理解人类语言</text>
 	          </view>
+			  
+			  <view @click="clickItem1" class="flex-col items-start section_5 space-y-4">
+			      <view class="oo">
+			      	<image class="im"  mode="aspectFill" src="../../static/jqxx.png"></image>
+			          <view class="kp">机器学习</view>
+			      </view>
+				  
+			    <text class="font_1 text_6">机器学习：学无止境</text>
+			  </view>
+			  
 			  <view class="flex-col items-start section_5 space-y-4">
-			      <image class="im"  mode="aspectFill" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/cce3520b-3d63-4f75-847b-b43bd9e44774.jpeg"></image>
-			    <text class="font_1 text_6">跨越时空的智能对话：AI的无限可能</text>
+				  <image class="im"  mode="aspectFill" src="../../static/sdxx.png"></image>
+			    <text class="font_1 text_6">深度学习的秘密</text>
+				<view class="kp">深度学习</view>
 			  </view>
 			  <view class="flex-col items-start section_5 space-y-4">
-				  <image class="im"  mode="aspectFill" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/3043f476-0181-4e49-8d0c-a44844aa7af3.jpeg"></image>
-			    <text class="font_1 text_6">人工智能引领潮流：探索智能科技的新纪元</text>
+			  				  <image class="im"  mode="aspectFill" src="../../static/AImx.png"></image>
+			    <text class="font_1 text_6">引领潮流的AI大模型</text>
+				<view class="kp">AI大模型</view>
 			  </view>
+			  <view class="flex-col items-start section_5 space-y-4">
+			  				  <image class="im"  mode="aspectFill" src="../../static/mssb.png"></image>
+			    <text class="font_1 text_6">走进模式识别技术</text>
+				<view class="kp">模式识别</view>
+			  </view>
+			  <view class="flex-col items-start section_5 space-y-4">
+			  				  <image class="im"  mode="aspectFill" src="../../static/tjsf.png"></image>
+			    <text class="font_1 text_6">推荐算法背后的黑科技</text>
+				<view class="kp">推荐算法</view>
+			  </view>
+			  <view class="flex-col items-start section_5 space-y-4">
+			  				  <image class="im"  mode="aspectFill" src="../../static/sjwj.png"></image>
+			    <text class="font_1 text_6">数据挖掘的新时代</text>
+			  				<view class="kp">数据挖掘</view>
+			  </view>
+			  
 	          
 	        </view>
 	        
 	      </view>
+		  
 	      <view class="flex-col section space-y-16 pos">
-	        <view class="flex-col  group_2 space-y-4">
+	        <view  class="flex-col  group_2 space-y-4">
 	          <text class="font_1">人工智能：未来的引领者</text>
 	        </view>
 	        <text class="font_5">在科技的海洋中，人工智能（AI）如同一颗璀璨的明珠，以其独特的魅力吸引着全球的目光。</text>
@@ -57,17 +90,45 @@
 	export default {
 		data() {
 			return {
+				listArr:[],
 				
 			}
 		},
+		onLoad(){
+			this.getData();
+		},
 		methods: {
+			getData(){
+				uni.request({
+					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
+					success:res=>{
+						console.log(res);
+						this.listArr=res.data.data
+					}
+				})
+			},
+			clickItem(e){
+			  	uni.navigateTo({
+			  		url:"/pages/kpdetail2/kpdetail2?id="+'6509c570fe975fba5aca897e'
+			  	})
+			  },
+			clickItem1(e){
+			  	uni.navigateTo({
+			  		url:"/pages/kpdetail3/kpdetail3?id="+'650aef3a7ad52ddc641579d4'
+			  	})
+			  },
 			
 		}
 	}
 </script>
 
 <style scoped lang="scss">
+	.oo{
+		
+	}
+	
 	.im{
+		
 		border-radius: 15rpx 15rpx 0rpx 0rpx;
 		width:665rpx;
 		height:300rpx;
@@ -97,6 +158,18 @@
   
   
   height: 100%;
+  
+  .kp{
+	  padding:15rpx 15rpx 15rpx 15rpx;
+	  border-radius: 35rpx;
+  	position: absolute;
+    top:10rpx;
+  	right:22rpx;
+  	background-color:#ffaa00;
+  	color: white;
+  	//width:180rpx;
+  	
+  }
   .text {
     color: #202020;
     font-size: 48rpx;
@@ -250,7 +323,7 @@
         top: 0;
       }
       .space-y-4 {
-		
+		position: relative;
         & > view:not(:first-child),
         & > text:not(:first-child),
         & > image:not(:first-child) {

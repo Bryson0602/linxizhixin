@@ -22,8 +22,8 @@
 			
 	        <view class="flex-col section_4 space-y-12">
 	          <view class="flex-col items-start section_5 space-y-4">
-				<image class="im"  mode="aspectFill" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/45da393a-bb61-48b3-9579-3c8e467341ef.jpg"></image>
-	            <text class="font_1 text_6">AI的发展史：一部人类智慧的革命史诗</text>
+				<image @click="clickItem" class="im"  mode="aspectFill" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/45da393a-bb61-48b3-9579-3c8e467341ef.jpg"></image>
+	            <text  class="font_1 text_6">AI的发展史：一部人类智慧的革命史诗</text>
 	          </view>
 			  <view class="flex-col items-start section_5 space-y-4">
 				<image class="im"  mode="aspectFill" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/964f1ee4-e616-4228-b968-ab97e6117483.jpeg"></image>
@@ -57,11 +57,27 @@
 	export default {
 		data() {
 			return {
-				
+				listArr:[],
 			}
 		},
+		onLoad(){
+			this.getData();
+		},
 		methods: {
-			
+			getData(){
+				uni.request({
+					url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/getArticleAll",
+					success:res=>{
+						console.log(res);
+						this.listArr=res.data.data
+					}
+				})
+			},
+			clickItem(e){
+			  	uni.navigateTo({
+			  		url:"/pages/kpdetail1/kpdetail1?id="+'6509b4c0a09a9bd68b096c54'
+			  	})
+			  },
 		}
 	}
 </script>

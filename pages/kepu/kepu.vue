@@ -129,18 +129,21 @@
 	  <view  class="item" >
 	  	<image @click="tozt1" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/90452b56-9816-44e6-a356-9a6ad2b352de.jpg" mode="widthFix" class="cover"></image>
 	  	<view class="info" @click="tozt1">
-	  		<view class="font_4">人工智能：未来的引领者</view>
+			<view class="pp">
+				<view class="font_4">人工智能技术</view>
+			</view>
+	  		
 	  		<view class="font_5 ">在科技的海洋中，人工智能（AI）如同一颗璀璨的明珠，以其独特的魅力吸引着全球的目光。</view>
 	  	</view>
 	  	
 	  	<image  @click="tozt2" src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/727f6bea-9845-4d34-8991-65b7935377b5.jpeg" mode="widthFix" class="cover"></image>
 	  	<view class="info" @click="tozt2">
-	  		<view class="font_3">AI发展史：从梦想到现实的跨越</view>
+	  		<view class="font_3">AI发展史</view>
 	  		<view class="font_5">从古希腊的神话故事到现代科技的飞速发展，人工智能的发展史可以说是一部人类智慧的历史。</view>
 	  	</view>
 		<image src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/9b4fc316-d251-4c6e-ba4f-9fbef099df7f.jpg" mode="widthFix" class="cover"></image>
 		<view class="info">
-			<view class="font_4">未来心理健康的新视角</view>
+			<view class="font_44">AI心理应用</view>
 			<view class="font_5">在医疗领域，AI的应用也日益广泛，特别是在心理治疗领域，主题将探讨AI与心理治疗的结合及这种结合对未来心理健康的影响。</view>
 		</view>
 	</view>
@@ -193,12 +196,12 @@
 		
 	    tozt2(){
 	    	uni.navigateTo({
-	    		url:'/pages/zt1/zt1'
+	    		url:'/pages/zt2/zt2'
 	    	})
 	    },
 		tozt1(){
 			uni.navigateTo({
-				url:'/pages/zt2/zt2'
+				url:'/pages/zt1/zt1'
 			})
 		},
 		tokepu2(){
@@ -243,7 +246,12 @@
 
 		margin-top: -74rpx;
 	}
+	.pp{
+		display:flex;
+		justify-content: space-evenly;
+	}
 	.font_5{
+		
 		font-size: 30rpx;
 		font-family: SegoeUI-Bold;
 		color:#7d7d7d;
@@ -258,19 +266,51 @@
 		padding-bottom: 5px;
 	}
 	.font_4 {
+		padding-left: 25rpx;
+		padding-top:18rpx;
+		padding-bottom:18rpx;
+		padding-right: 25rpx;
+	  background-color:#ffaa00;
 	  position:absolute;
-	  top:-60%;
-	  left:13%;
+	  top:-78%;
+	  left:25%;
+	  border-radius: 45rpx;
 	  font-size: 40rpx;
 	  font-family: SegoeUI-Bold;
 	  line-height: 48rpx;
 	  font-weight: 700;
+	  
+	  color: #ffffff;
+	}
+	.font_44 {
+		padding-left: 25rpx;
+		padding-top:18rpx;
+		padding-bottom:18rpx;
+		padding-right: 25rpx;
+	  background-color:#81df59;
+	  position:absolute;
+	  top:-76%;
+	  left:30%;
+	  border-radius: 45rpx;
+	  font-size: 40rpx;
+	  font-family: SegoeUI-Bold;
+	  line-height: 48rpx;
+	  font-weight: 700;
+	  
 	  color: #ffffff;
 	}
 	.font_3 {
+		padding-right: 25rpx;
+		padding-left: 25rpx;
+		padding-top:18rpx;
+		padding-bottom:18rpx;
+		
+		background-color:#65cbc8;
+		border-radius: 45rpx;
+	
 	  position:absolute;
-	  top:-60%;
-	  left:4%;
+	  top:-73%;
+	  left:32%;
 	  font-size: 40rpx;
 	  font-family: SegoeUI-Bold;
 	  line-height: 48rpx;
