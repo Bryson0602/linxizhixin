@@ -451,6 +451,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/aizhishibg/aizhishibg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "知识挑战测试结果",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

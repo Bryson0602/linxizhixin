@@ -100,22 +100,22 @@
             "_id": "64c4aa4efe975fba5ab12629",
             "id": 1,
             "isMultiple": false,
-            "title": "做什么事fjfjfg都感到没有兴趣或乐趣,做什么事都感到没有兴趣或乐趣做什么事都感到没有兴趣或乐趣?",
-			"dz":"../../static/zbts.png",
+            "title": "自测入口界面，根据用户信息智能显示推荐的心理测试,使用的是NLP自然语言处理技术？",
+			"dz":"../../static/gjxz.png",
             "options": [
                 {
                     "id": 1,
                     "name": "√",
                     "label": "A",
                     "selected": false,
-                    "score": 0
+                    "score": 1
                 },
                 {
                     "id": 2,
                     "name": "×",
                     "label": "B",
                     "selected": false,
-                    "score": 1
+                    "score": 0
                 }
             ],
             "posttime": 654321
@@ -124,22 +124,22 @@
             "_id": "64c4abe18b0da41af06b8371",
             "id": 2,
             "isMultiple": false,
-            "title": "感到心情低落",
-			"dz":"../../static/bqb1.png",
+            "title": "诈病检测功能中，AI是通过时间分析、逻辑分析、自然语言处理等技术来判断是否存在乱填的可能性？",
+			"dz":"../../static/zbts.png",
             "options": [
                 {
                     "id": 1,
                     "name": "√",
                     "label": "A",
                     "selected": false,
-                    "score": 0
+                    "score": 1
                 },
                 {
                     "id": 2,
                     "name": "×",
                     "label": "B",
                     "selected": false,
-                    "score": 1
+                    "score": 0
                 }
             ],
             "posttime": 654320
@@ -148,8 +148,8 @@
             "_id": "64c4ac129755e344abedd648",
             "id": 3,
             "isMultiple": false,
-            "title": "入睡困难、很难熟睡或睡太多",
-			"dz":"../../static/bqb2.png",
+            "title": "在结果页，AI仅仅是依靠得分来给出建议，并没有用到其他任何人工智能技术？",
+			"dz":"../../static/jianyi.png",
             "options": [
                 {
                     "id": 1,
@@ -172,22 +172,46 @@
             "_id": "64c4ac3555b3378257a78ca5",
             "id": 4,
             "isMultiple": false,
-            "title": "感到疲劳或无精打采",
-			"dz":"../../static/bqb3.png",
+            "title": "MBTI测试开发过程中，可以使用机器学习算法对用户回答数据进行分析。通过训练模型，可以预测用户的人格类型?",
+			"dz":"../../static/mbti.png",
             "options": [
                 {
                     "id": 1,
                     "name": "√",
                     "label": "A",
                     "selected": false,
-                    "score": 0
+                    "score": 1
                 },
                 {
                     "id": 2,
                     "name": "×",
                     "label": "B",
                     "selected": false,
+                    "score": 0
+                }
+            ],
+            "posttime": 654318
+        },
+        {
+            "_id": "64c4ac3555b3378257a78ca5",
+            "id": 5,
+            "isMultiple": false,
+            "title": "AI通过对关键词与测试库的匹配程度进行评估，可以筛选出与用户关键词相关的心理测试?",
+			"dz":"../../static/zc.png",
+            "options": [
+                {
+                    "id": 1,
+                    "name": "√",
+                    "label": "A",
+                    "selected": false,
                     "score": 1
+                },
+                {
+                    "id": 2,
+                    "name": "×",
+                    "label": "B",
+                    "selected": false,
+                    "score": 0
                 }
             ],
             "posttime": 654318
@@ -219,6 +243,7 @@
 		  }
 		  // 切换选中状态
 		  option.selected = !option.selected
+		  this.selectedOptions[this.currentIdx] = currentQuestion.options.filter(o => o.selected)
 		  // 检查答案
 		  this.checkAnswer()
 		},
@@ -259,6 +284,11 @@
 		// 下一题方法
 		next() {
 		 if (this.currentIdx < this.questionList.length - 1) {
+		   // 将上一题的选中选项赋值给selectedOptions数组
+		       const prevQuestion = this.questionList[this.currentIdx]
+		       if (prevQuestion) {
+		         this.selectedOptions[this.currentIdx] = prevQuestion.options.filter(o => o.selected)
+		       }
 		   this.currentIdx++   
 		 }
 		},
@@ -295,7 +325,7 @@
 		      this.number = 1
 		  }
 		  uni.redirectTo({
-		  	url:"/pages/ceshibaogao/ceshibaogao?score=" + this.score + "&number=" + this.number
+		  	url:"/pages/aizhishibg/aizhishibg?score=" + this.score + "&selectedOptions=" + JSON.stringify(this.selectedOptions)
 		  })
 		},
 
@@ -485,8 +515,8 @@
       .text_6 {
         margin:0 48rpx;
 
-        color: #202020;
-        font-size: 44rpx;
+        color: #3e3e3e;
+        font-size: 40rpx;
         font-family: SegoeUI-Bold;
         font-weight: 700;
         line-height: 50rpx;
