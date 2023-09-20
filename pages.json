@@ -437,7 +437,7 @@
             "path" : "pages/kepu2/kepu2",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "AB路径",
                 "enablePullDownRefresh": false
             }
             
