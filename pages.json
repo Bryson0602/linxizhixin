@@ -455,7 +455,25 @@
             "path" : "pages/kepu2/kepu2",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "AB路径",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/aizhishiceshi/aizhishiceshi",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "AI知识挑战",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/aizhishibg/aizhishibg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "知识挑战测试结果",
                 "enablePullDownRefresh": false
             }
             

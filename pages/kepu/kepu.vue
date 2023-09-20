@@ -3,8 +3,8 @@
 
     <view class="flex-col space-y-12">
       <view class="flex-col justify-start relative group">
-        <view class="flex-col justify-start items-center relative text-wrapper">
-          <text class="font_2 text_3" >搜索</text>
+        <view class="flex-col justify-start items-center relative text-wrapper" @click="tokepu2()">
+          <text class="font_2 text_3">搜索</text>
         </view>
 		
 		<view class="flex-col pig content">
@@ -199,6 +199,11 @@
 		tozt1(){
 			uni.navigateTo({
 				url:'/pages/zt2/zt2'
+			})
+		},
+		tokepu2(){
+			uni.navigateTo({
+				url:'/pages/kepu2/kepu2'
 			})
 		},
 		selectMood(emoji, popupType) {
