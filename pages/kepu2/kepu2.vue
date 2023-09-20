@@ -534,8 +534,9 @@
           line-height: 23rpx;
         }
         .text_9 {
-          margin-right: 40rpx;
+          margin-right: 0rpx;
         }
+		
         .group_16 {
           padding: 0 56rpx;
           .section_9 {
