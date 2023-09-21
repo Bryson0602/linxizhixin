@@ -63,7 +63,7 @@
 			  <view class="demo" @click="gosc">
 				  <view class="mat">
 					<image src="../../static/fuli.png" class="icon" mode="heightFix"></image>
-					<text class="font_5">福利中心</text>
+					<text class="font_5">学习轨迹</text>
 				  </view>
 				<image src="../../static/jiantou.png" class="icon1" mode="heightFix"></image>
 			  </view>
@@ -109,7 +109,7 @@
 			},
 			gosc(){
 				uni.navigateTo({
-					url:'/pages/qiandao/qiandao'
+					url:'/pages/guiji/guiji'
 				})
 			},
 			golsbg(){

@@ -532,6 +532,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/guiji/guiji",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学习轨迹",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
