@@ -139,7 +139,7 @@
           border-radius: 50%;
           .text_4 {
             color: #bd5f48;
-            width: 198rpx;
+            width: 160rpx;
           }
         }
         .text-wrapper_6 {
@@ -151,7 +151,7 @@
           .text_6 {
             color: #c79f50;
             text-align: center;
-            width: 142rpx;
+            width: 100rpx;
           }
         }
       }

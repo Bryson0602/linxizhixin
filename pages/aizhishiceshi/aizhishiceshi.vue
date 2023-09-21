@@ -325,7 +325,7 @@
 		      this.number = 1
 		  }
 		  uni.redirectTo({
-		  	url:"/pages/aizhishibg/aizhishibg?score=" + this.score + "&selectedOptions=" + JSON.stringify(this.selectedOptions)
+		  	url:"/pages/aizhishibg/aizhishibg?score=" + this.score
 		  })
 		},
 
@@ -535,7 +535,7 @@
         & > view:not(:first-child),
         & > text:not(:first-child),
         & > image:not(:first-child) {
-          margin-left: 35%;
+          margin-left: 22%;
 		  //background-color: #ffdad0;
         }
         .text-wrapper_3 {

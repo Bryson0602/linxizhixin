@@ -132,11 +132,11 @@
 
 	},
 	onLoad(option) {
-		const params = this.$route.query
-		if (params.selectedOptions) {
-		  this.selectedOptions = JSON.parse(params.selectedOptions)
-		}
-		console.log(this.selectedOptions);
+		// const params = this.$route.query
+		// if (params.selectedOptions) {
+		//   this.selectedOptions = JSON.parse(params.selectedOptions)
+		// }
+		// console.log(this.selectedOptions);
 		// 延迟两秒显示loading效果
 		uni.showLoading({
 		  title: '加载中...',

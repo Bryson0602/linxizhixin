@@ -16,7 +16,7 @@
 		        <view class="modelContent">
 		          <view class="flex-col relative section_2 space-y-10">
 		            <view class="flex-row justify-between items-start group_2">
-		              <text class="text_10">选择你的心仪导师</text>
+		              <text class="text_10">选择你想了解的人物</text>
 		            </view>
 		            <view class="grid">
 		              <view
@@ -40,7 +40,7 @@
 		        <view class="modelContent">
 		          <view class="flex-col relative section_2 space-y-10">
 		            <view class="flex-row justify-between items-start group_2">
-		              <text class="text_10">选择你的心仪导师</text>
+		              <text class="text_10">选择你想了解的人物</text>
 		            </view>
 		            <view class="grid">
 		              <view
@@ -688,7 +688,7 @@
 			        .group_2 {
 			          padding: 0 32rpx;
 			          .text_10 {
-			            color: #1e1c1c;
+			            color: #6a7b7c;
 			            font-size: 48rpx;
 			            font-family: SegoeUI-Bold;
 			            font-weight: 700;
