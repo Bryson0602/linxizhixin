@@ -428,7 +428,25 @@
             "path" : "pages/kepu/kepu",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "AI知识学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zt1/zt1",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "每日学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zt2/zt2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "每日学习",
                 "enablePullDownRefresh": false
             }
             
@@ -456,6 +474,33 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "知识挑战测试结果",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/kpdetail1/kpdetail1",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/kpdetail2/kpdetail2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/kpdetail3/kpdetail3",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
