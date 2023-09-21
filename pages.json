@@ -460,6 +460,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/rgzn/rgzn",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "人工智能知识学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/jqxxjs/jqxxjs",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "机器学习技术",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/jqxxbg/jqxxbg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "机器学习测试结果",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -118,7 +118,7 @@
 			<!-- </view> -->
 			
 	        <view class=" flex-col justify-start items-center relative text-wrapper_2" @click="popupClick">
-	          <text class="font_2 text_5 ">记录每日心情</text>
+	          <text class="font_2 text_5 ">学习AI知识</text>
 	        </view>
 			
 			<!-- <view class="emoji-list" v-for="(emoji, index) in emojiList"
@@ -196,7 +196,7 @@
 	          />
 	          <text class="font_1">圈子</text>
 	        </view>
-	        <view class="flex-col items-center relative grid-item">
+	        <view class="flex-col items-center relative grid-item"@click="torgzn">
 	          <image
 	            class="image_3"
 	            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/649ac9cf5a7e3f0310c4dcea/64afb93ac430470012e44942/16892385868814769343.png"
@@ -307,6 +307,11 @@
 			toqiandao() {
 				uni.navigateTo({
 					url:'/pages/qiandao/qiandao'
+				})
+			},
+			torgzn() {
+				uni.navigateTo({
+					url:'/pages/rgzn/rgzn'
 				})
 			},
 			tofankui() {

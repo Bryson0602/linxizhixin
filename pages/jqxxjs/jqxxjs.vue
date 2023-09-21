@@ -4,14 +4,20 @@
 	    <view class="flex-col space-y-15">
 	      <view class="flex-col section_2">
 	        <view class="flex-col items-center space-y-6">
-	          <text class="text_2">AI知识大挑战</text>
-	         <!-- <text class="text_3">PHQ-9 Depression test</text> -->
+	          <text class="text_2">机器学习技术</text>
 	        </view>
 	        <view class="flex-row items-center group_2 space-x-9">
 	          <!-- <view class="section_3"></view> -->
-	          <text class="font_2">此页的题目均取自AI心理自测具体运用到的人工智能方面的相关知识，技术原理、采用了什么AI技术等等，看来测测你的AI知识吧~</text>
+	          <text class="font_2">机器学习（Machine Learning）是一种人工智能的分支领域，它通过使用统计学和算法来使计算机系统具备自主学习和改进的能力，从而实现对数据的分析、模式识别和预测。</text>
 	        </view>
-	        
+	        <view class="flex-row items-center group_3 space-x-8">
+	          <!-- <view class="section_3"></view> -->
+	          <!-- <text class="font_2">诚实回答每个问题</text> -->
+	        </view>
+	        <view class="flex-row items-center group_4 space-x-8">
+	          <!-- <view class="section_3"></view> -->
+	          <!-- <text class="font_2">尽量不选择中立答案</text> -->
+	        </view>
 	      </view>
 	      <view class="flex-col justify-start items-start self-center section_4">
 			  <view class="section_5" 
@@ -21,9 +27,7 @@
 	    </view>
 		
 	    <view class="flex-row justify-between group_5">
-	      <view class="flex-col justify-start items-center text-wrapper_2">
-			  <text class="font_1 text_4">第{{currentIdx + 1}}题</text>
-		  </view>
+	      <view class="flex-col justify-start items-center text-wrapper_2"><text class="font_1 text_4">第{{currentIdx + 1}}题</text></view>
 	      <!-- <view class="flex-row section_6 space-x-10">
 	        <image
 	          class="shrink-0 self-center image"
@@ -40,22 +44,21 @@
 		>
 		
 			<text class="self-center flex-row text_6">{{item.title}}</text>
-			<image class="tp" :src="item.dz" mode="aspectFit"></image>
-			<view class="flex-row group_6 space-y-23">
-			  <view class="flex-row space-y-23 ">
+			
+			<view class="flex-col group_6 space-y-23">
+			  <view class="flex-col space-y-23 ">
 				<view class="box " 
 				:class="option.selected ? 'selected' : ''"
 				v-for="option in item.options"
 				:key="option.id"
 				@click="selectOption(option)" 
 				>
-					<view class="box flex-row justify-start items-start text-wrapper_3">
-						<text class="font_3 text_7">{{option.name}}</text>
+					<view class="box flex-col justify-start items-start text-wrapper_3">
+						<text class="font_3 text_7">{{option.label}}. {{option.name}}</text>
 					</view>
 				</view>
 			  </view>
 			</view>
-			
 		</view>
 		<view class="flex-row bt">
 			<button class="flex-col justify-start items-center self-center button1" @click="prev" :disabled="currentIdx === 0">
@@ -80,9 +83,6 @@
     components: {},
     data() {
       return {
-		  //诈病标记
-		  number: 0,
-		  //计时器
 		  timer: '00:00',
 		  // 当前题目索引
 		  currentIdx: 0, 
@@ -96,127 +96,96 @@
 		  canShowAnswer: false,
 		  // 题目列表
 		  questionList: [
-        {
-            "_id": "64c4aa4efe975fba5ab12629",
-            "id": 1,
-            "isMultiple": false,
-            "title": "自测入口界面，根据用户信息智能显示推荐的心理测试,使用的是NLP自然语言处理技术？",
-			"dz":"../../static/gjxz.png",
-            "options": [
-                {
-                    "id": 1,
-                    "name": "√",
-                    "label": "A",
-                    "selected": false,
-                    "score": 1
-                },
-                {
-                    "id": 2,
-                    "name": "×",
-                    "label": "B",
-                    "selected": false,
-                    "score": 0
-                }
-            ],
-            "posttime": 654321
-        },
-        {
-            "_id": "64c4abe18b0da41af06b8371",
-            "id": 2,
-            "isMultiple": false,
-            "title": "诈病检测功能中，AI是通过时间分析、逻辑分析、自然语言处理等技术来判断是否存在乱填的可能性？",
-			"dz":"../../static/zbts.png",
-            "options": [
-                {
-                    "id": 1,
-                    "name": "√",
-                    "label": "A",
-                    "selected": false,
-                    "score": 1
-                },
-                {
-                    "id": 2,
-                    "name": "×",
-                    "label": "B",
-                    "selected": false,
-                    "score": 0
-                }
-            ],
-            "posttime": 654320
-        },
-        {
-            "_id": "64c4ac129755e344abedd648",
-            "id": 3,
-            "isMultiple": false,
-            "title": "在结果页，AI仅仅是依靠得分来给出建议，并没有用到其他任何人工智能技术？",
-			"dz":"../../static/jianyi.png",
-            "options": [
-                {
-                    "id": 1,
-                    "name": "√",
-                    "label": "A",
-                    "selected": false,
-                    "score": 0
-                },
-                {
-                    "id": 2,
-                    "name": "×",
-                    "label": "B",
-                    "selected": false,
-                    "score": 1
-                }
-            ],
-            "posttime": 654319
-        },
-        {
-            "_id": "64c4ac3555b3378257a78ca5",
-            "id": 4,
-            "isMultiple": false,
-            "title": "MBTI测试开发过程中，可以使用机器学习算法对用户回答数据进行分析。通过训练模型，可以预测用户的人格类型?",
-			"dz":"../../static/mbti.png",
-            "options": [
-                {
-                    "id": 1,
-                    "name": "√",
-                    "label": "A",
-                    "selected": false,
-                    "score": 1
-                },
-                {
-                    "id": 2,
-                    "name": "×",
-                    "label": "B",
-                    "selected": false,
-                    "score": 0
-                }
-            ],
-            "posttime": 654318
-        },
-        {
-            "_id": "64c4ac3555b3378257a78ca5",
-            "id": 5,
-            "isMultiple": false,
-            "title": "AI通过对关键词与测试库的匹配程度进行评估，可以筛选出与用户关键词相关的心理测试?",
-			"dz":"../../static/zc.png",
-            "options": [
-                {
-                    "id": 1,
-                    "name": "√",
-                    "label": "A",
-                    "selected": false,
-                    "score": 1
-                },
-                {
-                    "id": 2,
-                    "name": "×",
-                    "label": "B",
-                    "selected": false,
-                    "score": 0
-                }
-            ],
-            "posttime": 654318
-        }
-    ],
+		    // 题目1
+		    {
+		      id: 1,
+		      isMultiple: false, // 是否多选
+		      title: '监督学习中，训练数据应包括哪些部分？',
+		      //answer: 'A', // 答案
+		      //score: 2, // 分值
+		      options: [ // 选项列表
+		        {id: 1, name:'输入特征和输出变量', label: 'A', selected: false ,score: 1},
+		        {id: 2, name:'输出变量和模型参数', label: 'B', selected: false ,score: 0}, 
+		        {id: 3, name:'输入特征和模型参数', label: 'C', selected: false ,score: 0}
+		      ]
+		    },
+		    {
+		      id: 2,
+		      isMultiple: false,
+		      title: '深度学习涉及什么？',
+		      //answer: 'C',
+		      //score: 2,
+		      options: [
+		    	{id: 1, name:'模拟人类学习过程的机器学习算法', label: 'A', selected: false ,score: 0},
+		    	{id: 2, name:'通过训练大量数据提高性能的神经网络技术', label: 'B', selected: false ,score: 1},
+		    	{id: 3, name:'通过集成多个模型提高性能的机器学习技术', label: 'C', selected: false ,score: 0}
+		      ]
+		    },
+		    {
+		      id: 3,  
+		      isMultiple: false,
+		      title: '什么是梯度下降？',
+		      //answer: 'B',
+		      //score: 2,
+		      options: [
+		    	{id: 1, name:'一种优化算法，用于更新模型参数以最小化损失函数', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'一种特征选择算法，用于减少数据维度', label: 'B', selected: false ,score: 0},
+		    	{id: 3, name:'一种评估模型性能的统计指标', label: 'C', selected: false ,score: 0}
+		      ]
+		    },
+		    {
+		      id: 4,
+		      isMultiple: false,
+		      title: '什么是正则化（Regularization）?',
+		      //answer: 'C',
+		      //score: 2,
+		      options: [
+		    	{id: 1, name:'一种特征选择算法，用于减少数据维度', label: 'A', selected: false ,score: 0},
+		    	{id: 2, name:'一种评估模型性能的统计指标', label: 'B', selected: false ,score: 0},
+		    	{id: 3, name:'一种用于控制模型复杂度的技术', label: 'C', selected: false ,score: 1},
+				// {id: 4, name:'是的', label: 'D', selected: false ,score: 1},
+		      ]
+		    },
+		    {
+		      id: 5,
+		      isMultiple: false,
+		      title: '在监督学习中，什么是回归问题（Regression）？',
+		      //answer: 'C',
+		      //score: 2,
+		      options: [
+		    	{id: 1, name:'预测离散的类别或标签', label: 'A', selected: false ,score: 0},
+		    	{id: 2, name:'预测连续的数值', label: 'B', selected: false ,score: 1},
+		    	{id: 3, name:'对数据进行分类', label: 'C', selected: false ,score: 0},
+				// {id: 4, name:'是的', label: 'D', selected: false},
+		      ]
+		    },
+		    {
+		      id: 6,
+		      isMultiple: false,
+		      title: '以下哪个算法适用于处理文本数据?',
+		      //answer: 'C',
+		      //score: 2,
+		      options: [
+		    	{id: 1, name:'支持向量机（SVM）', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'K均值聚类', label: 'B', selected: false ,score: 0},
+		    	{id: 3, name:'主成分分析', label: 'C', selected: false ,score: 0},
+				// {id: 4, name:'是的', label: 'D', selected: false},
+		      ]
+		    },
+		    {
+		      id: 7,
+		      isMultiple: false,
+		      title: '以下哪个算法常用于异常检测？',
+		      //answer: 'C',
+		      //score: 2,
+		      options: [
+		    	{id: 1, name:'支持向量机（SVM）', label: 'A', selected: false ,score: 1},
+		    	{id: 2, name:'决策树', label: 'B', selected: false ,score: 0},
+		    	{id: 3, name:'K均值聚类', label: 'C', selected: false ,score: 0},
+				// {id: 4, name:'是的', label: 'D', selected: false},
+		      ]
+		    }
+		  ],
 	  };
     },
 
@@ -224,7 +193,7 @@
 		//获取网络数据
 		getData(){
 			uni.request({
-				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/PHQ-9_get_All",
+				url:"https://fc-mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.next.bspapp.com/GAD-7_get_All",
 				success:res=>{
 					console.log(res);
 					//this.questionList=res.data.data
@@ -243,7 +212,6 @@
 		  }
 		  // 切换选中状态
 		  option.selected = !option.selected
-		  this.selectedOptions[this.currentIdx] = currentQuestion.options.filter(o => o.selected)
 		  // 检查答案
 		  this.checkAnswer()
 		},
@@ -284,11 +252,6 @@
 		// 下一题方法
 		next() {
 		 if (this.currentIdx < this.questionList.length - 1) {
-		   // 将上一题的选中选项赋值给selectedOptions数组
-		       const prevQuestion = this.questionList[this.currentIdx]
-		       if (prevQuestion) {
-		         this.selectedOptions[this.currentIdx] = prevQuestion.options.filter(o => o.selected)
-		       }
 		   this.currentIdx++   
 		 }
 		},
@@ -300,6 +263,10 @@
 		  })
 		  if (answeredList.length < this.questionList.length) {
 		    // 如果有未作答的,提示
+		    // uni.showToast({
+		    //   title: '还有题目未作答',
+		    //   icon: 'none'
+		    // })
 			uni.showModal({
 				title: '温馨提示',
 				content: '还有题目未作答',
@@ -315,17 +282,8 @@
 		  console.log(this.score)
 		  // 允许显示答案
 		  this.canShowAnswer = true
-		  // 时间小于30s，判断诈病
-		  const time = this.timer.split(':')
-		  const minute = parseInt(time[0]) 
-		  const second = parseInt(time[1])
-		  console.log(minute);
-	      console.log(second);
-		  if(minute===0 && second<=10) {
-		      this.number = 1
-		  }
 		  uni.redirectTo({
-		  	url:"/pages/aizhishibg/aizhishibg?score=" + this.score + "&selectedOptions=" + JSON.stringify(this.selectedOptions)
+		  	url:"/pages/jqxxbg/jqxxbg?score=" + this.score
 		  })
 		},
 
@@ -366,13 +324,13 @@
 
 <style scoped lang="scss">
 .box {
-	border-radius: 74rpx;
+	border-radius: 24rpx;
 	cursor: pointer;
 	user-select: none;
 	transition: box-shadow 0.3s ease-in-out;
 }
 .selected {
-  box-shadow: 0px 2px 5px 1px rgba(89, 133, 255, 1.0);
+  box-shadow: 0px 2px 5px 1px #ff8769;
 }
 
   .page {
@@ -393,7 +351,7 @@
         }
         .section_2 {
           padding: 60rpx 68rpx 60rpx 74rpx;
-          background-image: linear-gradient(50deg, #05b0ff 0%, #d439ff 100%);
+          background-image: linear-gradient(50deg, #ff8769 0%, #ffaa82 100%);
           box-shadow: 0px 6rpx 16rpx #a5a5a529;
           .space-y-6 {
             & > view:not(:first-child),
@@ -442,11 +400,11 @@
             height: 12rpx;
           }
           .font_2 {
-			  width: 100%;
             font-size: 24rpx;
             font-family: SegoeUI;
             line-height: 26rpx;
-            color: #e7e7e7;
+			width: 100%;
+            color: #f7f7f7;
           }
           .group_4 {
             margin-top: 16rpx;
@@ -455,12 +413,12 @@
         .section_4 {
           background-color: #d8d8d8;
           border-radius: 24rpx;
-          width: 408rpx;
+          width: 508rpx;
           .section_5 {
-            background-image: linear-gradient(50deg, #05b0ff 0%, #d467ff 100%);
+            background-color: #ff8769;
             border-radius: 24rpx;
             width: 12%;
-            height: 20rpx;
+            height: 16rpx;
 			transition: width 0.5s ease;
           }
         }
@@ -471,7 +429,7 @@
         padding: 0 56rpx;
         .text-wrapper_2 {
           padding: 20rpx 0 16rpx;
-          background-color: #5fbdef;
+          background-color: #ff8769;
           border-radius: 30rpx;
           width: 172rpx;
           height: 72rpx;
@@ -515,44 +473,37 @@
       .text_6 {
         margin:0 48rpx;
 
-        color: #3e3e3e;
-        font-size: 40rpx;
+        color: #202020;
+        font-size: 44rpx;
         font-family: SegoeUI-Bold;
         font-weight: 700;
         line-height: 50rpx;
       }
       .group_6 {
-		  
-        margin-top: 10%;
+        margin-top: 108rpx;
         padding: 0 40rpx;
       }
-	  .tp{
-		  height: 400rpx;
-		  //width: 230rpx;
-		  margin-left: 40rpx;
-	  }
       .space-y-23 {
         & > view:not(:first-child),
         & > text:not(:first-child),
         & > image:not(:first-child) {
-          margin-left: 35%;
-		  //background-color: #ffdad0;
+          margin-top: 46rpx;
         }
         .text-wrapper_3 {
-          padding: 62rpx 92rpx;
-          background-color: #dcdeff;
-          border-radius: 74rpx;
+          padding: 32rpx 0;
+          background-color: #ffffff;
+          border-radius: 24rpx;
           box-shadow: 0px 6rpx 12rpx #9b9b9b29;
-		  
           .font_3 {
-            font-size: 90rpx;
+            font-size: 40rpx;
             font-family: SegoeUI-Bold;
-            line-height: 37rpx;
+            line-height: 43rpx;
             font-weight: 700;
-            color: #4c7cff;
+            color: #383838;
           }
           .text_7 {
-            //margin-left: 52rpx;
+            margin-left: 52rpx;
+			margin-right: 20rpx;
           }
         }
       }
@@ -562,7 +513,7 @@
 		.button {
 			//margin-top: 70rpx;
 			padding: 32rpx 0 32rpx;
-			background-color: #5fbdef;
+			background-color: #ff8769;
 			border-radius: 32rpx;
 			box-shadow: 0px 6rpx 16rpx #a5a5a529;
 			width: 336rpx;
@@ -577,7 +528,7 @@
 		  .button1 {
 			//margin-top: 70rpx;
 			//padding: 32rpx 0 32rpx;
-			background-color: #5fbdef;
+			background-color: #ff8769;
 			border-radius: 100rpx;
 			box-shadow: 0px 6rpx 16rpx #a5a5a529;
 			width: 100rpx;
