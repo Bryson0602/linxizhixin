@@ -244,19 +244,21 @@
 		color: white;
 		border: 2px solid ;
 		width:180rpx;
+		font-weight: 700;
 		padding-left: 15rpx;
-		border-radius: 15rpx;
+		border-radius: 25rpx;
 		margin-top:35rpx;
 		margin-bottom:15rpx;
 	}
 	.kp{
 		margin-top:105rpx;
+		font-weight: 700;
 		background-color:#65cbc8;
 		color: white;
 		border: 2px solid ;
 		width:180rpx;
 		padding-left: 15rpx;
-		border-radius: 15rpx;
+		border-radius: 25rpx;
 		margin-bottom:15rpx;
 	}
 	.image{

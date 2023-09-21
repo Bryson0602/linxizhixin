@@ -43,7 +43,7 @@
 	        </view>
 	        <text class="font_5">从古希腊的神话故事到现代科技的飞速发展，人工智能的发展史可以说是一部人类智慧的历史。</text>
 	        <view class="flex-row items-center space-x-8">
-	          <text class="font_3 text_2">浏览量：20.6万</text>
+	          <text class="font_3 text_2">浏览量：153</text>
 	          
 	          <text class="font_3">2023年9月8日</text>
 	        </view>
@@ -276,7 +276,7 @@
         line-height: 48rpx;
         font-weight: 700;
 		
-        color: #787a8c;
+        color: #424242;
       }
       .font_2 {
         font-size: 28rpx;

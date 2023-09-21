@@ -428,7 +428,7 @@
             "path" : "pages/kepu/kepu",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "AI知识学习",
+                "navigationBarTitleText": "学习AI知识",
                 "enablePullDownRefresh": false
             }
             
@@ -437,7 +437,7 @@
             "path" : "pages/zt1/zt1",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "每日学习",
+                "navigationBarTitleText": "人工智能技术",
                 "enablePullDownRefresh": false
             }
             
@@ -446,7 +446,7 @@
             "path" : "pages/zt2/zt2",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "每日学习",
+                "navigationBarTitleText": "AI发展史",
                 "enablePullDownRefresh": false
             }
             
@@ -455,7 +455,7 @@
             "path" : "pages/kepu2/kepu2",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "AB路径",
+                "navigationBarTitleText": "历史人物关系",
                 "enablePullDownRefresh": false
             }
             
@@ -509,7 +509,7 @@
             "path" : "pages/rgzn/rgzn",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "人工智能知识学习",
+                "navigationBarTitleText": "人工智能知识测验",
                 "enablePullDownRefresh": false
             }
             

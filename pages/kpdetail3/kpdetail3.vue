@@ -256,9 +256,10 @@
 		border: 2px solid ;
 		width:180rpx;
 		padding-left: 15rpx;
-		border-radius: 15rpx;
+		border-radius: 25rpx;
 		margin-top:35rpx;
 		margin-bottom:15rpx;
+		font-weight: 700;
 	}
 	.kp{
 		margin-top:105rpx;
@@ -267,7 +268,8 @@
 		border: 2px solid ;
 		width:180rpx;
 		padding-left: 15rpx;
-		border-radius: 15rpx;
+		border-radius: 25rpx;
+		font-weight: 700;
 		margin-bottom:15rpx;
 	}
 	

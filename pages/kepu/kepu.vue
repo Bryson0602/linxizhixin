@@ -141,7 +141,7 @@
 	  		<view class="font_3">AI发展史</view>
 	  		<view class="font_5">从古希腊的神话故事到现代科技的飞速发展，人工智能的发展史可以说是一部人类智慧的历史。</view>
 	  	</view>
-		<image src="https://mp-836eb6c6-0a4f-47c9-8149-6d32fa5245cd.cdn.bspapp.com/cloudstorage/9b4fc316-d251-4c6e-ba4f-9fbef099df7f.jpg" mode="widthFix" class="cover"></image>
+		<image src="../../static/yonggan1.png" mode="widthFix" class="cover"></image>
 		<view class="info">
 			<view class="font_44">AI心理应用</view>
 			<view class="font_5">在医疗领域，AI的应用也日益广泛，特别是在心理治疗领域，主题将探讨AI与心理治疗的结合及这种结合对未来心理健康的影响。</view>

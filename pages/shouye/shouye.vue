@@ -374,7 +374,7 @@
 			},
 			popupClick() {
 				uni.navigateTo({
-					url:'/pages/xqrj/xqrj'
+					url:'/pages/kepu/kepu'
 				})
 			},
 			gorukou() {

@@ -76,7 +76,7 @@
 	        </view>
 	        <text class="font_5">在科技的海洋中，人工智能（AI）如同一颗璀璨的明珠，以其独特的魅力吸引着全球的目光。</text>
 	        <view class="flex-row items-center space-x-8">
-	          <text class="font_3 text_2">浏览量：20.6万</text>
+	          <text class="font_3 text_2">浏览量：206</text>
 	          
 	          <text class="font_3">2023年9月8日</text>
 	        </view>
@@ -163,8 +163,8 @@
 	  padding:15rpx 15rpx 15rpx 15rpx;
 	  border-radius: 35rpx;
   	position: absolute;
-    top:10rpx;
-  	right:22rpx;
+    top:15rpx;
+  	right:15rpx;
   	background-color:#ffaa00;
   	color: white;
   	//width:180rpx;
@@ -335,7 +335,7 @@
         font-family: SegoeUI-Bold;
         line-height: 48rpx;
         font-weight: 700;
-        color: #787a8c;
+        color: #424242;
       }
       .font_2 {
         font-size: 28rpx;
