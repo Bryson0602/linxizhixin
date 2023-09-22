@@ -14,7 +14,7 @@
       <view class="flex-row group_2">
         <view class="flex-col flex-auto space-y-33">
           <view class="flex-col justify-start items-center text-wrapper_3">
-            <text class="font_2 text_4">NPL自然语言处理技术</text>
+            <text class="font_2 text_4">NLP自然语言处理技术</text>
           </view>
           <view class="flex-col justify-start items-center text-wrapper_6">
             <text class="font_1 text_6">计算机视觉</text>
